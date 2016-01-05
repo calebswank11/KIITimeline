@@ -1,18 +1,18 @@
 
-var SectionTitle = "Netherlands to Texas" ;
 var mediaValue;
 var mediaValueParent;
 var moduleTitle;
 mediaArray = [];
 SectionArray = [];
 
-function getData(){
+function getData(Chapter,Section){
 //*****************************************Ajax call to call JSON******************************************//
 $.ajax({
-    url : 'combo_data.json',
-    //url : 'bootstraps/chapterBootstraps.json',
+    //url : 'combo_data.json',
+    url : 'http://www.kochcreativegroupdev.com/kochrestservice/api/ContentsSections/'+Chapter+'/'+Section+'/?format=json',
+    //url : 'http://www.kochcreativegroupdev.com/kochrestservice/api/ContentsSections/Bootstraps/Netherlands-to-Texas/?format=json',
     type: 'GET',
-    success : showjson,   
+    success : showjson,
 });
 //***********************************ITTERATE THROUGH THE JSON FOR DATA***********************//
 function showjson (data){
