@@ -79,7 +79,7 @@
           } ],
       "TotalRecords" : 1
     },
-  "request" : { "Chapter" : "Bootstraps",
+  "request" : { "Chapters" : "Bootstraps",
       "Section" : "The-Thesis"
     }
 }

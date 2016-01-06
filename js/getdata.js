@@ -9,8 +9,8 @@ function getData(Chapter,Section){
 //*****************************************Ajax call to call JSON******************************************//
 $.ajax({
     //url : 'combo_data.json',
-    url : 'http://www.kochcreativegroupdev.com/kochrestservice/api/ContentsSections/'+Chapter+'/'+Section+'/?format=json',
-    //url : 'http://www.kochcreativegroupdev.com/kochrestservice/api/ContentsSections/Bootstraps/Netherlands-to-Texas/?format=json',
+   // url : 'http://www.kochcreativegroupdev.com/kochrestservice/api/ContentsSections/'+Chapter+'/'+Section+'/?format=json',
+    url : 'json/sample.json',
     type: 'GET',
     success : showjson,
 });
@@ -20,6 +20,8 @@ function showjson (data){
         console.log(value1);
         $.each(value1, function (index2, value2){
             $.each(value2,function(index3, value3){
+            
+                    console.log(value3);
                     var level=String(index3);  
                     if (index3 == "CMS_Attachment"){
                       getAttachments(index3, value3);  
