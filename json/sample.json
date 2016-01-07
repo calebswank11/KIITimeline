@@ -1,4 +1,6 @@
-{ "Data" : { "Content" : [ { "Modules" : [ { "Col" : 0,
+{ "Data" : 
+  { "Content" : 
+    [ { "Modules" : [ { "Col" : 0,
                   "Medias" : [ { "Media_Copyright" : "this is a description of the test video",
                         "Media_Description" : "this is a test video",
                         "Media_Order" : 1,
@@ -79,7 +81,8 @@
           } ],
       "TotalRecords" : 1
     },
-  "request" : { "Chapters" : "Bootstraps",
+  "request" : 
+    { "Chapter" : "Bootstraps",
       "Section" : "The-Thesis"
     }
 }

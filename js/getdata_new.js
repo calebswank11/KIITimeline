@@ -17,7 +17,30 @@ $.ajax({
 //***********************************ITTERATE THROUGH THE JSON FOR DATA***********************//
 function showjson (data){
      $.each(data, function (index, value) {
+            //console.log(index);
+                while (index == 'request'){
                     console.log(value);
+                    //console.log(value.Chapter);
+                    //console.log(value.Section);
+                    $('#chapter').append('<li>Chapter:'+value.Chapter+' </li>');
+                    $('#section').append('<li>Section:'+value.Section+' </li>');
+                        break;
+                    };
+
+                    while (index == 'Data'){
+                       
+                      
+                       var output = [];
+                        console.log(value)
+                        for(var i = 0;i<value.Content.length;i++)
+                            alert(i);
+                        //output.push(value.Content.length[i]);
+                        //alert(output); 
+                        break;
+                      
+                    
+                    };
+
         });
     };
 
