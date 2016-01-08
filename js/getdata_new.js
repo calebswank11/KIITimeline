@@ -23,22 +23,40 @@ function showjson (data){
                     //console.log(value.Chapter);
                     //console.log(value.Section);
                     $('#chapter').append('<li>Chapter:'+value.Chapter+' </li>');
-                    $('#section').append('<li>Section:'+value.Section+' </li>');
+                    
                         break;
                     };
 
                     while (index == 'Data'){
-                       
-                      
-                       var output = [];
-                        console.log(value)
-                        for(var i = 0;i<value.Content.length;i++)
-                            alert(i);
-                        //output.push(value.Content.length[i]);
-                        //alert(output); 
+                        //GET SECTION INFORMATION
+                        var SectionContent=value.Content;
+                        for (var SC=0; SC<SectionContent.length; SC++){
+                            mySectionTitle=SectionContent[SC].SectionTitle;
+                            mySectionNumber=SectionContent[SC].SectionNumber;
+                            mySectionDate=SectionContent[SC].SectionDate;
+                            mySectionIntro=SectionContent[SC].SectionIntro;
+                            mySectionHero=SectionContent[SC].SectionHero;
+                            console.log(mySectionTitle,mySectionNumber,mySectionDate,mySectionIntro,mySectionHero);
+                            //ITERATE THROUGH MODULES
+                            var Modules = value.Content[SC].Modules;
+                            for (var M = 0; M < Modules.length; M++){
+                                myModuleTitle = Modules[M].Module_Title;
+                                myModuleYear = Modules[M].Module_Year
+                                myModuleOrder = Modules[M].Module_Order;
+                                myModuleSubtitle=Modules[M].Module_Subtitle;
+                                myModuleCopy=Modules[M].Module_Copy;
+                                myModuleType=Modules[M].Module_Type;
+                                myModulePosX=Modules[M].PosX;
+                                myModulePosY=Modules[M].PosY;
+                                myModuleCol=Modules[M].Col;
+                                myModuleRow=Modules[M].Row;
+                                console.log('module:'+myModuleTitle);
+                            }
+                        }  
+                        $('#section').append('<h1>Section:'+mySectionTitle+' </h1>');
+                        $('#section').append('<h2>'+mySectionDate+' </h2>');
+                        $('#section').append('<h3>'+mySectionIntro+' </h3>');
                         break;
-                      
-                    
                     };
 
         });

@@ -1,88 +1,97 @@
-{ "Data" : 
-  { "Content" : 
-    [ { "Modules" : [ { "Col" : 0,
-                  "Medias" : [ { "Media_Copyright" : "this is a description of the test video",
-                        "Media_Description" : "this is a test video",
-                        "Media_Order" : 1,
-                        "Media_Title" : "this is a test video",
-                        "Media_Type" : "video",
-                        "NodeID" : 471,
-                        "NodeParentID" : 458,
-                        "Option_Link" : "mytestVideo.mp4"
-                      } ],
-                  "Module_Copy" : "While his dad had a strong grasp on the written word, Fred Koch’s gift revolved around math and science. After receiving exemplary marks in high school, Fred chose to attend the Rice Institute in Houston, Texas, five years after its inception.",
-                  "Module_Order" : 1,
-                  "Module_Subtitle" : "Rice University to MIT",
-                  "Module_Title" : "Fred Studies Engineering",
-                  "Module_Type" : "Image_Wallpaper",
-                  "Module_Year" : 1918,
-                  "NodeID" : 458,
-                  "NodeParentID" : 452,
-                  "PosX" : 0,
-                  "PosY" : 0,
-                  "Row" : 0,
-                  "TotalRecords" : 1
-                },
-                { "Col" : 0,
-                  "Medias" : [ { "Media_Copyright" : "copyright 2015",
-                        "Media_Description" : "this is the description of the image",
-                        "Media_Order" : 1,
-                        "Media_Title" : "this is a test image",
-                        "Media_Type" : "photo",
-                        "NodeID" : 470,
-                        "NodeParentID" : 459,
-                        "Option_File" : "test_image.jpg"
-                      } ],
-                  "Module_Copy" : "After his sophomore year, Fred decided to transfer to the Massachusetts Institute of Technology to be a part of their inaugural chemical engineering program class. The tuition was a whopping $300 a year and it was worth every penny. His senior thesis was the first public look at Fred’s ingenuity and resourcefulness. In it, he laid out his environmental idea to take a waste product from a pulp mill and reuse it as fuel. This idea was the culmination of an impressive collegiate resume and helped land Fred a job at the Texas Company (now know as Texaco) as a research chemist before graduation. But it wasn’t long before Fred wanted more.",
-                  "Module_Order" : 0,
-                  "Module_Subtitle" : "Fred joins the inaugural chemical engineering program at MIT",
-                  "Module_Title" : "Fred Goes to MIT",
-                  "Module_Type" : "Image_Wallpaper",
-                  "Module_Year" : 1920,
-                  "NodeID" : 459,
-                  "NodeParentID" : 452,
-                  "PosX" : 0,
-                  "PosY" : 0,
-                  "Row" : 0,
-                  "TotalRecords" : 1
-                },
-                { "Col" : 0,
-                  "Medias" : [ { "Media_Copyright" : "copyright 2015",
-                        "Media_Description" : "this is a test graphic",
-                        "Media_Order" : 1,
-                        "Media_Title" : "testGraphic",
-                        "Media_Type" : "graphic",
-                        "NodeID" : 472,
-                        "NodeParentID" : 460,
-                        "Option_File" : "graphic.png"
-                      } ],
-                  "Module_Copy" : "“The Utilization of Spent Black Ash from the Soda Recovery System of the Penobscot Chemical Fibre Company” in the caption.",
-                  "Module_Order" : 2,
-                  "Module_Subtitle" : "Fred's MIT thesis",
-                  "Module_Title" : "Fred's MIT Thesis",
-                  "Module_Type" : "Image_Wallpaper",
-                  "Module_Year" : 1923,
-                  "NodeID" : 460,
-                  "NodeParentID" : 452,
-                  "PosX" : 0,
-                  "PosY" : 0,
-                  "Row" : 0,
-                  "TotalRecords" : 1
+{
+  "request":
+    {"Chapter":"Bootstraps",
+      "Section":"The-Thesis"},
+  "Data":
+    {"TotalRecords":1,
+      "Content":
+          [
+            {
+              "NodeParentID":430,
+              "SectionNumber":2,
+              "SectionTitle":"The Thesis",
+              "SectionDate":"1890-1920",
+              "SectionIntro":"The innovation and sustainability of Fred&#39;s MIT Thesis",
+              "SectionHero":"hero_image.jpg",
+              "NodeID":452,
+              "TotalRecords":3,
+                "Modules":
+                  [
+                    {
+                      "NodeParentID":452,
+                      "Module_Order":1,
+                      "Module_Title":"Fred Studies Engineering",
+                      "Module_Subtitle":"Rice University to MIT",
+                      "Module_Copy":"While his dad had a strong grasp on the written word, Fred Koch&rsquo;s gift revolved around math and science. After receiving exemplary marks in high school, Fred chose to attend the Rice Institute in Houston, Texas, five years after its inception.",
+                      "Module_Year":1918,
+                      "Module_Type":"Image_Wallpaper",
+                      "PosX":0,
+                      "PosY":0,
+                      "Col":0,
+                      "Row":0,
+                      "NodeID":458,
+                      "TotalRecords":1,
+                        "Medias":
+                          [
+                            {
+                              "NodeParentID":458,
+                              "Media_Order":1,
+                              "Media_Title":"this is a test video",
+                              "Media_Description":"this is a test video",
+                              "Media_Copyright":"this is a description of the test video",
+                              "Media_Type":"video",
+                              "Option_Link":"mytestVideo.mp4",
+                              "NodeID":471
+                              }
+                            ]
+                    },
+                    {
+                      "NodeParentID":452,
+                      "Module_Order":0,"Module_Title":"Fred Goes to MIT",
+                      "Module_Subtitle":"Fred joins the inaugural chemical engineering program at MIT",
+                      "Module_Copy":"After his sophomore year, Fred decided to transfer to the Massachusetts Institute of Technology to be a part of their inaugural chemical engineering program class. The tuition was a whopping $300 a year and it was worth every penny. His senior thesis was the first public look at Fred&rsquo;s ingenuity and resourcefulness. In it, he laid out his environmental idea to take a waste product from a pulp mill and reuse it as fuel. This idea was the culmination of an impressive collegiate resume and helped land Fred a job at the Texas Company (now know as Texaco) as a research chemist before graduation. But it wasn&rsquo;t long before Fred wanted more.",
+                      "Module_Year":1920,
+                      "Module_Type":"Image_Wallpaper",
+                      "PosX":0,"PosY":0,"Col":0,"Row":0,
+                      "NodeID":459,"TotalRecords":1,
+                        "Medias":
+                          [
+                            {
+                              "NodeParentID":459,
+                              "Media_Order":1,
+                              "Media_Title":"this is a test image",
+                              "Media_Description":"this is the description of the image",
+                              "Media_Copyright":"copyright 2015","Media_Type":"photo",
+                              "Option_File":"test_image.jpg",
+                              "NodeID":470
+                            }
+                          ]
+                    },
+                    {
+                      "NodeParentID":452,"Module_Order":2,"Module_Title":"Fred's MIT Thesis","Module_Subtitle":"Fred's MIT thesis",
+                      "Module_Copy":"&ldquo;The Utilization of Spent Black Ash from the Soda Recovery System of the Penobscot Chemical Fibre Company&rdquo; in the caption.",
+                      "Module_Year":1923,
+                      "Module_Type":"Image_Wallpaper",
+                      "PosX":0,"PosY":0,"Col":0,"Row":0,
+                      "NodeID":460,
+                      "TotalRecords":1,
+                        "Medias":
+                          [
+                            {
+                              "NodeParentID":460,
+                              "Media_Order":1,
+                              "Media_Title":"testGraphic",
+                              "Media_Description":"this is a test graphic",
+                              "Media_Copyright":"copyright 2015",
+                              "Media_Type":"graphic","Option_File":"graphic.png",
+                              "NodeID":472
+                            }
+                          ]
+                    }
+                  ]
                 }
-              ],
-            "NodeID" : 452,
-            "NodeParentID" : 430,
-            "SectionDate" : "1890-1920",
-            "SectionHero" : "hero_image.jpg",
-            "SectionIntro" : "The innovation and sustainability of Fred's MIT Thesis",
-            "SectionNumber" : 2,
-            "SectionTitle" : "The Thesis",
-            "TotalRecords" : 3
-          } ],
-      "TotalRecords" : 1
-    },
-  "request" : 
-    { "Chapter" : "Bootstraps",
-      "Section" : "The-Thesis"
-    }
+          ]
+        }
 }
+
+
