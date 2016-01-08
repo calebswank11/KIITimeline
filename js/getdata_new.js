@@ -8,9 +8,8 @@ SectionArray = [];
 function getData(Chapter,Section){
 //*****************************************Ajax call to call JSON******************************************//
 $.ajax({
-    //url : 'combo_data.json',
-   // url : 'http://www.kochcreativegroupdev.com/kochrestservice/api/ContentsSections/'+Chapter+'/'+Section+'/?format=json',
-    url : 'json/sample.json',
+   url : 'http://www.kochcreativegroupdev.com/kochrestservice/api/ContentsSections/'+Chapter+'/'+Section+'/?format=json',
+    //url : 'json/sample.json',
     type: 'GET',
     success : showjson,
 });
