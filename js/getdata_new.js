@@ -37,6 +37,9 @@ function showjson (data){
                             mySectionIntro=SectionContent[SC].SectionIntro;
                             mySectionHero=SectionContent[SC].SectionHero;
                             console.log(mySectionTitle,mySectionNumber,mySectionDate,mySectionIntro,mySectionHero);
+                            $('#section').append('<h1>Section:'+mySectionTitle+' </h1>');
+                            $('#section').append('<h2>'+mySectionDate+' </h2>');
+                            $('#section').append('<h3>'+mySectionIntro+' </h3>');
                             //ITERATE THROUGH MODULES
                             var Modules = value.Content[SC].Modules;
                             for (var M = 0; M < Modules.length; M++){
@@ -50,12 +53,14 @@ function showjson (data){
                                 myModulePosY=Modules[M].PosY;
                                 myModuleCol=Modules[M].Col;
                                 myModuleRow=Modules[M].Row;
-                                console.log('module:'+myModuleTitle);
+                                console.log('module'+myModuleOrder+':'+myModuleTitle);
+                                $('#modules').append('<div id="'+myModuleOrder+'" class="'+myModuleType+' '+myModulePosX+' '+myModulePosY+' '+myModuleCol+' '+myModuleRow+'"><p class="date">'+myModuleYear+'</p><h3>'+myModuleTitle+' </h3><p>'+myModuleSubtitle+'</p><p>'+myModuleCopy+'</p></div><hr>');
+                                //ITTERATE THROUGH MEDIA
                             }
                         }  
-                        $('#section').append('<h1>Section:'+mySectionTitle+' </h1>');
-                        $('#section').append('<h2>'+mySectionDate+' </h2>');
-                        $('#section').append('<h3>'+mySectionIntro+' </h3>');
+                        
+              
+                        
                         break;
                     };
 
