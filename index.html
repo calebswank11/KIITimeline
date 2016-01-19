@@ -6,12 +6,24 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>json</title>
+    <title>KII Timeline</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="css/generic.css" />
+    <link rel="stylesheet" media="only screen and (max-width: 768px)" href="css/styleMobile.css" />
+    <link rel="stylesheet" media="only screen and (min-width: 769px)" href="css/style.css" />
+
+    <script src="https://use.typekit.net/ecp2sks.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.6/interact.min.js"></script>
+
+    <script type="text/javascript" src="js/getnav.js"></script>
     <script type="text/javascript" src="js/getdata_new.js"></script>
-    <script type="text/javascript" src="js/displayData.js"></script>
+    <!--<script type="text/javascript" src="js/displayData.js"></script>-->
     <!--<script type="text/javascript" src="js/clearLocations.js"></script> 
     <link rel="stylesheet" href="css/styles.css">  --> 
 </head>
@@ -32,12 +44,148 @@
         var Chapters = getQueryString('Chapter'); 
         var Sections = getQueryString('Section'); 
     $(document).ready(getData(Chapters,Sections));
+
+    $(document).ready(getNav());
+
     </script>
-    <container id="chapter">
-    </container>
-    <container id="section">
-    </container>
-    <container id="modules">
-    </container>
+
+    <div class="kochNav"></div>
+    <section id="wrapper"></section>
+
+    <section id="content">
+
+        <!-- START CONTAINER WHERE ALL CONTENT IS LOADED -->
+        <section class="container">
+
+
+        </section>
+        <!-- end -->
+
+        <!-- START TIMELINE BOTTOM NAVIGATION -->
+        <section class="miniTimeline row-1">
+            <div class="dragNav">
+                <div class="dragAnimate">
+                    <span></span>
+                </div>
+            </div>
+            <div class="miniTimelineNavPerm">
+                <div class="miniTimelineTitle">
+                </div>
+                <div class="miniTimelineSections">
+                </div>
+                <div class="miniTimelineAction">
+                    <div class="miniTimelineSound">
+                        <p>sound</p>
+                        <div class="miniTimelineSoundBars">
+                        </div>
+                    </div>
+                    <div class="miniTimelineNav">
+                        <p>Menu</p>
+                        <div class="miniTimelineHamburger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- end -->
+
+        <!-- NAVIGATION START -->
+        <nav>
+            <p class="breadcrumbsMobile">
+                <span class="breadcrumbs-1">< all</span>
+                <span class="breadcrumbs-2"> < Chapters</span>
+                <span class="breadcrumbs-3"> < Sections</span>
+            </p>
+            <p class="breadcrumbs">
+                <p class="back">back</p>
+            </p>
+            <ul class="navigationList">
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+                <li class="navigationLevel">
+                    <p>Chapters</p>
+                </li>
+                <li>
+                    <p>Intro Video</p>
+                </li>
+                <li class="navigationSocial">
+                    <a href="" class="facebook">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             viewBox="0 0 28 23.1" enable-background="new 0 0 28 23.1" xml:space="preserve">
+                        <g id="CkcOeU_1_">
+                            <g>
+                                <path d="M15.8,8.5c1.3,0,2.7,0,4.1,0c-0.2,1.4-0.4,2.7-0.5,4.1c-1.2,0-2.3,0-3.5,0c-0.1,0.9,0,1.8,0,2.7c0,0.9,0,1.8,0,2.6
+                                    c0,0.9,0,1.8,0,2.6c0,0.9,0,1.8,0,2.6c-1.4,0-2.8,0-4.2,0c0-3.5,0-7,0-10.6c-0.6-0.1-1.2,0-1.8,0c-0.6,0-1.2,0-1.8,0
+                                    c0-1.4,0-2.7,0-4.1c1.2,0,2.3,0,3.5,0c0-0.2,0-0.4,0-0.5c0-1,0-1.9,0-2.9c0-1,0.2-2,0.8-2.9c0.8-1.2,1.9-1.9,3.3-2.1
+                                    c1.4-0.2,2.8-0.1,4.1,0c0.1,0,0.1,0,0.2,0c0,1.2,0,2.4,0,3.6c-0.1,0-0.2,0-0.4,0c-0.6,0-1.3,0-1.9,0c-0.3,0-0.6,0-0.8,0.1
+                                    c-0.6,0.1-1,0.6-1.1,1.3c-0.1,1-0.1,2-0.1,3C15.8,8.3,15.8,8.3,15.8,8.5z"/>
+                            </g>
+                        </g>
+                        </svg>
+                    </a>
+                    <a href="" class="linkedin">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             viewBox="0 0 28 23.1" enable-background="new 0 0 28 23.1" xml:space="preserve">
+                        <g id="zaN3eu_1_">
+                            <g>
+                                <path d="M15.3,8c0,0.6,0,1.2,0,1.7c0.5-0.5,1-1,1.6-1.4c2.5-1.6,6.3-0.4,7.3,2.4c0.4,1,0.5,2,0.5,3c0,2.6,0,5.2,0,7.7
+                                    c0,0.1,0,0.2,0,0.3c-1.5,0-3,0-4.6,0c0-0.2,0-0.4,0-0.6c0-2.3,0-4.5,0-6.8c0-0.6-0.1-1.2-0.3-1.8C19.3,10.9,17,11,16.1,12
+                                    c-0.5,0.6-0.8,1.3-0.8,2.1c0,2.4,0,4.8,0,7.2c0,0.2,0,0.4,0,0.6c-1.5,0-3,0-4.6,0c0-4.6,0-9.1,0-13.7C12.2,8,13.7,8,15.3,8z"/>
+                                <path d="M3.6,8c1.5,0,3,0,4.5,0c0,4.6,0,9.2,0,13.8c-1.5,0-3,0-4.5,0C3.6,17.2,3.6,12.6,3.6,8z"/>
+                                <path d="M5.9,6.1c-1.2,0-2-0.4-2.4-1.4C3.1,3.8,3.2,2.9,3.9,2.1c0.8-0.9,1.9-1,3-0.7c1,0.3,1.5,1.1,1.6,2.1C8.6,4.8,7.6,5.9,6.4,6
+                                    C6.2,6.1,6,6.1,5.9,6.1z"/>
+                            </g>
+                        </g>
+                        </svg>
+                    </a>
+                    <a href="" class="twitter">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                             viewBox="0 0 28 23.1" enable-background="new 0 0 28 23.1" xml:space="preserve">
+                        <g id="YiHSRr_1_">
+                            <g>
+                                <path d="M24.2,3.1c-0.3,1-0.9,1.7-1.7,2.2c0,0,0,0.1,0,0.1c0.7-0.2,1.5-0.4,2.3-0.6c-0.5,0.7-1.1,1.4-1.8,1.9
+                                    c-0.3,0.2-0.4,0.4-0.4,0.7c-0.1,4.8-2.1,8.6-6.1,11.2c-2.4,1.5-5.1,2-7.9,1.8c-1.9-0.2-3.6-0.7-5.2-1.6c-0.1-0.1-0.2-0.1-0.3-0.2
+                                    c2.3,0.1,4.5-0.4,6.4-1.9c-2.3-0.5-3.7-1.5-4.1-3.2c0.6,0,1.2,0,1.8,0C5.2,12.7,4,11.3,3.8,9c0.6,0.2,1.3,0.3,1.9,0.5
+                                    c0,0,0-0.1,0.1-0.1c-1.2-0.9-1.8-2-1.9-3.5C3.8,5.2,4,4.2,4.5,3.5c2.4,2.8,5.5,4.4,9.2,4.7c0.1-0.8,0-1.5,0.2-2.2
+                                    c0.8-3.2,4.8-4.4,7.3-2.2c0.3,0.2,0.5,0.3,0.8,0.2C22.7,3.7,23.4,3.4,24.2,3.1z"/>
+                            </g>
+                        </g>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+
+            <ul id="chapter">
+            </ul>
+        </nav>
+        <!-- end -->
+
+        <!-- PREVIOUS AND NEXT SECTIONS -->
+        <div class="nextSection row-16 posY-0">
+            <div class="nextSectionHover"></div>
+            <a href="">
+            </a>
+        </div>
+
+        <div class="nextSectionEnd row-16 posY-0">
+            <a href="">
+            </a>
+        </div>
+
+        <div class="prevSection row-16 posY-0  posX-0">
+            <div class="prevSectionHover"></div>
+            <a href="">
+            </a>
+        </div>
+        <!-- end -->
+
+    </section>
+
 </body>
 </html>

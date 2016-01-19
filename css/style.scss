@@ -1,0 +1,2532 @@
+$blueOne: #96c6d4;
+$blueTwo : #68c4e7;
+$blueThree : #3dbbec;
+$blueFour : #2986be;
+$blueFive : #144a8c;
+$dkBlue : #3b4b52;
+$ltGrey : #ebeced;
+$grey : #cccccc;
+$dkGrey : #333740;
+$black : #000006;
+
+
+$max : "max-width:";
+@function max($pxSize) {
+	@return #{$max} ($pxSize)+px;
+}
+$min : "min-width:";
+@function min($pxSize) {
+	@return #{$min} ($pxSize)+px; 
+}
+
+@mixin clearfix {
+	&::after {
+		clear: both;
+		display: table;
+		content: '';
+	}
+}
+@mixin trans {
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+@mixin transX {
+	left: 50%;
+	transform: translateX(-50%);
+}
+@mixin transY {
+	top: 50%;
+	transform: translateY(-50%);
+}
+@mixin transClear {
+	left: auto;
+	top: auto;
+	transform: translate(0%, 0%);
+}
+@mixin transXClear {
+	left: Auto;
+	transform: translate(0%, -50%);
+}
+@mixin transYClear {
+	top: auto;
+	transform: translate(-50%, 0%);
+}
+@mixin before {
+	content: '';
+	display: block;
+	position: absolute;
+}
+@mixin soundBarGrad {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#939598+50,3dbbec+51 */
+	background: #939598; /* Old browsers */
+	background: -moz-linear-gradient(top,  #939598 50%, #3dbbec 51%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #939598 50%,#3dbbec 51%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #939598 50%,#3dbbec 51%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#939598', endColorstr='#3dbbec',GradientType=0 ); /* IE6-9 */
+}
+@mixin landingGradOne {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+0,0+100 */
+	background: -moz-linear-gradient(top,  rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */	
+}
+@mixin landingGradTwo {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,1+100 */
+	background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%); /* FF3.6-15 */
+	background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: radial-gradient(ellipse at center,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+$proxima : "proxima-nova", helvetica, sans-serif;
+$azo : "azo-sans-web", helvetica, sans-serif;
+/* SETUP COLUMN WIDTH UP TO 100% */
+$columns: 16;
+
+@for $i from 1 through $columns {
+  .col-#{$i} {
+    width: ((100 / $columns) * $i) * 1vw;
+  }
+}
+/* END COLUMN WIDTH % */
+/* SETUP ROW HEIGHT UP TO 100 VH */
+$rows: 16;
+
+@for $i from 1 through $rows {
+  .row-#{$i} {
+    height: ((100 / $rows) * $i) * 1vh;
+  }
+}
+/* END ROW HEIGHT */
+/* SETUP COLUMN X POSITION */
+$columnsX: 75;
+
+@for $i from 0 through $columnsX {
+  .posX-#{$i} {
+    left: (6.25 * $i) * 1%;
+  }
+}
+$columnsX5: 75;
+/* START HALF PERCENTAGES */
+@for $i from 0 through $columnsX5 {
+  .posX-#{$i}-5 {
+    left: (6.25 * $i + 3.125) * 1%;
+  }
+}
+/* END COLUMN X POSITION */
+/* SETUP COLUMN Y POSITION */
+$columnsY: 16;
+
+@for $i from 0 through $columnsY {
+  .posY-#{$i} {
+    bottom: (6.25 * $i) * 1%;
+  }
+}
+/* END COLUMN Y POSITION */
+
+/* START GENERIC STYLES */
+#content {
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	left: 0;
+	top: 0;
+}
+.container > section {
+	position: absolute;
+}
+body {
+	overflow: hidden;
+}
+.abs {
+	position: absolute;
+}
+.imageHeight > img {
+	width: auto!important;
+	height: 100%!important;
+	min-width: 100%;
+}
+/* END GENERIC STYLES */
+/*/////////////////////*/
+/* NAVIGATION STYLES */
+/*/////////////////////*/
+#chapter {
+	visibility: hidden;
+	animation: navigationOut .5s ease-out forwards;
+	display: block;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	@include transX;
+	pointer-events: none;
+	&::before {
+		@include before;
+		width: 100%;
+		height: 100vh;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: rgba(0, 0, 0, .95);
+	}
+}
+@keyframes navigationOut {
+	0% {
+		opacity: 1;
+		visibility: visible;
+	}
+	99% {
+		visibility: visible;
+	}
+	100% {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+@keyframes navigationIn {
+	0% {
+		opacity: 0;
+		visibility: hidden;
+	}
+	1% {
+		visibility: visible;
+	}
+	100% {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+nav {
+	z-index: 100;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity .5s ease;
+	overflow: hidden;
+	top: 0;
+	animation: navigationOut .5s ease-out forwards;
+	position: fixed;
+	@include transX;
+	bottom: 0;
+	width: 100%;
+	&.active {
+		visibility: visible;
+		opacity: 1;
+		overflow: visible;
+		animation: navigationIn .5s ease-out forwards;
+		.navigationList {
+			// left: 0;
+			transition: left .5s cubic-bezier(0.44, 0.2, 0, 1.01);
+			&.active {
+				// left: -18.75vw;
+			}
+			& > li {
+				opacity: 1;
+				top: 0;
+				&:nth-child(1) {
+					transition-delay: .45s;
+				}
+				&:nth-child(2) {
+					transition-delay: .35s;
+				}
+				&:nth-child(3) {
+					transition-delay: .25s;
+				}
+				&:nth-child(4) {
+					transition-delay: .15s;
+				}
+				&:nth-child(5) {
+					transition-delay: .05s;
+				}
+				&.active {
+				}
+			} 
+		}
+		#chapter.active {
+			// animation: chaptersVisible .5s ease forwards;
+			visibility: visible;
+			animation: navigationIn .5s ease-out forwards;
+			pointer-events: initial;
+			.chapterLevel {
+				& > div {
+					opacity: 1;
+				}
+			}
+			.sectionLevel li {
+				opacity: 1;
+				top: 0;
+			}
+			.closeChapters {
+				display: block;
+			}
+		}
+	}
+}
+.navigationList {
+	color: $dkGrey;
+	position: absolute;
+	bottom: 6.25vh;
+	right: 0;
+	// @include transX;
+    box-shadow: 0px 0px 187px rgba(0, 0, 0, .1);
+	* {
+		list-style: none;
+		text-decoration: none;
+	}
+	& > li {
+		transition: top .25s cubic-bezier(0.44, 0.2, 0, 1.01), opacity .5s cubic-bezier(0.44, 0.2, 0, 1.01);
+		cursor: pointer;
+		top: 25px;
+		opacity: 0;
+		background-color: #fff;
+		max-width: 250px;
+		&:hover {
+			background-color: rgab(250, 250, 250, .1);
+		}
+		& > p, & > a {
+			font-size: 1rem;
+			padding: 1.5rem 2rem;
+			border-bottom: 1px solid #313131;
+			text-transform: uppercase;
+			display: block;
+			color: $dkGrey;
+			text-decoration: none;
+			text-align: center;
+			width: 100%;
+			min-width: 200px;
+		}
+	}
+	.navigationSocial {
+		@include clearfix;
+		a {
+			width: calc(100%/3);
+			border-bottom: none;
+			float: left;
+			min-width: auto;
+			max-height: 4.25rem;
+			padding: 0;
+			svg {
+			    width: 35%;
+			    position: relative;
+			    padding: 1rem 0;
+			    fill: $grey;
+			    transition: fill .5s cubic-bezier(0.44, 0.2, 0, 1.01);
+			    &:hover {
+			    	fill: $blueOne;
+			    }
+			}
+		}
+	}
+}
+.chapterLevel {
+	position: absolute;
+	padding-right: .5rem;
+	opacity: .5;
+	transition: opacity .5s ease;
+	width: calc(100vw/5);
+	&::before {
+		@include before;
+		width: 100%;
+		height: 100vh;
+		display: block;
+		position: absolute;
+		z-index: 0;
+		background-color: rgba(250, 250, 250, .1);
+		opacity: 0;
+		transition: opacity .5s ease;
+	}
+	&:hover {
+		opacity: 1;
+		&::before {
+			opacity: 1;
+		}
+		div {
+			-webkit-filter: grayscale(0);
+			filter: grayscale(0);
+			p:first-child {
+				animation: navigationChapterText .5s ease-out forwards;
+			}
+			p:last-child, h2 {
+				top: 0;
+				opacity: 1;
+			}
+		}
+	}
+	&:nth-child(1) {
+		left: 0rem;
+		z-index: 5;
+		& > div {
+			transition-delay: 0s;
+		} 
+		li {
+			&:nth-child(1) {
+				transition-delay: 0.25s;
+			}
+			&:nth-child(2) {
+				transition-delay: 0.35s;
+			}
+			&:nth-child(3) {
+				transition-delay: 0.45s;
+			}
+			&:nth-child(4) {
+				transition-delay: 0.55s;
+			}
+			&:nth-child(5) {
+				transition-delay: 0.65s;
+			}
+			&:nth-child(6) {
+				transition-delay: 0.75s;
+			}
+			&:nth-child(7) {
+				transition-delay: 0.85s;
+			}
+		}
+	}
+	&:nth-child(2) {
+		left: calc(20vw);
+		z-index: 4;
+		& > div {
+			transition-delay: 0.1s;
+		}
+		li {
+			&:nth-child(1) {
+				transition-delay: 0.45s;
+			}
+			&:nth-child(2) {
+				transition-delay: 0.55s;
+			}
+			&:nth-child(3) {
+				transition-delay: 0.65s;
+			}
+			&:nth-child(4) {
+				transition-delay: 0.75s;
+			}
+			&:nth-child(5) {
+				transition-delay: 0.85s;
+			}
+			&:nth-child(6) {
+				transition-delay: 0.95s;
+			}
+			&:nth-child(7) {
+				transition-delay: 1.05s;
+			}
+		}
+	}
+	&:nth-child(3) {
+		left: calc(40vw);
+		z-index: 3;
+		& > div {
+			transition-delay: 0.2s;
+		}
+		li {
+			&:nth-child(1) {
+				transition-delay: 0.65s;
+			}
+			&:nth-child(2) {
+				transition-delay: 0.75s;
+			}
+			&:nth-child(3) {
+				transition-delay: 0.85s;
+			}
+			&:nth-child(4) {
+				transition-delay: 0.95s;
+			}
+			&:nth-child(5) {
+				transition-delay: 1.05s;
+			}
+			&:nth-child(6) {
+				transition-delay: 1.15s;
+			}
+			&:nth-child(7) {
+				transition-delay: 1.25s;
+			}
+		}
+	}
+	&:nth-child(4) {
+		left: calc(60vw);
+		z-index: 2;
+		& > div {
+			transition-delay: 0.3s;
+		}
+		li {
+			&:nth-child(1) {
+				transition-delay: 0.85s;
+			}
+			&:nth-child(2) {
+				transition-delay: 0.95s;
+			}
+			&:nth-child(3) {
+				transition-delay: 1.05s;
+			}
+			&:nth-child(4) {
+				transition-delay: 1.15s;
+			}
+			&:nth-child(5) {
+				transition-delay: 1.25s;
+			}
+			&:nth-child(6) {
+				transition-delay: 1.35s;
+			}
+			&:nth-child(7) {
+				transition-delay: 1.45s;
+			}
+		}
+	}
+	&:nth-child(5) {
+		left: calc(80vw);
+		z-index: 1;
+		& > div {
+			transition-delay: 0.4s;
+		}
+		li {
+			&:nth-child(1) {
+				transition-delay: 1.05s;
+			}
+			&:nth-child(2) {
+				transition-delay: 1.15s;
+			}
+			&:nth-child(3) {
+				transition-delay: 1.25s;
+			}
+			&:nth-child(4) {
+				transition-delay: 1.35s;
+			}
+			&:nth-child(5) {
+				transition-delay: 1.45s;
+			}
+			&:nth-child(6) {
+				transition-delay: 1.55s;
+			}
+			&:nth-child(7) {
+				transition-delay: 1.65s;
+			}
+		}
+		/* ADDED ADDITIONAL .5REM TO EACH TO COMPENSATE FOR MARGIN RIGHT ON EACH ELEMENT */
+	}
+	& > div {
+		background-color: #fff;
+		text-transform: uppercase;
+		text-align: center;
+		padding: 5rem 0 3rem;
+		letter-spacing: 2px;
+		opacity: 0;
+		transition: opacity 1s cubic-bezier(0.44, 0.2, 0, 1.01), filter .5s cubic-bezier(0.44, 0.2, 0, 1.01);
+		background: url('../img/navigationChapterStuggleHeader.jpg');
+		-webkit-background-size: cover;
+		background-size: cover;
+		-webkit-filter: grayscale(1);
+		filter: grayscale(1);
+		position: relative;
+		overflow: hidden;
+		p {
+			color: black;
+			font-size: 14px;
+		}
+		h2, p {
+			position: relative;
+			opacity: 0;
+			top: 50px;
+			transition: opacity .5s cubic-bezier(0.44, 0.2, 0, 1.01), top .25s cubic-bezier(0.44, 0.2, 0, 1.01);
+		}
+		p:first-child {
+			padding-bottom: .25rem;
+			display: inline-block;
+			position: absolute;
+			right: 1rem;
+			bottom: 1rem;
+			opacity: 1;
+			top: auto; 
+		}
+		p:last-child {
+			color: $blueOne;
+		}
+		h2 {
+			line-height: 1;
+			padding: 0 0 .25rem;
+			color: $blueOne;
+			font-size: 2rem;
+			font-weight: 600;
+			letter-spacing: 3px;
+		}
+	}
+}
+@keyframes navigationChapterText {
+	0% {
+		bottom: 1rem;
+		right: 1rem;
+		opacity: 1;
+	}
+	25% {
+		bottom: 1rem;
+		right: 1rem;
+		opacity: 0;
+	}
+	26% {
+		opacity: 0;
+		bottom: 1rem;
+		right: 1rem;
+	}
+	50% {
+		bottom: auto;
+		top: -2rem;
+		left: 50%;
+		transform: translateX(-50%);
+		right: auto;
+	}
+	51% {
+		opacity: 1;
+	}
+	100% {
+		top: 3rem;
+		left: 50%;
+		transform: translateX(-50%);
+		right: auto;
+		opacity: 1;
+	}
+}
+@keyframes navigationSectionPadding {
+	0% {
+		padding: 3rem .5rem 1rem;
+	}
+	100% {
+		padding: 2rem .5rem 2rem;
+	}
+}
+@keyframes navigationSectionPaddingOut {
+	0% {
+		padding: 2rem .5rem 2rem;
+	}
+	100% {
+		padding: 3rem .5rem 1rem;
+	}
+}
+@media (max(1024)) {
+	@keyframes navigationSectionPadding {
+		0% {
+			padding: 1rem .5rem 2rem;
+		}
+		100% {
+			padding: 1.5rem .5rem 1.5rem;
+		}
+	}
+	@keyframes navigationSectionPaddingOut {
+		0% {
+			padding: 1.5rem .5rem 1.5rem;
+		}
+		100% {
+			padding: 1rem .5rem 2rem;
+		}
+	}	
+}
+.sectionLevel {
+	li {
+		top: 50px;
+		opacity: 0;
+		transition: top .25s cubic-bezier(0.44, 0.2, 0, 1.01), opacity .5s cubic-bezier(0.44, 0.2, 0, 1.01);
+		cursor: pointer;
+		// padding: 4rem .5rem 1rem;
+		position: relative;
+		border-bottom: 2px solid $blueOne;
+		overflow: hidden;
+		a {
+			animation: navigationSectionPaddingOut .5s cubic-bezier(0.44, 0.2, 0, 1.01) forwards;
+		}
+		&::before {
+			@include before;
+			height: 100%; 
+			width: 100%;
+			@include trans;
+			z-index: -1;
+			background: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/navigationSectionHover.jpg');
+			-webkit-background-size: cover;
+			background-size: cover;
+			opacity: 0;
+			transition: opacity .5s cubic-bezier(0.44, 0.2, 0, 1.01);
+		}
+		&:hover {
+			// padding: 2rem .5rem 2rem;
+			a {
+				animation: navigationSectionPadding .5s cubic-bezier(0.44, 0.2, 0, 1.01) forwards;
+			}
+			&::before {
+				opacity: 1;
+			}
+			p, h3 {
+				color: white;
+			}
+		}
+	}
+	a {
+		display: block;
+		color: white;
+	}
+	p, h3 {
+		transition: color .5s cubic-bezier(0.44, 0.2, 0, 1.01);
+	}
+	p {
+		font-size: 14px;
+		color: $blueOne;
+	}
+	p:first-child {
+		color: $blueOne;
+	}
+	p:last-child {
+		position: absolute;
+		right: 1rem;
+		bottom: 1rem;
+		color: white;
+	}
+	h3 {
+		color: $blueOne;
+	}
+}
+.closeChapters {
+    width: 100vw;
+    height: 6.25vh;
+    position: fixed;
+    top: 87.5vh;
+    background: transparent;
+    display: block;
+    z-index: 10;
+    border-top: 1px solid white;
+    color: white;
+    text-align: center;
+    line-height: 3.125;
+    display: none;
+}
+/*/////////////////////*/
+/* END NAVIGATION STYLES */
+/*/////////////////////*/
+/* LANDING PAGE STYLES */
+/*/////////////////////*/
+#landingPage {
+	width: 100%;
+	height: 100%;
+	max-width: 100vw;
+	max-height: 100vh;
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+#landingPageText {
+	@include clearfix;
+	position: absolute;
+	z-index: 6;
+	width: 100%;
+	height: 100vh;
+}
+.landingPageSlideText {
+	width: calc(100%/5);
+	height: 100vh;
+	float: left;
+	display: block;
+	position: relative;
+	&::before, &::after {
+		@include before;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		background-color: black;
+		z-index: -1;
+		opacity: 0;
+		transition: opacity .5s cubic-bezier(0.44, 0.2, 0, 1.01);
+	}
+	&::before {
+		height: 50vh;
+		@include landingGradOne;
+	}
+	&::after {
+		height: 150vh;
+		@include landingGradTwo
+	}
+	&.active {
+		&::before {
+			opacity: .05;
+		}
+		&::after {
+			opacity: .02;
+		}
+		.landingPageSlideTextWrapper {
+			padding-top: 14vh;
+			&::before, &::after {
+				transform: translate(-50%, -50%)rotate(0deg);
+			}
+			span {
+				color: $dkGrey;
+				&::before {
+					// width: 50%;
+				}
+			}
+			h1 {
+				opacity: 1;
+				color: $blueOne;
+			}
+			p {
+				color: black;
+				opacity: 1;
+				top: 0;
+				visibility: visible;
+			}
+			button {
+				top: 0;
+				opacity: 1;
+				transition: opacity .5s cubic-bezier(0.44, 0.2, 0, 1.01) .25s, top .5s cubic-bezier(0.44, 0.2, 0, 1.01) .25s;
+				pointer-events: none;
+			}
+			ul {
+				opacity: 1;
+				visibility: visible;
+			}
+			.landingPageSlideNav {
+				opacity: 1;
+				visibility: visible;
+				div {
+					top: 0;
+				}
+			}
+		}
+		.landingPageSlideNav div.active {
+			border-color: white;
+			&::before {
+				background-color: $blueOne;
+			}
+			&::after {
+				border-color: $blueOne;
+			}
+		}
+	}
+}
+.landingPageSlideTextWrapper { 
+	position: absolute;
+	padding-top: 10vh;
+	width: 100%;
+	transition: padding .5s cubic-bezier(0.44, 0.2, 0, 1.01);
+	&::before, &::after {
+		@include before;
+		width: 75%;
+		height: 1px;
+		@include trans;
+		transition: transform .5s cubic-bezier(0.44, 0.2, 0, 1.01);;
+		background-color: transparentize($grey, .5);
+	}
+	&::before {
+		transform: translate(-50%, -50%)rotate(45deg);
+	}
+	&::after {
+		transform: translate(-50%, -50%)rotate(-45deg);
+	}
+	span {
+		display: block;
+		width: 100%;
+		text-align: center;
+		font-size: .875rem;
+		margin-bottom: .5rem;
+		padding-bottom: .5rem;
+		color: $grey;
+		position: relative;
+		transition: opacity .5s cubic-bezier(0.44, 0.2, 0, 1.01), color .5s cubic-bezier(0.44, 0.2, 0, 1.01);
+		&::before {
+			@include before;
+			height: 1px;
+			background-color: $grey; 
+			width: 0%;
+			display: block;
+			@include transX;
+			bottom: 0;
+			transition: width .5s cubic-bezier(0.44, 0.2, 0, 1.01);
+			display: none;
+		}
+		&::after {
+			// con
+		}
+	}
+	h1 {
+		text-align: center;
+		font-weight: 400;
+		font-size: 1.5rem;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		position: relative;
+		padding-bottom: .5em;
+		color: $grey;
+		text-align: center;
+		width: 100%;
+		opacity: 1;
+		transition: opacity .5s cubic-bezier(0.44, 0.2, 0, 1.01), color .5s cubic-bezier(0.44, 0.2, 0, 1.01);
+	} 
+	p {
+		opacity: 0;
+		visibility: hidden;
+		padding-bottom: 1rem;
+		text-align: center;
+		font-size: .875rem;
+		color: #58595b;
+		width: 100%;
+		max-width: 80%;
+		margin: 0 auto;
+		transition: opacity .5s cubic-bezier(0.44, 0.2, 0, 1.01), top .5s cubic-bezier(0.44, 0.2, 0, 1.01);
+		position: relative;
+		top: 25px;
+	}
+	button {
+	    background: transparent;
+	    border: 3px solid $blueOne;
+	    padding: .5rem 1rem;
+	    color: $blueOne;
+	    display: inline-block;
+	    text-align: center;
+	    position: relative;
+	    @include transX;
+	    background-color: #fff;
+	    font-size: .75rem;
+	    opacity: 0;
+		top: 25px;
+		cursor: pointer;
+		transition: opacity .5s cubic-bezier(0.44, 0.2, 0, 1.01) 0s, top .5s cubic-bezier(0.44, 0.2, 0, 1.01) 0s;
+	}
+}
+/* LANDING PAGE SLIDE NAVIGATION CSS */
+/* ACTIVE CLASS FOR THIS IS STYLED ON LINE 88 of the SCSS*/
+.landingPageSlideNav {
+	position: relative;
+	width: auto;
+	@include transX;
+	@include clearfix;
+	display: inline-block;
+	padding-bottom: 2em;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity .5s ease;
+	div {
+		width: 40px;
+		height: 40px;
+		float: left;
+		background-color: transparent;
+		// border: 2px solid white;
+		border-radius: 50%;
+		margin-right: .75em;
+		position: relative;
+		transition: border-color .5s ease, top ease .25s;
+		cursor: pointer;
+		top: 20px;
+		&:nth-child(1) {transition-delay: 0;}
+		&:nth-child(2) {transition-delay: .1s;}
+		&:nth-child(3) {transition-delay: .15s;}
+		&:nth-child(4) {transition-delay: .2s;}
+		&:nth-child(5) {transition-delay: .25s;}
+		&:nth-child(6) {transition-delay: .3s;}
+		&:last-child {
+			margin-right: 0;
+		}
+		&::before, &::after {
+			@include before;
+		}
+		&::before {
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			display: block;
+			position: absolute;
+			@include trans;
+			background-color: white;
+			transition: background .5s ease;
+		}
+		&::after {
+			width: 25px;
+			height: 25px;
+			border-radius: 50%;
+			display: block;
+			position: absolute;
+			@include trans;
+			// background-color: white;
+			border: 2px solid white;
+			transition: border-color .5s ease;
+		}
+		&.active {
+			// border-color: $blueTwo;
+			&::before {
+				// background-color: $blueTwo;
+			}
+		}
+	}
+}
+/* END LANDING PAGE TEXT CSS */
+/* START LANDING PAGE BACKGROUND IMAGES CSS */
+#landingPageVisual {
+	@include clearfix;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background: url('../img/landingPage/landingPageBackground.jpg') no-repeat;
+	-webkit-background-size: 100%;
+	background-size: 100%;
+	background-position: 0 bottom;
+	background-color: #e8e8e8;
+}
+@keyframes maskIn {
+	from {
+		-webkit-mask-position: 0% 0%;
+	} to {
+		-webkit-mask-position: 100% 0%;
+	}
+}
+@keyframes maskOut {
+	from {
+		-webkit-mask-position: 100% 0%;
+	} to {
+		-webkit-mask-position: 0% 0%;
+	}
+}
+.landingPageImages {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	bottom: 0;
+	-webkit-mask: url('../img/landingPage/maskOne.png') no-repeat;
+	-webkit-mask-size: 1800% 100%;
+	-webkit-mask-position: 100% 100%;
+	animation: maskOut .75s steps(17) 0s forwards;
+    -webkit-animation-fill-mode: backwards;
+    animation-fill-mode: backwards;
+    background-position: 0 bottom;
+	div {
+		opacity: 0;
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+		transition: opacity .5s ease;
+	}
+	&.active {
+		-webkit-mask: url('../img/landingPage/maskOne.png') no-repeat;
+		-webkit-mask-size: 1800% 100%;
+		animation: maskIn .75s steps(17) 0s forwards;
+	    -webkit-animation-fill-mode: forwards;
+	    animation-fill-mode: forwards;
+	    background-position: 0 bottom;
+		div {
+			opacity: 1;
+			// animation: maskIn 1s steps(16) 0s forwards;
+		 //    -webkit-animation-fill-mode: forwards;
+		 //    animation-fill-mode: forwards;
+		}
+	}
+	&:nth-child(1) {
+		// -webkit-mask: url('../images/landingPage/slideTwoMask.png') no-repeat;
+		// -webkit-mask-size: 1700% 100%;
+		div {
+			background: url('../img/landingPage/landingPageSlideOne.jpg') no-repeat;
+			-webkit-background-size: 100%;
+			background-size: 100%;
+			background-position: 0 bottom;
+		}
+	}
+	&:nth-child(2) {
+		div {
+			background: url('../img/landingPage/landingPageSlideTwo.jpg') no-repeat;
+			-webkit-background-size: 100%;
+			background-size: 100%;
+			background-position: 0 bottom;
+		}
+	}
+	&:nth-child(3) {
+		div {
+			background: url('../img/landingPage/landingPageSlideThree.jpg') no-repeat;
+			-webkit-background-size: 100%;
+			background-size: 100%;
+			background-position: 0 bottom;
+		}
+	}
+	&:nth-child(4) {
+		div {
+			background: url('../img/landingPage/landingPageSlideFour.jpg') no-repeat;
+			-webkit-background-size: 100%;
+			background-size: 100%;
+			background-position: 0 bottom;
+		}
+	}
+	&:nth-child(5) {
+		div {
+			background: url('../img/landingPage/landingPageSlideFive.jpg') no-repeat;
+			-webkit-background-size: 100%;
+			background-size: 100%;
+			background-position: 0 bottom;
+		}
+	}
+}
+@keyframes maskIn {
+	from {
+		-webkit-mask-position: 0% 0%;
+	} to {
+		-webkit-mask-position: 100% 0%;
+	}
+}
+@keyframes maskOut {
+	from {
+		-webkit-mask-position: 100% 0%;
+	} to {
+		-webkit-mask-position: 0% 0%;
+	}
+}
+/* END LANDING PAGE STYLES */
+////////////////////////////////////
+////////////////////////////////////
+////////////////////////////////////
+////////////////////////////////////
+/* START TIMELINEHOVER BOTTOM SCREEN*/
+.miniTimeline {
+	position: fixed!important;
+	bottom: 0%;
+	background-color: white;
+	width: 100%;
+	z-index: 101;
+	transition: bottom .5s ease;
+	// box-shadow: 0px 0px 73px rgba(0, 0, 0, .15);
+	box-shadow: 0px 0px 150px transparentize($blueOne, .5);
+	&.active {
+		bottom: 0;
+	}
+}
+.dragNav {
+	width: 100%;
+	height: 5px;
+	position: fixed;
+	left: 0;
+	bottom: 6.25vh;
+	background-color: $ltGrey;
+	.dragAnimate {
+		width: 0%;
+		height: 100%;
+		background-color: $blueOne;
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		transition: width linear;
+		span {
+			position: absolute;
+			right: 0;
+			width: 10px;
+			height: 10px;
+			background-color: #fff;
+			display: block;
+			border-radius: 50%;
+			@include transY;
+			box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+			cursor: pointer;
+		}
+	}
+}
+.miniTimelineNavPerm {
+	display: inline-block;
+	@include transX;
+	position: relative;
+	@include clearfix;
+	padding: 1rem 0;
+	width: 100%;
+	height: 100%;
+	& > div {
+		margin: 0 1rem;
+		&:first-child {}
+	}
+	div, p {
+		// float: left;
+	}
+	div {
+		// position: relative;
+	}
+	p {
+		// position: absolute;
+	}
+	.miniTimelineTitle {
+		position: absolute;
+		left: 0;
+		@include transY;
+		h1 {
+			font-size: 1.25rem;
+			font-weight: 600;
+			span {
+				font-weight: 100;
+			}
+		}
+	}
+}
+/* END MINI TIMELINE TITLE */
+/* START MINITIMELINENAV DOT NAV (CENTER) */
+.miniTimelineSections {
+	position: absolute;
+	height: 6.25vh;
+	@include trans;
+	&::before {
+		@include before;
+		height: 1px;
+		width: 100%;
+		@include trans;
+		background-color: $grey;
+		z-index: -1;
+	}
+	a {
+		width: 30px;
+		height: 30px;
+		float: left;
+		position: relative;
+		border-radius: 50%;
+		@include transY;
+		margin: 0 1rem;
+		background-color: #fff;
+		border-radius: 50%;
+		&::before, &::after {
+			@include before;
+		}
+		&::after {
+			height: 5px;
+			width: 5px;
+			position: absolute;
+			@include trans;
+			background-color: $grey;
+			border-radius: 50%;
+			transition: height .5s cubic-bezier(0.44, 0.2, 0, 1.01), width .5s cubic-bezier(0.44, 0.2, 0, 1.01), background-color .5s cubic-bezier(0.44, 0.2, 0, 1.01);
+			z-index: 1;
+		}
+		&::before {
+			height: 60%;
+			width: 60%;
+			@include trans;
+			border: 1px solid $grey;
+			border-radius: 50%;
+			transition: border-color .5s cubic-bezier(0.44, 0.2, 0, 1.01);
+		}
+		&:hover {
+			&::after {
+				height: 50%;
+				width: 50%;
+				background-color: $blueOne;
+			}
+			&::before {
+				border-color: $blueOne;
+			}
+		}
+		&.active {
+			&::after {
+				height: 50%;
+				width: 50%;
+				background-color: $blueOne;	
+			}
+			&::before {
+				border-color: $blueOne;
+			}
+		}
+	}
+}
+/* end */
+/* START TIMELINE SOUND BARS AND ANIMATIONS */
+.miniTimelineAction {
+    @include transY;
+    position: absolute;
+    right: 0;
+    @include clearfix;
+    height: 6.25vh;
+    & > div {
+    	margin-right: 2rem;
+    	&:last-child {
+    		margin-right: 1rem;
+    	}
+    }
+}
+.miniTimelineSound {
+	// margin-right: 1rem;
+	float: left;
+	@include clearfix;
+	position: relative;
+	@include transY;
+	height: 6.25vh;
+	div, p {
+		float: left;
+	}
+	div {
+		@include transY;
+	}
+	&:hover {
+		cursor: pointer;
+	}	
+	p {
+		// right: 100%;
+		padding-right: .5rem;
+	}
+}
+.miniTimelineNav, .miniTimelineSound {
+	p {
+		@include transY;
+		line-height: 1;
+		position: relative;
+	}
+}
+.miniTimelineNav { 
+	position: relative;
+	display: block;
+	float: left;
+	top: 0px;
+	height: 6.25vh;
+	&::before {
+		@include before;
+		width: 1px;
+		height: 150%;
+		left: -1rem;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-30%);
+		background-color: $ltGrey;
+	}
+	&:hover {
+		cursor: pointer;
+	}
+	div, p {
+		float: right;
+	}
+	p {
+		// left: 100%;
+		padding-left: .5rem;
+		// top: 80%;
+	}
+	div {
+		width: 20px;
+		height: 18px;
+		display: block;
+		position: relative;
+		@include transY;
+		span {
+			position: absolute;
+			height: 2px;
+			width: 100%;
+			display: block;
+			background-color: rgba(0, 0, 0, .5);
+			@include trans;
+			transition: opacity .1s ease, background-color ease-out .5s;
+			&:nth-child(1) {
+				// top: 0;
+				animation: hamburgerInitTopOut .5s ease forwards;
+			}
+			&:nth-child(2) {
+				@include trans;
+			}
+			&:nth-child(3) {
+				// top: 100%;
+				animation: hamburgerInitBottomOut .5s ease forwards;
+			}
+		}
+	}
+	&.active {
+		div {
+			span {
+				top: 50%;
+				&:nth-child(1) {
+					animation: hamburgerInitTop .5s ease forwards;
+					background-color: $blueOne;
+				}
+				&:nth-child(2) {
+					opacity: 0;
+					transition-delay: .3s;
+				}
+				&:nth-child(3) {
+					background-color: $blueOne;
+					animation: hamburgerInitBottom .5s ease forwards;
+				}
+			}
+		}
+	}
+}
+@keyframes hamburgerInitTopOut {
+	0% {
+		top: 50%;
+		transform: translate(-50%, -50%)rotate(45deg);
+	}
+	50% {
+		top:50%;
+		transform: translate(-50%, -50%)rotate(0);
+	}
+	100% {
+		top: 0;
+		transform: translate(-50%, -50%)rotate(0);
+	}
+}
+@keyframes hamburgerInitTop {
+	0% {
+		top: 0;
+		transform: translate(-50%, -50%)rotate(0);
+	}
+	50% {
+		top:50%;
+		transform: translate(-50%, -50%)rotate(0);
+	}
+	100% {
+		top: 50%;
+		transform: translate(-50%, -50%)rotate(45deg);
+	}
+}
+@keyframes hamburgerInitBottomOut {
+	0% {
+		top: 50%;
+		transform: translate(-50%, -50%)rotate(-45deg);
+	}
+	50% {
+		top: 50%;
+		transform: translate(-50%, -50%)rotate(0);
+	}
+	100% {
+		top: 100%;
+		transform: translate(-50%, -50%)rotate(0deg);
+	}
+}
+@keyframes hamburgerInitBottom {
+	0% {
+		top: 100%;
+		transform: translate(-50%, -50%)rotate(0);
+	}
+	50% {
+		top:50%;
+		transform: translate(-50%, -50%)rotate(0);
+	}
+	100% {
+		top: 50%;
+		transform: translate(-50%, -50%)rotate(-45deg);
+	}
+}
+/* END MINI TIMELINE Hamburger */
+/* END MINI TIMELINE BOTTOM SCREEN STYLES */
+/* START BAR NAVIGATION INTERIOR PAGES */
+.nextSection, .prevSection, .nextSectionEnd {
+	background-color: $blueOne;
+	color: white;
+	position: fixed;
+	z-index: 99;
+	letter-spacing: 3px;
+	width: 5rem;
+	line-height: 0;
+	cursor: pointer;
+	& > span {
+	    background: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/scrollToNav.svg") no-repeat;
+	    height: 20px;
+	    width: 20px;
+	    display: block;
+	    position: relative;
+	    top: 15px;
+	}
+	.number {
+		text-transform: uppercase;
+		transform: rotate(0deg)translateX(-50%);
+		position: relative;
+		display: inline-block;
+		width: 35px;
+		height: 35px;
+		left: 50%;
+		border: 1px solid white;
+		border-radius: 50%;
+	    text-align: center;
+	    font-size: 12px;
+	    line-height: 35px;
+	}
+	a {
+		display: block;
+		width: 100%;
+		height: 100%;
+		padding: 1rem;
+		color: white;
+	}
+}
+.nextSectionEnd {
+	position: absolute;
+}
+.prevTitle, .nextTitle {
+    text-transform: uppercase;
+    font-weight: 600;
+    position: absolute;
+    transform-origin: 0 0;
+    transform: rotate(90deg)translateY(-50%);
+    width: 80vh;
+    left: 50%;
+    top: 75px;
+	span {
+		font-weight: 100;
+	}
+}
+.prevSection {
+	left: -5rem;
+	transition: left .5s ease-out;
+	&.active {
+		left: 0;
+		.prevSectionHover {
+			right: 0;
+		}
+	}
+	& > span {
+	    transform: translateX(-50%)rotate(180deg);
+	    left: 40%;
+	}
+}
+.nextSection {
+	right: -5rem;
+	transition: right .5s ease-out;
+	&.active {
+		right: 0;
+		.nextSectionHover {
+			left: 0; 
+		}
+	}
+	& > span {
+	    transform: translateX(-50%)rotate(0deg);
+	    left: 60%;
+	}
+}
+.prevSectionHover, .nextSectionHover {
+    height: 100vh;
+    width: 8rem;
+    position: absolute;
+    background: transparent;
+    top: 0;
+}
+.prevSectionHover {
+    right: -3rem;
+    transition: right .5s ease-out;
+}
+.nextSectionHover {
+ 	left: -3rem; 
+ 	transition: left .5s ease-out;
+}
+
+/* END BAR NAVIGATION INTERIOR PAGES */
+/* START BOOTSTRAPS STYLES */
+////////////////////////////////////
+////////////////////////////////////
+////////////////////////////////////
+////////////////////////////////////
+// start new styles
+.draggableMap {
+	background: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/NetherlandsToTexas/Map_Background.jpg') no-repeat;
+	overflow: hidden;
+	-webkit-background-size: 100% auto;
+	background-size: 100% auto;
+	max-width: 100vw;
+	width: 100%;
+	height: 100vh;
+	position: relative;
+}
+.draggableMap img {
+	width: 100%;
+	min-height: 100%;
+	position: absolute; 
+	left: 0;
+	top: 0;
+	pointer-events: none;
+	z-index: 2;
+	// 		cursor: move;
+}
+.mapTexture {
+	display: block;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	left: 50%;
+	top: 50%;
+	width: 300%;
+	background: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/NetherlandsToTexas/Square_Background_Texture_White.svg') repeat;
+	-webkit-background-size: 2%;
+	background-size: 2%;
+	pointer-events: none;
+	opacity: .25;
+}
+.draggableMap svg {
+	width: 250%;
+	position: relative;
+	left: -63%;
+	transform: translateY(-25%);
+}
+
+#journey > g.active .pointNonActive {
+	display: none;
+}
+.pointActive {
+	display: none;
+	opacity: 0;
+	transition: opacity .5s ease;
+}
+.pointActive .text {
+	transform: translateY(-100%);
+	opacity: 0;
+	transition: transform .5s ease, opacity .5s ease;
+	-webkit-transition-delay: .5s;
+	-o-transition-delay: .5s;
+	transition-delay: .5s;
+}
+#journey  > g.active .pointActive {
+	display: block;
+	opacity: 1;
+}
+#journey > g.active .pointActive .text {
+	transform: translateY(0%);
+	opacity: 1;
+}
+/* START MAP STATISTICS */
+.mapStatistics {
+	position: absolute;
+	z-index: 5;
+	left: 15%;
+	bottom: 0;
+	height: 50%;
+	width: 25%;
+	text-align: left;
+	div {
+		position: absolute;
+		top: 0;
+		left: 0;
+		visibility: hidden;
+		opacity: 0;
+		width: 100%;
+		transition: opacity .5s ease;
+		&.active {
+			opacity: 1;
+			visibility: visible;
+			z-index: 2;
+			li {
+				div {
+					&:nth-child(3) {
+						width: 50%;
+					}
+					&:nth-child(4) {
+						width: 35%;
+					}
+				}
+			}
+		}
+	}
+	h1 {
+		padding-right: 50%;
+		span {
+			display: block;
+			font-size: 28px;
+		}
+	}
+	p {
+		width: 100%;
+		padding-left: 52%;
+		padding-top: 1rem;
+		text-align: left;
+	}
+	li {
+		list-style: none;
+		text-transform: uppercase;
+		@include clearfix;
+		position: relative;
+		h3 {
+			font-size: 28px;
+			color: $blueOne;
+			text-align: right;
+			width: 50%;
+			padding-top: 1rem;
+		}
+		p {
+			width: 50%;
+			padding: 0;
+			text-align: right;
+			color: $dkBlue;
+			font-size: 12px; 
+			span {
+				display: block;
+				color: $grey;
+				font-size: 10px;
+			}
+		}
+		div {
+			height: 7px;
+			width: 0%;
+			display: block;
+			position: absolute;
+			top: auto;
+			left: 52%;
+			visibility: visible;
+			opacity: 1;
+			transition: width 1s ease;
+			transition-delay: .5s;
+			&:nth-child(3) {
+				bottom: 0;
+				background-color: $blueOne;
+			}
+			&:nth-child(4) {
+				bottom: 20%;
+				background-color: $dkBlue;
+			}
+		}
+	}
+}
+/* START SCROLLNAV ELEMENT */
+.scrollToNav {
+	position: fixed!important;
+	z-index: 10;
+	background-color: $blueOne;
+	@include clearfix;
+	opacity: 1;
+	transition: opacity .5s ease-out;
+	transition-delay: 1s;
+	p {
+		color: white;
+		padding-left: 2rem;
+	}
+	p, span {
+		float: left;
+		position: relative;
+		@include transY;
+	}
+	span {
+		display: block;
+		height: 15px;
+		width: 15px;
+		position: relative;
+		background: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/scrollToNav.svg') no-repeat;
+		top: 52%;
+		animation: arrowOver 1s ease infinite;
+	}
+}
+@keyframes arrowOver {
+	0% {
+		left: 20px;
+	}
+	50% {
+		left: 40px;
+	}
+	100% {
+		left: 20px;
+	} 
+}
+/* END SCROLLNAMV ELEMENT */
+/* START INTERIOR PAGE INTRO */
+.interior {
+	.measure { 
+		position: fixed;
+		@include trans;
+		width: 1px;
+		height: 1px;
+		background-color: transparent;
+		pointer-events: none;
+	}
+}
+.sectionTitle {
+	& > div {
+		position: relative;
+		display: inline-block;
+	}
+}
+.sectionIntro {
+	h1 {
+		color: $dkGrey;
+		font-size: 2.75rem;
+		padding-bottom: .5rem;
+		padding-top: 2.5rem;
+		display: block;
+		text-transform: uppercase;
+		&::before {
+			@include before;
+			display: block;
+			bottom: -7px;
+			height: 7px;
+			width: 70%;
+			background-color: $blueOne;
+		}
+	}
+}
+.whiteHeader .sectionIntro {
+	h1 {
+		color: white;
+	}
+}
+.sectionYear {
+	height: 75px;
+	width: 75px;
+	border-radius: 50%;
+	display: inline-block;
+	color: white;
+	font-size: .75rem;
+	line-height: 0;
+	font-weight: 600;
+	position: relative;
+	z-index: 1;
+	padding-top: 2.5rem;
+	text-align: center;
+	@include transX;
+	&::before {
+		@include before;
+		@include trans;
+		height: 100%;
+		width: 100%;
+		z-index: -1;
+		background-color: $blueOne;
+		border-radius: 50%;
+	}
+}
+.chapterName {
+	color: $blueOne;
+	text-align: center;
+	padding-top: .5rem;
+	text-transform: uppercase;
+}
+	/* START INTERIOR DESCRIPTION */
+.Section_Description {
+	z-index: 9;
+	h1 {
+		display: none;
+	}
+	img {
+		width: 100%;
+	}
+	p {
+		width: 60%;
+		padding-bottom: 1rem;
+		&:last-child {
+			border-bottom: 1px solid #e4e4e4;
+			margin-bottom: 1rem;
+		}
+	}
+	.date {
+		position: absolute;
+		left: -102%;
+		top: 0;
+		padding-bottom: 0;
+		width: 100%;
+		text-align: right;
+		line-height: 1;
+	}
+}
+// .descriptionTextImage {
+	/* END INTERIOR DESCRIPTION */
+/* END INTERIOR SECTION INTRO */
+/* START GENERIC VIDEO MODULE */
+.genericVideoModule {
+	iframe {
+		width: 100%;
+		height: 100%;
+		background-color: grey;
+	}
+}
+/* END GENERIC VIDEO MODULE */
+/* START IMAGE SHOWCASE ONE */
+.Image_Showcase_1 {
+	z-index: 100;
+}
+.Image_Showcase_1_Options {
+	@include clearfix;
+	.date {
+		display: block;
+		float: right;
+		width: 85%;
+		padding-bottom: 1rem;
+		margin-bottom: 1rem;
+		border-bottom: 7px solid $blueOne;
+	}
+	p:not(.date) {
+		width: 32%;
+		float: left;
+		text-align: right;
+		padding-right: 1rem;
+	}
+}
+.Image_Showcase_1_Images {
+	width: 68%;
+	float: left;
+	@include clearfix;
+	li {
+		list-style: none;
+		float: left;
+		width: calc(100%/6);
+		position: relative;
+		cursor: pointer;
+		&::before {
+			@include before;
+			@include trans;
+			left: 50%;
+			width: 60px;
+			height: 60px;
+			background: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/expandImage.svg') no-repeat;
+			transition: transform .5s ease;
+			@media (max(1280)) {
+			    width: 40px;
+			    height: 40px;				
+			}
+		}
+		&:hover {
+			&::before {
+				transform: translate(-50%, -50%)rotate(90deg);
+			}
+		}
+		img {
+			width: 100%;
+			padding: 0 5%;
+		}
+	}
+}
+@keyframes lightboxOneIn {
+	0% {
+		visibility: hidden;
+		top: 100%;
+		opacity: 0;
+	}
+	1% {
+		visibility: visible;
+	}
+	100% {
+		opacity: 1;
+		top: 0;
+	}
+}
+.Image_Showcase_1_Lightbox {
+	background-color: rgba(0, 0, 0, .9);
+	z-index: 11;
+	transition: top .5s ease-out, opacity .25s ease-out;
+	background: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/backgroundTextureGrey.jpg') no-repeat;
+	display: none;
+	img {
+		height: 80vh;
+		position: absolute;
+		@include trans;
+		top: 47%;
+		transition: transform .25s ease-out;
+		cursor: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/expandImage.svg');
+	}
+	&.zoom {
+		img {
+			transform: translate(-50%, -50%)scale(1.5);
+		}
+	}
+}
+// .Lightbox_Close {
+// 	background: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/expandImage.svg') no-repeat;
+// 	height: 60px;
+// 	width: 60px;
+// 	position: absolute;
+// 	top: 2rem;
+// 	left: 2rem;
+// 	display: inline-block;
+// 	transform: rotate(45deg);
+// 	cursor: pointer;
+// 	@media (max(1280)) {
+// 		width: 40px;
+// 		height: 40px;
+// 	}
+// }
+// .Lightbox_Nav {
+// 	    top: 6rem;
+// 	    left: 2rem;
+// 	    position: absolute;
+// }
+// .Lightbox_Next, .Lightbox_Previous {
+// 	height: 60px;
+// 	width: 60px;
+// 	display: block;
+// 	border-radius: 50%;
+// 	border: 1px solid white;
+// 	margin-bottom: 1rem;
+// 	position: relative;
+// 	@media (max(1280)) {
+// 		width: 40px;
+// 		height: 40px;
+// 	}
+// 	&::before {
+// 		@include before;
+// 		display: block;
+// 	    height: 100%;
+// 	    width: 100%;
+// 	    position: relative;
+// 	    background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/scrollToNav.svg');
+// 	    background-repeat: no-repeat;
+// 	    -webkit-background-size: 35% 35%;
+// 	    background-size: 35% 35%;
+// 	    background-position: center center;
+// 	    @include trans;
+// 	}
+// }
+// .Lightbox_Previous {
+// 	&::before {
+// 		transform: translate(-50%, -50%)rotateY(180deg);
+// 	}
+// }
+.Lightbox_Nav {
+	position: absolute;
+	bottom: 1rem;
+	right: 1rem;
+	width: 100%;
+	@include clearfix;
+	padding-bottom: 0!important;
+	div {
+		display: block;
+		float: right;
+		width: 60px;
+		height: 60px;
+		padding-bottom: 0!important;
+		margin-left: 1rem;
+		position: relative;
+		@media (max(1280)) {
+			width: 30px;
+			height: 30px;
+		}
+		&::before {
+			@include before;
+			position: absolute;
+			@include trans;
+		}
+		&:not(.Lightbox_Close) {
+			border-radius: 50%;
+			border: 1px solid white;
+		}
+	}
+	.Lightbox_Close {
+	    background: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/expandImage.svg') no-repeat;
+	    background-repeat: no-repeat;
+	    -webkit-background-size: 100% 100%;
+	    background-size: 100% 100%;
+	    background-position: center center;
+	    transform: rotate(45deg);
+	    transition: transform .5s ease;
+	    &:hover {
+			transform: rotate(135deg);
+	    }
+	}
+	.Lightbox_Previous, .Lightbox_Next {
+	    background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/scrollToNav.svg');
+	    background-repeat: no-repeat;
+	    -webkit-background-size: 35% 35%;
+	    background-size: 35% 35%;
+	    background-position: center center;
+	}
+	.Lightbox_Next {}
+}
+/* GENERIC LIGHTBOX */
+.Image_Showcase_1_Lightbox, .lightBox.bioLightBox {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    display: none;
+    &::before {
+    	@include before;
+    	@include trans;
+	    height: 100%;
+	    width: 100%;
+	    z-index: -1;
+    	background: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/backgroundTextureGrey.jpg') no-repeat;
+    }
+    &.active {
+    	display: block;
+    }
+    img {
+    	position: absolute;
+    	@include trans;
+    	height: 100%;
+    	max-height: 75vh;
+    	width: auto;
+    }
+}
+.Image_Showcase_1_Lightbox_Text, .Image_Showcase_2_Lightbox_Text  {
+	background: $dkBlue;
+	color: white;
+	position: absolute;
+	z-index: 12;
+	@include clearfix;
+	padding: 1rem;
+	padding-bottom: 6rem;
+	transition: height 1s ease-out .5s, padding .5s ease-out .5s;
+	width: 30vw;
+	right: 10%;
+	bottom: 6.25vh;
+	&::before {
+		@include before;
+		width: 100%;
+		height: 100%;
+		right: 0;
+		bottom: 0;
+		background-color: $dkBlue;
+		z-index: -1;
+	    opacity: 0;
+	    transition: height .75s ease, width .75s ease, opacity .75s ease .25s;
+		-webkit-mask: url('../img/Image_Showcase_One_Lightbox_Mask.png') no-repeat;
+		-webkit-mask-size: 1300% 100%;
+		-webkit-mask-position: 100% 100%;
+		animation: maskOut .75s steps(12) .25s forwards;
+	    -webkit-animation-fill-mode: backwards;
+	    animation-fill-mode: backwards;
+	    background-position: 0 bottom;
+	}
+	h1 {
+		float: none;
+		display: block;
+		width: 80%;
+		text-transform: uppercase;
+		font-size: 1.125rem;
+		font-weight: 600;
+	}
+	.year {
+		font-size: .9rem;
+		font-style: italic;
+		width: 20%;
+		float: right;
+		display: block;
+		text-align: right;
+	}
+	p {
+		width: 100%;
+		opacity: 0;
+		font-weight: 400;
+		transition: opacity .5s ease-out;
+	}
+	&:hover {
+		padding-bottom: 10rem;
+		transition: height 1s ease-out 0s, padding .5s ease-out 0s;
+		&::before {
+			opacity: 1;
+			width: 165%;
+			height: 165%;
+			transition: height .75s ease, width .75s ease, opacity .75s ease 0s;
+			-webkit-mask: url('../img/Image_Showcase_One_Lightbox_Mask.png') no-repeat;
+			-webkit-mask-size: 1300% 100%;
+			animation: maskIn .75s steps(12) .25s forwards;
+			-webkit-animation-fill-mode: forwards;
+			animation-fill-mode: forwards;
+			background-position: 0 bottom;
+		}
+		p {
+			opacity: 1;
+		}
+	}
+}
+/* END GENERIC LIGHTBOX */
+/* START YEAR TEXT ONE */
+.Year_Text_1 {
+	h1 {
+		position: absolute;
+		top: 1rem;
+		font-size: 1.5rem;
+		&::before {
+			@include before;
+			position: absolute;
+			height: 7px;
+			background-color: $blueOne;
+			position: absolute;
+			left: 0;
+			bottom: -10px;
+			width: 200px;
+		}
+	}
+	.date {
+		font-size: 15rem;
+		font-weight: 800;
+		letter-spacing: 0px;
+		line-height: .45;
+		position: relative;
+		color: transparentize($blueOne, .65);
+	}
+	p {
+		width: 40%;
+		margin-top: 1rem;
+	}
+}
+/* END YEAR TEXT ONE */
+/* START IMAGE SHOWCASE TWO */
+.Image_Showcase_2 {
+	h1 {
+		text-align: right;
+		padding-bottom: 1rem;
+		font-size: 2.75vw;
+	}
+	p {
+		text-align: right;
+	}
+}
+.Image_Showcase_2_Options {
+	@include clearfix;
+	width: 30%;
+	position: relative;
+	height: 100%;
+}
+.Image_Showcase_2_Text {
+	position: absolute;
+	width: 75%;
+	bottom: 10vh;
+}
+.Image_Showcase_2_Images {
+	position: absolute;
+	left: 80%;
+	width: 25%;
+	bottom: 10vh;
+	li {
+		position: relative;
+		margin: .5rem 0;
+		&:hover {
+			img {
+				box-shadow: 0 8px 3px rgba(0, 0, 0, .17);
+				transform: scale(1.05);
+			}
+		}
+	}
+	img {
+		box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+		transition: transform .25s cubic-bezier(0.44, 0.2, 0, 1.01), box-shadow .25s cubic-bezier(0.44, 0.2, 0, 1.01);
+		width: 100%;
+	}
+}
+.Image_Showcase_2_Lightbox {
+    width: 70%;
+    height: 100%;
+    max-height: 75vh;
+    position: absolute;
+    display: block;
+    left: 33%;
+    bottom: 10vh;
+	&.active {
+	}
+	img {
+		width: auto;
+		height: 100%;
+		position: absolute;
+	    left: 0;
+	    top: 0;
+	}
+}
+.Image_Showcase_2_Lightbox_Text {
+	div {
+	    position: absolute;
+	    left: 0;
+	    top: -50px;
+	    z-index: 1;
+	    color: black;
+	    background: white;
+	    max-width: 100%;
+	    width: 100%;
+	    padding: .5rem 1.5rem;
+	    h1 {
+	    	letter-spacing: 1px;
+	    	font-size: .75rem;
+	    	text-align: left;
+	    	padding-bottom: .25rem;
+	    	margin-bottom: .25rem;
+	    	border-bottom: 1px solid black;
+	    }
+	    .date {
+	    	position: absolute;
+	    	top: .5rem;
+	    	right: 1.5rem;
+	    }
+	    p {
+	    	letter-spacing: 1px;
+	    	font-size: .75rem;
+	    	text-align: left;
+	    	padding-bottom: 0;
+	    }
+	}
+}
+/* END GENERIC SHOWCASE TWO */
+/* START GENERIC VIDEO ONE */
+.genericVideoModule {
+	z-index: 3;
+}
+/* END GENERIC VIDEO ONE */
+/* TEXT BAR MODULE */
+.textBar {
+	padding: 1.5rem 0;
+	h1, p {
+		width: 80%;
+	}
+	p {
+		padding-top: .5rem;
+	}
+	.text {
+		width: 70%;
+		img {
+			display: block;
+			padding: 2rem 0;
+		}
+	}
+	div {
+		width: 100%;
+		background-color: $blueOne;
+		opacity: .25;
+		display: block;
+		position: absolute;
+		height: 1000px;
+		&:nth-of-type(1) {
+			top: -1000px;
+		}
+		&:nth-of-type(2) { 
+			margin-top: 2rem;
+		}
+	}
+}
+.textBarWhite {
+	&::before, &::after {
+		background-color: rgba(250, 250, 250, .25);
+	}
+	h1, p {
+		color: white;
+	}
+	div {
+		background-color: #fff;
+	}
+}
+/* END TEXT BAR MODULE */
+/* START IMAGE MODULES */
+.Image_Feature {
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+.Image_Feature_Text {
+	position: absolute;
+	h1 {
+		color: white;
+		padding: 3rem;
+		padding-right: 2.5rem;
+	}
+	div {
+		background-color: #fff;
+		padding: 2.5rem;
+		padding-bottom: 15vh;
+		h1 {
+			padding: 0;
+			color: $dkGrey;
+		}
+		&.noPad {
+			padding-bottom: 2.5rem;
+		}
+		img {
+			padding: 2rem 0;
+			width: 100%;
+			height: auto;
+		}
+	}
+}
+.Image_Feature_1 {
+	.Image_Feature_Text {
+		position: absolute;
+		right: 0;
+	}
+	h1 {
+		padding-left: 0;
+		width: 150%;
+		position: relative;
+		left: -50%;
+	}
+}
+.Text_Background {
+	background-color: #fff;
+}
+.Image_Feature_2 {
+	.Image_Feature_Text {
+		@include transX;
+	}
+}
+.imageModuleOne {}
+/* END IMAGE MODULES */
+/* IMAGE CAPTION ONE */
+.Image_Caption_One {
+	@include clearfix;
+	img {
+		width: 80%;
+		padding-right: 1rem;
+	}
+	.caption {
+		width: 20%;
+		position: absolute;
+		right: 0;
+		bottom: 10vh;
+	}
+	div, img {
+		float: left;
+	}
+}
+/* END IMAGE CAPTION ONE */
+/* START VIDEOMODULEONE */
+.Video_Feature_1 {
+	@include clearfix;
+	img {
+		width: 100%;
+		position: absolute;
+		top: 0;
+		pointer-events: none;
+	}
+	.Video_Feature_Text {
+		position: absolute;
+		right: 1.5rem;
+	}
+	iframe {
+		max-width: 100%;
+	}
+}
+.Video_Feature_2 {
+	@include clearfix;
+	iframe, .Video_Feature_Text {
+		float: left;
+	}
+	iframe {
+	    width: calc(100%/3*2);
+	}
+	.Video_Feature_Text {
+		padding-right: 2.5rem;
+		padding-top: 2.5rem;
+		width: calc(100%/3);
+		text-align: right;
+	}
+}
+/* END VIDEO MODULE ONE */
+/* START QUOTEONE */
+.Quote_1 {
+	img {
+		position: absolute;
+		@include trans;
+	}
+	h1:first-of-type {
+		display: none;
+	}
+	.date {
+		display: none;
+	}
+	h1 {
+		position: relative;
+	}
+	h1 span {
+		color: $blueOne;
+	}
+}
+/* END QUOTEONE */
+/* START QUOTETWO */
+.Quote_2 {
+	img {
+		width: 100%;
+		max-height: 100%;
+	}
+	.quoteText {
+		position: absolute;
+		@include trans;
+		padding: 1rem 0;
+		text-align: center;
+		p {
+			font-size: 1.5rem;
+			padding-bottom: .5rem;
+			font-weight: 800;
+		}
+		.date {
+			display: none;
+		}
+		h1{
+			display: none;
+		}
+		&::before, &::after {
+			@include before;
+			width: 33%;
+			height: 7px;
+			background-color: $blueOne;
+			@include transX;
+		}
+		&::before {
+			top: 0;
+		}
+		&::after {
+			bottom: 0;
+		}
+	}
+}
+/* END QUOTE TWO */
+/* START QUOTE THREE */
+.Quote_3 {
+	img {
+		width: 100%;
+	}
+	.quoteText {
+		position: absolute;
+		@include trans;
+		padding: 1rem 0;
+	}
+}
+/* END QUOTE THREE */
+/* START TEXTONE */
+.textOne {
+	h1 {
+		position: absolute;
+		top: 5rem;
+		&::before {
+			@include before;
+			width: 12.5vw;
+			height: 7px;
+			background-color: $blueOne;
+			left: 0;
+			bottom: 0;
+		}
+	}
+}
+/* END TEXTONE */
+/* START CUSTOM SNIPPETS */
+/* CUSTOM BIO */
+.Custom_Biography {
+	& > img {
+		width: 100%;
+		position: absolute;
+	}
+	.bioItem {
+		position: absolute;
+		div {
+			padding: 0;
+			img {
+				width: 100%;
+				transition: filter .5s ease;
+				transition: -webkit-filter .5s ease;
+			}
+			&:hover {
+				img {
+					filter: hue-rotate(155deg);
+					-webkit-filter: hue-rotate(155deg);
+				}
+			}
+		}
+	}
+}
+#TheThesis .Custom_Biography{
+	& > h1 {
+		display: none;
+	}
+	& > p {
+		display: none;
+	}
+	.bioItem.one {
+		bottom: 15vh;
+		left: 5vw;
+	}
+	.bioItem.two {
+		bottom: 10vh;
+		right: 3vw;
+		@include clearfix;
+		div {
+			float: right;
+			&:nth-child(1) {
+			}
+			&:nth-child(2) {
+				width: 100%;
+				position: absolute;
+				text-align: right;
+				@include transY;
+				top: 75%;
+				left: -70%;
+			}
+		}
+	}
+}
+.sterlingVarnerBio {
+
+}
+/* end custom Bio */

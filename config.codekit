@@ -1,0 +1,1718 @@
+{
+"CodeKitInfo": "This is a CodeKit 2.x project configuration file. It is designed to sync project settings across multiple machines. MODIFYING THE CONTENTS OF THIS FILE IS A POOR LIFE DECISION. If you do so, you will likely cause CodeKit to crash. This file is not useful unless accompanied by the project that created it in CodeKit 2. This file is not backwards-compatible with CodeKit 1.x. For more information, see: http:\/\/incident57.com\/codekit",
+"creatorBuild": "17625",
+"files": {
+	"\/img\/navigationChapterStuggleHeader.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 7743,
+		"inputAbbreviatedPath": "\/img\/navigationChapterStuggleHeader.jpg",
+		"outputAbbreviatedPath": "\/img\/navigationChapterStuggleHeader.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/navigationSectionHover.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 12325,
+		"inputAbbreviatedPath": "\/img\/navigationSectionHover.jpg",
+		"outputAbbreviatedPath": "\/img\/navigationSectionHover.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NetherlandsToTexas\/Hero.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 129179,
+		"inputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Hero.jpg",
+		"outputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Hero.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NetherlandsToTexas\/Map_Background.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 322933,
+		"inputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Map_Background.jpg",
+		"outputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Map_Background.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NetherlandsToTexas\/Map_Mask.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 389730,
+		"inputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Map_Mask.png",
+		"outputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Map_Mask.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NetherlandsToTexas\/Section_Description.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 21659,
+		"inputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Section_Description.jpg",
+		"outputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Section_Description.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NetherlandsToTexas\/Showcase_One_Image_Five_.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Showcase_One_Image_Five_.jpg",
+		"outputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Showcase_One_Image_Five_.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NetherlandsToTexas\/Showcase_One_Image_Five_Thumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3119,
+		"inputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Showcase_One_Image_Five_Thumb.jpg",
+		"outputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Showcase_One_Image_Five_Thumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NetherlandsToTexas\/Showcase_One_Image_Four_.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 54954,
+		"inputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Showcase_One_Image_Four_.jpg",
+		"outputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Showcase_One_Image_Four_.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NetherlandsToTexas\/Showcase_One_Image_Four_Thumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3170,
+		"inputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Showcase_One_Image_Four_Thumb.jpg",
+		"outputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Showcase_One_Image_Four_Thumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NetherlandsToTexas\/Showcase_One_Image_One_.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 31473,
+		"inputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Showcase_One_Image_One_.jpg",
+		"outputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Showcase_One_Image_One_.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NetherlandsToTexas\/Showcase_One_Image_One_Thumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2873,
+		"inputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Showcase_One_Image_One_Thumb.jpg",
+		"outputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Showcase_One_Image_One_Thumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NetherlandsToTexas\/Showcase_One_Image_Three_.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 64138,
+		"inputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Showcase_One_Image_Three_.jpg",
+		"outputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Showcase_One_Image_Three_.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NetherlandsToTexas\/Showcase_One_Image_Three_Thumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3193,
+		"inputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Showcase_One_Image_Three_Thumb.jpg",
+		"outputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Showcase_One_Image_Three_Thumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NetherlandsToTexas\/Showcase_One_Image_Two_.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 34466,
+		"inputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Showcase_One_Image_Two_.jpg",
+		"outputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Showcase_One_Image_Two_.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NetherlandsToTexas\/Showcase_One_Image_Two_Thumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2777,
+		"inputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Showcase_One_Image_Two_Thumb.jpg",
+		"outputAbbreviatedPath": "\/img\/NetherlandsToTexas\/Showcase_One_Image_Two_Thumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NetherlandsToTexas\/tributeToFred.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 57691,
+		"inputAbbreviatedPath": "\/img\/NetherlandsToTexas\/tributeToFred.jpg",
+		"outputAbbreviatedPath": "\/img\/NetherlandsToTexas\/tributeToFred.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NetherlandsToTexas\/tributeToFredThumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3341,
+		"inputAbbreviatedPath": "\/img\/NetherlandsToTexas\/tributeToFredThumb.jpg",
+		"outputAbbreviatedPath": "\/img\/NetherlandsToTexas\/tributeToFredThumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NewEndeavors\/Hero.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 597511,
+		"inputAbbreviatedPath": "\/img\/NewEndeavors\/Hero.jpg",
+		"outputAbbreviatedPath": "\/img\/NewEndeavors\/Hero.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NewEndeavors\/Image_Feature_1-1.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 612067,
+		"inputAbbreviatedPath": "\/img\/NewEndeavors\/Image_Feature_1-1.jpg",
+		"outputAbbreviatedPath": "\/img\/NewEndeavors\/Image_Feature_1-1.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NewEndeavors\/Image_Feature_1-2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 790269,
+		"inputAbbreviatedPath": "\/img\/NewEndeavors\/Image_Feature_1-2.jpg",
+		"outputAbbreviatedPath": "\/img\/NewEndeavors\/Image_Feature_1-2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NewEndeavors\/Image_Feature_1.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 743975,
+		"inputAbbreviatedPath": "\/img\/NewEndeavors\/Image_Feature_1.jpg",
+		"outputAbbreviatedPath": "\/img\/NewEndeavors\/Image_Feature_1.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NewEndeavors\/Image_Feature_2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 793140,
+		"inputAbbreviatedPath": "\/img\/NewEndeavors\/Image_Feature_2.jpg",
+		"outputAbbreviatedPath": "\/img\/NewEndeavors\/Image_Feature_2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NewEndeavors\/Text_Module_White-1.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4904,
+		"inputAbbreviatedPath": "\/img\/NewEndeavors\/Text_Module_White-1.png",
+		"outputAbbreviatedPath": "\/img\/NewEndeavors\/Text_Module_White-1.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/NewEndeavors\/Text_Module_White.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2337,
+		"inputAbbreviatedPath": "\/img\/NewEndeavors\/Text_Module_White.png",
+		"outputAbbreviatedPath": "\/img\/NewEndeavors\/Text_Module_White.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/SterlingVarner\/Custom_Biography_Background.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 89966,
+		"inputAbbreviatedPath": "\/img\/SterlingVarner\/Custom_Biography_Background.jpg",
+		"outputAbbreviatedPath": "\/img\/SterlingVarner\/Custom_Biography_Background.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/SterlingVarner\/Hero.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1.46706e+06,
+		"inputAbbreviatedPath": "\/img\/SterlingVarner\/Hero.jpg",
+		"outputAbbreviatedPath": "\/img\/SterlingVarner\/Hero.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/SterlingVarner\/Image_Feature_1.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 68886,
+		"inputAbbreviatedPath": "\/img\/SterlingVarner\/Image_Feature_1.jpg",
+		"outputAbbreviatedPath": "\/img\/SterlingVarner\/Image_Feature_1.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/SterlingVarner\/Section_Description.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 34660,
+		"inputAbbreviatedPath": "\/img\/SterlingVarner\/Section_Description.jpg",
+		"outputAbbreviatedPath": "\/img\/SterlingVarner\/Section_Description.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheHomecoming\/Hero.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1.77888e+06,
+		"inputAbbreviatedPath": "\/img\/TheHomecoming\/Hero.jpg",
+		"outputAbbreviatedPath": "\/img\/TheHomecoming\/Hero.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheHomecoming\/Image_Feature_1.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 173151,
+		"inputAbbreviatedPath": "\/img\/TheHomecoming\/Image_Feature_1.jpg",
+		"outputAbbreviatedPath": "\/img\/TheHomecoming\/Image_Feature_1.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheHomecoming\/Image_Feature_2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 196535,
+		"inputAbbreviatedPath": "\/img\/TheHomecoming\/Image_Feature_2.jpg",
+		"outputAbbreviatedPath": "\/img\/TheHomecoming\/Image_Feature_2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheHomecoming\/imageOne.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 174409,
+		"inputAbbreviatedPath": "\/img\/TheHomecoming\/imageOne.jpg",
+		"outputAbbreviatedPath": "\/img\/TheHomecoming\/imageOne.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheHomecoming\/imageOneThumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3065,
+		"inputAbbreviatedPath": "\/img\/TheHomecoming\/imageOneThumb.jpg",
+		"outputAbbreviatedPath": "\/img\/TheHomecoming\/imageOneThumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheHomecoming\/imageThree.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 108493,
+		"inputAbbreviatedPath": "\/img\/TheHomecoming\/imageThree.jpg",
+		"outputAbbreviatedPath": "\/img\/TheHomecoming\/imageThree.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheHomecoming\/imageThreeThumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3264,
+		"inputAbbreviatedPath": "\/img\/TheHomecoming\/imageThreeThumb.jpg",
+		"outputAbbreviatedPath": "\/img\/TheHomecoming\/imageThreeThumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheHomecoming\/imageTwo.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 40023,
+		"inputAbbreviatedPath": "\/img\/TheHomecoming\/imageTwo.jpg",
+		"outputAbbreviatedPath": "\/img\/TheHomecoming\/imageTwo.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheHomecoming\/imageTwoThumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2458,
+		"inputAbbreviatedPath": "\/img\/TheHomecoming\/imageTwoThumb.jpg",
+		"outputAbbreviatedPath": "\/img\/TheHomecoming\/imageTwoThumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheHomecoming\/Section_Description.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 40628,
+		"inputAbbreviatedPath": "\/img\/TheHomecoming\/Section_Description.jpg",
+		"outputAbbreviatedPath": "\/img\/TheHomecoming\/Section_Description.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/Custom_Biography_Background.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 411626,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/Custom_Biography_Background.png",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/Custom_Biography_Background.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/Diploma.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 96799,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/Diploma.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/Diploma.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/DiplomaThumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 8951,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/DiplomaThumb.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/DiplomaThumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/Hero.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 86963,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/Hero.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/Hero.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/Image_Feature_2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 70259,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/Image_Feature_2.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/Image_Feature_2.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/Letters.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/Letters.png",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/Letters.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/LettersThumb.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/LettersThumb.png",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/LettersThumb.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/Custom_Biography\/BioBackground.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 411626,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Custom_Biography\/BioBackground.png",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Custom_Biography\/BioBackground.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/Custom_Biography\/Diploma.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 96799,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Custom_Biography\/Diploma.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Custom_Biography\/Diploma.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/Custom_Biography\/DiplomaThumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 8951,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Custom_Biography\/DiplomaThumb.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Custom_Biography\/DiplomaThumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/Custom_Biography\/Letters.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 454284,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Custom_Biography\/Letters.png",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Custom_Biography\/Letters.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/Custom_Biography\/LettersThumb.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 41491,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Custom_Biography\/LettersThumb.png",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Custom_Biography\/LettersThumb.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/descriptionTextImage.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 21659,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/descriptionTextImage.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/descriptionTextImage.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/Hero.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 86963,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Hero.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Hero.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/HeroMobile.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 31454,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/HeroMobile.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/HeroMobile.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/Image_Feature_2\/ImageModuleTwo.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 70259,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Feature_2\/ImageModuleTwo.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Feature_2\/ImageModuleTwo.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/Image_Feature_2\/ImageModuleTwoMobile.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 50518,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Feature_2\/ImageModuleTwoMobile.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Feature_2\/ImageModuleTwoMobile.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageFive.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 31835,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageFive.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageFive.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageFiveThumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6862,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageFiveThumb.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageFiveThumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageFour.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 71321,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageFour.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageFour.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageFourThumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 7437,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageFourThumb.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageFourThumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageOne.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 58166,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageOne.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageOne.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageOneThumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2567,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageOneThumb.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageOneThumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageThree.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 66806,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageThree.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageThree.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageThreeThumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1947,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageThreeThumb.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageThreeThumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageTwo.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 53933,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageTwo.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageTwo.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageTwoThumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2095,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageTwoThumb.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/Image_Showcase_2\/ShowcaseTwoImageTwoThumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/New Folder With Items\/ImageFeatureTwo.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 4149,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/ImageFeatureTwo.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/New Folder With Items\/ImageFeatureTwo.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/Section_Description.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 21659,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/Section_Description.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/Section_Description.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/ShowcaseTwoImageFive.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 31835,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/ShowcaseTwoImageFive.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/ShowcaseTwoImageFive.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/ShowcaseTwoImageFiveThumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 6862,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/ShowcaseTwoImageFiveThumb.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/ShowcaseTwoImageFiveThumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/ShowcaseTwoImageFour.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 71321,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/ShowcaseTwoImageFour.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/ShowcaseTwoImageFour.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/ShowcaseTwoImageFourThumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/ShowcaseTwoImageFourThumb.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/ShowcaseTwoImageFourThumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/ShowcaseTwoImageOne.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/ShowcaseTwoImageOne.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/ShowcaseTwoImageOne.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/ShowcaseTwoImageOneThumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/ShowcaseTwoImageOneThumb.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/ShowcaseTwoImageOneThumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/ShowcaseTwoImageThree.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/ShowcaseTwoImageThree.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/ShowcaseTwoImageThree.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/ShowcaseTwoImageThreeThumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/ShowcaseTwoImageThreeThumb.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/ShowcaseTwoImageThreeThumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/ShowcaseTwoImageTwo.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/ShowcaseTwoImageTwo.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/ShowcaseTwoImageTwo.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/TheThesis\/ShowcaseTwoImageTwoThumb.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/img\/TheThesis\/ShowcaseTwoImageTwoThumb.jpg",
+		"outputAbbreviatedPath": "\/img\/TheThesis\/ShowcaseTwoImageTwoThumb.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/uploaded\/backgroundTextureBlack.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1.06521e+06,
+		"inputAbbreviatedPath": "\/img\/uploaded\/backgroundTextureBlack.jpg",
+		"outputAbbreviatedPath": "\/img\/uploaded\/backgroundTextureBlack.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/uploaded\/backgroundTextureGrey.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 257957,
+		"inputAbbreviatedPath": "\/img\/uploaded\/backgroundTextureGrey.jpg",
+		"outputAbbreviatedPath": "\/img\/uploaded\/backgroundTextureGrey.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/uploaded\/navBackgroundMobile.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 22487,
+		"inputAbbreviatedPath": "\/img\/uploaded\/navBackgroundMobile.jpg",
+		"outputAbbreviatedPath": "\/img\/uploaded\/navBackgroundMobile.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/uploaded\/navigationChapterStuggleHeader.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/img\/uploaded\/navigationChapterStuggleHeader.jpg",
+		"outputAbbreviatedPath": "\/img\/uploaded\/navigationChapterStuggleHeader.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/uploaded\/navigationSectionHover.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 0,
+		"inputAbbreviatedPath": "\/img\/uploaded\/navigationSectionHover.jpg",
+		"outputAbbreviatedPath": "\/img\/uploaded\/navigationSectionHover.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/img\/uploaded\/videoOverlay.png": {
+		"fileType": 32768,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 279030,
+		"inputAbbreviatedPath": "\/img\/uploaded\/videoOverlay.png",
+		"outputAbbreviatedPath": "\/img\/uploaded\/videoOverlay.png",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/includes\/landingPage.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/includes\/landingPage.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
+	"\/index.html": {
+		"fileType": 8192,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/index.html",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		}
+	},
+"hooks": [
+	],
+"lastSavedByUser": "Caleb Swank",
+"manualImportLinks": {
+	},
+"projectAttributes": {
+	"bowerAbbreviatedPath": "",
+	"displayValue": "KIITimelineCS",
+	"displayValueWasSetByUser": 0,
+	"iconImageName": "compass_darkGray"
+	},
+"projectSettings": {
+	"alwaysUseExternalServer": 0,
+	"animateCSSInjections": 1,
+	"autoApplyPSLanguageSettingsStyle": 0,
+	"autoprefixerBrowserString": "> 1%, last 2 versions, Firefox ESR, Opera 12.1",
+	"autoSyncProjectSettingsFile": 1,
+	"browserRefreshDelay": 0,
+	"coffeeAutoOutputPathEnabled": 1,
+	"coffeeAutoOutputPathFilenamePattern": "*.js",
+	"coffeeAutoOutputPathRelativePath": "",
+	"coffeeAutoOutputPathReplace1": "",
+	"coffeeAutoOutputPathReplace2": "",
+	"coffeeAutoOutputPathStyle": 0,
+	"coffeeCreateSourceMap": 0,
+	"coffeeLintFlags2": {
+		"arrow_spacing": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"camel_case_classes": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"colon_assignment_spacing": {
+			"active": 0,
+			"flagValue": 1
+			},
+		"cyclomatic_complexity": {
+			"active": 0,
+			"flagValue": 10
+			},
+		"duplicate_key": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"empty_constructor_needs_parens": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"indentation": {
+			"active": 1,
+			"flagValue": 2
+			},
+		"line_endings": {
+			"active": 0,
+			"flagValue": 0
+			},
+		"max_line_length": {
+			"active": 0,
+			"flagValue": 150
+			},
+		"missing_fat_arrows": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"newlines_after_classes": {
+			"active": 0,
+			"flagValue": 3
+			},
+		"no_backticks": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"no_debugger": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"no_empty_functions": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"no_empty_param_list": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"no_implicit_braces": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"no_implicit_parens": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"no_interpolation_in_single_quotes": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"no_plusplus": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"no_stand_alone_at": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"no_tabs": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"no_throwing_strings": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"no_trailing_semicolons": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"no_trailing_whitespace": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"no_unnecessary_double_quotes": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"no_unnecessary_fat_arrows": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"non_empty_constructor_needs_parens": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"space_operators": {
+			"active": 0,
+			"flagValue": -1
+			}
+		},
+	"coffeeMinifyOutput": 1,
+	"coffeeOutputStyle": 0,
+	"coffeeSyntaxCheckerStyle": 1,
+	"externalServerAddress": "http:\/\/localhost:8888",
+	"externalServerPreviewPathAddition": "",
+	"genericWebpageFileExtensionsString": "html, htm, shtml, shtm, xhtml, php, jsp, asp, aspx, erb, ctp",
+	"hamlAutoOutputPathEnabled": 1,
+	"hamlAutoOutputPathFilenamePattern": "*.html",
+	"hamlAutoOutputPathRelativePath": "",
+	"hamlAutoOutputPathReplace1": "",
+	"hamlAutoOutputPathReplace2": "",
+	"hamlAutoOutputPathStyle": 0,
+	"hamlEscapeHTMLCharacters": 0,
+	"hamlNoEscapeInAttributes": 0,
+	"hamlOutputFormat": 2,
+	"hamlOutputStyle": 0,
+	"hamlUseCDATA": 0,
+	"hamlUseDoubleQuotes": 0,
+	"hamlUseUnixNewlines": 0,
+	"jadeAutoOutputPathEnabled": 1,
+	"jadeAutoOutputPathFilenamePattern": "*.html",
+	"jadeAutoOutputPathRelativePath": "",
+	"jadeAutoOutputPathReplace1": "",
+	"jadeAutoOutputPathReplace2": "",
+	"jadeAutoOutputPathStyle": 0,
+	"jadeCompileDebug": 1,
+	"jadeOutputStyle": 0,
+	"javascriptAutoOutputPathEnabled": 1,
+	"javascriptAutoOutputPathFilenamePattern": "*-min.js",
+	"javascriptAutoOutputPathRelativePath": "\/min",
+	"javascriptAutoOutputPathReplace1": "",
+	"javascriptAutoOutputPathReplace2": "",
+	"javascriptAutoOutputPathStyle": 2,
+	"javascriptCreateSourceMap": 1,
+	"javascriptOutputStyle": 1,
+	"javascriptSyntaxCheckerStyle": 1,
+	"jsCheckerReservedNamesString": "",
+	"jsHintFlags2": {
+		"asi": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"bitwise": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"boss": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"browser": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"camelcase": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"couch": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"curly": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"debug": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"devel": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"dojo": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"eqeqeq": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"eqnull": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"es3": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"esnext": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"evil": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"expr": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"forin": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"freeze": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"funcscope": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"globalstrict": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"immed": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"indent": {
+			"active": 0,
+			"flagValue": 4
+			},
+		"iterator": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"jquery": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"lastsemic": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"latedef": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"laxbreak": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"laxcomma": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"loopfunc": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"maxcomplexity": {
+			"active": 0,
+			"flagValue": 10
+			},
+		"maxdepth": {
+			"active": 0,
+			"flagValue": 3
+			},
+		"maxlen": {
+			"active": 0,
+			"flagValue": 150
+			},
+		"maxparams": {
+			"active": 0,
+			"flagValue": 3
+			},
+		"maxstatements": {
+			"active": 0,
+			"flagValue": 4
+			},
+		"mootools": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"moz": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"multistr": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"newcap": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"noarg": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"node": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"noempty": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"nonbsp": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"nonew": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"nonstandard": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"notypeof": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"noyield": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"onecase": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"phantom": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"plusplus": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"proto": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"prototypejs": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"regexp": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"rhino": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"scripturl": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"shadow": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"shelljs": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"strict": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"sub": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"supernew": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"typed": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"undef": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"unused": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"withstmt": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"worker": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"wsh": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"yui": {
+			"active": 0,
+			"flagValue": -1
+			}
+		},
+	"jsLintFlags2": {
+		"ass": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"bitwise": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"browser": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"closure": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"continue": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"debug": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"devel": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"eqeq": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"evil": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"forin": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"indent": {
+			"active": 0,
+			"flagValue": 4
+			},
+		"maxlen": {
+			"active": 0,
+			"flagValue": 150
+			},
+		"newcap": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"node": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"nomen": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"plusplus": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"properties": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"regexp": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"rhino": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"sloppy": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"stupid": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"sub": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"todo": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"unparam": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"vars": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"white": {
+			"active": 0,
+			"flagValue": -1
+			}
+		},
+	"kitAutoOutputPathEnabled": 1,
+	"kitAutoOutputPathFilenamePattern": "*.html",
+	"kitAutoOutputPathRelativePath": "",
+	"kitAutoOutputPathReplace1": "",
+	"kitAutoOutputPathReplace2": "",
+	"kitAutoOutputPathStyle": 0,
+	"lessAllowInsecureImports": 0,
+	"lessAutoOutputPathEnabled": 1,
+	"lessAutoOutputPathFilenamePattern": "*.css",
+	"lessAutoOutputPathRelativePath": "..\/css",
+	"lessAutoOutputPathReplace1": "less",
+	"lessAutoOutputPathReplace2": "css",
+	"lessAutoOutputPathStyle": 2,
+	"lessCreateSourceMap": 0,
+	"lessDisableJavascript": 0,
+	"lessIeCompatibility": 1,
+	"lessOutputStyle": 0,
+	"lessRelativeURLS": 0,
+	"lessStrictImports": 0,
+	"lessStrictMath": 0,
+	"lessStrictUnits": 0,
+	"markdownAutoOutputPathEnabled": 1,
+	"markdownAutoOutputPathFilenamePattern": "*.html",
+	"markdownAutoOutputPathRelativePath": "",
+	"markdownAutoOutputPathReplace1": "",
+	"markdownAutoOutputPathReplace2": "",
+	"markdownAutoOutputPathStyle": 0,
+	"markdownEnableFootnotes": 0,
+	"markdownEnableSmartyPants": 1,
+	"markdownExpandTabs": 1,
+	"reloadFileURLs": 0,
+	"sassAutoOutputPathEnabled": 1,
+	"sassAutoOutputPathFilenamePattern": "*.css",
+	"sassAutoOutputPathRelativePath": "..\/css",
+	"sassAutoOutputPathReplace1": "sass",
+	"sassAutoOutputPathReplace2": "css",
+	"sassAutoOutputPathStyle": 2,
+	"sassCreateSourceMap": 0,
+	"sassDebugStyle": 0,
+	"sassDecimalPrecision": 5,
+	"sassOutputStyle": 0,
+	"sassUseLibsass": 0,
+	"shouldRunAutoprefixer": 0,
+	"shouldRunBless": 0,
+	"skippedItemsString": "_cache, logs, _logs, cache, \/js, .git, log, .svn, .hg",
+	"slimAutoOutputPathEnabled": 1,
+	"slimAutoOutputPathFilenamePattern": "*.html",
+	"slimAutoOutputPathRelativePath": "",
+	"slimAutoOutputPathReplace1": "",
+	"slimAutoOutputPathReplace2": "",
+	"slimAutoOutputPathStyle": 0,
+	"slimCompileOnly": 0,
+	"slimLogicless": 0,
+	"slimOutputStyle": 1,
+	"slimRailsCompatible": 0,
+	"stylusAutoOutputPathEnabled": 1,
+	"stylusAutoOutputPathFilenamePattern": "*.css",
+	"stylusAutoOutputPathRelativePath": "..\/css",
+	"stylusAutoOutputPathReplace1": "stylus",
+	"stylusAutoOutputPathReplace2": "css",
+	"stylusAutoOutputPathStyle": 2,
+	"stylusDebugStyle": 0,
+	"stylusImportCSS": 0,
+	"stylusOutputStyle": 0,
+	"stylusResolveRelativeURLS": 0,
+	"typescriptAutoOutputPathEnabled": 1,
+	"typescriptAutoOutputPathFilenamePattern": "*.js",
+	"typescriptAutoOutputPathRelativePath": "\/js",
+	"typescriptAutoOutputPathReplace1": "",
+	"typescriptAutoOutputPathReplace2": "",
+	"typescriptAutoOutputPathStyle": 2,
+	"typescriptCreateDeclarationFile": 0,
+	"typescriptCreateSourceMap": 0,
+	"typescriptMinifyOutput": 0,
+	"typescriptModuleType": 0,
+	"typescriptNoImplicitAny": 0,
+	"typescriptNoResolve": 0,
+	"typescriptRemoveComments": 0,
+	"typescriptTargetECMAVersion": 0,
+	"uglifyDefinesString": "",
+	"uglifyFlags2": {
+		"ascii-only": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"booleans": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"bracketize": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"cascade": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"comments": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"comparisons": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"compress": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"conditionals": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"dead_code": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"drop_debugger": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"eval": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"evaluate": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"hoist_funs": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"hoist_vars": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"if_return": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"indent-level": {
+			"active": 0,
+			"flagValue": 4
+			},
+		"indent-start": {
+			"active": 0,
+			"flagValue": 0
+			},
+		"inline-script": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"join_vars": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"loops": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"mangle": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"max-line-len": {
+			"active": 1,
+			"flagValue": 32000
+			},
+		"properties": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"quote-keys": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"screw-ie8": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"semicolons": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"sequences": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"sort": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"space-colon": {
+			"active": 1,
+			"flagValue": -1
+			},
+		"toplevel": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"unsafe": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"unused": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"warnings": {
+			"active": 0,
+			"flagValue": -1
+			},
+		"width": {
+			"active": 1,
+			"flagValue": 80
+			}
+		},
+	"uglifyReservedNamesString": "$",
+	"websiteRelativeRoot": ""
+	},
+"settingsFileVersion": "2"
+}
