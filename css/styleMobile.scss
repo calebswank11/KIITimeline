@@ -19,6 +19,8 @@ $min : "min-width:";
 	@return #{$min} ($pxSize)+px; 
 }
 
+$ease : cubic-bezier(0.44, 0.2, 0, 1.01);
+
 @mixin clearfix {
 	&::after {
 		clear: both;
@@ -65,6 +67,17 @@ $min : "min-width:";
 	background: linear-gradient(to bottom,  #939598 50%,#3dbbec 51%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#939598', endColorstr='#3dbbec',GradientType=0 ); /* IE6-9 */
 }
+@mixin animateGradient {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#98c6d5+0,3dbbeb+50,144a8c+100 */
+	background: #98c6d5; /* Old browsers */
+	background: -moz-linear-gradient(top,  #98c6d5 0%, #3dbbeb 50%, #144a8c 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #98c6d5 0%,#3dbbeb 50%,#144a8c 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #98c6d5 0%,#3dbbeb 50%,#144a8c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#98c6d5', endColorstr='#144a8c',GradientType=0 ); /* IE6-9 */
+}
+.largeText {
+	font-size: 30px;
+}
 $proxima : "proxima-nova", helvetica, sans-serif;
 $azo : "azo-sans-web", helvetica, sans-serif;
 body {
@@ -77,11 +90,11 @@ body {
 	width: 100%;
 	position: relative;
 	padding-bottom: 2vh;
-	margin-bottom: 5vh;
+	margin-bottom: 3.5vh;
 	overflow: hidden;
 	& > section {
 		padding: 0 2rem;
-		margin: 5rem 0;
+		margin: 2.5rem 0;
 		position: relative;
 		&:first-child {
 			margin-bottom: 0;
@@ -90,12 +103,116 @@ body {
 			margin-top: 0;
 		}
 		&:last-of-type {
-			margin-bottom: 0rem;
+			margin-bottom: 4rem;
+		}
+		&.end {
+			margin-bottom: 0;
 		}
 	}
 }
 #content {
 	height: auto;
+	&:before {
+		@include before;
+		height: 100%;
+		width: 100%;
+		position: fixed;
+		left: 50%;
+		top: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		-ms-transform: translate(-50%, -50%);
+		-o-transform: translate(-50%, -50%);
+		transform: translate(-50%, -50%);
+		@include animateGradient;
+		z-index: 25;
+		pointer-events: none;
+		-webkit-mask: url('../img/randomBackgroundAnimationTwo.png') no-repeat;
+		-webkit-mask-size: 3000% 100%;
+		-webkit-mask-position: 100% 100%;
+		animation: maskInMobile 20s steps(29) 0s infinite; 
+	    -webkit-animation-fill-mode: forwards;
+	    animation-fill-mode: forwards;
+	    background-position: left bottom;
+	    opacity: .1;
+	    transform-origin: center center;
+	}
+}
+@keyframes maskInMobile {
+	0% {
+		-webkit-mask-position: 0% 0%;
+		transform: translate(-50%, -50%)rotate(0deg)scaleX(1);
+		filter: none;
+		opacity: 0.05;
+	}
+	10% {
+		-webkit-mask-position: 100% 0%;
+		transform: translate(-50%, -50%)rotate(0deg)scaleX(1);
+		filter: none;
+		opacity: 0.05;
+	}
+	10.1%, 24% {
+		transform: translate(-50%, -50%)rotate(0deg)scaleX(-1);
+		-webkit-mask-position: 0% 0%;
+		filter: FlipH;
+		opacity: 0;
+	}
+	25% {
+		transform: translate(-50%, -50%)rotate(0deg)scaleX(-1);
+		-webkit-mask-position: 0% 0%;
+		filter: FlipH;
+		opacity: 0.05;
+	}
+	35% {
+		transform: translate(-50%, -50%)rotate(0deg)scaleX(-1);
+		-webkit-mask-position: 100% 0%;
+		filter: FlipH;
+		opacity: 0.05;
+	}
+	35.1%, 59% {
+		transform: translate(-50%, -50%)rotate(180deg)scaleX(1);
+		-webkit-mask-position: 0% 0%;
+		filter: none;
+		opacity: 0;
+	}
+	60% {
+		transform: translate(-50%, -50%)rotate(180deg)scaleX(1);
+		-webkit-mask-position: 0% 0%;
+		filter: none;
+		opacity: 0.05;
+	}
+	70% {
+		transform: translate(-50%, -50%)rotate(180deg)scaleX(1);
+		-webkit-mask-position: 100%% 0%;
+		filter: none;
+		opacity: 0.05;
+	}
+	70.1%, 79% {
+		transform: translate(-50%, -50%)rotate(180deg)scaleX(-1);
+		-webkit-mask-position: 0% 0%;
+		filter: FlipH;
+		opacity: 0;
+	}
+	80% {
+		transform: translate(-50%, -50%)rotate(180deg)scaleX(-1);
+		-webkit-mask-position: 0% 0%;
+		filter: FlipH;
+		opacity: 0.05;
+	}
+	90% {
+		transform: translate(-50%, -50%)rotate(180deg)scaleX(-1);
+		-webkit-mask-position: 100% 0%;
+		filter: FlipH;
+		opacity: 0.05;
+	}
+	90.1%, 100% {
+		transform: translate(-50%, -50%)rotate(0deg)scaleX(1);
+		-webkit-mask-position: 0% 0%;
+		filter: none;
+		opacity: 0;
+
+	}
+
+
 }
 p {
 	text-align: right;
@@ -114,217 +231,336 @@ p {
 	}
 }
 nav {
-	display: none;
-	top: 0;
-	color: white;
-	overflow: hidden;
+	opacity: 0; 
+	position: fixed;
+	width: 100vw;
 	height: 100vh;
-	position: fixed!important;
-	width: 100%;
-	a {
-		color: white;
-		text-decoration: none;
-	}
+	left: 100vw;
+	top: 0;
+	pointer-events: none; 
+	display: block;
+	z-index: 99;
+	transition: left .5s $ease;
 	&.active {
-		display: block;
-	}
-	& > ul {
-		z-index: 2;
-		&::before, &::after {
-			@include before;
-			@include trans;
-			position: fixed;
-			height: 100%;
-			width: 100%;
-		}
-		&::before {	
-			z-index: 0;
-			background-color: rgba(0, 0, 0, .95);
-		}
-		&::after {
-			z-index: 0;
-			background: url('../images/navBackgroundMobile.jpg');
-			opacity: .75;
-		}
-	}
-	ul {
-		width: 100%!important;
-		height: 100vh;
-		z-index: 1;
-		position: relative;
-		padding: 0 1.5rem;
-		li {
-			width: 100%!important;
-			ul {
-				position: absolute;
-				top: 0;
-				left: 100%;
+		opacity: 1;
+		pointer-events: initial;
+		left: 0;
+		.navigationList {
+			li {
+				left: 0;
 			}
-		}
-		a, p {
-			z-index: 2;
-			padding: 1.5rem 0;
-			width: 100%;
-			display: block;
-			width: 100%;
-			font-size: 1.5rem!important;
-			font-weight: 600;
-			text-transform: uppercase;
-			position: relative;
-			text-align: left;
+		}		
+		.navigationSocial {
+			bottom: 6.25vh;
 		}
 	}
-	li {
-		&.active {
-			ul {
-			}
-		}
+	&::before {
+		@include before;
+		width: 300%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		background-color: black;
+		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/navBackgroundMobile.jpg');
+		background-repeat: no-repeat;
+		-webkit-background-size: cover;
+		background-size: cover;
+		background-position: center center;
+		z-index: -1;
 	}
 }
 .navigationList {
-	transition: left .5s cubic-bezier(0.44, 0.2, 0, 1.01);
 	left: 0;
-	& > li > p {
-		color: white!important;
-	}
-	&.activeLevelOne {
-		left: -100%;
-	}
-	&.activeLevelTwo {
-		left: -200%;
-	}
-}
-.navigationLevel {
-	& > ul {
-		display: none;	
-	}
-	&.active {
-		& > ul {
-			display: block;
-		}
-	}
-}
-.navigationChapter {
-	& > ul {
-		display: none;
-	}
-	&.active {
-		& > ul {
-			display: block;
-		}
-	}
-}
-.breadCrumbs {
-	display: none;
-}
-.breadcrumbsMobile {
-	width: 100%!important;
-	color: $grey!important;
-	padding: 1.5rem!important;
-	z-index: 10;
-	position: relative;
-	font-size: .75rem;
-	font-weight: 100;
-	visibility: hidden;
-	text-align: left;
-	display: none;
-	&::before {
-		display: none!important;
-	}
-	&.activeLevelOne {
-		display: block;
-		visibility: visible;
-		.breadcrumbs-1 {
-			color: $grey;
-		}
-		.breadcrumbs-2 {
-			color: $grey;
-			color: $blueOne;
-		}
-		.breadcrumbs-3 {
-			color: $blueOne;
-			display: none;
-		}
-	}
-	&.activeLevelTwo {
-		display: block;
-		.breadcrumbs-1 {
-			display: none;
-		}
-		.breadcrumbs-2 {
-			color: $grey;
-		}
-		.breadcrumbs-3 {
-			display: inline-block;
-			color: $blueOne;
-		}
-	}
-	span {
-		padding-right: 0 1rem;
-	}
-}
-.navigationChapter {
-	div {
-		@include clearfix;
-		padding: 1.5rem 0;
-		border-bottom: 1px solid $dkGrey;
-	}
-	p, h2, h3 {
-		width: auto;
-		float: left;
-		padding: 0;
-		font-size: 1.5rem;
-		text-transform: uppercase;
-	}
-	p {
-		font-size: 1rem!important;
-		color: $blueOne;
-		font-weight: 100;
-		line-height: 2;
-	}
-	p:first-of-type {
-		position: relative;
-		padding: 0 10px;
-		&::before {
-			@include before;
-			@include trans;
-			width: 30px;
-			height: 30px;
-			border: 1px solid $ltGrey;
-			border-radius: 50%
-		}
-	}
-	h2, h3 {
-		padding: 0 1rem;
-	}
-}
-.navigationSection {
-	a {
-		padding: 0;
-	}
 	li {
-		@include clearfix;
-		padding: 1.5rem 0;
-		border-bottom: 1px solid $dkGrey;
-		width: 100%;
-		display: block;
+		left: 100%;
+		transition: left .5s $ease;
+		position: relative;
+		&:last-of-type {
+			padding: 0;
+			left: 0;
+			position: fixed;
+			transition: bottom .5s $ease .5s;
+		}
+		&:nth-child(1) {
+			-webkit-transition-delay: .1s;
+			-o-transition-delay: .1s;
+			transition-delay: .1s;
+		}
+		&:nth-child(2) {
+			transition-delay: .2s;
+		}
+		&:nth-child(3) {
+			transition-delay: .3s; 
+		}
+	}
+	a , p {
+		@extend .navTextExtend;
 	}
 }
 .navigationSocial {
-	width: 100%;
-	position: absolute;
-	z-index: 5;
-	bottom: 6.25vh;
+	width: 100vw;
+	height: 6.25vh;
+	bottom: 0vh;
+	left: 0;
+	@include clearfix;
 	border-top: 1px solid $blueOne;
 	a {
+		padding: 1rem;
 		width: calc(100%/3);
-		text-transform: uppercase;
-		padding: 1rem 0;
+		height: 100%;
+		border-right: 1px solid $blueOne;
 		position: relative;
+		display: block;
 		float: left;
-		font-weight: 100;
-		text-align: center;
+		&:last-of-type {
+			border-right: none;
+		}
 	}
+	svg {
+		fill: white;
+		position: absolute;
+		width: 30px;
+		height: 30px;
+		@include trans; 
+	}
+}
+.navigationList, #chapter, .sectionLevel {
+	position: fixed;
+	bottom: 0;
+	width: 100vw;
+	height: 93.75vh;
+	transition: right .5s $ease, left .5s $ease;
+	li {
+		list-style-type: none;
+	}
+}
+.navigationList, #chapter {
+	& > li {
+		padding: 1rem;
+		border-bottom: 1px solid $dkGrey;
+		font-size: 1.65rem;
+		text-transform: uppercase;
+		& > div {
+			@include clearfix;
+			* {
+				float: left;
+			}
+		}
+	}
+}
+.chapterLevel {
+	position: relative;
+}
+.chapterLevel > div {
+	position: relative;
+	padding-left: calc(30px + 1rem);
+	display: inline-block;
+	h2 {
+		@extend .navTextExtend;
+	}
+	p {
+		@include transY;
+		color: $blueOne;
+		position: absolute;
+	}
+	p:first-of-type {
+		@extend .navCircleNumberExtend;
+	}
+	p:last-of-type {
+		padding-left: 1rem;
+		display: inline-block;
+		width: 100%;
+		text-align: left;
+	}
+}
+.sectionLevel {
+	padding: 0 1rem;
+	a {
+		padding: 1rem 0;
+		padding-left: calc(30px + 1rem);
+		border-bottom: 1px solid $dkGrey;
+		font-size: 1.65rem;
+		text-transform: uppercase;
+		@include clearfix;
+		color: white;
+		display: block;
+		position: relative;
+	} 
+	p:first-of-type {
+		display: none;
+	}
+	p:last-of-type {
+		@extend .navCircleNumberExtend;
+		position: absolute;
+		@include transY;
+	}
+	h3 {
+		@extend .navTextExtend;
+	}
+}
+#chapter, .sectionLevel {
+	right: -100%;
+	li {
+		right: -100%;
+		transition: right .5s $ease;
+		&:nth-child(1) {
+			-webkit-transition-delay: .1s;
+			-o-transition-delay: .1s;
+			transition-delay: .1s;
+		}
+		&:nth-child(2) {
+		-webkit-transition-delay: .2s;
+		-o-transition-delay: .2s;
+		transition-delay: .2s;
+		}
+		&:nth-child(3) {
+		-webkit-transition-delay: .3s;
+		-o-transition-delay: .3s;
+		transition-delay: .3s;
+		}
+		&:nth-child(4) {
+		-webkit-transition-delay: .4s;
+		-o-transition-delay: .4s;
+		transition-delay: .4s;
+		}
+		&:nth-child(5) {
+		-webkit-transition-delay: .5s;
+		-o-transition-delay: .5s;
+		transition-delay: .5s;
+		}
+	}
+}
+.navTextExtend {
+	font-size: 1.65rem;
+	letter-spacing: 3px;
+	color: white;
+	text-align: left;
+}
+.navCircleNumberExtend {
+	height: 30px;
+	width: 30px;
+	border-radius: 50%;
+	border: 1px solid $ltGrey;
+	left: 0;
+	text-align: center;
+	line-height: 28px;
+}
+nav.active {
+	&.Chapters {
+		.navigationList {
+			left: -100%;
+		}
+		#chapter {
+			right: 0;
+			& > li {
+				right: 0;
+			}
+		}
+	}
+	&.Sections {
+		#chapter {
+			right: 100%;
+		}
+		.chapterLevel.active {
+			.sectionLevel {
+				right: 0;
+				& > li {
+					right: 0!important;
+					position: relative;
+				}
+			}
+		}
+	}
+}
+.breadcrumbsMobile {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 6.25vh;
+	width: 100vw;
+	@include clearfix;
+	line-height: 6.25vh;
+	padding: 0 1rem;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	span {
+		color: $grey;
+		margin: 0 1rem;
+		padding-left: 1rem;
+		float: left;
+		position: relative;
+		cursor: pointer;
+		transition: color .05s $ease, left .5s $ease, opacity .5s $ease;
+		&::before {
+			@include before;
+			background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/scrollToNavBlue.svg');
+			background-repeat: no-repeat;
+			-webkit-background-size: 100% 100%;
+			background-size: 100% 100%;
+			background-position: center center;
+			height: 10px;
+			width: 10px;
+			top: 50%;
+			left: 0;
+			-webkit-transform: rotate(180deg)translateY(-50%);
+			-ms-transform: rotate(180deg)translateY(-50%);
+			-o-transform: rotate(180deg)translateY(-50%);
+			transform: rotate(180deg)translateY(-50%); 
+			-webkit-transform-origin: 0 0;
+			-moz-transform-origin: 0 0;
+			-ms-transform-origin: 0 0;
+			-o-transform-origin: 0 0;
+			transform-origin: 0 0;
+		}
+		&:nth-child(1) {
+			color: $blueOne;
+		}
+		&:nth-child(2) {
+			opacity: 0;
+			pointer-events: none;
+		}
+		&:nth-child(3) {
+			opacity: 0;
+			pointer-events: none;
+		}
+	}
+	&.levelOne {
+		span {
+			&:nth-child(1) {
+				left: 0;
+				opacity: 1;
+				color: $grey;
+			}
+			&:nth-child(2) {
+				color: $blueOne;
+				opacity: 1;
+				pointer-events: initial;
+			}
+			&:nth-child(3) {
+				opacity: 0;
+			}
+		}
+	}
+	&.levelTwo {
+		span {
+			&:nth-child(1) {
+				left: -100%;
+				opacity: 0;
+				display: none;
+			}
+			&:nth-child(2) {
+				color: $blueOne;
+				left: 0;
+			}
+			&:nth-child(3) {
+				opacity: 1;
+				left: 0;
+			}
+		}
+	}
+}
+.back, .breadcrumbs {
+	display: none;
 }
 // end
 .miniTimeline {
@@ -332,7 +568,7 @@ nav {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	z-index: 10;
+	z-index: 100;
 	background-color: #fff;
 	height: 6.25vh;
 }
@@ -342,72 +578,247 @@ nav {
 	@include transY;
 	width: 100%;
 }
-.miniTImelineTitle {
+.miniTimelineTitle {
 	position: absolute;
 	left: .5rem;
 	@include transY;
 	h1 {
-		font-size: 1.25rem;
+		font-size: .875rem;
+		letter-spacing: 0px;
+		text-transform: uppercase;
+		@media (max(480)) {
+			text-transform: none;
+			font-size: .75rem;
+		}
+		span {
+			font-weight: 100;
+		}
 	}
 }
-.miniTImelineAction {
-	float: right;
-	& > div {
-		position: relative;
+/* START TIMELINE SOUND BARS AND ANIMATIONS */
+.miniTimelineAction {
+    @include transY;
+    position: absolute;
+    right: 0;
+    @include clearfix;
+    height: 6.25vh;
+    & > div {
+    	margin-right: 2rem;
+    	&:last-child {
+    		margin-right: 1rem;
+    	}
+    }
+}
+.miniTimelineSound {
+	// margin-right: 1rem;
+	float: left;
+	@include clearfix;
+	position: relative;
+	@include transY;
+	height: 6.25vh;
+	div, p {
 		float: left;
-		height: 6.25vh;
 	}
-}
-.miniTimelineNav {
-	width: 6.25vh;
-	background-color: $ltGrey;
-	&::before, &::after {
-		@include before;
-		height: 1px;
-		width: 50%;
-		background-color: $dkGrey;
-		@include transX;
-		transition: transform .5s cubic-bezier(0.44, 0.2, 0, 1.01) 0s, top .5s cubic-bezier(0.44, 0.2, 0, 1.01) .5s;
-	}
-	&::before {
-		top: 30%;
-	}
-	&::after {
-		top: 70%;
-	}
-	&.active {
-		p {
-			opacity: 0;
-			font-size: 0px;
-			transition: opacity .75s ease 0s, font-size .5s ease 0s;
-		}
-		&::before, &::after {
-			@include trans;
-			// transition: transform .5s ease 0s, top .5s ease .5s; 
-			transition: transform .5s ease .5s, top .5s ease 0s;
-		}
-		&::before {
-			transform: translate(-50%)rotate(45deg);
-		}
-		&::after {
-			transform: translate(-50%)rotate(-45deg);
-		}
+	div {
+		@include transY;
 	}
 	p {
-		position: absolute;
-		@include trans;
-		transition: opacity .75s ease .5s, font-size .5s ease .5s;
+		padding-right: .5rem;
 	}
-	.miniTimelineHamburger {
+}
+.miniTimelineNav, .miniTimelineSound {
+	p {
+		@include transY;
+		line-height: 1;
+		position: relative;
 		display: none;
 	}
 }
-.miniTimelineSound p {
-	display: none;
+.miniTimelineNav { 
+	position: relative;
+	display: block;
+	float: left;
+	top: 0px;
+	height: 6.25vh;
+	&::before {
+		@include before;
+		width: 1px;
+		height: 150%;
+		left: -1rem;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-30%);
+		background-color: $ltGrey;
+	}
+	&:hover {
+		cursor: pointer;
+	}
+	div, p {
+		float: right;
+	}
+	p {
+		padding-left: .5rem;
+	}
+	div {
+		width: 20px;
+		height: 18px;
+		display: block;
+		position: relative;
+		@include transY;
+		span {
+			position: absolute;
+			height: 2px;
+			width: 100%;
+			display: block;
+			background-color: rgba(0, 0, 0, .5);
+			@include trans;
+			transition: opacity .1s $ease, background-color $ease .5s;
+			&:nth-child(1) {
+				animation: hamburgerInitTopOut .5s $ease forwards;
+			}
+			&:nth-child(2) {
+				@include trans;
+			}
+			&:nth-child(3) {
+				animation: hamburgerInitBottomOut .5s $ease forwards;
+			}
+		}
+	}
+	&.active {
+		div {
+			span {
+				top: 50%;
+				&:nth-child(1) {
+					animation: hamburgerInitTop .5s $ease forwards;
+					background-color: $blueOne;
+				}
+				&:nth-child(2) {
+					opacity: 0;
+					transition-delay: .3s;
+				}
+				&:nth-child(3) {
+					background-color: $blueOne;
+					animation: hamburgerInitBottom .5s $ease forwards;
+				}
+			}
+		}
+	}
 }
-.miniTimelineSoundBars {
-	@include transY;
-	right: 1rem;
+@keyframes hamburgerInitTopOut {
+	0% {
+		top: 50%;
+		transform: translate(-50%, -50%)rotate(45deg);
+	}
+	50% {
+		top:50%;
+		transform: translate(-50%, -50%)rotate(0);
+	}
+	100% {
+		top: 0;
+		transform: translate(-50%, -50%)rotate(0);
+	}
+}
+@keyframes hamburgerInitTop {
+	0% {
+		top: 0;
+		transform: translate(-50%, -50%)rotate(0);
+	}
+	50% {
+		top:50%;
+		transform: translate(-50%, -50%)rotate(0);
+	}
+	100% {
+		top: 50%;
+		transform: translate(-50%, -50%)rotate(45deg);
+	}
+}
+@keyframes hamburgerInitBottomOut {
+	0% {
+		top: 50%;
+		transform: translate(-50%, -50%)rotate(-45deg);
+	}
+	50% {
+		top: 50%;
+		transform: translate(-50%, -50%)rotate(0);
+	}
+	100% {
+		top: 100%;
+		transform: translate(-50%, -50%)rotate(0deg);
+	}
+}
+@keyframes hamburgerInitBottom {
+	0% {
+		top: 100%;
+		transform: translate(-50%, -50%)rotate(0);
+	}
+	50% {
+		top:50%;
+		transform: translate(-50%, -50%)rotate(0);
+	}
+	100% {
+		top: 50%;
+		transform: translate(-50%, -50%)rotate(-45deg);
+	}
+}
+.miniTimelineSections {
+	position: absolute;
+	height: 6.25vh;
+	@include trans;
+	&::before {
+		@include before;
+		height: 1px;
+		width: 100%;
+		@include trans;
+		background-color: $grey;
+		z-index: -1;
+	}
+	a {
+		width: 30px;
+		height: 30px;
+		float: left;
+		position: relative;
+		border-radius: 50%;
+		@include transY;
+		margin: 0 1rem;
+		background-color: #fff;
+		border-radius: 50%;
+		@media (max(480)) {
+			width: 20px;
+			height: 20px;
+			margin: 0 0.5rem;
+		}
+		&::before, &::after {
+			@include before;
+		}
+		&::after {
+			height: 5px;
+			width: 5px;
+			position: absolute;
+			@include trans;
+			background-color: $grey;
+			border-radius: 50%;
+			transition: height .5s cubic-bezier(0.44, 0.2, 0, 1.01), width .5s cubic-bezier(0.44, 0.2, 0, 1.01), background-color .5s cubic-bezier(0.44, 0.2, 0, 1.01);
+			z-index: 1;
+		}
+		&::before {
+			height: 60%;
+			width: 60%;
+			@include trans;
+			border: 1px solid $grey;
+			border-radius: 50%;
+			transition: border-color .5s cubic-bezier(0.44, 0.2, 0, 1.01);
+		}
+		&.active {
+			&::after {
+				height: 50%;
+				width: 50%;
+				background-color: $blueOne;	
+			}
+			&::before {
+				border-color: $blueOne;
+			}
+		}
+	}
 }
 /* END NAVIGATION */
 /* START LANDING PAGE */
@@ -467,23 +878,20 @@ nav {
     background-repeat: no-repeat;
     position: relative;
 }
-.sectionInterior {
+.whiteHeader {
 	.sectionTitle {
-		.chapterName {
-			color: $dkGrey;
-		}
 		h1 {
-			color: $dkGrey;
+			color: white;
 		}
 	}
 	.scrollToNav {
-		color: $dkGrey;
+		color: white;
 	}
 }
 .sectionTitle {
 	position: absolute;
 	bottom: 10vh;
-	left: 5vh;
+	left: 2rem;
 	width: 33%;
 	@media (max(600)) {
 		width: 50%;
@@ -492,7 +900,7 @@ nav {
 
     }
     h1 {
-    	color: white;
+    	color: $dkGrey;
     	font-size: 2rem;
     }
 }
@@ -517,32 +925,45 @@ nav {
     width: 100%;
     padding: 1rem 0;
     margin-top: 1rem;
-    color: white;
-    position: relative;
+    color: $dkGrey;
     text-align: left;
     border-top: 7px solid $blueOne;
+    position: absolute;
+    bottom: 0;
+    @include transX;
+    width: calc(100% - 4rem);
     p {
     	text-align: left;
     }
 }
 	/* end */
 	/* SECTION DESCRIPTION */
-.sectionDescription {
+.Section_Description {
 	position: relative;
+	width: 100%;
+	@include clearfix;
+	padding-top: 2rem!important;
+	h1 {
+		@extend .largeText;
+	}
+	p {
+		width: 85%;
+		text-align: left;
+		float: left;
+		padding-bottom: 1rem;
+		@media (max(600)) {
+			width: 100%;
+		}
+		&:last-of-type {
+			padding-bottom: 1.5rem;
+		}
+	}
 	img {
 		position: relative;
 		width: 100%;
 		top: 0;
 		padding-top: 1.5rem;
 		border-top: 1px solid $ltGrey;
-	}
-	p {
-		float: left;
-		width: 100%;
-		padding-bottom: 1rem;
-		&:last-of-type {
-			padding-bottom: 1.5rem;
-		}
 	}
 	.date {
 		p {
@@ -552,19 +973,8 @@ nav {
 			padding-top: 1.25rem;
 		}
 	}
-}
-.descriptionDate {
-	padding: 1rem 0;
-}
-.descriptionTextImage {
-	width: 100%;
-	@include clearfix;
-	p {
-		width: 85%;
-		text-align: left;
-		@media (max(600)) {
-			width: 100%;
-		}
+	.descriptionDate {
+		padding: 1rem 0;
 	}
 }
 	/* end */
@@ -577,14 +987,10 @@ nav {
 		display: block;
 		position: absolute;
 		z-index: 1;
-		left: 0;
-		top: 0;
-		width: 100%;
-		height: 100%;
+		@include trans;
+		width: 105%;
+		height: 105%;
 		pointer-events: none;
-	    -webkit-filter: drop-shadow(0px 0px 71px rgba(0, 0, 0, .9));
-	    filter: drop-shadow(0px 0px 71px rgba(0, 0, 0, .9));
-	    display: none;
 	}
 	svg {
 		left: -150%;
@@ -600,12 +1006,12 @@ nav {
 .pointActive {
 	display: none;
 	opacity: 0;
-	transition: opacity .5s ease;
+	transition: opacity .5s $ease;
 }
 .pointActive .text {
 	transform: translateY(-100%);
 	opacity: 0;
-	transition: transform .5s ease, opacity .5s ease;
+	transition: transform .5s $ease, opacity .5s $ease;
 	-webkit-transition-delay: .5s;
 	-o-transition-delay: .5s;
 	transition-delay: .5s;
@@ -635,7 +1041,7 @@ nav {
 		visibility: hidden;
 		opacity: 0;
 		// width: 100%;
-		transition: opacity .5s ease;
+		transition: opacity .5s $ease;
 		&.active {
 			opacity: 1;
 			visibility: visible;
@@ -668,6 +1074,7 @@ nav {
 		// padding-left: 52%;
 		padding-top: 1rem;
 		text-align: left;
+		max-width: 500px;
 	}
 	li {
 		list-style: none;
@@ -704,7 +1111,7 @@ nav {
 			left: 0%;
 			visibility: visible;
 			opacity: 1;
-			transition: width 1s ease;
+			transition: width 1s $ease;
 			transition-delay: .5s;
 			&:nth-child(3) {
 				bottom: 0;
@@ -719,7 +1126,7 @@ nav {
 }
 .mapTexture {
 	pointer-events: none;
-	background: url('../images/bootstraps/NetherlandsToTexas/map/mapBackgroundMobile.jpg') no-repeat;
+	background: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/NetherlandsToTexas/mapBackgroundMobile.jpg') no-repeat;
 	-webkit-background-size: cover;
 	background-size: cover;
 	background-position: center center;
@@ -738,8 +1145,21 @@ picture {
 }
 	/* end */
 	/* VIDEO MODULE ONE */
-.videoModule {
-
+.Video_Feature_1 {
+	&::before {
+		@include before;
+		@include trans;
+		width: 100%;
+		height: 100%;
+		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/Video_One_Foreground_Mobile.png');
+		background-position: center center;
+		-webkit-background-size: cover;
+		background-size: cover;
+		background-repeat: no-repeat;
+		pointer-events: none;
+		z-index: 1;
+		opacity: .25;
+	}
 	iframe {
 		width: 100%;
 		position: relative;
@@ -748,15 +1168,79 @@ picture {
 		padding-top: 2rem;
 	}
 }
-	/* end */
-	/* IMAGE MODULE Two */
-.imageModuleTwo {
+.Video_Feature_2 {
+	padding: 0!important;
+	iframe {
+		width: 100%;
+		position: relative;
+	}
+	div {
+		padding-right: 2rem;
+		padding-top: 2rem;
+	}
+}
+.Video_Feature_Text {
 	position: relative;
+	z-index: 2;
+	h1 {
+		text-align: right;	
+	}
+	.date {
+		padding-bottom: 2rem;
+	}
+	p:last-of-type {
+		text-align: right;
+		width: 85%;
+		max-width: 500px;
+		float: right;
+		padding-bottom: 1.5rem;
+	}
+}
+	/* end */
+	/* IMAGE MODULE ONE */
+.Image_Feature_1 {
+	overflow: hidden;
+	img {
+		width: auto;
+		height: 100%;
+		position: relative;
+		@include transX;
+	}
+	.Image_Feature_Text {
+		width: 100%;
+		max-width: 450px;
+		text-align: left;
+		position: absolute;
+		@include transX;
+		bottom: 0;
+		z-index: 1;
+		@media (max(480)) {
+			max-width: 330px;
+		}
+		h1 {
+			@extend .largeText;
+			color: white;
+		}
+		div {
+			padding: 2rem;
+			padding-bottom: 6rem;
+			background-color: white;
+		}
+		p{
+			text-align: left;
+		}
+	}
+}
+	/* end */
+	/* IMAGE MODULE TWO */
+.Image_Feature_2 {
+	position: relative;
+	padding: 0rem!important;
 	img {
 		position: relative;
-		left: -2rem;
+		width: 100%;
 	}
-	.imageModuleText {
+	.Image_Module_2_text {
 		background-color: #fff;
 		position: absolute;
 		bottom: 0;
@@ -770,54 +1254,126 @@ picture {
 			padding-top: 1rem;
 		}
 	}
-}
-	/* end */
-	/* YEAR TEXT ONE */
-.yearTextOne {
-	padding: 5rem 0;
-	max-width: 600px;
-	h1 {
-		top: 20px;
-		text-transform: uppercase;
-		border-bottom: 7px solid $blueOne;
-		font-size: 1.5rem;
-		padding-bottom: 2rem;
-		margin-bottom: 1rem;
-	}
-	span {
-		font-size: 160px;
-		font-weight: 800;
-		color: $blueOne;
-		position: relative;
-		line-height: 0;	
-		top: 40px;
-		z-index: -1;
-	}
-	p {
-		text-align: left;
-	}
-}
-	/* end */
-	/* QUOTE TWO START */
-.quote {
-	img {
-		width: 110%;
-		position: relative;
-		left: -2rem;
-	}
-	.quoteText {
+	& > div {
 		position: absolute;
-		@include trans;
-		max-width: 500px;
-		@media (max(600)) {
-			width: 100%;
-			max-width: 85%;
+		right: 0;
+		bottom: 20%;
+		width: 100%;
+		max-width: 400px;
+		height: auto;
+		z-index: 1;
+		div {
+			background-color: white;
+			padding: 2rem;
+			padding-bottom: 6rem;
 		}
 	}
 }
-.quoteTwo {
+	/* end */
+	/* START YEAR TEXT ONE */
+.Year_Text_1 {
+	margin: 17vh 0 10vh!important;
+	h1 {
+		position: absolute;
+		top: 1rem;
+		font-size: 1.5rem;
+		&::before {
+			@include before;
+			position: absolute;
+			height: 7px;
+			background-color: $blueOne;
+			position: absolute;
+			left: 0;
+			bottom: -10px;
+			width: 200px;
+		}
+	}
+	.date {
+		font-size: 40vw;
+		font-weight: 800;
+		letter-spacing: 0px;
+		line-height: .45;
+		position: relative;
+		color: transparentize($blueOne, .65);
+	}
+	p {
+		width: 40%;
+		margin-top: 3rem;
+		text-align: left;
+	}
+}
+/* END YEAR TEXT ONE */
+	/* YEAR TEXT TWO */
+// .Year_Text_1 {
+// 	padding: 5rem 0;
+// 	max-width: 600px;
+// 	h1 {
+// 		top: 20px;
+// 		text-transform: uppercase;
+// 		border-bottom: 7px solid $blueOne;
+// 		font-size: 1.5rem;
+// 		padding-bottom: 2rem;
+// 		margin-bottom: 1rem;
+// 	}
+// 	span {
+// 		font-size: 160px;
+// 		font-weight: 800;
+// 		color: $blueOne;
+// 		position: relative;
+// 		line-height: 0;	
+// 		top: 40px;
+// 		z-index: -1;
+// 	}
+// 	p {
+// 		text-align: left;
+// 	}
+// }
+	/* end */
+	/* START TEXT MODULE WHITE */
+.Text_Module_White {
+	h1 {
+		@extend .largeText;
+		text-align: right;
+	}
+}
+	/* END TEXT MODULE WHITE */
+/* START QUOTEONE */
+.Quote_1 {
+	img {
+		position: absolute;
+		@include trans;
+		opacity: .5;
+	}
+	h1:first-of-type {
+		display: none;
+	}
+	.date {
+		display: none;
+	}
+	h1 {
+		position: relative;
+		z-index: 1;
+		font-size: 3.5rem;
+		text-align: center;
+		@media (max(480)) {
+			font-size: 2.75rem;
+		}
+	}
+	h1 span {
+		color: $blueOne;
+		display: block;
+	}
+}
+/* END QUOTEONE */
+.Quote_2 {
+	padding: 0!important;
 	.quoteText {
 		padding: 1rem 0;
+		position: absolute;
+		@include trans;
+		width: 100%;
+		max-width: 650px;
+		padding: 0 2rem;
 		&::before, &::after {
 			@include before;
 			width: 33%;
@@ -832,11 +1388,324 @@ picture {
 		&::after {
 			bottom: 0;
 		}
+		span {
+			color: $blueOne;
+			line-height: 1;
+			font-weight: 800;
+			font-size: 2rem;
+		}
 	}
 }
 	/* end */
+	/* START QUOTE THREE */
+.Quote_3 {
+	padding: 0!important;
+	overflow: hidden;
+	.Quote_3_Text {
+		background-color: #fff;
+		padding: 1.5rem;
+		position: absolute;
+		width: 100%;
+		@include trans;
+		max-width: 450px;
+		z-index: 1;
+		@media (max(480)) {
+			max-width: 280px;
+			p {
+				font-size: .875rem;
+				line-height: 1.2;
+			}			
+		}
+	}
+	img {
+		width: 125%;
+		position: relative;
+		@include transX;
+	}
+}
+	/* end */
+	/* START IMAGE SHOWCASEONE */
+.Image_Showcase_1 {
+	ul {
+		width: 100%;
+		@include clearfix;
+		float: right;
+		padding-top: 1.5rem;
+	}
+	li {
+		float: left;
+		width: 150px;
+		padding: 0 .5rem;
+		img {
+			width: 100%;
+		}
+	}
+}
+.Image_Showcase_1_Options {
+	@include clearfix;
+	border-right: 7px solid $blueOne;
+	padding-right: 1rem;
+	margin-top: 2rem;
+	overflow: hidden;
+	margin-bottom: 10vh;
+	@include clearfix;
+	p {
+		width: 80%;
+		float: right;
+	}
+}
+.showcaseOneDescription {
+	padding-bottom: 2rem;
+}
+.lightBox {
+    position: fixed;
+    @include transY;
+    right: -100%;
+    width: 95vw;
+    height: 90vh;
+    background-color: white;
+    z-index: 100;
+    box-shadow: 0px 0px 400px rgb(171, 171, 171);
+    transition: right .5s $ease, opacity .5s $ease;
+    opacity: 0;
+    padding: 1rem;
+    text-align: left;
+    &.active {
+    	opacity: 1;
+    	right: 0;
+    }
+    img {
+    	width: 100%;
+    	max-width: 400px;
+    	@include transX;
+    	position: relative;
+    	margin: 2rem 0;
+    }
+    div:first-of-type {
+		h1 {
+			@extend .largeText;
+		}
+		.date {
+			text-align: left;
+		}
+		padding-bottom: 1rem;
+    }
+    .description {
+    	width: 85%;
+    	max-width: 500px;
+    	text-align: left;
+    }
+}
+.Lightbox_Nav {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: $dkBlue;
+	width: 100%;
+	border-top: 1px solid $ltGrey;
+	@include clearfix;
+	padding: 1rem;
+	div {
+		width: 30px;
+		height: 30px;
+		display: block;
+		float: left;
+		margin-right: 1rem;
+		border-radius: 50%;
+		position: relative;
+		cursor: pointer;
+	}
+	.Lightbox_Close {
+		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/expandImage.svg');
+		background-position: center center;
+		-webkit-background-size: 100% 100%;
+		background-size: 100% 100%;
+		transform: rotate(45deg);
+	}
+	.Lightbox_Previous, .Lightbox_Next {
+		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/scrollToNav.svg');
+		background-position: center center;
+		-webkit-background-size: 45% 45%;
+		background-size: 45% 45%;
+		background-repeat: no-repeat;
+		border: 1px solid white;
+	}
+	.Lightbox_Previous {
+		transform: rotate(180deg);	
+	}
+}
+	/* end */
+	/* start imageShowcase */
+.Image_Showcase_2 {
+}
+.Image_Showcase_2_Options {
+	@include clearfix;
+	h1 {
+		@extend .largeText;
+	}
+}
+.Image_Showcase_2_Text {
+	width: 100%;
+	padding-left: 15%;
+	float: right;
+	h1 {
+		text-align: right;
+	}
+	img {
+		display: none;
+	}
+
+}
+.Image_Showcase_2_Images {
+	@include clearfix;
+	li {
+		float: right;
+		width: 100px;
+		padding: 1rem .5rem;
+		img {
+			width: 100%;
+		}
+	}
+}
+.Image_Showcase_2_Lightbox {
+	img {
+		max-width: 100%;
+	}
+}
+	/* end */
+/* IMAGE CAPTION ONE */
+.Image_Caption_One {
+	@include clearfix;
+	padding: 0!important;
+	img {
+		width: 100%;
+	}
+	.caption {
+		background-color: #fff;
+		padding: 2rem;
+		width: 100%;
+		max-width: 200px;
+		position: absolute;
+		right: 0;
+		bottom: 2rem;
+	}
+	div, img {
+		float: left;
+	}
+}
+/* END IMAGE CAPTION ONE */
+	/* START PREVIOUS AND NEXT SECTION */
+.nextSection, .prevSection {
+	position: relative;
+	bottom: 6.25vh;
+	height: 5vh;
+	background-color: $blueOne;
+	color: white;
+	width: 50%;
+	float: right;
+	color: white;
+}
+.nextSectionHover {
+	display: none;
+}
+.nextSection {
+	right: 0;
+	border-left: 1px solid white;
+	text-align: right;
+	padding-right: 1rem;
+	a {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		display: block;
+		color: white;
+	}
+	.number {
+		position: absolute;
+		left: 1rem;
+		@include transY;
+	}
+	.nextTitle {
+		position: absolute;
+		right: 2.5rem;
+		@include transY;
+		color: white;
+	}
+	.sideNavArrow {
+		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/scrollToNav.svg');
+		background-repeat: no-repeat;
+		-webkit-background-size: 45%;
+		background-size: 45%;
+		background-position: center center;
+		height: 30px;
+		width: 30px;
+		border-radius: 50%;
+		border: 1px solid white;
+		display: inline-block;
+		position: absolute;
+		@include transY;
+		right: -2.5rem;
+	}
+}
+.prevSection {
+	left: 0;
+	text-align: left;
+	padding-left: 1rem;
+	a {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		display: block;
+		color: white;
+	}
+	.number {
+		position: absolute;
+		right: 1rem;
+		@include transY;
+	}
+	.prevTitle {
+		position: absolute;
+		left: 2.5rem;
+		@include transY;
+		color: white;
+	}
+	.sideNavArrow {
+		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/scrollToNav.svg');
+		background-repeat: no-repeat;
+		transform: rotate(180deg);
+		-webkit-background-size: 25%;
+		background-size: 25%;
+		background-position: center center;
+		height: 30px;
+		width: 30px;
+		border-radius: 50%;
+		border: 1px solid white;
+		display: inline-block;
+		position: absolute;
+		top: 50%;
+		-webkit-transform: translateY(-50%)rotate(180deg);
+		-ms-transform: translateY(-50%)rotate(180deg);
+		-o-transform: translateY(-50%)rotate(180deg);
+		transform: translateY(-50%)rotate(180deg);
+		left: -2.5rem;
+	}
+}
+.nextSection, .prevSection {
+	&.inactive {
+		background-color: $ltGrey;
+		a {
+			display: none;
+		}
+	}
+}
+.nextSectionEnd {
+	display: none;
+}
+	/* end */
+/* end */
+// START CUSTOM BIOS
 	/* CUSTOM BIOS START */
-.customBio {
+.Custom_Biography {
 	img {
 		width: 100%;
 	}
@@ -859,7 +1728,21 @@ picture {
 		}
 	}
 	/* THE THESIS */
-	&.fredKoch {
+}
+#TheThesis {
+	.Custom_Biography {
+		.one {
+			top: 50%;
+			left: 10%;
+		}
+		.two {
+			left: 60%;
+			top: 60%;
+		}	
+	}
+}
+#CharlesdeGanahl {
+	.Custom_Biography {
 		.one {
 			top: 50%;
 			left: 10%;
@@ -871,223 +1754,3 @@ picture {
 	}
 }
 	/* end */
-	/* START IMAGE SHOWCASEONE */
-.sectionImageShowcaseOne {
-	div {
-		border-right: 7px solid $blueOne;
-		padding-right: 1rem;
-		margin-top: 2rem;
-		overflow: hidden;
-		margin-bottom: 10vh;
-		@include clearfix;
-	}
-	ul {
-		width: 100%;
-		@include clearfix;
-		float: right;
-	}
-	li {
-		float: left;
-		width: 150px;
-		padding: 0 .5rem;
-		img {
-			width: 100%;
-		}
-	}
-}
-.showcaseOneOptions {
-	@include clearfix;
-	p {
-		width: 80%;
-		float: right;
-	}
-}
-.showcaseOneDescription {
-	padding-bottom: 2rem;
-}
-.showcaseOneLightbox {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 90vh;
-    padding-top: 0;
-    background: white;
-    z-index: 10;
-    box-shadow: 1px 1px 164px rgba(0, 0, 0, .15);
-    display: none;
-}
-	/* end */
-	/* start imageShowcase */
-.sectionImageShowcaseTwo {
-}
-.showcaseTwoOptions {
-	@include clearfix;
-}
-.showcaseTwoText {
-	width: 100%;
-	padding-left: 15%;
-	float: right;
-	img {
-		display: none;
-	}
-
-}
-.showcaseTwoImages {
-	@include clearfix;
-	li {
-		float: right;
-		width: 100px;
-		padding: 1rem .5rem;
-		img {
-			width: 100%;
-		}
-	}
-}
-.showcaseTwoLightBox {
-	padding: 1rem 0;
-	img {
-		position: relative;
-		@include transX;
-		max-width: 100%;
-	}
-}
-	/* end */
-.lightBox {
-	position: fixed;
-	@include transY;
-	right: -100%;
-	height: 100vh;
-	width: 100%;
-	padding: 10vh 0;
-	padding-left: 10%;
-	background-color: rgba(0, 0, 0, .85);
-	z-index: 10;
-	transition: right .5s cubic-bezier(0.44, 0.2, 0, 1.01);
-	&::before {
-		@include before;
-		position: fixed;
-		z-index: -1;
-		background-color: white;
-		@include transY;
-		top: 50%;
-		display: block;
-		width: 90%;
-		height: 80%;
-		right: -100%;
-		transition: right .5s cubic-bezier(0.44, 0.2, 0, 1.01);
-	}
-	&.active {
-		right: 0;
-		&::before {
-			right: 0;
-		}
-	}
-    .close {
-		background: url('../images/expandImage.svg') no-repeat;
-		height: 30px;
-		width: 30px;
-		position: absolute;
-		top: 2.5%;
-		left: 2.5%;
-		display: inline-block;
-		transform: rotate(45deg);
-		cursor: pointer;
-		transition: transform .5s cubic-bezier(0.44, 0.2, 0, 1.01);
-    }
-	img {
-		width: auto;
-		height: 100%;
-		max-height: 60vh;
-		@include transX;
-		position: relative;
-	}
-}
-.lightBoxText {
-	padding: 1.5rem;
-	p {
-		text-align: left;
-		padding-top: 1rem;
-	}
-}
-.lightBoxNav {
-	position: absolute;
-	top: 2.5%;
-	right: 2.5%;
-    width: auto;
-    height: 5%;
-    .next, .previous {
-		height: 30px;
-		width: 30px;
-		display: block;
-		border: 1px solid white;
-		border-radius: 50%;
-		position: relative;
-		&::before {
-			@include before;
-			@include trans;
-			display: block;
-		    height: 15px;
-		    width: 10px;
-		    background: url('../images/scrollToNav.svg') no-repeat;
-		} 
-    }
-	.next {
-		float: right;
-		margin-left: 1.5rem;
-	}
-	.previous {
-		float: left;
-		transform: rotate(180deg);
-	}
-}
-	/* end */
-	/* IMAGE CAPTION ONE */
-.imageCaptionOne {
-	img {
-		width: 100%;
-		padding: 1rem 0;
-	}
-}
-	/* end */
-	/* START PREVIOUS AND NEXT SECTION */
-.nextSection, .previousSection {
-	position: absolute;
-	bottom: 0;
-	height: 5vh;
-	background-color: $blueOne;
-	color: white;
-	width: 50%;
-	& > span {
-		display: none;
-	}
-	p {
-		width: 100%;
-		line-height: 5vh;
-		font-weight: 100;
-	}
-	span {
-		font-weight: 800;
-		// padding-left: .5rem;
-		&:last-of-type {
-			margin-left: .5rem;
-			border-left: 1px solid white;
-			padding-left: .5rem;
-		}
-	}
-}
-.nextSection {
-	right: 0;
-	border-left: 1px solid white;
-	text-align: right;
-	padding-right: 1rem;
-}
-.previousSection {
-	left: 0;
-	text-align: left;
-	padding-left: 1rem;
-	p {
-		text-align: left;
-	}
-}
-	/* end */
-/* end */

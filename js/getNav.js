@@ -11,6 +11,9 @@ function getNav(){
         //url : 'json/sample.json',
         type: 'GET',
         success : showjson,
+        complete : function(){
+            setTimeout(loadSupplement, 500);
+        }
     });
 //***********************************ITTERATE THROUGH THE JSON FOR DATA***********************//
     function showjson (data){
@@ -30,16 +33,21 @@ function getNav(){
                         myChapterDate=Chapterx[M].ChapterDate;
 
                         // APPEND CHAPTER LEVEL AND SECTION LEVEL TO #CHAPTER NAVIGATION
-                        $('#chapter').append('<li class="chapterLevel" id="'+myChapterTitle+'"><div><p>Chapter ' + myChapterNumber + '</p><h2>'+myChapterTitle+'</h2><p>' + myChapterDate + '</p></div></li>');
+                        if($(window).width() > 768) {
+                            $('#chapter').append('<li class="chapterLevel" id="'+myChapterTitle+'"><div><p>Chapter ' + myChapterNumber + '</p><h2>'+myChapterTitle+'</h2><p>' + myChapterDate + '</p></div></li>');
+                        } else {
+                            $('#chapter').append('<li class="chapterLevel" id="'+myChapterTitle+'"><div><p>' + myChapterNumber + '</p><h2>'+myChapterTitle+'</h2><p>' + myChapterDate + '</p></div></li>');                            
+                        }
                         $('#'+myChapterTitle).append('<ul class="sectionLevel" id="navigation-'+MC+'"> </ul>');
                         var SectionX=value.Menu[MC].Sections.Sections;
 
                         for (var ss = 0; ss<SectionX.length; ss++){
                             mySectionTitle=SectionX[ss].SectionTitle;
                             mySectionNumber=SectionX[ss].SectionNumber;
-                            mySectionNumber=SectionX[ss].SectionNumber;
+                            mySectionDate=SectionX[ss].SectionDate;
                             
-                            $('#navigation-'+MC).append('<li><a href="index.html?chapter='+myChapterTitle+ '&section='+mySectionTitle+'" ><p id="navChapterTitle">'+mySectionDate + '</p><h3 id="navSectionTitle">' + mySectionTitle + '</h3><p id="navNumber">' + myChapterNumber + '.' + mySectionNumber +'</p></a></li>');
+                            // APPEND SECTION LINKS TO CHAPTERS
+                            $('#navigation-'+MC).append('<li><a href="index.html?Chapter='+myChapterTitle+ '&Section='+mySectionTitle+'" ><p id="navChapterTitle">'+mySectionDate + '</p><h3 id="navSectionTitle">' + mySectionTitle + '</h3><p id="navNumber">' + myChapterNumber + '.' + mySectionNumber +'</p></a></li>');
                         };
                     }
                 }
@@ -49,3 +57,7 @@ function getNav(){
     };
 
 };
+function loadSupplement(){
+    $.getScript('js/postLoad.js', function(){
+    });
+}

@@ -1,0 +1,182 @@
+{  
+   "request":{  
+
+   },
+   "Data":{  
+      "TotalRecords":5,
+      "Menu":[  
+         {  
+            "Chapter":{  
+               "TotalRecords":1,
+               "Chapters":[  
+                  {  
+                     "ChapterNumber":1,
+                     "ChapterTitle":"Bootstraps",
+                     "ChapterDescription":"<p>The beginnings of an engineering business start with a father&#39;s trek across the Altantic in pursuit of the American dream.</p>\r\n",
+                     "ChapterDate":"1880-1922",
+                     "ChapterHero":"testhero.jpg",
+                     "NodeID":430,
+                     "SectionUrl":"http://kochrestservice.mobility.us.com/api/Sections/Bootstraps",
+                     "ContentUrl":"http://kochrestservice.mobility.us.com/api/Contents/Bootstraps",
+                     "TotalRecords":0
+                  }
+               ]
+            },
+            "Sections":{  
+               "TotalRecords":4,
+               "Sections":[  
+                  {  
+                     "NodeParentID":430,
+                     "SectionNumber":1,
+                     "SectionTitle":"Netherlands to Texas",
+                     "SectionDate":"1890-1900",
+                     "SectionIntro":"The story of the Koch immigration and settlement in america",
+                     "SectionHero":"testhero.jpg",
+                     "NodeID":451,
+                     "TotalRecords":0
+                  },
+                  {  
+                     "NodeParentID":430,
+                     "SectionNumber":2,
+                     "SectionTitle":"The Thesis",
+                     "SectionDate":"1889-1920",
+                     "SectionIntro":"The innovation and sustainability of Fred&#39;s MIT Thesis",
+                     "SectionHero":"hero_image.jpg",
+                     "NodeID":452,
+                     "TotalRecords":0
+                  },
+                  {  
+                     "NodeParentID":430,
+                     "SectionNumber":3,
+                     "SectionTitle":"Charles de Ganahl",
+                     "SectionDate":"1920",
+                     "SectionIntro":"This is the story of how Fred met Charles de Ganahl, and recounts their relationship.",
+                     "NodeID":453,
+                     "TotalRecords":0
+                  },
+                  {  
+                     "NodeParentID":430,
+                     "SectionNumber":4,
+                     "SectionTitle":"A Business is Born",
+                     "SectionDate":"1930",
+                     "SectionIntro":"First entry into the business world for Fred Koch.",
+                     "NodeID":454,
+                     "TotalRecords":0
+                  }
+               ]
+            }
+         },
+         {  
+            "Chapter":{  
+               "TotalRecords":1,
+               "Chapters":[  
+                  {  
+                     "ChapterNumber":2,
+                     "ChapterTitle":"Struggle",
+                     "ChapterDescription":"The growing pains of new business take its toll. But when the going gets tough, the tough get going.&nbsp;",
+                     "ChapterDate":"1922-1961",
+                     "NodeID":440,
+                     "SectionUrl":"http://kochrestservice.mobility.us.com/api/Sections/Struggle",
+                     "ContentUrl":"http://kochrestservice.mobility.us.com/api/Contents/Struggle",
+                     "TotalRecords":0
+                  }
+               ]
+            },
+            "Sections":{  
+               "TotalRecords":2,
+               "Sections":[  
+                  {  
+                     "NodeParentID":440,
+                     "SectionNumber":1,
+                     "SectionTitle":"Section 1",
+                     "SectionDate":"2016",
+                     "SectionIntro":"this is section one intro",
+                     "SectionHero":"section1_hero.jpg",
+                     "NodeID":475,
+                     "TotalRecords":0
+                  },
+                  {  
+                     "NodeParentID":440,
+                     "SectionNumber":2,
+                     "SectionTitle":"Section 2",
+                     "SectionDate":"2016",
+                     "SectionIntro":"this is section2",
+                     "SectionHero":"hero.jpg",
+                     "NodeID":476,
+                     "TotalRecords":0
+                  }
+               ]
+            }
+         },
+         {  
+            "Chapter":{  
+               "TotalRecords":1,
+               "Chapters":[  
+                  {  
+                     "ChapterNumber":3,
+                     "ChapterTitle":"Quest",
+                     "ChapterDescription":"A change in leadership leads to an insatiable appetite for exploration and growth into new fields.",
+                     "ChapterDate":"1961-2000",
+                     "NodeID":441,
+                     "SectionUrl":"http://kochrestservice.mobility.us.com/api/Sections/Quest",
+                     "ContentUrl":"http://kochrestservice.mobility.us.com/api/Contents/Quest",
+                     "TotalRecords":0
+                  }
+               ]
+            },
+            "Sections":{  
+               "TotalRecords":0,
+               "Sections":[  
+
+               ]
+            }
+         },
+         {  
+            "Chapter":{  
+               "TotalRecords":1,
+               "Chapters":[  
+                  {  
+                     "ChapterNumber":4,
+                     "ChapterTitle":"Snowball",
+                     "ChapterDescription":"As momentum builds on itself, revolutionary innovations and new acquisitions become constant.",
+                     "ChapterDate":"2000-2010",
+                     "NodeID":442,
+                     "SectionUrl":"http://kochrestservice.mobility.us.com/api/Sections/Snowball",
+                     "ContentUrl":"http://kochrestservice.mobility.us.com/api/Contents/Snowball",
+                     "TotalRecords":0
+                  }
+               ]
+            },
+            "Sections":{  
+               "TotalRecords":0,
+               "Sections":[  
+
+               ]
+            }
+         },
+         {  
+            "Chapter":{  
+               "TotalRecords":1,
+               "Chapters":[  
+                  {  
+                     "ChapterNumber":5,
+                     "ChapterTitle":"Horizon",
+                     "ChapterDescription":"This is the chapter description",
+                     "ChapterDate":"2007 -",
+                     "NodeID":467,
+                     "SectionUrl":"http://kochrestservice.mobility.us.com/api/Sections/Horizon",
+                     "ContentUrl":"http://kochrestservice.mobility.us.com/api/Contents/Horizon",
+                     "TotalRecords":0
+                  }
+               ]
+            },
+            "Sections":{  
+               "TotalRecords":0,
+               "Sections":[  
+
+               ]
+            }
+         }
+      ]
+   }
+}

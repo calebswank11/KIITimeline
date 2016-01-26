@@ -610,6 +610,15 @@
   bottom: 100%; }
 
 /* END COLUMN Y POSITION */
+.largeText, .Text_Module_Black h1, .Text_Module_White h1, .Image_Feature_Text h1 {
+  font-size: 52px; }
+  @media (max-width: 1280px) {
+    .largeText, .Text_Module_Black h1, .Text_Module_White h1, .Image_Feature_Text h1 {
+      font-size: 30px; } }
+  .largeText span, .Text_Module_Black h1 span, .Text_Module_White h1 span, .Image_Feature_Text h1 span {
+    display: block;
+    line-height: 1; }
+
 /* START GENERIC STYLES */
 #content {
   width: 100vw;
@@ -627,7 +636,7 @@ body {
 .abs {
   position: absolute; }
 
-.imageHeight > img {
+.imageHeight > img, .Image_Height > img {
   width: auto !important;
   height: 100% !important;
   min-width: 100%; }
@@ -638,7 +647,8 @@ body {
 /*/////////////////////*/
 #chapter {
   visibility: hidden;
-  animation: navigationOut .5s ease-out forwards;
+  -webkit-animation: navigationOut .5s ease-out forwards;
+          animation: navigationOut .5s ease-out forwards;
   display: block;
   position: fixed;
   left: 0;
@@ -646,7 +656,9 @@ body {
   width: 100%;
   height: 100%;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
   pointer-events: none; }
   #chapter::before {
     content: '';
@@ -659,6 +671,18 @@ body {
     left: 0;
     background-color: rgba(0, 0, 0, 0.95); }
 
+@-webkit-keyframes navigationOut {
+  0% {
+    opacity: 1;
+    visibility: visible; }
+
+  99% {
+    visibility: visible; }
+
+  100% {
+    opacity: 0;
+    visibility: hidden; } }
+
 @keyframes navigationOut {
   0% {
     opacity: 1;
@@ -670,6 +694,17 @@ body {
   100% {
     opacity: 0;
     visibility: hidden; } }
+@-webkit-keyframes navigationIn {
+  0% {
+    opacity: 0;
+    visibility: hidden; }
+
+  1% {
+    visibility: visible; }
+
+  100% {
+    opacity: 1;
+    visibility: visible; } }
 @keyframes navigationIn {
   0% {
     opacity: 0;
@@ -685,38 +720,50 @@ nav {
   z-index: 100;
   visibility: hidden;
   opacity: 0;
-  transition: opacity .5s ease;
+  -webkit-transition: opacity .5s ease;
+          transition: opacity .5s ease;
   overflow: hidden;
   top: 0;
-  animation: navigationOut .5s ease-out forwards;
+  -webkit-animation: navigationOut .5s ease-out forwards;
+          animation: navigationOut .5s ease-out forwards;
   position: fixed;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
   bottom: 0;
   width: 100%; }
   nav.active {
     visibility: visible;
     opacity: 1;
     overflow: visible;
-    animation: navigationIn .5s ease-out forwards; }
+    -webkit-animation: navigationIn .5s ease-out forwards;
+            animation: navigationIn .5s ease-out forwards; }
     nav.active .navigationList {
-      transition: left 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
+      -webkit-transition: left 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+              transition: left 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
       nav.active .navigationList > li {
         opacity: 1;
         top: 0; }
         nav.active .navigationList > li:nth-child(1) {
-          transition-delay: .45s; }
+          -webkit-transition-delay: .45s;
+                  transition-delay: .45s; }
         nav.active .navigationList > li:nth-child(2) {
-          transition-delay: .35s; }
+          -webkit-transition-delay: .35s;
+                  transition-delay: .35s; }
         nav.active .navigationList > li:nth-child(3) {
-          transition-delay: .25s; }
+          -webkit-transition-delay: .25s;
+                  transition-delay: .25s; }
         nav.active .navigationList > li:nth-child(4) {
-          transition-delay: .15s; }
+          -webkit-transition-delay: .15s;
+                  transition-delay: .15s; }
         nav.active .navigationList > li:nth-child(5) {
-          transition-delay: .05s; }
+          -webkit-transition-delay: .05s;
+                  transition-delay: .05s; }
     nav.active #chapter.active {
       visibility: visible;
-      animation: navigationIn .5s ease-out forwards;
+      -webkit-animation: navigationIn .5s ease-out forwards;
+              animation: navigationIn .5s ease-out forwards;
       pointer-events: initial; }
       nav.active #chapter.active .chapterLevel > div {
         opacity: 1; }
@@ -731,12 +778,14 @@ nav {
   position: absolute;
   bottom: 6.25vh;
   right: 0;
-  box-shadow: 0px 0px 187px rgba(0, 0, 0, 0.1); }
+  -webkit-box-shadow: 0px 0px 187px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 187px rgba(0, 0, 0, 0.1); }
   .navigationList * {
     list-style: none;
     text-decoration: none; }
   .navigationList > li {
-    transition: top 0.25s cubic-bezier(0.44, 0.2, 0, 1.01), opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+    -webkit-transition: top 0.25s cubic-bezier(0.44, 0.2, 0, 1.01), opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+            transition: top 0.25s cubic-bezier(0.44, 0.2, 0, 1.01), opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
     cursor: pointer;
     top: 25px;
     opacity: 0;
@@ -771,7 +820,8 @@ nav {
       position: relative;
       padding: 1rem 0;
       fill: #cccccc;
-      transition: fill 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
+      -webkit-transition: fill 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+              transition: fill 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
       .navigationList .navigationSocial a svg:hover {
         fill: #96c6d4; }
 
@@ -779,7 +829,8 @@ nav {
   position: absolute;
   padding-right: .5rem;
   opacity: .5;
-  transition: opacity .5s ease;
+  -webkit-transition: opacity .5s ease;
+          transition: opacity .5s ease;
   width: calc(100vw/5); }
   .chapterLevel::before {
     content: '';
@@ -792,7 +843,8 @@ nav {
     z-index: 0;
     background-color: rgba(250, 250, 250, 0.1);
     opacity: 0;
-    transition: opacity .5s ease; }
+    -webkit-transition: opacity .5s ease;
+            transition: opacity .5s ease; }
   .chapterLevel:hover {
     opacity: 1; }
     .chapterLevel:hover::before {
@@ -801,7 +853,8 @@ nav {
       -webkit-filter: grayscale(0);
       filter: grayscale(0); }
       .chapterLevel:hover div p:first-child {
-        animation: navigationChapterText .5s ease-out forwards; }
+        -webkit-animation: navigationChapterText .5s ease-out forwards;
+                animation: navigationChapterText .5s ease-out forwards; }
       .chapterLevel:hover div p:last-child, .chapterLevel:hover div h2 {
         top: 0;
         opacity: 1; }
@@ -809,98 +862,138 @@ nav {
     left: 0rem;
     z-index: 5; }
     .chapterLevel:nth-child(1) > div {
-      transition-delay: 0s; }
+      -webkit-transition-delay: 0s;
+              transition-delay: 0s; }
     .chapterLevel:nth-child(1) li:nth-child(1) {
-      transition-delay: 0.25s; }
+      -webkit-transition-delay: 0.25s;
+              transition-delay: 0.25s; }
     .chapterLevel:nth-child(1) li:nth-child(2) {
-      transition-delay: 0.35s; }
+      -webkit-transition-delay: 0.35s;
+              transition-delay: 0.35s; }
     .chapterLevel:nth-child(1) li:nth-child(3) {
-      transition-delay: 0.45s; }
+      -webkit-transition-delay: 0.45s;
+              transition-delay: 0.45s; }
     .chapterLevel:nth-child(1) li:nth-child(4) {
-      transition-delay: 0.55s; }
+      -webkit-transition-delay: 0.55s;
+              transition-delay: 0.55s; }
     .chapterLevel:nth-child(1) li:nth-child(5) {
-      transition-delay: 0.65s; }
+      -webkit-transition-delay: 0.65s;
+              transition-delay: 0.65s; }
     .chapterLevel:nth-child(1) li:nth-child(6) {
-      transition-delay: 0.75s; }
+      -webkit-transition-delay: 0.75s;
+              transition-delay: 0.75s; }
     .chapterLevel:nth-child(1) li:nth-child(7) {
-      transition-delay: 0.85s; }
+      -webkit-transition-delay: 0.85s;
+              transition-delay: 0.85s; }
   .chapterLevel:nth-child(2) {
     left: calc(20vw);
     z-index: 4; }
     .chapterLevel:nth-child(2) > div {
-      transition-delay: 0.1s; }
+      -webkit-transition-delay: 0.1s;
+              transition-delay: 0.1s; }
     .chapterLevel:nth-child(2) li:nth-child(1) {
-      transition-delay: 0.45s; }
+      -webkit-transition-delay: 0.45s;
+              transition-delay: 0.45s; }
     .chapterLevel:nth-child(2) li:nth-child(2) {
-      transition-delay: 0.55s; }
+      -webkit-transition-delay: 0.55s;
+              transition-delay: 0.55s; }
     .chapterLevel:nth-child(2) li:nth-child(3) {
-      transition-delay: 0.65s; }
+      -webkit-transition-delay: 0.65s;
+              transition-delay: 0.65s; }
     .chapterLevel:nth-child(2) li:nth-child(4) {
-      transition-delay: 0.75s; }
+      -webkit-transition-delay: 0.75s;
+              transition-delay: 0.75s; }
     .chapterLevel:nth-child(2) li:nth-child(5) {
-      transition-delay: 0.85s; }
+      -webkit-transition-delay: 0.85s;
+              transition-delay: 0.85s; }
     .chapterLevel:nth-child(2) li:nth-child(6) {
-      transition-delay: 0.95s; }
+      -webkit-transition-delay: 0.95s;
+              transition-delay: 0.95s; }
     .chapterLevel:nth-child(2) li:nth-child(7) {
-      transition-delay: 1.05s; }
+      -webkit-transition-delay: 1.05s;
+              transition-delay: 1.05s; }
   .chapterLevel:nth-child(3) {
     left: calc(40vw);
     z-index: 3; }
     .chapterLevel:nth-child(3) > div {
-      transition-delay: 0.2s; }
+      -webkit-transition-delay: 0.2s;
+              transition-delay: 0.2s; }
     .chapterLevel:nth-child(3) li:nth-child(1) {
-      transition-delay: 0.65s; }
+      -webkit-transition-delay: 0.65s;
+              transition-delay: 0.65s; }
     .chapterLevel:nth-child(3) li:nth-child(2) {
-      transition-delay: 0.75s; }
+      -webkit-transition-delay: 0.75s;
+              transition-delay: 0.75s; }
     .chapterLevel:nth-child(3) li:nth-child(3) {
-      transition-delay: 0.85s; }
+      -webkit-transition-delay: 0.85s;
+              transition-delay: 0.85s; }
     .chapterLevel:nth-child(3) li:nth-child(4) {
-      transition-delay: 0.95s; }
+      -webkit-transition-delay: 0.95s;
+              transition-delay: 0.95s; }
     .chapterLevel:nth-child(3) li:nth-child(5) {
-      transition-delay: 1.05s; }
+      -webkit-transition-delay: 1.05s;
+              transition-delay: 1.05s; }
     .chapterLevel:nth-child(3) li:nth-child(6) {
-      transition-delay: 1.15s; }
+      -webkit-transition-delay: 1.15s;
+              transition-delay: 1.15s; }
     .chapterLevel:nth-child(3) li:nth-child(7) {
-      transition-delay: 1.25s; }
+      -webkit-transition-delay: 1.25s;
+              transition-delay: 1.25s; }
   .chapterLevel:nth-child(4) {
     left: calc(60vw);
     z-index: 2; }
     .chapterLevel:nth-child(4) > div {
-      transition-delay: 0.3s; }
+      -webkit-transition-delay: 0.3s;
+              transition-delay: 0.3s; }
     .chapterLevel:nth-child(4) li:nth-child(1) {
-      transition-delay: 0.85s; }
+      -webkit-transition-delay: 0.85s;
+              transition-delay: 0.85s; }
     .chapterLevel:nth-child(4) li:nth-child(2) {
-      transition-delay: 0.95s; }
+      -webkit-transition-delay: 0.95s;
+              transition-delay: 0.95s; }
     .chapterLevel:nth-child(4) li:nth-child(3) {
-      transition-delay: 1.05s; }
+      -webkit-transition-delay: 1.05s;
+              transition-delay: 1.05s; }
     .chapterLevel:nth-child(4) li:nth-child(4) {
-      transition-delay: 1.15s; }
+      -webkit-transition-delay: 1.15s;
+              transition-delay: 1.15s; }
     .chapterLevel:nth-child(4) li:nth-child(5) {
-      transition-delay: 1.25s; }
+      -webkit-transition-delay: 1.25s;
+              transition-delay: 1.25s; }
     .chapterLevel:nth-child(4) li:nth-child(6) {
-      transition-delay: 1.35s; }
+      -webkit-transition-delay: 1.35s;
+              transition-delay: 1.35s; }
     .chapterLevel:nth-child(4) li:nth-child(7) {
-      transition-delay: 1.45s; }
+      -webkit-transition-delay: 1.45s;
+              transition-delay: 1.45s; }
   .chapterLevel:nth-child(5) {
     left: calc(80vw);
     z-index: 1;
     /* ADDED ADDITIONAL .5REM TO EACH TO COMPENSATE FOR MARGIN RIGHT ON EACH ELEMENT */ }
     .chapterLevel:nth-child(5) > div {
-      transition-delay: 0.4s; }
+      -webkit-transition-delay: 0.4s;
+              transition-delay: 0.4s; }
     .chapterLevel:nth-child(5) li:nth-child(1) {
-      transition-delay: 1.05s; }
+      -webkit-transition-delay: 1.05s;
+              transition-delay: 1.05s; }
     .chapterLevel:nth-child(5) li:nth-child(2) {
-      transition-delay: 1.15s; }
+      -webkit-transition-delay: 1.15s;
+              transition-delay: 1.15s; }
     .chapterLevel:nth-child(5) li:nth-child(3) {
-      transition-delay: 1.25s; }
+      -webkit-transition-delay: 1.25s;
+              transition-delay: 1.25s; }
     .chapterLevel:nth-child(5) li:nth-child(4) {
-      transition-delay: 1.35s; }
+      -webkit-transition-delay: 1.35s;
+              transition-delay: 1.35s; }
     .chapterLevel:nth-child(5) li:nth-child(5) {
-      transition-delay: 1.45s; }
+      -webkit-transition-delay: 1.45s;
+              transition-delay: 1.45s; }
     .chapterLevel:nth-child(5) li:nth-child(6) {
-      transition-delay: 1.55s; }
+      -webkit-transition-delay: 1.55s;
+              transition-delay: 1.55s; }
     .chapterLevel:nth-child(5) li:nth-child(7) {
-      transition-delay: 1.65s; }
+      -webkit-transition-delay: 1.65s;
+              transition-delay: 1.65s; }
   .chapterLevel > div {
     background-color: #fff;
     text-transform: uppercase;
@@ -908,7 +1001,8 @@ nav {
     padding: 5rem 0 3rem;
     letter-spacing: 2px;
     opacity: 0;
-    transition: opacity 1s cubic-bezier(0.44, 0.2, 0, 1.01), filter 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+    -webkit-transition: opacity 1s cubic-bezier(0.44, 0.2, 0, 1.01), -webkit-filter 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+            transition: opacity 1s cubic-bezier(0.44, 0.2, 0, 1.01), filter 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
     background: url("../img/navigationChapterStuggleHeader.jpg");
     -webkit-background-size: cover;
     background-size: cover;
@@ -923,7 +1017,8 @@ nav {
       position: relative;
       opacity: 0;
       top: 50px;
-      transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), top 0.25s cubic-bezier(0.44, 0.2, 0, 1.01); }
+      -webkit-transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), top 0.25s cubic-bezier(0.44, 0.2, 0, 1.01);
+              transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), top 0.25s cubic-bezier(0.44, 0.2, 0, 1.01); }
     .chapterLevel > div p:first-child {
       padding-bottom: .25rem;
       display: inline-block;
@@ -941,6 +1036,41 @@ nav {
       font-size: 2rem;
       font-weight: 600;
       letter-spacing: 3px; }
+
+@-webkit-keyframes navigationChapterText {
+  0% {
+    bottom: 1rem;
+    right: 1rem;
+    opacity: 1; }
+
+  25% {
+    bottom: 1rem;
+    right: 1rem;
+    opacity: 0; }
+
+  26% {
+    opacity: 0;
+    bottom: 1rem;
+    right: 1rem; }
+
+  50% {
+    bottom: auto;
+    top: -2rem;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    right: auto; }
+
+  51% {
+    opacity: 1; }
+
+  100% {
+    top: 3rem;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    right: auto;
+    opacity: 1; } }
 
 @keyframes navigationChapterText {
   0% {
@@ -962,7 +1092,8 @@ nav {
     bottom: auto;
     top: -2rem;
     left: 50%;
-    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
     right: auto; }
 
   51% {
@@ -971,15 +1102,28 @@ nav {
   100% {
     top: 3rem;
     left: 50%;
-    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
     right: auto;
     opacity: 1; } }
+@-webkit-keyframes navigationSectionPadding {
+  0% {
+    padding: 3rem .5rem 1rem; }
+
+  100% {
+    padding: 2rem .5rem 2rem; } }
 @keyframes navigationSectionPadding {
   0% {
     padding: 3rem .5rem 1rem; }
 
   100% {
     padding: 2rem .5rem 2rem; } }
+@-webkit-keyframes navigationSectionPaddingOut {
+  0% {
+    padding: 2rem .5rem 2rem; }
+
+  100% {
+    padding: 3rem .5rem 1rem; } }
 @keyframes navigationSectionPaddingOut {
   0% {
     padding: 2rem .5rem 2rem; }
@@ -987,12 +1131,24 @@ nav {
   100% {
     padding: 3rem .5rem 1rem; } }
 @media (max-width: 1024px) {
+  @-webkit-keyframes navigationSectionPadding {
+    0% {
+      padding: 1rem .5rem 2rem; }
+
+    100% {
+      padding: 1.5rem .5rem 1.5rem; } }
   @keyframes navigationSectionPadding {
     0% {
       padding: 1rem .5rem 2rem; }
 
     100% {
       padding: 1.5rem .5rem 1.5rem; } }
+  @-webkit-keyframes navigationSectionPaddingOut {
+    0% {
+      padding: 1.5rem .5rem 1.5rem; }
+
+    100% {
+      padding: 1rem .5rem 2rem; } }
   @keyframes navigationSectionPaddingOut {
     0% {
       padding: 1.5rem .5rem 1.5rem; }
@@ -1002,13 +1158,15 @@ nav {
 .sectionLevel li {
   top: 50px;
   opacity: 0;
-  transition: top 0.25s cubic-bezier(0.44, 0.2, 0, 1.01), opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+  -webkit-transition: top 0.25s cubic-bezier(0.44, 0.2, 0, 1.01), opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+          transition: top 0.25s cubic-bezier(0.44, 0.2, 0, 1.01), opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
   cursor: pointer;
   position: relative;
   border-bottom: 2px solid #96c6d4;
   overflow: hidden; }
   .sectionLevel li a {
-    animation: navigationSectionPaddingOut 0.5s cubic-bezier(0.44, 0.2, 0, 1.01) forwards; }
+    -webkit-animation: navigationSectionPaddingOut 0.5s cubic-bezier(0.44, 0.2, 0, 1.01) forwards;
+            animation: navigationSectionPaddingOut 0.5s cubic-bezier(0.44, 0.2, 0, 1.01) forwards; }
   .sectionLevel li::before {
     content: '';
     display: block;
@@ -1017,15 +1175,19 @@ nav {
     width: 100%;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     z-index: -1;
     background: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/navigationSectionHover.jpg");
     -webkit-background-size: cover;
     background-size: cover;
     opacity: 0;
-    transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
+    -webkit-transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+            transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
   .sectionLevel li:hover a {
-    animation: navigationSectionPadding 0.5s cubic-bezier(0.44, 0.2, 0, 1.01) forwards; }
+    -webkit-animation: navigationSectionPadding 0.5s cubic-bezier(0.44, 0.2, 0, 1.01) forwards;
+            animation: navigationSectionPadding 0.5s cubic-bezier(0.44, 0.2, 0, 1.01) forwards; }
   .sectionLevel li:hover::before {
     opacity: 1; }
   .sectionLevel li:hover p, .sectionLevel li:hover h3 {
@@ -1034,7 +1196,8 @@ nav {
   display: block;
   color: white; }
 .sectionLevel p, .sectionLevel h3 {
-  transition: color 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
+  -webkit-transition: color 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+          transition: color 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
 .sectionLevel p {
   font-size: 14px;
   color: #96c6d4; }
@@ -1103,14 +1266,15 @@ nav {
     background-color: black;
     z-index: -1;
     opacity: 0;
-    transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
+    -webkit-transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+            transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
   .landingPageSlideText::before {
     height: 50vh;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&1+0,0+100 */
-    background: -moz-linear-gradient(top, black 0%, transparent 100%);
     /* FF3.6-15 */
     background: -webkit-linear-gradient(top, black 0%, transparent 100%);
     /* Chrome10-25,Safari5.1-6 */
+    background: -webkit-gradient(linear, left top, left bottom, from(black), to(transparent));
     background: linear-gradient(to bottom, black 0%, transparent 100%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#00000000',GradientType=0 );
@@ -1118,10 +1282,10 @@ nav {
   .landingPageSlideText::after {
     height: 150vh;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,1+100 */
-    background: -moz-radial-gradient(center, ellipse cover, transparent 0%, black 100%);
     /* FF3.6-15 */
     background: -webkit-radial-gradient(center, ellipse cover, transparent 0%, black 100%);
     /* Chrome10-25,Safari5.1-6 */
+    background: -webkit-radial-gradient(center, ellipse, transparent 0%, black 100%);
     background: radial-gradient(ellipse at center, transparent 0%, black 100%);
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#000000',GradientType=1 );
@@ -1133,7 +1297,9 @@ nav {
   .landingPageSlideText.active .landingPageSlideTextWrapper {
     padding-top: 14vh; }
     .landingPageSlideText.active .landingPageSlideTextWrapper::before, .landingPageSlideText.active .landingPageSlideTextWrapper::after {
-      transform: translate(-50%, -50%) rotate(0deg); }
+      -webkit-transform: translate(-50%, -50%) rotate(0deg);
+          -ms-transform: translate(-50%, -50%) rotate(0deg);
+              transform: translate(-50%, -50%) rotate(0deg); }
     .landingPageSlideText.active .landingPageSlideTextWrapper span {
       color: #333740; }
     .landingPageSlideText.active .landingPageSlideTextWrapper h1 {
@@ -1147,7 +1313,8 @@ nav {
     .landingPageSlideText.active .landingPageSlideTextWrapper button {
       top: 0;
       opacity: 1;
-      transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01) 0.25s, top 0.5s cubic-bezier(0.44, 0.2, 0, 1.01) 0.25s;
+      -webkit-transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01) 0.25s, top 0.5s cubic-bezier(0.44, 0.2, 0, 1.01) 0.25s;
+              transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01) 0.25s, top 0.5s cubic-bezier(0.44, 0.2, 0, 1.01) 0.25s;
       pointer-events: none; }
     .landingPageSlideText.active .landingPageSlideTextWrapper ul {
       opacity: 1;
@@ -1168,7 +1335,8 @@ nav {
   position: absolute;
   padding-top: 10vh;
   width: 100%;
-  transition: padding 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
+  -webkit-transition: padding 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+          transition: padding 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
   .landingPageSlideTextWrapper::before, .landingPageSlideTextWrapper::after {
     content: '';
     display: block;
@@ -1177,13 +1345,20 @@ nav {
     height: 1px;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
-    transition: transform 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+            transition: transform 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
     background-color: rgba(204, 204, 204, 0.5); }
   .landingPageSlideTextWrapper::before {
-    transform: translate(-50%, -50%) rotate(45deg); }
+    -webkit-transform: translate(-50%, -50%) rotate(45deg);
+        -ms-transform: translate(-50%, -50%) rotate(45deg);
+            transform: translate(-50%, -50%) rotate(45deg); }
   .landingPageSlideTextWrapper::after {
-    transform: translate(-50%, -50%) rotate(-45deg); }
+    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+        -ms-transform: translate(-50%, -50%) rotate(-45deg);
+            transform: translate(-50%, -50%) rotate(-45deg); }
   .landingPageSlideTextWrapper span {
     display: block;
     width: 100%;
@@ -1193,7 +1368,8 @@ nav {
     padding-bottom: .5rem;
     color: #cccccc;
     position: relative;
-    transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), color 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
+    -webkit-transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), color 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+            transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), color 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
     .landingPageSlideTextWrapper span::before {
       content: '';
       display: block;
@@ -1203,9 +1379,12 @@ nav {
       width: 0%;
       display: block;
       left: 50%;
-      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+              transform: translateX(-50%);
       bottom: 0;
-      transition: width 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+      -webkit-transition: width 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+              transition: width 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
       display: none; }
   .landingPageSlideTextWrapper h1 {
     text-align: center;
@@ -1219,7 +1398,8 @@ nav {
     text-align: center;
     width: 100%;
     opacity: 1;
-    transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), color 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
+    -webkit-transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), color 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+            transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), color 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
   .landingPageSlideTextWrapper p {
     opacity: 0;
     visibility: hidden;
@@ -1230,7 +1410,8 @@ nav {
     width: 100%;
     max-width: 80%;
     margin: 0 auto;
-    transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), top 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+    -webkit-transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), top 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+            transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), top 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
     position: relative;
     top: 25px; }
   .landingPageSlideTextWrapper button {
@@ -1242,13 +1423,16 @@ nav {
     text-align: center;
     position: relative;
     left: 50%;
-    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
     background-color: #fff;
     font-size: .75rem;
     opacity: 0;
     top: 25px;
     cursor: pointer;
-    transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01) 0s, top 0.5s cubic-bezier(0.44, 0.2, 0, 1.01) 0s; }
+    -webkit-transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01) 0s, top 0.5s cubic-bezier(0.44, 0.2, 0, 1.01) 0s;
+            transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01) 0s, top 0.5s cubic-bezier(0.44, 0.2, 0, 1.01) 0s; }
 
 /* LANDING PAGE SLIDE NAVIGATION CSS */
 /* ACTIVE CLASS FOR THIS IS STYLED ON LINE 88 of the SCSS*/
@@ -1256,12 +1440,15 @@ nav {
   position: relative;
   width: auto;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
   display: inline-block;
   padding-bottom: 2em;
   visibility: hidden;
   opacity: 0;
-  transition: opacity .5s ease; }
+  -webkit-transition: opacity .5s ease;
+          transition: opacity .5s ease; }
   .landingPageSlideNav::after {
     clear: both;
     display: table;
@@ -1274,21 +1461,28 @@ nav {
     border-radius: 50%;
     margin-right: .75em;
     position: relative;
-    transition: border-color .5s ease, top ease .25s;
+    -webkit-transition: border-color .5s ease, top ease .25s;
+            transition: border-color .5s ease, top ease .25s;
     cursor: pointer;
     top: 20px; }
     .landingPageSlideNav div:nth-child(1) {
-      transition-delay: 0; }
+      -webkit-transition-delay: 0;
+              transition-delay: 0; }
     .landingPageSlideNav div:nth-child(2) {
-      transition-delay: .1s; }
+      -webkit-transition-delay: .1s;
+              transition-delay: .1s; }
     .landingPageSlideNav div:nth-child(3) {
-      transition-delay: .15s; }
+      -webkit-transition-delay: .15s;
+              transition-delay: .15s; }
     .landingPageSlideNav div:nth-child(4) {
-      transition-delay: .2s; }
+      -webkit-transition-delay: .2s;
+              transition-delay: .2s; }
     .landingPageSlideNav div:nth-child(5) {
-      transition-delay: .25s; }
+      -webkit-transition-delay: .25s;
+              transition-delay: .25s; }
     .landingPageSlideNav div:nth-child(6) {
-      transition-delay: .3s; }
+      -webkit-transition-delay: .3s;
+              transition-delay: .3s; }
     .landingPageSlideNav div:last-child {
       margin-right: 0; }
     .landingPageSlideNav div::before, .landingPageSlideNav div::after {
@@ -1303,9 +1497,12 @@ nav {
       position: absolute;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
       background-color: white;
-      transition: background .5s ease; }
+      -webkit-transition: background .5s ease;
+              transition: background .5s ease; }
     .landingPageSlideNav div::after {
       width: 25px;
       height: 25px;
@@ -1314,9 +1511,12 @@ nav {
       position: absolute;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
       border: 2px solid white;
-      transition: border-color .5s ease; }
+      -webkit-transition: border-color .5s ease;
+              transition: border-color .5s ease; }
 
 /* END LANDING PAGE TEXT CSS */
 /* START LANDING PAGE BACKGROUND IMAGES CSS */
@@ -1337,12 +1537,25 @@ nav {
     display: table;
     content: ''; }
 
+@-webkit-keyframes maskIn {
+  from {
+    -webkit-mask-position: 0% 0%; }
+
+  to {
+    -webkit-mask-position: 100% 0%; } }
+
 @keyframes maskIn {
   from {
     -webkit-mask-position: 0% 0%; }
 
   to {
     -webkit-mask-position: 100% 0%; } }
+@-webkit-keyframes maskOut {
+  from {
+    -webkit-mask-position: 100% 0%; }
+
+  to {
+    -webkit-mask-position: 0% 0%; } }
 @keyframes maskOut {
   from {
     -webkit-mask-position: 100% 0%; }
@@ -1358,7 +1571,8 @@ nav {
   -webkit-mask: url("../img/landingPage/maskOne.png") no-repeat;
   -webkit-mask-size: 1800% 100%;
   -webkit-mask-position: 100% 100%;
-  animation: maskOut 0.75s steps(17) 0s forwards;
+  -webkit-animation: maskOut 0.75s steps(17) 0s forwards;
+          animation: maskOut 0.75s steps(17) 0s forwards;
   -webkit-animation-fill-mode: backwards;
   animation-fill-mode: backwards;
   background-position: 0 bottom; }
@@ -1369,11 +1583,13 @@ nav {
     bottom: 0;
     width: 100%;
     height: 100%;
-    transition: opacity .5s ease; }
+    -webkit-transition: opacity .5s ease;
+            transition: opacity .5s ease; }
   .landingPageImages.active {
     -webkit-mask: url("../img/landingPage/maskOne.png") no-repeat;
     -webkit-mask-size: 1800% 100%;
-    animation: maskIn 0.75s steps(17) 0s forwards;
+    -webkit-animation: maskIn 0.75s steps(17) 0s forwards;
+            animation: maskIn 0.75s steps(17) 0s forwards;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
     background-position: 0 bottom; }
@@ -1425,8 +1641,10 @@ nav {
   background-color: white;
   width: 100%;
   z-index: 101;
-  transition: bottom .5s ease;
-  box-shadow: 0px 0px 150px rgba(150, 198, 212, 0.5); }
+  -webkit-transition: bottom .5s ease;
+          transition: bottom .5s ease;
+  -webkit-box-shadow: 0px 0px 150px rgba(150, 198, 212, 0.5);
+          box-shadow: 0px 0px 150px rgba(150, 198, 212, 0.5); }
   .miniTimeline.active {
     bottom: 0; }
 
@@ -1445,7 +1663,8 @@ nav {
     position: absolute;
     left: 0;
     top: 0;
-    transition: width linear; }
+    -webkit-transition: width linear;
+            transition: width linear; }
     .dragNav .dragAnimate span {
       position: absolute;
       right: 0;
@@ -1455,14 +1674,19 @@ nav {
       display: block;
       border-radius: 50%;
       top: 50%;
-      transform: translateY(-50%);
-      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+      -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
+      -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+              box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
       cursor: pointer; }
 
 .miniTimelineNavPerm {
   display: inline-block;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
   position: relative;
   padding: 1rem 0;
   width: 100%;
@@ -1477,7 +1701,9 @@ nav {
     position: absolute;
     left: 0;
     top: 50%;
-    transform: translateY(-50%); }
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%); }
     .miniTimelineNavPerm .miniTimelineTitle h1 {
       font-size: 1.25rem;
       font-weight: 600; }
@@ -1491,7 +1717,9 @@ nav {
   height: 6.25vh;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%); }
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
   .miniTimelineSections::before {
     content: '';
     display: block;
@@ -1500,7 +1728,9 @@ nav {
     width: 100%;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     background-color: #cccccc;
     z-index: -1; }
   .miniTimelineSections a {
@@ -1510,7 +1740,9 @@ nav {
     position: relative;
     border-radius: 50%;
     top: 50%;
-    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
     margin: 0 1rem;
     background-color: #fff;
     border-radius: 50%; }
@@ -1524,20 +1756,26 @@ nav {
       position: absolute;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
       background-color: #cccccc;
       border-radius: 50%;
-      transition: height 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), width 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), background-color 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+      -webkit-transition: height 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), width 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), background-color 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+              transition: height 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), width 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), background-color 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
       z-index: 1; }
     .miniTimelineSections a::before {
       height: 60%;
       width: 60%;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
       border: 1px solid #cccccc;
       border-radius: 50%;
-      transition: border-color 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
+      -webkit-transition: border-color 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+              transition: border-color 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
     .miniTimelineSections a:hover::after {
       height: 50%;
       width: 50%;
@@ -1555,7 +1793,9 @@ nav {
 /* START TIMELINE SOUND BARS AND ANIMATIONS */
 .miniTimelineAction {
   top: 50%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
   position: absolute;
   right: 0;
   height: 6.25vh; }
@@ -1572,7 +1812,9 @@ nav {
   float: left;
   position: relative;
   top: 50%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
   height: 6.25vh; }
   .miniTimelineSound::after {
     clear: both;
@@ -1582,7 +1824,9 @@ nav {
     float: left; }
   .miniTimelineSound div {
     top: 50%;
-    transform: translateY(-50%); }
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%); }
   .miniTimelineSound:hover {
     cursor: pointer; }
   .miniTimelineSound p {
@@ -1590,7 +1834,9 @@ nav {
 
 .miniTimelineNav p, .miniTimelineSound p {
   top: 50%;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
   line-height: 1;
   position: relative; }
 
@@ -1609,7 +1855,9 @@ nav {
     left: -1rem;
     position: absolute;
     top: 50%;
-    transform: translateY(-30%);
+    -webkit-transform: translateY(-30%);
+        -ms-transform: translateY(-30%);
+            transform: translateY(-30%);
     background-color: #ebeced; }
   .miniTimelineNav:hover {
     cursor: pointer; }
@@ -1623,7 +1871,9 @@ nav {
     display: block;
     position: relative;
     top: 50%;
-    transform: translateY(-50%); }
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%); }
     .miniTimelineNav div span {
       position: absolute;
       height: 2px;
@@ -1632,76 +1882,159 @@ nav {
       background-color: rgba(0, 0, 0, 0.5);
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%);
-      transition: opacity .1s ease, background-color ease-out .5s; }
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      -webkit-transition: opacity .1s ease, background-color ease-out .5s;
+              transition: opacity .1s ease, background-color ease-out .5s; }
       .miniTimelineNav div span:nth-child(1) {
-        animation: hamburgerInitTopOut .5s ease forwards; }
+        -webkit-animation: hamburgerInitTopOut .5s ease forwards;
+                animation: hamburgerInitTopOut .5s ease forwards; }
       .miniTimelineNav div span:nth-child(2) {
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -50%); }
+        -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%); }
       .miniTimelineNav div span:nth-child(3) {
-        animation: hamburgerInitBottomOut .5s ease forwards; }
+        -webkit-animation: hamburgerInitBottomOut .5s ease forwards;
+                animation: hamburgerInitBottomOut .5s ease forwards; }
   .miniTimelineNav.active div span {
     top: 50%; }
     .miniTimelineNav.active div span:nth-child(1) {
-      animation: hamburgerInitTop .5s ease forwards;
+      -webkit-animation: hamburgerInitTop .5s ease forwards;
+              animation: hamburgerInitTop .5s ease forwards;
       background-color: #96c6d4; }
     .miniTimelineNav.active div span:nth-child(2) {
       opacity: 0;
-      transition-delay: .3s; }
+      -webkit-transition-delay: .3s;
+              transition-delay: .3s; }
     .miniTimelineNav.active div span:nth-child(3) {
       background-color: #96c6d4;
-      animation: hamburgerInitBottom .5s ease forwards; }
+      -webkit-animation: hamburgerInitBottom .5s ease forwards;
+              animation: hamburgerInitBottom .5s ease forwards; }
+
+@-webkit-keyframes hamburgerInitTopOut {
+  0% {
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%) rotate(45deg);
+            transform: translate(-50%, -50%) rotate(45deg); }
+
+  50% {
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0); }
+
+  100% {
+    top: 0;
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0); } }
 
 @keyframes hamburgerInitTopOut {
   0% {
     top: 50%;
-    transform: translate(-50%, -50%) rotate(45deg); }
+    -webkit-transform: translate(-50%, -50%) rotate(45deg);
+            transform: translate(-50%, -50%) rotate(45deg); }
 
   50% {
     top: 50%;
-    transform: translate(-50%, -50%) rotate(0); }
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0); }
 
   100% {
     top: 0;
-    transform: translate(-50%, -50%) rotate(0); } }
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0); } }
+@-webkit-keyframes hamburgerInitTop {
+  0% {
+    top: 0;
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0); }
+
+  50% {
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0); }
+
+  100% {
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%) rotate(45deg);
+            transform: translate(-50%, -50%) rotate(45deg); } }
 @keyframes hamburgerInitTop {
   0% {
     top: 0;
-    transform: translate(-50%, -50%) rotate(0); }
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0); }
 
   50% {
     top: 50%;
-    transform: translate(-50%, -50%) rotate(0); }
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0); }
 
   100% {
     top: 50%;
-    transform: translate(-50%, -50%) rotate(45deg); } }
+    -webkit-transform: translate(-50%, -50%) rotate(45deg);
+            transform: translate(-50%, -50%) rotate(45deg); } }
+@-webkit-keyframes hamburgerInitBottomOut {
+  0% {
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+            transform: translate(-50%, -50%) rotate(-45deg); }
+
+  50% {
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0); }
+
+  100% {
+    top: 100%;
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg); } }
 @keyframes hamburgerInitBottomOut {
   0% {
     top: 50%;
-    transform: translate(-50%, -50%) rotate(-45deg); }
+    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+            transform: translate(-50%, -50%) rotate(-45deg); }
 
   50% {
     top: 50%;
-    transform: translate(-50%, -50%) rotate(0); }
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0); }
 
   100% {
     top: 100%;
-    transform: translate(-50%, -50%) rotate(0deg); } }
+    -webkit-transform: translate(-50%, -50%) rotate(0deg);
+            transform: translate(-50%, -50%) rotate(0deg); } }
+@-webkit-keyframes hamburgerInitBottom {
+  0% {
+    top: 100%;
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0); }
+
+  50% {
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0); }
+
+  100% {
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+            transform: translate(-50%, -50%) rotate(-45deg); } }
 @keyframes hamburgerInitBottom {
   0% {
     top: 100%;
-    transform: translate(-50%, -50%) rotate(0); }
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0); }
 
   50% {
     top: 50%;
-    transform: translate(-50%, -50%) rotate(0); }
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0); }
 
   100% {
     top: 50%;
-    transform: translate(-50%, -50%) rotate(-45deg); } }
+    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+            transform: translate(-50%, -50%) rotate(-45deg); } }
 /* END MINI TIMELINE Hamburger */
 /* END MINI TIMELINE BOTTOM SCREEN STYLES */
 /* START BAR NAVIGATION INTERIOR PAGES */
@@ -1714,16 +2047,11 @@ nav {
   width: 5rem;
   line-height: 0;
   cursor: pointer; }
-  .nextSection > span, .prevSection > span, .nextSectionEnd > span {
-    background: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/scrollToNav.svg") no-repeat;
-    height: 20px;
-    width: 20px;
-    display: block;
-    position: relative;
-    top: 15px; }
   .nextSection .number, .prevSection .number, .nextSectionEnd .number {
     text-transform: uppercase;
-    transform: rotate(0deg) translateX(-50%);
+    -webkit-transform: rotate(0deg) translateX(-50%);
+        -ms-transform: rotate(0deg) translateX(-50%);
+            transform: rotate(0deg) translateX(-50%);
     position: relative;
     display: inline-block;
     width: 35px;
@@ -1741,6 +2069,31 @@ nav {
     padding: 1rem;
     color: white; }
 
+.sideNavArrow {
+  width: 20px;
+  height: 20px;
+  background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/scrollToNav.svg");
+  background-position: center center;
+  -webkit-background-size: contain;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  margin-left: 1rem;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%); }
+
+.nextSection .sideNavArrow, .nextSectionEnd .sideNavArrow {
+  -webkit-transform: translateY(-50%) rotate(-90deg);
+      -ms-transform: translateY(-50%) rotate(-90deg);
+          transform: translateY(-50%) rotate(-90deg); }
+
+.prevSection .sideNavArrow {
+  -webkit-transform: translateY(-50%) rotate(90deg);
+      -ms-transform: translateY(-50%) rotate(90deg);
+          transform: translateY(-50%) rotate(90deg); }
+
 .nextSectionEnd {
   position: absolute; }
 
@@ -1748,8 +2101,12 @@ nav {
   text-transform: uppercase;
   font-weight: 600;
   position: absolute;
-  transform-origin: 0 0;
-  transform: rotate(90deg) translateY(-50%);
+  -webkit-transform-origin: 0 0;
+      -ms-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: rotate(90deg) translateY(-50%);
+      -ms-transform: rotate(90deg) translateY(-50%);
+          transform: rotate(90deg) translateY(-50%);
   width: 80vh;
   left: 50%;
   top: 75px; }
@@ -1758,24 +2115,30 @@ nav {
 
 .prevSection {
   left: -5rem;
-  transition: left .5s ease-out; }
+  -webkit-transition: left .5s ease-out;
+          transition: left .5s ease-out; }
   .prevSection.active {
     left: 0; }
     .prevSection.active .prevSectionHover {
       right: 0; }
   .prevSection > span {
-    transform: translateX(-50%) rotate(180deg);
+    -webkit-transform: translateX(-50%) rotate(180deg);
+        -ms-transform: translateX(-50%) rotate(180deg);
+            transform: translateX(-50%) rotate(180deg);
     left: 40%; }
 
 .nextSection {
   right: -5rem;
-  transition: right .5s ease-out; }
+  -webkit-transition: right .5s ease-out;
+          transition: right .5s ease-out; }
   .nextSection.active {
     right: 0; }
     .nextSection.active .nextSectionHover {
       left: 0; }
   .nextSection > span {
-    transform: translateX(-50%) rotate(0deg);
+    -webkit-transform: translateX(-50%) rotate(0deg);
+        -ms-transform: translateX(-50%) rotate(0deg);
+            transform: translateX(-50%) rotate(0deg);
     left: 60%; }
 
 .prevSectionHover, .nextSectionHover {
@@ -1787,11 +2150,13 @@ nav {
 
 .prevSectionHover {
   right: -3rem;
-  transition: right .5s ease-out; }
+  -webkit-transition: right .5s ease-out;
+          transition: right .5s ease-out; }
 
 .nextSectionHover {
   left: -3rem;
-  transition: left .5s ease-out; }
+  -webkit-transition: left .5s ease-out;
+          transition: left .5s ease-out; }
 
 /* END BAR NAVIGATION INTERIOR PAGES */
 /* START BOOTSTRAPS STYLES */
@@ -1819,7 +2184,9 @@ nav {
   height: 100%;
   width: 100%;
   position: absolute;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
   width: 300%;
@@ -1833,7 +2200,9 @@ nav {
   width: 250%;
   position: relative;
   left: -63%;
-  transform: translateY(-25%); }
+  -webkit-transform: translateY(-25%);
+      -ms-transform: translateY(-25%);
+          transform: translateY(-25%); }
 
 #journey > g.active .pointNonActive {
   display: none; }
@@ -1841,14 +2210,17 @@ nav {
 .pointActive {
   display: none;
   opacity: 0;
-  transition: opacity .5s ease; }
+  -webkit-transition: opacity .5s ease;
+          transition: opacity .5s ease; }
 
 .pointActive .text {
-  transform: translateY(-100%);
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
   opacity: 0;
-  transition: transform .5s ease, opacity .5s ease;
+  -webkit-transition: -webkit-transform .5s ease, opacity .5s ease;
+          transition: transform .5s ease, opacity .5s ease;
   -webkit-transition-delay: .5s;
-  -o-transition-delay: .5s;
   transition-delay: .5s; }
 
 #journey > g.active .pointActive {
@@ -1856,7 +2228,9 @@ nav {
   opacity: 1; }
 
 #journey > g.active .pointActive .text {
-  transform: translateY(0%);
+  -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+          transform: translateY(0%);
   opacity: 1; }
 
 /* START MAP STATISTICS */
@@ -1875,7 +2249,8 @@ nav {
     visibility: hidden;
     opacity: 0;
     width: 100%;
-    transition: opacity .5s ease; }
+    -webkit-transition: opacity .5s ease;
+            transition: opacity .5s ease; }
     .mapStatistics div.active {
       opacity: 1;
       visibility: visible;
@@ -1927,8 +2302,10 @@ nav {
       left: 52%;
       visibility: visible;
       opacity: 1;
-      transition: width 1s ease;
-      transition-delay: .5s; }
+      -webkit-transition: width 1s ease;
+              transition: width 1s ease;
+      -webkit-transition-delay: .5s;
+              transition-delay: .5s; }
       .mapStatistics li div:nth-child(3) {
         bottom: 0;
         background-color: #96c6d4; }
@@ -1942,8 +2319,12 @@ nav {
   z-index: 10;
   background-color: #96c6d4;
   opacity: 1;
-  transition: opacity .5s ease-out;
-  transition-delay: 1s; }
+  -webkit-transition: opacity .5s ease-out;
+          transition: opacity .5s ease-out;
+  -webkit-transition-delay: 1s;
+          transition-delay: 1s;
+  -webkit-box-shadow: 27px 19px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 27px 19px 40px rgba(0, 0, 0, 0.3); }
   .scrollToNav::after {
     clear: both;
     display: table;
@@ -1955,7 +2336,9 @@ nav {
     float: left;
     position: relative;
     top: 50%;
-    transform: translateY(-50%); }
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%); }
   .scrollToNav span {
     display: block;
     height: 15px;
@@ -1963,7 +2346,18 @@ nav {
     position: relative;
     background: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/scrollToNav.svg") no-repeat;
     top: 52%;
-    animation: arrowOver 1s ease infinite; }
+    -webkit-animation: arrowOver 1s ease infinite;
+            animation: arrowOver 1s ease infinite; }
+
+@-webkit-keyframes arrowOver {
+  0% {
+    left: 20px; }
+
+  50% {
+    left: 40px; }
+
+  100% {
+    left: 20px; } }
 
 @keyframes arrowOver {
   0% {
@@ -1980,7 +2374,9 @@ nav {
   position: fixed;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   width: 1px;
   height: 1px;
   background-color: transparent;
@@ -2024,14 +2420,18 @@ nav {
   padding-top: 2.5rem;
   text-align: center;
   left: 50%;
-  transform: translateX(-50%); }
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%); }
   .sectionYear::before {
     content: '';
     display: block;
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     height: 100%;
     width: 100%;
     z-index: -1;
@@ -2115,21 +2515,39 @@ nav {
       position: absolute;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
       left: 50%;
       width: 60px;
       height: 60px;
       background: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/expandImage.svg") no-repeat;
-      transition: transform .5s ease; }
+      -webkit-transition: -webkit-transform .5s ease;
+              transition: transform .5s ease; }
       @media (max-width: 1280px) {
         .Image_Showcase_1_Images li::before {
           width: 40px;
           height: 40px; } }
     .Image_Showcase_1_Images li:hover::before {
-      transform: translate(-50%, -50%) rotate(90deg); }
+      -webkit-transform: translate(-50%, -50%) rotate(90deg);
+          -ms-transform: translate(-50%, -50%) rotate(90deg);
+              transform: translate(-50%, -50%) rotate(90deg); }
     .Image_Showcase_1_Images li img {
       width: 100%;
       padding: 0 5%; }
+
+@-webkit-keyframes lightboxOneIn {
+  0% {
+    visibility: hidden;
+    top: 100%;
+    opacity: 0; }
+
+  1% {
+    visibility: visible; }
+
+  100% {
+    opacity: 1;
+    top: 0; } }
 
 @keyframes lightboxOneIn {
   0% {
@@ -2146,7 +2564,8 @@ nav {
 .Image_Showcase_1_Lightbox {
   background-color: rgba(0, 0, 0, 0.9);
   z-index: 11;
-  transition: top .5s ease-out, opacity .25s ease-out;
+  -webkit-transition: top .5s ease-out, opacity .25s ease-out;
+          transition: top .5s ease-out, opacity .25s ease-out;
   background: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/backgroundTextureGrey.jpg") no-repeat;
   display: none; }
   .Image_Showcase_1_Lightbox img {
@@ -2154,12 +2573,17 @@ nav {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     top: 47%;
-    transition: transform .25s ease-out;
+    -webkit-transition: -webkit-transform .25s ease-out;
+            transition: transform .25s ease-out;
     cursor: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/expandImage.svg"); }
   .Image_Showcase_1_Lightbox.zoom img {
-    transform: translate(-50%, -50%) scale(1.5); }
+    -webkit-transform: translate(-50%, -50%) scale(1.5);
+        -ms-transform: translate(-50%, -50%) scale(1.5);
+            transform: translate(-50%, -50%) scale(1.5); }
 
 .Lightbox_Nav {
   position: absolute;
@@ -2190,7 +2614,9 @@ nav {
       position: absolute;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%); }
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%); }
     .Lightbox_Nav div:not(.Lightbox_Close) {
       border-radius: 50%;
       border: 1px solid white; }
@@ -2200,10 +2626,15 @@ nav {
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%;
     background-position: center center;
-    transform: rotate(45deg);
-    transition: transform .5s ease; }
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+    -webkit-transition: -webkit-transform .5s ease;
+            transition: transform .5s ease; }
     .Lightbox_Nav .Lightbox_Close:hover {
-      transform: rotate(135deg); }
+      -webkit-transform: rotate(135deg);
+          -ms-transform: rotate(135deg);
+              transform: rotate(135deg); }
   .Lightbox_Nav .Lightbox_Previous, .Lightbox_Nav .Lightbox_Next {
     background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/scrollToNav.svg");
     background-repeat: no-repeat;
@@ -2216,9 +2647,11 @@ nav {
   position: fixed;
   width: 100vw;
   height: 100vh;
-  z-index: 10000;
+  z-index: 100;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   top: 50%;
   display: none; }
   .Image_Showcase_1_Lightbox::before, .lightBox.bioLightBox::before {
@@ -2227,7 +2660,9 @@ nav {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     height: 100%;
     width: 100%;
     z-index: -1;
@@ -2238,27 +2673,30 @@ nav {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     height: 100%;
     max-height: 75vh;
     width: auto; }
 
-.Image_Showcase_1_Lightbox_Text, .Image_Showcase_2_Lightbox_Text {
+.lightboxText {
   background: #3b4b52;
   color: white;
   position: absolute;
   z-index: 12;
   padding: 1rem;
   padding-bottom: 6rem;
-  transition: height 1s ease-out .5s, padding .5s ease-out .5s;
+  -webkit-transition: height 1s ease-out .5s, padding .5s ease-out .5s;
+          transition: height 1s ease-out .5s, padding .5s ease-out .5s;
   width: 30vw;
   right: 10%;
   bottom: 6.25vh; }
-  .Image_Showcase_1_Lightbox_Text::after, .Image_Showcase_2_Lightbox_Text::after {
+  .lightboxText::after {
     clear: both;
     display: table;
     content: ''; }
-  .Image_Showcase_1_Lightbox_Text::before, .Image_Showcase_2_Lightbox_Text::before {
+  .lightboxText::before {
     content: '';
     display: block;
     position: absolute;
@@ -2269,48 +2707,56 @@ nav {
     background-color: #3b4b52;
     z-index: -1;
     opacity: 0;
-    transition: height .75s ease, width .75s ease, opacity .75s ease .25s;
+    -webkit-transition: height .75s ease, width .75s ease, opacity .75s ease .25s;
+            transition: height .75s ease, width .75s ease, opacity .75s ease .25s;
     -webkit-mask: url("../img/Image_Showcase_One_Lightbox_Mask.png") no-repeat;
     -webkit-mask-size: 1300% 100%;
     -webkit-mask-position: 100% 100%;
-    animation: maskOut 0.75s steps(12) 0.25s forwards;
+    -webkit-animation: maskOut 0.75s steps(12) 0.25s forwards;
+            animation: maskOut 0.75s steps(12) 0.25s forwards;
     -webkit-animation-fill-mode: backwards;
     animation-fill-mode: backwards;
     background-position: 0 bottom; }
-  .Image_Showcase_1_Lightbox_Text h1, .Image_Showcase_2_Lightbox_Text h1 {
+  .lightboxText h1 {
     float: none;
     display: block;
     width: 80%;
     text-transform: uppercase;
     font-size: 1.125rem;
     font-weight: 600; }
-  .Image_Showcase_1_Lightbox_Text .year, .Image_Showcase_2_Lightbox_Text .year {
+  .lightboxText .year {
     font-size: .9rem;
     font-style: italic;
     width: 20%;
     float: right;
     display: block;
     text-align: right; }
-  .Image_Showcase_1_Lightbox_Text p, .Image_Showcase_2_Lightbox_Text p {
+  .lightboxText p {
     width: 100%;
     opacity: 0;
     font-weight: 400;
-    transition: opacity .5s ease-out; }
-  .Image_Showcase_1_Lightbox_Text:hover, .Image_Showcase_2_Lightbox_Text:hover {
+    -webkit-transition: opacity .5s ease-out;
+            transition: opacity .5s ease-out; }
+  .lightboxText .description {
+    padding-top: 1rem; }
+  .lightboxText:hover {
     padding-bottom: 10rem;
-    transition: height 1s ease-out 0s, padding .5s ease-out 0s; }
-    .Image_Showcase_1_Lightbox_Text:hover::before, .Image_Showcase_2_Lightbox_Text:hover::before {
+    -webkit-transition: height 1s ease-out 0s, padding .5s ease-out 0s;
+            transition: height 1s ease-out 0s, padding .5s ease-out 0s; }
+    .lightboxText:hover::before {
       opacity: 1;
       width: 165%;
       height: 165%;
-      transition: height .75s ease, width .75s ease, opacity .75s ease 0s;
+      -webkit-transition: height .75s ease, width .75s ease, opacity .75s ease 0s;
+              transition: height .75s ease, width .75s ease, opacity .75s ease 0s;
       -webkit-mask: url("../img/Image_Showcase_One_Lightbox_Mask.png") no-repeat;
       -webkit-mask-size: 1300% 100%;
-      animation: maskIn 0.75s steps(12) 0.25s forwards;
+      -webkit-animation: maskIn 0.75s steps(12) 0.25s forwards;
+              animation: maskIn 0.75s steps(12) 0.25s forwards;
       -webkit-animation-fill-mode: forwards;
       animation-fill-mode: forwards;
       background-position: 0 bottom; }
-    .Image_Showcase_1_Lightbox_Text:hover p, .Image_Showcase_2_Lightbox_Text:hover p {
+    .lightboxText:hover p {
       opacity: 1; }
 
 /* END GENERIC LIGHTBOX */
@@ -2373,54 +2819,68 @@ nav {
     position: relative;
     margin: .5rem 0; }
     .Image_Showcase_2_Images li:hover img {
-      box-shadow: 0 8px 3px rgba(0, 0, 0, 0.17);
-      transform: scale(1.05); }
+      -webkit-box-shadow: 0 8px 3px rgba(0, 0, 0, 0.17);
+              box-shadow: 0 8px 3px rgba(0, 0, 0, 0.17);
+      -webkit-transform: scale(1.05);
+          -ms-transform: scale(1.05);
+              transform: scale(1.05); }
   .Image_Showcase_2_Images img {
-    box-shadow: 0 0 0 transparent;
-    transition: transform 0.25s cubic-bezier(0.44, 0.2, 0, 1.01), box-shadow 0.25s cubic-bezier(0.44, 0.2, 0, 1.01);
+    -webkit-box-shadow: 0 0 0 transparent;
+            box-shadow: 0 0 0 transparent;
+    -webkit-transition: -webkit-transform 0.25s cubic-bezier(0.44, 0.2, 0, 1.01), -webkit-box-shadow 0.25s cubic-bezier(0.44, 0.2, 0, 1.01);
+            transition: transform 0.25s cubic-bezier(0.44, 0.2, 0, 1.01), box-shadow 0.25s cubic-bezier(0.44, 0.2, 0, 1.01);
     width: 100%; }
 
 .Image_Showcase_2_Lightbox {
   width: 70%;
-  height: 100%;
+  height: 100vh;
   max-height: 75vh;
   position: absolute;
   display: block;
   left: 33%;
   bottom: 10vh; }
   .Image_Showcase_2_Lightbox img {
-    width: auto;
-    height: 100%;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); }
+
+.Image_Showcase_2_Lightbox_Text {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%; }
+  .Image_Showcase_2_Lightbox_Text div {
     position: absolute;
     left: 0;
-    top: 0; }
-
-.Image_Showcase_2_Lightbox_Text div {
-  position: absolute;
-  left: 0;
-  top: -50px;
-  z-index: 1;
-  color: black;
-  background: white;
-  max-width: 100%;
-  width: 100%;
-  padding: .5rem 1.5rem; }
-  .Image_Showcase_2_Lightbox_Text div h1 {
-    letter-spacing: 1px;
-    font-size: .75rem;
-    text-align: left;
-    padding-bottom: .25rem;
-    margin-bottom: .25rem;
-    border-bottom: 1px solid black; }
-  .Image_Showcase_2_Lightbox_Text div .date {
-    position: absolute;
-    top: .5rem;
-    right: 1.5rem; }
-  .Image_Showcase_2_Lightbox_Text div p {
-    letter-spacing: 1px;
-    font-size: .75rem;
-    text-align: left;
-    padding-bottom: 0; }
+    top: -50px;
+    z-index: 1;
+    color: black;
+    background: white;
+    max-width: 100%;
+    width: 100%;
+    height: 0;
+    padding: .5rem 1.5rem; }
+    .Image_Showcase_2_Lightbox_Text div h1 {
+      letter-spacing: 1px;
+      font-size: .75rem;
+      text-align: left;
+      padding-bottom: .25rem;
+      margin-bottom: .25rem;
+      border-bottom: 1px solid black; }
+    .Image_Showcase_2_Lightbox_Text div .date {
+      position: absolute;
+      top: .5rem;
+      right: 1.5rem; }
+    .Image_Showcase_2_Lightbox_Text div p {
+      letter-spacing: 1px;
+      font-size: .75rem;
+      text-align: left;
+      padding-bottom: 0; }
 
 /* END GENERIC SHOWCASE TWO */
 /* START GENERIC VIDEO ONE */
@@ -2429,35 +2889,44 @@ nav {
 
 /* END GENERIC VIDEO ONE */
 /* TEXT BAR MODULE */
-.textBar {
+.Text_Module_Black {
   padding: 1.5rem 0; }
-  .textBar h1, .textBar p {
+  .Text_Module_Black h1, .Text_Module_Black p {
     width: 80%; }
-  .textBar p {
+  .Text_Module_Black p {
     padding-top: .5rem; }
-  .textBar .text {
+  .Text_Module_Black .text {
     width: 70%; }
-    .textBar .text img {
+    .Text_Module_Black .text img {
       display: block;
       padding: 2rem 0; }
-  .textBar div {
+  .Text_Module_Black div {
     width: 100%;
     background-color: #96c6d4;
     opacity: .25;
     display: block;
     position: absolute;
     height: 1000px; }
-    .textBar div:nth-of-type(1) {
+    .Text_Module_Black div:nth-of-type(1) {
       top: -1000px; }
-    .textBar div:nth-of-type(2) {
+    .Text_Module_Black div:nth-of-type(2) {
       margin-top: 2rem; }
 
-.textBarWhite::before, .textBarWhite::after {
+.Text_Module_White::before, .Text_Module_White::after {
   background-color: rgba(250, 250, 250, 0.25); }
-.textBarWhite h1, .textBarWhite p {
+.Text_Module_White h1, .Text_Module_White p {
   color: white; }
-.textBarWhite div {
-  background-color: #fff; }
+.Text_Module_White div {
+  width: 100%;
+  background-color: #fff;
+  opacity: .25;
+  display: block;
+  position: absolute;
+  height: 1000px; }
+  .Text_Module_White div:nth-of-type(1) {
+    top: -1000px; }
+  .Text_Module_White div:nth-of-type(2) {
+    margin-top: 2rem; }
 
 /* END TEXT BAR MODULE */
 /* START IMAGE MODULES */
@@ -2468,6 +2937,7 @@ nav {
 .Image_Feature_Text {
   position: absolute; }
   .Image_Feature_Text h1 {
+    text-align: right;
     color: white;
     padding: 3rem;
     padding-right: 2.5rem; }
@@ -2485,21 +2955,35 @@ nav {
       width: 100%;
       height: auto; }
 
-.Image_Feature_1 .Image_Feature_Text {
-  position: absolute;
-  right: 0; }
-.Image_Feature_1 h1 {
-  padding-left: 0;
-  width: 150%;
-  position: relative;
-  left: -50%; }
+.Image_Feature_1 {
+  overflow: hidden; }
+  .Image_Feature_1 .Image_Feature_Text {
+    position: absolute;
+    right: 0;
+    z-index: 1; }
+  .Image_Feature_1 h1 {
+    padding-left: 0;
+    width: 150%;
+    position: relative;
+    left: -50%; }
+  .Image_Feature_1 img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); }
+  .Image_Feature_1.empty .Image_Feature_Text {
+    display: none; }
 
 .Text_Background {
   background-color: #fff; }
 
 .Image_Feature_2 .Image_Feature_Text {
   left: 50%;
-  transform: translateX(-50%); }
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%); }
 
 /* END IMAGE MODULES */
 /* IMAGE CAPTION ONE */
@@ -2524,6 +3008,23 @@ nav {
   clear: both;
   display: table;
   content: ''; }
+.Video_Feature_1::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/Video_One_Foreground.png");
+  background-position: center center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  pointer-events: none;
+  z-index: 1; }
 .Video_Feature_1 img {
   width: 100%;
   position: absolute;
@@ -2531,9 +3032,10 @@ nav {
   pointer-events: none; }
 .Video_Feature_1 .Video_Feature_Text {
   position: absolute;
-  right: 1.5rem; }
+  right: -1.5rem;
+  z-index: 2; }
 .Video_Feature_1 iframe {
-  max-width: 100%; }
+  height: 100vh; }
 
 .Video_Feature_2::after {
   clear: both;
@@ -2555,15 +3057,22 @@ nav {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%); }
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: .5; }
 .Quote_1 h1:first-of-type {
   display: none; }
 .Quote_1 .date {
   display: none; }
 .Quote_1 h1 {
-  position: relative; }
+  position: relative;
+  z-index: 1;
+  font-size: 4rem;
+  text-align: center; }
 .Quote_1 h1 span {
-  color: #96c6d4; }
+  color: #96c6d4;
+  display: block; }
 
 /* END QUOTEONE */
 /* START QUOTETWO */
@@ -2574,7 +3083,9 @@ nav {
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   padding: 1rem 0;
   text-align: center; }
   .Quote_2 .quoteText p {
@@ -2593,7 +3104,9 @@ nav {
     height: 7px;
     background-color: #96c6d4;
     left: 50%;
-    transform: translateX(-50%); }
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%); }
   .Quote_2 .quoteText::before {
     top: 0; }
   .Quote_2 .quoteText::after {
@@ -2602,13 +3115,26 @@ nav {
 /* END QUOTE TWO */
 /* START QUOTE THREE */
 .Quote_3 img {
-  width: 100%; }
-.Quote_3 .quoteText {
+  width: 100%;
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
-  padding: 1rem 0; }
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); }
+.Quote_3 .Quote_3_Text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 1rem 0;
+  z-index: 1;
+  background: white;
+  padding: 1rem; }
+  .Quote_3 .Quote_3_Text p {
+    color: #333740; }
 
 /* END QUOTE THREE */
 /* START TEXTONE */
@@ -2637,11 +3163,11 @@ nav {
     padding: 0; }
     .Custom_Biography .bioItem div img {
       width: 100%;
-      transition: filter .5s ease;
-      transition: -webkit-filter .5s ease; }
+      opacity: 1;
+      -webkit-transition: opacity .5s ease;
+              transition: opacity .5s ease; }
     .Custom_Biography .bioItem div:hover img {
-      filter: hue-rotate(155deg);
-      -webkit-filter: hue-rotate(155deg); }
+      opacity: .8; }
 
 #TheThesis .Custom_Biography > h1 {
   display: none; }
@@ -2664,8 +3190,69 @@ nav {
       position: absolute;
       text-align: right;
       top: 50%;
-      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
       top: 75%;
       left: -70%; }
 
 /* end custom Bio */
+#bar_window {
+  position: fixed !important;
+  z-index: 1000;
+  left: 50% !important;
+  top: 50% !important;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 1 !important;
+  -webkit-transition: opacity .5s ease;
+          transition: opacity .5s ease;
+  pointer-events: none !important; }
+  #bar_window::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    background-image: url("../img/loaderBackground.jpg");
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    z-index: -1;
+    opacity: 1;
+    -webkit-mask: url("../img/loaderMask.png") no-repeat;
+    -webkit-mask-size: 2000% 100%;
+    -webkit-animation: maskIn 1.5s steps(21) 0s infinite;
+            animation: maskIn 1.5s steps(21) 0s infinite;
+    -webkit-animation-fill-mode: infinite;
+    animation-fill-mode: infinite; }
+  #bar_window div {
+    display: none !important; }
+    #bar_window div:last-of-type {
+      display: block !important;
+      position: absolute !important;
+      top: auto !important;
+      bottom: 1rem !important;
+      left: 50% !important;
+      -webkit-transform: translate(-50%) !important;
+          -ms-transform: translate(-50%) !important;
+              transform: translate(-50%) !important;
+      font-size: 2.75rem !important;
+      font-weight: 100 !important;
+      line-height: 2.5 !important;
+      width: 125px !important;
+      height: 125px !important;
+      border-radius: 50%;
+      border: 1px solid white !important; }
+  #bar_window.doneLoading {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    display: none !important; }

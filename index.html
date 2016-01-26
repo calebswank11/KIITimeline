@@ -23,11 +23,13 @@
 
     <script type="text/javascript" src="js/getnav.js"></script>
     <script type="text/javascript" src="js/getdata_new.js"></script>
-    <!--<script type="text/javascript" src="js/displayData.js"></script>-->
-    <!--<script type="text/javascript" src="js/clearLocations.js"></script> 
-    <link rel="stylesheet" href="css/styles.css">  --> 
+
+
+<script type="text/javascript" language="JavaScript" src="js/progress.js">
+</script>  
 </head>
 <body>
+
     <script>
     /**
  * Get the value of a querystring
@@ -44,7 +46,6 @@
         var Chapters = getQueryString('Chapter'); 
         var Sections = getQueryString('Section'); 
     $(document).ready(getData(Chapters,Sections));
-
     $(document).ready(getNav());
 
     </script>
@@ -65,7 +66,7 @@
         <section class="miniTimeline row-1">
             <div class="dragNav">
                 <div class="dragAnimate">
-                    <span></span>
+                    <!-- <span></span> -->
                 </div>
             </div>
             <div class="miniTimelineNavPerm">
@@ -95,9 +96,9 @@
         <!-- NAVIGATION START -->
         <nav>
             <p class="breadcrumbsMobile">
-                <span class="breadcrumbs-1">< all</span>
-                <span class="breadcrumbs-2"> < Chapters</span>
-                <span class="breadcrumbs-3"> < Sections</span>
+                <span class="breadcrumbs-1">all</span>
+                <span class="breadcrumbs-2">Chapters</span>
+                <span class="breadcrumbs-3">Sections</span>
             </p>
             <p class="breadcrumbs">
                 <p class="back">back</p>

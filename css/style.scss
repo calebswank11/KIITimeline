@@ -126,6 +126,17 @@ $columnsY: 16;
 }
 /* END COLUMN Y POSITION */
 
+.largeText {
+    font-size: 52px;
+    @media (max(1280)) {
+    	font-size: 30px;
+    }
+	span {
+		display: block;
+		line-height: 1;
+	}
+}
+
 /* START GENERIC STYLES */
 #content {
 	width: 100vw;
@@ -143,7 +154,7 @@ body {
 .abs {
 	position: absolute;
 }
-.imageHeight > img {
+.imageHeight > img, .Image_Height > img {
 	width: auto!important;
 	height: 100%!important;
 	min-width: 100%;
@@ -1411,14 +1422,6 @@ nav {
 	width: 5rem;
 	line-height: 0;
 	cursor: pointer;
-	& > span {
-	    background: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/scrollToNav.svg") no-repeat;
-	    height: 20px;
-	    width: 20px;
-	    display: block;
-	    position: relative;
-	    top: 15px;
-	}
 	.number {
 		text-transform: uppercase;
 		transform: rotate(0deg)translateX(-50%);
@@ -1441,6 +1444,29 @@ nav {
 		color: white;
 	}
 }
+.sideNavArrow {
+    width: 20px;
+    height: 20px;
+    background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/scrollToNav.svg');
+    background-position: center center;
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-left: 1rem;
+    @include transY;
+}
+.nextSection, .nextSectionEnd {
+	.sideNavArrow {
+		transform: translateY(-50%)rotate(-90deg);
+	}
+}
+.prevSection {
+	.sideNavArrow {
+		transform: translateY(-50%)rotate(90deg);
+	}
+}
+
 .nextSectionEnd {
 	position: absolute;
 }
@@ -1675,6 +1701,8 @@ nav {
 	opacity: 1;
 	transition: opacity .5s ease-out;
 	transition-delay: 1s;
+	-webkit-box-shadow: 27px 19px 40px rgba(0, 0, 0, .3);
+	box-shadow: 27px 19px 40px rgba(0, 0, 0, .3);
 	p {
 		color: white;
 		padding-left: 2rem;
@@ -1904,57 +1932,6 @@ nav {
 		}
 	}
 }
-// .Lightbox_Close {
-// 	background: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/expandImage.svg') no-repeat;
-// 	height: 60px;
-// 	width: 60px;
-// 	position: absolute;
-// 	top: 2rem;
-// 	left: 2rem;
-// 	display: inline-block;
-// 	transform: rotate(45deg);
-// 	cursor: pointer;
-// 	@media (max(1280)) {
-// 		width: 40px;
-// 		height: 40px;
-// 	}
-// }
-// .Lightbox_Nav {
-// 	    top: 6rem;
-// 	    left: 2rem;
-// 	    position: absolute;
-// }
-// .Lightbox_Next, .Lightbox_Previous {
-// 	height: 60px;
-// 	width: 60px;
-// 	display: block;
-// 	border-radius: 50%;
-// 	border: 1px solid white;
-// 	margin-bottom: 1rem;
-// 	position: relative;
-// 	@media (max(1280)) {
-// 		width: 40px;
-// 		height: 40px;
-// 	}
-// 	&::before {
-// 		@include before;
-// 		display: block;
-// 	    height: 100%;
-// 	    width: 100%;
-// 	    position: relative;
-// 	    background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/scrollToNav.svg');
-// 	    background-repeat: no-repeat;
-// 	    -webkit-background-size: 35% 35%;
-// 	    background-size: 35% 35%;
-// 	    background-position: center center;
-// 	    @include trans;
-// 	}
-// }
-// .Lightbox_Previous {
-// 	&::before {
-// 		transform: translate(-50%, -50%)rotateY(180deg);
-// 	}
-// }
 .Lightbox_Nav {
 	position: absolute;
 	bottom: 1rem;
@@ -2010,7 +1987,7 @@ nav {
     position: fixed;
     width: 100vw;
     height: 100vh;
-    z-index: 10000;
+    z-index: 100;
     left: 50%;
     transform: translate(-50%, -50%);
     top: 50%;
@@ -2034,7 +2011,7 @@ nav {
     	width: auto;
     }
 }
-.Image_Showcase_1_Lightbox_Text, .Image_Showcase_2_Lightbox_Text  {
+.lightboxText  {
 	background: $dkBlue;
 	color: white;
 	position: absolute;
@@ -2085,6 +2062,9 @@ nav {
 		opacity: 0;
 		font-weight: 400;
 		transition: opacity .5s ease-out;
+	}
+	.description {
+		padding-top: 1rem;
 	}
 	&:hover {
 		padding-bottom: 10rem;
@@ -2183,7 +2163,7 @@ nav {
 }
 .Image_Showcase_2_Lightbox {
     width: 70%;
-    height: 100%;
+    height: 100vh;
     max-height: 75vh;
     position: absolute;
     display: block;
@@ -2192,14 +2172,17 @@ nav {
 	&.active {
 	}
 	img {
-		width: auto;
-		height: 100%;
+		width: 100%;
+		height: auto;
 		position: absolute;
-	    left: 0;
-	    top: 0;
+	    @include trans;
 	}
 }
 .Image_Showcase_2_Lightbox_Text {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 100%;
 	div {
 	    position: absolute;
 	    left: 0;
@@ -2209,6 +2192,7 @@ nav {
 	    background: white;
 	    max-width: 100%;
 	    width: 100%;
+	    height: 0;
 	    padding: .5rem 1.5rem;
 	    h1 {
 	    	letter-spacing: 1px;
@@ -2238,10 +2222,13 @@ nav {
 }
 /* END GENERIC VIDEO ONE */
 /* TEXT BAR MODULE */
-.textBar {
+.Text_Module_Black {
 	padding: 1.5rem 0;
 	h1, p {
 		width: 80%;
+	}
+	h1 {
+		@extend .largeText;
 	}
 	p {
 		padding-top: .5rem;
@@ -2268,15 +2255,29 @@ nav {
 		}
 	}
 }
-.textBarWhite {
+.Text_Module_White {
 	&::before, &::after {
 		background-color: rgba(250, 250, 250, .25);
+	}
+	h1 {
+		@extend .largeText;
 	}
 	h1, p {
 		color: white;
 	}
 	div {
+		width: 100%;
 		background-color: #fff;
+		opacity: .25;
+		display: block;
+		position: absolute;
+		height: 1000px;
+		&:nth-of-type(1) {
+			top: -1000px;
+		}
+		&:nth-of-type(2) { 
+			margin-top: 2rem;
+		}
 	}
 }
 /* END TEXT BAR MODULE */
@@ -2290,6 +2291,8 @@ nav {
 .Image_Feature_Text {
 	position: absolute;
 	h1 {
+		@extend .largeText;
+		text-align: right;
 		color: white;
 		padding: 3rem;
 		padding-right: 2.5rem;
@@ -2313,15 +2316,26 @@ nav {
 	}
 }
 .Image_Feature_1 {
+	overflow: hidden;
 	.Image_Feature_Text {
 		position: absolute;
 		right: 0;
+		z-index: 1;
 	}
 	h1 {
 		padding-left: 0;
 		width: 150%;
 		position: relative;
 		left: -50%;
+	}
+	img {
+		position: absolute;
+		@include trans;
+	}
+	&.empty {
+		.Image_Feature_Text {
+			display: none;
+		}
 	}
 }
 .Text_Background {
@@ -2332,7 +2346,6 @@ nav {
 		@include transX;
 	}
 }
-.imageModuleOne {}
 /* END IMAGE MODULES */
 /* IMAGE CAPTION ONE */
 .Image_Caption_One {
@@ -2355,6 +2368,18 @@ nav {
 /* START VIDEOMODULEONE */
 .Video_Feature_1 {
 	@include clearfix;
+	&::before {
+		@include before;
+		@include trans;
+		width: 100%;
+		height: 100%;
+		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/Video_One_Foreground.png');
+		background-position: center center;
+		-webkit-background-size: cover;
+		background-size: cover;
+		pointer-events: none;
+		z-index: 1;
+	}
 	img {
 		width: 100%;
 		position: absolute;
@@ -2363,10 +2388,13 @@ nav {
 	}
 	.Video_Feature_Text {
 		position: absolute;
-		right: 1.5rem;
+		right: -1.5rem;
+		z-index: 2;
 	}
 	iframe {
-		max-width: 100%;
+		// max-width: 100%;
+		// width: 100%;
+		height: 100vh;
 	}
 }
 .Video_Feature_2 {
@@ -2390,6 +2418,7 @@ nav {
 	img {
 		position: absolute;
 		@include trans;
+		opacity: .5;
 	}
 	h1:first-of-type {
 		display: none;
@@ -2399,9 +2428,13 @@ nav {
 	}
 	h1 {
 		position: relative;
+		z-index: 1;
+		font-size: 4rem;
+		text-align: center;
 	}
 	h1 span {
 		color: $blueOne;
+		display: block;
 	}
 }
 /* END QUOTEONE */
@@ -2447,11 +2480,19 @@ nav {
 .Quote_3 {
 	img {
 		width: 100%;
+		position: absolute;
+		@include trans;
 	}
-	.quoteText {
+	.Quote_3_Text {
 		position: absolute;
 		@include trans;
 		padding: 1rem 0;
+		z-index: 1;
+		background: white;
+		padding: 1rem;
+		p {
+			color: $dkGrey;
+		}
 	}
 }
 /* END QUOTE THREE */
@@ -2484,13 +2525,12 @@ nav {
 			padding: 0;
 			img {
 				width: 100%;
-				transition: filter .5s ease;
-				transition: -webkit-filter .5s ease;
+				opacity: 1;
+				transition: opacity .5s ease;
 			}
 			&:hover {
 				img {
-					filter: hue-rotate(155deg);
-					-webkit-filter: hue-rotate(155deg);
+					opacity: .8;
 				}
 			}
 		}
@@ -2515,7 +2555,7 @@ nav {
 			float: right;
 			&:nth-child(1) {
 			}
-			&:nth-child(2) {
+			&:nth-child(2) { 
 				width: 100%;
 				position: absolute;
 				text-align: right;
@@ -2530,3 +2570,56 @@ nav {
 
 }
 /* end custom Bio */
+// START LOADING OPTIONS
+#bar_window {
+    position: fixed !important;
+    z-index: 1000;
+    left: 50%!important;
+    top: 50%!important;
+    transform: translate(-50%, -50%);
+    width: 100%!important;
+    height: 100%!important;
+    opacity: 1!important;
+    transition: opacity .5s ease;
+    pointer-events: none!important;
+	&::before {
+		@include before;
+		@include trans;
+		height: 100%;
+		width: 100%;
+		background-image: url('../img/loaderBackground.jpg');
+		-webkit-background-size: cover;
+		background-size: cover;
+		background-position: center center;
+		z-index: -1;
+		opacity: 1;
+		-webkit-mask: url('../img/loaderMask.png') no-repeat;
+		-webkit-mask-size: 2000% 100%;
+		animation: maskIn 1.5s steps(21) 0s infinite;
+		-webkit-animation-fill-mode: infinite;
+		animation-fill-mode: infinite;
+	}
+	div {
+		display: none !important;
+		&:last-of-type {
+		    display: block !important;
+		    position: absolute !important;
+		    top: auto !important;
+		    bottom: 1rem !important;
+		    left: 50% !important;
+		    transform: translate(-50%) !important;
+		    font-size: 2.75rem !important;
+		    font-weight: 100 !important;
+		    line-height: 2.5!important;
+		    width: 125px!important;
+		    height: 125px !important;
+		    border-radius: 50%;
+		    border: 1px solid white!important;
+		}
+	}
+	&.doneLoading {
+		opacity: 0!important;
+		visibility: hidden !important;
+		display: none !important;
+	}
+}

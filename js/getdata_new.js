@@ -81,6 +81,95 @@ function showjson (data){
                             appendModuleHighlight = myModules[M].Module_Highlight,
                             length = myModules.length;
 
+                        // APPEND TEXT TO THE DOM
+                        function appendText(){
+                            
+                            // CHECK TO SEE IF JSON HAS ATTRIBUTES ELSE REMOVE
+                            if (myModuleTitle === 'undefined' || myModuleTitle === 'null') {
+                                myModuleTitle = '';
+                            }
+                            if (myModuleYear === 'undefined' || myModuleYear === 0) {
+                                myModuleYear = '';
+                            }
+                            if (myModuleCopy === 'undefined' || myModuleCopy === 'null') {
+                                myModuleCopy = '';
+                            }
+                            $('#' + appendModuleOrder).append('<h1>' + myModuleTitle + '</h1>' + '<p class="date">' + myModuleYear +'</p>' + myModuleCopy);
+
+                        } 
+
+                        //ITTERATE THROUGH MEDIA
+                        function myMediaFunction(){
+
+                            if(myModules[M].hasOwnProperty('Medias')) {
+
+                                for (var MM= 0; MM < myMedias.length; MM++){
+                                    // DEFINE UNIVERSAL MEDIA TYPES
+                                    myMediaTitle = myMedias[MM].Media_Title;
+                                    myMediaType = myMedias[MM].Media_Type;
+                                    myMediaPath = myMedias[MM].Option_File;
+                                    myMediaDescription = myMedias[MM].Media_Description;
+                                    myMediaCopyright = myMedias[MM].Media_Copyright;
+                                    
+                                    function appendPhoto(){
+                                        $('#' + appendModuleOrder).append('<img src="http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/' + mySectionID + '/' + myMediaPath + '" alt="' + myMediaTitle + ' - ' + myMediaDescription + ' - ' + myMediaCopyright + '" />');
+                                    }
+
+                                    function appendGraphic(){
+                                        $('#' + appendModuleOrder).append('<img src="http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/'  + mySectionID + '/' + myMediaPath + '" alt="' + myMediaTitle + ' - ' + myMediaDescription + ' - ' + myMediaCopyright + '" />');
+                                    }
+
+                                    function appendAudio(){
+                                        $('#' + appendModuleOrder).append('<img src="http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/' + myMediaPath + ' - ' + myMediaCopyright + '" />');
+                                    }
+
+                                    function appendVideo(){
+                                        myVideoPath = myMedias[MM].Option_Link;
+                                        $('#' + appendModuleOrder).append('<iframe src="' + myVideoPath + '" width="480" height="270" frameborder="0" scrolling="auto" allowfullscreen></iframe>');
+                                    }
+
+                                    function appendSvgCode(){
+                                        mySVGPath = myMedias[MM].Option_SVG_Code;
+                                        $('#' + appendModuleOrder).append(mySVGPath);
+                                    }
+
+                                    function appendJsCode(){
+                                        myJSPath = myMedias[MM].Option_JS_Code;
+                                        $('body').append('<script>' + myJSPath + '</script>');
+                                    }
+
+                                    // RUN SWITCH STATEMENT TO CHANGE HOW MEDIA IS UPLOADED BASED UPON MEDIA TYPE
+                                    switch (myMediaType) {
+                                        case 'photo':
+                                        appendPhoto();
+                                        break;
+
+                                        case 'graphic':
+                                        appendGraphic();
+                                        break;
+
+                                        case 'audio':
+                                        appendAudio();
+                                        break;
+
+                                        case 'video':
+                                        appendVideo();
+                                        break;
+
+                                        case 'svg-code':
+                                        appendSvgCode();
+                                        break;
+
+                                        case 'js-code':
+                                        appendJsCode();
+                                        break;
+                                    }
+
+                                }
+                            }
+                            // GIVES RULE TO FUNCTION TO ENSURE IT RUNS IN ABOVE IF STATEMENTS
+                            var p = true;
+                        }
 
                         // LOAD IN SECTION MODULES
                         function loadMyModules(){
@@ -114,89 +203,6 @@ function showjson (data){
 
                         } loadMyModules();
 
-                        // APPEND TEXT TO THE DOM
-                        function appendText(){
-                            // if (myModuleTitle = 'null') {
-                            //     var myModuleTitle = '';
-                            // }
-                            $('#' + appendModuleOrder).append('<h1>' + myModuleTitle + '</h1>' + '<p class="date">' + myModuleYear +'</p>' + myModuleCopy);
-
-                        } 
-
-                        //ITTERATE THROUGH MEDIA
-                        function myMediaFunction(){
-
-                            if(myModules[M].hasOwnProperty('Medias')) {
-
-                                for (var MM= 0; MM < myMedias.length; MM++){
-                                    // DEFINE UNIVERSAL MEDIA TYPES
-                                    myMediaTitle = myMedias[MM].Media_Title;
-                                    myMediaType = myMedias[MM].Media_Type;
-                                    myMediaPath = myMedias[MM].Option_File;
-                                    myMediaDescription = myMedias[MM].Media_Description;
-                                    myMediaCopyright = myMedias[MM].Media_Copyright;
-
-                                    // RUN SWITCH STATEMENT TO CHANGE HOW MEDIA IS UPLOADED BASED UPON MEDIA TYPE
-                                    switch (myMediaType) {
-                                        case 'photo':
-                                        appendPhoto();
-                                        break;
-
-                                        case 'graphic':
-                                        appendGraphic();
-                                        break;
-
-                                        case 'audio':
-                                        appendAudio();
-                                        break;
-
-                                        case 'video':
-                                        appendVideo();
-                                        break;
-
-                                        case 'svg-code':
-                                        appendSvgCode();
-                                        break;
-
-                                        case 'js-code':
-                                        appendJsCode();
-                                        break;
-                                    }
-
-                                    function appendPhoto(){
-                                        $('#' + appendModuleOrder).append('<img src="http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/' + mySectionID + '/' + myMediaPath + '" alt="' + myMediaTitle + ' - ' + myMediaDescription + ' - ' + myMediaCopyright + '" />');
-                                    }
-
-                                    function appendGraphic(){
-                                        $('#' + appendModuleOrder).append('<img src="http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/'  + mySectionID + '/' + myMediaPath + '" alt="' + myMediaTitle + ' - ' + myMediaDescription + ' - ' + myMediaCopyright + '" />');
-                                    }
-
-                                    function appendAudio(){
-                                        $('#' + appendModuleOrder).append('<img src="http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/' + myMediaPath + ' - ' + myMediaCopyright + '" />');
-                                    }
-
-                                    function appendVideo(){
-                                        myVideoPath = myMedias[MM].Option_Link;
-                                        $('#' + appendModuleOrder).append('<iframe src="' + myVideoPath + '" width="480" height="270" frameborder="0" scrolling="auto" allowfullscreen></iframe>');
-                                    }
-
-                                    function appendSvgCode(){
-                                        mySVGPath = myMedias[MM].Option_SVG_Code;
-                                        $('#' + appendModuleOrder).append(mySVGPath);
-                                    }
-
-                                    function appendJsCode(){
-                                        myJSPath = myMedias[MM].Option_JS_Code;
-                                        $('body').append('<script>' + myJSPath + '</script>');
-                                    }
-
-
-                                }
-                            }
-                            // GIVES RULE TO FUNCTION TO ENSURE IT RUNS IN ABOVE IF STATEMENTS
-                            var p = true;
-                        }
-
                     }
 
                 }
@@ -211,53 +217,53 @@ function showjson (data){
 function Section_Description() {
 }
 function Image_Feature_1() {
-    $('.Image_Feature_1').addClass('Image_Feature').children().not('img')
-    .wrapAll('<div class="Image_Feature_Text col-3 posY-2">')
-    .parent().children().not('h1').wrapAll('<div class="Text_Background">');
+    $('.Image_Feature_1').each(function(){
+    
+        if($(this).hasClass('Image_Feature'))  {
+            console.log('done did it');
+        } else {
+            $(this).addClass('Image_Feature').children().not('img').wrapAll('<div class="Image_Feature_Text col-3 posY-2"></div>').parent().children().not('h1').wrapAll('<div class="Text_Background"></div>');
+            if($(this).find('h1:empty').length && $(this).find('p:empty').length ) {
+                $(this).addClass('empty');
+            }
+        }
+
+    });
 }
 
 function Image_Feature_2() {
     $('.Image_Feature_2').addClass('Image_Feature').children().not('img')
-    .wrapAll('<div class="Image_Feature_Text col-3 posY-2">')
+    .wrapAll('<div class="Image_Feature_Text col-3 posY-1">')
     .parent().children().not('h1').wrapAll('<div class="Text_Background">');
 }
 
 function Video_Feature_1() {
-    $('.Video_Feature_1').children().not('iframe')
-    .wrapAll('<div class="Video_Feature_Text">');
+    $('.Video_Feature_1').addClass('videoModule').children().not('iframe')
+    .wrapAll('<div class="Video_Feature_Text col-2 posY-8">').parent().siblings('iframe').addClass('col-14');
 }
 
 function Video_Feature_2() {
-    $('.Video_Feature_2').children().not('iframe')
+    $('.Video_Feature_2').addClass('.videoModule').children().not('iframe')
     .wrapAll('<div class="Video_Feature_Text">');
     $('.Video_Feature_2').find('h1').addClass('largeText ttu')
 }
 
 function Image_Showcase_1() {
     $('.Image_Showcase_1').children().wrapAll('<div class="Image_Showcase_1_Options">')
-    .parent().find('img').wrapAll('<ul class="Image_Showcase_1_Images">').parent().find('img').wrap('<li class="expand">');
-    $('.Image_Showcase_1').append('<div class="Image_Showcase_1_Lightbox lightBox"><div class="Image_Showcase_1_Lightbox_Text"><div><h1></h1><p class="date"></p></div><p class="description"></p><div class="Lightbox_Nav"><div class="Lightbox_Close"></div><div class="Lightbox_Previous"></div><div class="Lightbox_Next"></div></div></div><img src="" alt="">');
-
-    // $('.Image_Showcase_1_Images').find('li').addClass('expand').on('click', function(){
-    //     var img = $(this).find('img'),
-    //         src = img.attr('src').replace(/Thumb/g, ''),
-    //         alt = img.attr('alt'),
-    //         index = alt.split('-'),
-    //         title = index[0],
-    //         text = index[1],
-    //         date = index[2];
-
-    //         $(this).parents().eq(1).siblings('.Image_Showcase_1_Lightbox').find('.Image_Showcase_1_Lightbox_Text').find('img').attr('src', src).siblings('p').text(text).siblings('div').find('h1').text(title).siblings('.date').text(date);
-    // });
+    .parent().find('img').wrapAll('<ul class="Image_Showcase_1_Images">').parent().find('img').wrap('<li class="expand lb1">');
+    $('.Image_Showcase_1').append('<div class="Image_Showcase_1_Lightbox lightBox"><div class="Image_Showcase_1_Lightbox_Text lightboxText"><div><h1></h1><p class="date"></p></div><p class="description"></p><div class="Lightbox_Nav"><div class="Lightbox_Close"></div><div class="Lightbox_Previous"></div><div class="Lightbox_Next"></div></div></div><img src="" alt="">');
 }
 
 function Image_Showcase_2() {
     var imageShowcaseTwo = $('.Image_Showcase_2')
     imageShowcaseTwo.children().wrapAll('<div class="Image_Showcase_2_Options">')
-    .parent().find('img').wrapAll('<ul class="Image_Showcase_2_Images">').parent().find('img').wrap('<li>').parent().parent().siblings().wrapAll('<div class="Image_Showcase_2_Text" />');
-    imageShowcaseTwo.append('<div class="Image_Showcase_2_Lightbox lightBox"><div class="Image_Showcase_2_Lightbox_Text"><div><h1></h1><p class="date"></p><p class="description"></p><div class="Lightbox_Nav"><div class="Lightbox_Close"></div><div class="Lightbox_Previous"></div><div class="Lightbox_Next"></div></div></div><img src="" alt=""></div>'); 
+    .parent().find('img').wrapAll('<ul class="Image_Showcase_2_Images">').parent().find('img').wrap('<li class="expand lb2">').parent().parent().siblings().wrapAll('<div class="Image_Showcase_2_Text" />');
+    imageShowcaseTwo.append('<div class="Image_Showcase_2_Lightbox lightBox"><div class="Image_Showcase_2_Lightbox_Text"><h1></h1><p class="date"></p><p class="description"></p><img src="" alt=""></div>');
+    if($(window).width() <= 768 ) {
+        imageShowcaseTwo.find('.Image_Showcase_2_Lightbox').append('<div class="Lightbox_Nav"><div class="Lightbox_Close"></div><div class="Lightbox_Previous"></div><div class="Lightbox_Next"></div></div>');
+    }
 
-    $('.Image_Showcase_2_Images').find('li').addClass('expand').on('click', function(){
+    $('.Image_Showcase_2_Images').find('li').on('click', function(){
         var img = $(this).find('img'),
             src = img.attr('src').replace(/Thumb/g, ''),
             alt = img.attr('alt'),
@@ -266,7 +272,9 @@ function Image_Showcase_2() {
             text = index[1],
             date = index[2];
 
-            $(this).parents().eq(1).siblings('.Image_Showcase_2_Lightbox').find('.Image_Showcase_2_Lightbox_Text').find('img').attr('src', src).siblings('div').find('h1').text(title).siblings('.date').text(date).siblings('.description').text(text);
+            console.log(src + '///////' + alt + '///////' + title + '///////' + text + '///////' + date)
+
+            $(this).parents().eq(1).siblings('.Image_Showcase_2_Lightbox').addClass('active').find('.Image_Showcase_2_Lightbox_Text').find('img').attr('src', src).siblings('h1').text(title).siblings('.date').text(date).siblings('.description').text(text);
     });
 
     var imgLoad = $('.Image_Showcase_2').find('img').first(),
@@ -277,7 +285,7 @@ function Image_Showcase_2() {
         textLoad = indexLoad[1],
         dateLoad = indexLoad[2];
 
-        imageShowcaseTwo.find('.Image_Showcase_2_Lightbox_Text').find('img').attr('src', srcLoad).siblings('div').find('h1').text(titleLoad).siblings('.date').text(dateLoad).siblings('.description').text(textLoad)
+        imageShowcaseTwo.find('.Image_Showcase_2_Lightbox_Text').find('img').attr('src', srcLoad).siblings('h1').text(titleLoad).siblings('.date').text(dateLoad).siblings('.description').text(textLoad);
 
 }
 
@@ -288,17 +296,25 @@ function Quote_1() {
 
 function Quote_2() {
     var text2 = $('.Quote_2').text();
-    // $('.Quote_2').find('h1').html('<span>&quot;</span>' + text2 + '<span>&quot;</span>');
-    $('.Quote_2').children().not('img').wrapAll('<div class="quoteText">')
+    $('.Quote_2').children().not('img').wrapAll('<div class="quoteText">').addClass('largeText')
 }
-function Quote_3() {}
+function Quote_3() {
+    $('.Quote_3').children().not('img').wrapAll('<div class="Quote_3_Text"></div>')
+}
 
 function Text_Module_Black() {
     $('.Text_Module_Black').append('<div>').prepend('<div>').find('p').not('.date').addClass('text');
 }
 
 function Text_Module_White() {
-    $('.Text_Module_White').append('<div>').prepend('<div>').find('p').not('.date').addClass('text');
+    $('.Text_Module_White').each(function(){
+        if($(this).hasClass('textBarModule')) {
+            console.log('done did it')
+        } else {
+            $(this).addClass('textBarModule')
+            $(this).append('<div>').prepend('<div>').find('p').not('.date').addClass('text');
+        }
+    })
 }
 
 function Year_Text_1() {
