@@ -160,12 +160,15 @@ function imageExpand(){
 
 	});
 
-	$('.Lightbox_Close').on('click', function(){
+	// ON NEXT CLICK
+	$('.Lightbox_Next').on('click', function(){
 
-		$('.lightBox').removeClass('active');
+		var currenntImage = $(this).parents().eq(1).siblings('img').attr()
+		console.log(currentImage);
 
 	});
 
+	// ON PREV CLICK
 }
 // end
  // START NAVIGATION FUNCTION
@@ -210,49 +213,49 @@ function navigation(){
 
 // START MAP BOOTSTRAPS > FROM NETHERLANDS TO TEXAS
 // DRAGGABLKE FUNCTION
-(function($) {
-    $.fn.drags = function(opt) {
+// (function($) {
+//     $.fn.drags = function(opt) {
 
-        opt = $.extend({handle:"",cursor:"move"}, opt);
+//         opt = $.extend({handle:"",cursor:"move"}, opt);
 
-        if(opt.handle === "") {
-            var $el = this;
-        } else {
-            var $el = this.find(opt.handle);
-        }
+//         if(opt.handle === "") {
+//             var $el = this;
+//         } else {
+//             var $el = this.find(opt.handle);
+//         }
 
-        return $el.css('cursor', opt.cursor).on("mousedown", function(e) {
-            if(opt.handle === "") {
-                var $drag = $(this).addClass('draggable');
-            } else {
-                var $drag = $(this).addClass('active-handle').parent().addClass('draggable');
-            }
-            var z_idx = $drag.css('z-index'),
-                drg_h = $drag.outerHeight(),
-                drg_w = $drag.outerWidth(),
-                pos_y = $drag.offset().top + drg_h - e.pageY,
-                pos_x = $drag.offset().left + drg_w - e.pageX;
-            $drag.css('z-index', 1).parents().on("mousemove", function(e) {
-                $('.draggable').offset({
-                    top:e.pageY + pos_y - drg_h,
-                    left:e.pageX + pos_x - drg_w
-                }).on("mouseup", function() {
-                    $(this).removeClass('draggable').css('z-index', z_idx);
-                });
-            });
-            e.preventDefault(); // disable selection
-        }).on("mouseup", function() {
-            if(opt.handle === "") {
-                $(this).removeClass('draggable');
-            } else {
-                $(this).removeClass('active-handle').parent().removeClass('draggable');
-            }
-        });
+//         return $el.css('cursor', opt.cursor).on("mousedown", function(e) {
+//             if(opt.handle === "") {
+//                 var $drag = $(this).addClass('draggable');
+//             } else {
+//                 var $drag = $(this).addClass('active-handle').parent().addClass('draggable');
+//             }
+//             var z_idx = $drag.css('z-index'),
+//                 drg_h = $drag.outerHeight(),
+//                 drg_w = $drag.outerWidth(),
+//                 pos_y = $drag.offset().top + drg_h - e.pageY,
+//                 pos_x = $drag.offset().left + drg_w - e.pageX;
+//             $drag.css('z-index', 1).parents().on("mousemove", function(e) {
+//                 $('.draggable').offset({
+//                     top:e.pageY + pos_y - drg_h,
+//                     left:e.pageX + pos_x - drg_w
+//                 }).on("mouseup", function() {
+//                     $(this).removeClass('draggable').css('z-index', z_idx);
+//                 });
+//             });
+//             e.preventDefault(); // disable selection
+//         }).on("mouseup", function() {
+//             if(opt.handle === "") {
+//                 $(this).removeClass('draggable');
+//             } else {
+//                 $(this).removeClass('active-handle').parent().removeClass('draggable');
+//             }
+//         });
 
-    }
-})(jQuery);
+//     }
+// })(jQuery);
 
-$('.mapDraggable, .draggableMap svg, .gradAnimate span').drags();
+// $('.mapDraggable, .draggableMap svg, .gradAnimate span').drags();
 
 // GET HEIGHT AND WIDTH OF MAPMASK TO GIVE TO .MAP
 function mapMaskCSS(){
@@ -269,7 +272,7 @@ function mapMaskCSS(){
 	mapMaskCSS();
 }
 
-$('.mapMarker, #journey > g').on('click', function(){
+$('#journey > g').on('click touchstart', function(){
 	var $el = $(this).attr('id');
 	$(this).addClass('active').siblings().removeClass('active');
 	console.log($el)
@@ -361,6 +364,10 @@ function mobileLoad(){
 		});
 
 	} sortModules();
+
+	$('.Text_Module_White').add('.Text_Module_Black').each(function(){
+		$(this).children().wrapAll('<div />')	
+	})
 }
 
 // VIDEO HEIGHT FUNCTION
@@ -410,3 +417,116 @@ if(queryString.indexOf('Netherlands') != -1) {
 //----------------------------------------------------------------------------------------------
 // var loadTime = window.performance.timing.domContentLoadedEventEnd- window.performance.timing.navigationStart;
 // console.log(window.performance);
+
+/*--------------------------------------------------------------
+Draggable
+alternative to jQuery UI’s draggable
+based on comments from: http://css-tricks.com/snippets/jquery/draggable-without-jquery-ui/
+usage example: $('.post-thumbnail, article header').draggable();
+--------------------------------------------------------------*/
+(function($) {
+    if (!jQuery().draggable) {
+        $.fn.draggable = function() {
+            var _fixMobileEvent = function (e) {
+                if (e.originalEvent && e.originalEvent.targetTouches && e.originalEvent.targetTouches[0]) {
+                    var t = e.originalEvent.targetTouches[0];
+                    e.pageX = t.clientX;
+                    e.pageY = t.clientY;
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+            this
+                .css('cursor', 'move')
+                .on('mousedown touchstart', function(e) {
+                    _fixMobileEvent(e);
+                    var $dragged = $(this);
+
+                    var startOffset = $dragged.offset();
+                    var x = startOffset.left - e.pageX,
+                        y = startOffset.top - e.pageY,
+                        z = $dragged.css('z-index');
+
+                    if (!$.fn.draggable.stack) {
+                        $.fn.draggable.stack = 1;
+                    }
+                    stack = $.fn.draggable.stack;
+                    var firstMove = true;
+                    var $preventClick = null;
+
+                    $(window)
+                        .on('mousemove.draggable touchmove.draggable', function(e) {
+                            _fixMobileEvent(e);
+                            //$("#log").text("x: " + e.pageX + "; y: " + e.pageY);
+
+                            if (firstMove) {
+                                firstMove = false;
+                                $dragged
+                                    .css({'transform': 'scale(1.05)',
+                                          'bottom': 'auto', 'right': 'auto'
+                                    });
+                                    /*.find('a').one('click.draggable', function(e) {
+                                        e.preventDefault();
+                                        e.stopImmediatePropagation();
+                                        $("#log").text("link: click prevented " + stack);
+                                    });*/
+                                var $target = $(e.target);
+                                if ($target.is('a')) {
+                                    $preventClick = $target;
+                                    $target.one('click.draggable', function(e) {
+                                        e.preventDefault();
+                                        e.stopImmediatePropagation();
+                                        //$("#log").text("link: click prevented " + stack);
+                                    });
+                                } else if ($dragged.is('a')) {
+                                    $preventClick = $dragged;
+                                    $dragged.one('click.draggable', function(e) {
+                                        e.preventDefault();
+                                        e.stopImmediatePropagation();
+                                        //$("#log").text("dragged: click prevented " + stack);
+                                    });
+                                }
+                            }
+                            $dragged.offset({
+                                left: x + e.pageX,
+                                top: y + e.pageY
+                            });
+                            e.preventDefault();
+                        })
+                        .one('mouseup touchend touchcancel', function() {
+                            $(this).off('mousemove.draggable touchmove.draggable');
+                            $dragged.css({'transform': 'scale(1)'})
+                            $.fn.draggable.stack++;
+                            if (_fixMobileEvent(e)) {
+                                if ($preventClick) $preventClick.off('click.draggable');
+                                var endOffset = $dragged.offset();
+                                //$("#log").text("left :" + startOffset.left + "; top: " + startOffset.top
+                                //               + "; newLeft: " + endOffset.left + "; newTop: " + endOffset.top);
+                                if (Math.abs(endOffset.left - startOffset.left) <= 3
+                                        && Math.abs(endOffset.top - startOffset.top) <= 3) {
+
+                                    if ($preventClick) {
+                                        $preventClick[0].click();
+                                    } else {
+                                        var $target = $(e.target);
+                                        if ($target.is('a')) {
+                                            e.target.click();
+                                        } else if ($dragged.is('a')) {
+                                            $dragged[0].click();
+                                        }
+                                    }
+                                }
+                            }
+                        });
+
+                    e.preventDefault();
+                });
+            return this;
+        };
+    }
+})(jQuery);
+
+// $('.mapDraggable, .draggableMap svg, .gradAnimate span').drags();
+
+$('.draggableMap svg').draggable();

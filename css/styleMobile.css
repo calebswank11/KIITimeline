@@ -4,6 +4,8 @@
 body {
   letter-spacing: 1px;
   overflow-x: hidden; }
+  body.loaded #bar_window {
+    display: none !important; }
 
 /* GENERIC STYLES */
 .container {
@@ -16,6 +18,10 @@ body {
     padding: 0 2rem;
     margin: 2.5rem 0;
     position: relative; }
+    @media (max-width: 600px) {
+      .container > section {
+        padding: 0 1rem;
+        margin: 1rem 0; } }
     .container > section:first-child {
       margin-bottom: 0; }
     .container > section:first-child, .container > section:nth-child(2) {
@@ -24,6 +30,9 @@ body {
       margin-bottom: 4rem; }
     .container > section.end {
       margin-bottom: 0; }
+
+.empty .Image_Feature_Text {
+  display: none; }
 
 #content {
   height: auto; }
@@ -298,6 +307,9 @@ nav {
       left: 0; }
     nav.active .navigationSocial {
       bottom: 6.25vh; }
+      @media (max-width: 600px) {
+        nav.active .navigationSocial {
+          bottom: 3rem; } }
   nav::before {
     content: '';
     display: block;
@@ -375,6 +387,9 @@ nav {
   height: 93.75vh;
   -webkit-transition: right 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), left 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
           transition: right 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), left 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
+  @media (max-width: 600px) {
+    .navigationList, #chapter, .sectionLevel {
+      height: 85vh; } }
   .navigationList li, #chapter li, .sectionLevel li {
     list-style-type: none; }
 
@@ -461,6 +476,9 @@ nav {
   letter-spacing: 3px;
   color: white;
   text-align: left; }
+  @media (max-width: 600px) {
+    .navTextExtend, .navigationList a, .navigationList p, .chapterLevel > div h2, .sectionLevel h3 {
+      font-size: 1.25rem; } }
 
 .navCircleNumberExtend, .chapterLevel > div p:first-of-type, .sectionLevel p:last-of-type {
   height: 30px;
@@ -499,6 +517,9 @@ nav.active.Sections .chapterLevel.active .sectionLevel {
     clear: both;
     display: table;
     content: ''; }
+  @media (max-width: 600px) {
+    .breadcrumbsMobile {
+      top: 1.5rem; } }
   .breadcrumbsMobile span {
     color: #cccccc;
     margin: 0 1rem;
@@ -566,7 +587,8 @@ nav.active.Sections .chapterLevel.active .sectionLevel {
   width: 100%;
   z-index: 100;
   background-color: #fff;
-  height: 6.25vh; }
+  height: 6.25vh;
+  min-height: 3rem; }
 
 .miniTimelineNavPerm {
   position: absolute;
@@ -612,7 +634,7 @@ nav.active.Sections .chapterLevel.active .sectionLevel {
     display: table;
     content: ''; }
   .miniTimelineAction > div {
-    margin-right: 2rem; }
+    margin-right: 1rem; }
     .miniTimelineAction > div:last-child {
       margin-right: 1rem; }
 
@@ -666,8 +688,9 @@ nav.active.Sections .chapterLevel.active .sectionLevel {
         -ms-transform: translateY(-30%);
             transform: translateY(-30%);
     background-color: #ebeced; }
-  .miniTimelineNav:hover {
-    cursor: pointer; }
+    @media (max-width: 480px) {
+      .miniTimelineNav::before {
+        display: none; } }
   .miniTimelineNav div, .miniTimelineNav p {
     float: right; }
   .miniTimelineNav p {
@@ -971,8 +994,13 @@ nav.active.Sections .chapterLevel.active .sectionLevel {
   background-position: bottom left;
   background-repeat: no-repeat;
   position: relative; }
+  @media (max-width: 600px) {
+    .sectionIntro {
+      height: 85vh; } }
 
 .whiteHeader .sectionTitle h1 {
+  color: white; }
+.whiteHeader .chapterName {
   color: white; }
 .whiteHeader .scrollToNav {
   color: white; }
@@ -984,7 +1012,13 @@ nav.active.Sections .chapterLevel.active .sectionLevel {
   width: 33%; }
   @media (max-width: 600px) {
     .sectionTitle {
-      width: 50%; } }
+      width: 80%;
+      left: 1rem; } }
+  .sectionTitle div {
+    display: inline-block; }
+  .sectionTitle p {
+    display: block;
+    text-align: center; }
   .sectionTitle h1 {
     color: #333740;
     font-size: 2rem; }
@@ -1002,7 +1036,8 @@ nav.active.Sections .chapterLevel.active .sectionLevel {
   width: auto;
   color: white;
   text-align: left;
-  padding: .5rem 0; }
+  padding: .5rem 0;
+  color: #333740; }
 
 /* end */
 /* START SCROLL TO NAV */
@@ -1020,6 +1055,9 @@ nav.active.Sections .chapterLevel.active .sectionLevel {
       -ms-transform: translateX(-50%);
           transform: translateX(-50%);
   width: calc(100% - 4rem); }
+  @media (max-width: 600px) {
+    .scrollToNav {
+      width: calc(100% - 2rem); } }
   .scrollToNav p {
     text-align: left; }
 
@@ -1062,11 +1100,12 @@ nav.active.Sections .chapterLevel.active .sectionLevel {
 .draggableMap {
   height: 85vh;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  pointer-events: none; }
   .draggableMap > img {
     display: block;
     position: absolute;
-    z-index: 1;
+    z-index: 50;
     left: 50%;
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
@@ -1076,13 +1115,24 @@ nav.active.Sections .chapterLevel.active .sectionLevel {
     height: 105%;
     pointer-events: none; }
   .draggableMap svg {
+    pointer-events: initial;
     left: -150%;
     top: -25%;
     -webkit-transform: translate(0, 0);
         -ms-transform: translate(0, 0);
             transform: translate(0, 0);
     position: absolute;
-    width: 450%; }
+    width: 450%;
+    -webkit-transition: -webkit-transform cubic-bezier(0.44, 0.2, 0, 1.01) 0.3s;
+            transition: transform cubic-bezier(0.44, 0.2, 0, 1.01) 0.3s; }
+    @media (max-width: 600px) {
+      .draggableMap svg {
+        width: 1000%;
+        left: -430%;
+        top: -75%; } }
+
+.mapClickArea {
+  fill: transparent; }
 
 #journey > g.active .pointNonActive {
   display: none; }
@@ -1195,6 +1245,10 @@ nav.active.Sections .chapterLevel.active .sectionLevel {
         bottom: 20%;
         background-color: #3b4b52; }
 
+.statistic > p {
+  z-index: 99;
+  pointer-events: initial; }
+
 .mapTexture {
   pointer-events: none;
   background: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/NetherlandsToTexas/mapBackgroundMobile.jpg") no-repeat;
@@ -1249,6 +1303,9 @@ picture {
   .Video_Feature_2 div {
     padding-right: 2rem;
     padding-top: 2rem; }
+    @media (max-width: 600px) {
+      .Video_Feature_2 div {
+        padding-top: 1rem; } }
 
 .Video_Feature_Text {
   position: relative;
@@ -1257,6 +1314,9 @@ picture {
     text-align: right; }
   .Video_Feature_Text .date {
     padding-bottom: 2rem; }
+    @media (max-width: 600px) {
+      .Video_Feature_Text .date {
+        padding-bottom: 1rem; } }
   .Video_Feature_Text p:last-of-type {
     text-align: right;
     width: 85%;
@@ -1287,6 +1347,9 @@ picture {
             transform: translateX(-50%);
     bottom: 0;
     z-index: 1; }
+    @media (max-width: 600px) {
+      .Image_Feature_1 .Image_Feature_Text {
+        width: 80%; } }
     @media (max-width: 480px) {
       .Image_Feature_1 .Image_Feature_Text {
         max-width: 330px; } }
@@ -1296,6 +1359,10 @@ picture {
       padding: 2rem;
       padding-bottom: 6rem;
       background-color: white; }
+      @media (max-width: 600px) {
+        .Image_Feature_1 .Image_Feature_Text div {
+          background-color: rgba(250, 250, 250, 0.85);
+          padding: 1rem; } }
     .Image_Feature_1 .Image_Feature_Text p {
       text-align: left; }
 
@@ -1327,15 +1394,26 @@ picture {
     max-width: 400px;
     height: auto;
     z-index: 1; }
+    @media (max-width: 600px) {
+      .Image_Feature_2 > div {
+        width: 80%;
+        bottom: 0; } }
     .Image_Feature_2 > div div {
       background-color: white;
       padding: 2rem;
       padding-bottom: 6rem; }
+      @media (max-width: 600px) {
+        .Image_Feature_2 > div div {
+          padding: 1rem;
+          background-color: rgba(250, 250, 250, 0.85); } }
 
 /* end */
 /* START YEAR TEXT ONE */
 .Year_Text_1 {
   margin: 17vh 0 10vh !important; }
+  @media (max-width: 600px) {
+    .Year_Text_1 {
+      margin: 12vh 0 6vh !important; } }
   .Year_Text_1 h1 {
     position: absolute;
     top: 1rem;
@@ -1362,6 +1440,10 @@ picture {
     width: 40%;
     margin-top: 3rem;
     text-align: left; }
+    @media (max-width: 600px) {
+      .Year_Text_1 p {
+        width: 80%;
+        margin-top: 1.5rem; } }
 
 /* END YEAR TEXT ONE */
 /* YEAR TEXT TWO */
@@ -1369,6 +1451,73 @@ picture {
 /* START TEXT MODULE WHITE */
 .Text_Module_White h1 {
   text-align: right; }
+.Text_Module_White.ranching > div {
+  padding: 2rem;
+  position: absolute;
+  top: -33vh;
+  width: 100%;
+  max-width: 480px;
+  color: white; }
+  @media (max-width: 480px) {
+    .Text_Module_White.ranching > div {
+      top: -75vh;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+              transform: translateX(-50%); } }
+  .Text_Module_White.ranching > div div {
+    background-color: rgba(250, 250, 250, 0.5);
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0; }
+    .Text_Module_White.ranching > div div:first-of-type {
+      left: -100%; }
+    .Text_Module_White.ranching > div div:last-of-type {
+      right: -100%; }
+.Text_Module_White.rockIsland > div {
+  padding: 2rem;
+  position: absolute;
+  top: 50vh;
+  width: 100%;
+  max-width: 480px;
+  color: white; }
+  @media (max-width: 480px) {
+    .Text_Module_White.rockIsland > div {
+      top: 0;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+              transform: translateX(-50%); } }
+  .Text_Module_White.rockIsland > div div {
+    background-color: rgba(250, 250, 250, 0.5);
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0; }
+    .Text_Module_White.rockIsland > div div:first-of-type {
+      left: -100%; }
+    .Text_Module_White.rockIsland > div div:last-of-type {
+      right: -100%; }
+
+.Text_Module_Black h1 {
+  text-align: right; }
+@media (max-width: 480px) {
+  .Text_Module_Black.sterlingBio {
+    margin-bottom: 0; } }
+.Text_Module_Black.sterlingBio > div {
+  padding: 2rem;
+  position: absolute;
+  width: 33%;
+  max-width: 480px; }
+  @media (max-width: 480px) {
+    .Text_Module_Black.sterlingBio > div {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      padding: 0; } }
 
 /* END TEXT MODULE WHITE */
 /* START QUOTEONE */
@@ -1391,7 +1540,7 @@ picture {
   text-align: center; }
   @media (max-width: 480px) {
     .Quote_1 h1 {
-      font-size: 2.75rem; } }
+      font-size: 2.5rem; } }
 .Quote_1 h1 span {
   color: #96c6d4;
   display: block; }
@@ -1399,6 +1548,10 @@ picture {
 /* END QUOTEONE */
 .Quote_2 {
   padding: 0 !important; }
+  @media (max-width: 600px) {
+    .Quote_2 {
+      height: 100vh;
+      overflow: hidden; } }
   .Quote_2 .quoteText {
     padding: 1rem 0;
     position: absolute;
@@ -1410,6 +1563,9 @@ picture {
     width: 100%;
     max-width: 650px;
     padding: 0 2rem; }
+    @media (max-width: 600px) {
+      .Quote_2 .quoteText {
+        z-index: 2; } }
     .Quote_2 .quoteText::before, .Quote_2 .quoteText::after {
       content: '';
       display: block;
@@ -1431,6 +1587,19 @@ picture {
       line-height: 1;
       font-weight: 800;
       font-size: 2rem; }
+    @media (max-width: 600px) {
+      .Quote_2 .quoteText p:last-of-type {
+        font-size: 20px;
+        font-weight: 800; } }
+  @media (max-width: 600px) {
+    .Quote_2 img {
+      width: 175%;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%); } }
 
 /* end */
 /* START QUOTE THREE */
@@ -1507,9 +1676,10 @@ picture {
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
+  top: 47.5%;
   right: -100%;
   width: 95vw;
-  height: 90vh;
+  height: 85vh;
   background-color: white;
   z-index: 100;
   -webkit-box-shadow: 0px 0px 400px #ababab;
@@ -1519,6 +1689,12 @@ picture {
   opacity: 0;
   padding: 1rem;
   text-align: left; }
+  @media (max-width: 600px) {
+    .lightBox {
+      -webkit-box-shadow: 0px 0px 400px black;
+              box-shadow: 0px 0px 400px black; } }
+  .lightBox .lightboxNav, .lightBox .close {
+    display: none; }
   .lightBox.active {
     opacity: 1;
     right: 0; }
@@ -1531,6 +1707,9 @@ picture {
             transform: translateX(-50%);
     position: relative;
     margin: 2rem 0; }
+    @media (max-width: 600px) {
+      .lightBox img {
+        margin: 1rem 0; } }
   .lightBox div:first-of-type {
     padding-bottom: 1rem; }
     .lightBox div:first-of-type .date {
@@ -1547,7 +1726,8 @@ picture {
   background-color: #3b4b52;
   width: 100%;
   border-top: 1px solid #ebeced;
-  padding: 1rem; }
+  padding: 1rem;
+  z-index: 2; }
   .Lightbox_Nav::after {
     clear: both;
     display: table;
@@ -1629,6 +1809,12 @@ picture {
     position: absolute;
     right: 0;
     bottom: 2rem; }
+    @media (max-width: 600px) {
+      .Image_Caption_One .caption {
+        bottom: 0;
+        max-width: 100%;
+        padding: 1rem;
+        background-color: rgba(250, 250, 250, 0.85); } }
   .Image_Caption_One div, .Image_Caption_One img {
     float: left; }
 
@@ -1638,11 +1824,21 @@ picture {
   position: relative;
   bottom: 6.25vh;
   height: 5vh;
-  background-color: #96c6d4;
   color: white;
   width: 50%;
   float: right;
-  color: white; }
+  color: white;
+  z-index: 10; }
+  @media (max-width: 600px) {
+    .nextSection, .prevSection {
+      bottom: 3rem;
+      min-height: 3rem; } }
+
+.nextSection {
+  background-color: #96c6d4; }
+
+.prevSection {
+  background-color: #84B2BF; }
 
 .nextSectionHover {
   display: none; }
@@ -1652,12 +1848,18 @@ picture {
   border-left: 1px solid white;
   text-align: right;
   padding-right: 1rem; }
+  @media (max-width: 600px) {
+    .nextSection {
+      padding-right: 0; } }
   .nextSection a {
     width: 100%;
     height: 100%;
     position: relative;
     display: block;
     color: white; }
+    @media (max-width: 600px) {
+      .nextSection a {
+        padding-right: 1rem; } }
   .nextSection .number {
     position: absolute;
     left: 1rem;
@@ -1665,6 +1867,10 @@ picture {
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
             transform: translateY(-50%); }
+    @media (max-width: 600px) {
+      .nextSection .number {
+        font-size: .65rem;
+        left: .5rem; } }
   .nextSection .nextTitle {
     position: absolute;
     right: 2.5rem;
@@ -1673,11 +1879,18 @@ picture {
         -ms-transform: translateY(-50%);
             transform: translateY(-50%);
     color: white; }
+    @media (max-width: 600px) {
+      .nextSection .nextTitle {
+        right: 20px;
+        font-size: 0.65rem; } }
+    @media (max-width: 600px) {
+      .nextSection .nextTitle span:first-of-type {
+        display: none; } }
   .nextSection .sideNavArrow {
     background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/scrollToNav.svg");
     background-repeat: no-repeat;
-    -webkit-background-size: 45%;
-    background-size: 45%;
+    -webkit-background-size: 25%;
+    background-size: 25%;
     background-position: center center;
     height: 30px;
     width: 30px;
@@ -1690,17 +1903,31 @@ picture {
         -ms-transform: translateY(-50%);
             transform: translateY(-50%);
     right: -2.5rem; }
+    @media (max-width: 600px) {
+      .nextSection .sideNavArrow {
+        width: 20px;
+        height: 20px;
+        border: none;
+        -webkit-background-size: 45%;
+        background-size: 45%;
+        right: -20px; } }
 
 .prevSection {
   left: 0;
   text-align: left;
   padding-left: 1rem; }
+  @media (max-width: 600px) {
+    .prevSection {
+      padding-left: 0; } }
   .prevSection a {
     width: 100%;
     height: 100%;
     position: relative;
     display: block;
     color: white; }
+    @media (max-width: 600px) {
+      .prevSection a {
+        padding-left: 1rem; } }
   .prevSection .number {
     position: absolute;
     right: 1rem;
@@ -1708,6 +1935,10 @@ picture {
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
             transform: translateY(-50%); }
+    @media (max-width: 600px) {
+      .prevSection .number {
+        font-size: .65rem;
+        right: .5rem; } }
   .prevSection .prevTitle {
     position: absolute;
     left: 2.5rem;
@@ -1716,6 +1947,13 @@ picture {
         -ms-transform: translateY(-50%);
             transform: translateY(-50%);
     color: white; }
+    @media (max-width: 600px) {
+      .prevSection .prevTitle {
+        left: 20px;
+        font-size: .65rem; } }
+    @media (max-width: 600px) {
+      .prevSection .prevTitle span:first-of-type {
+        display: none; } }
   .prevSection .sideNavArrow {
     background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/scrollToNav.svg");
     background-repeat: no-repeat;
@@ -1736,6 +1974,14 @@ picture {
     -ms-transform: translateY(-50%) rotate(180deg);
     transform: translateY(-50%) rotate(180deg);
     left: -2.5rem; }
+    @media (max-width: 600px) {
+      .prevSection .sideNavArrow {
+        width: 20px;
+        height: 20px;
+        border: none;
+        -webkit-background-size: 45%;
+        background-size: 45%;
+        left: -20px; } }
 
 .nextSection.inactive, .prevSection.inactive {
   background-color: #ebeced; }
@@ -1750,6 +1996,9 @@ picture {
 /* CUSTOM BIOS START */
 .Custom_Biography {
   /* THE THESIS */ }
+  @media (max-width: 600px) {
+    .Custom_Biography {
+      margin: 3rem 0 !important; } }
   .Custom_Biography img {
     width: 100%; }
   .Custom_Biography .bioItem {
@@ -1765,7 +2014,16 @@ picture {
       padding-bottom: .5rem; }
     .Custom_Biography .bioItem p {
       text-align: left; }
+  @media (max-width: 600px) {
+    .Custom_Biography .lightboxText h1 {
+      font-size: 20px !important; } }
+  @media (max-width: 600px) {
+    .Custom_Biography .lightboxText span {
+      font-size: 1rem; } }
 
+@media (max-width: 600px) {
+  #TheThesis .Custom_Biography {
+    margin-bottom: 6rem !important; } }
 #TheThesis .Custom_Biography .one {
   top: 50%;
   left: 10%; }
@@ -1779,5 +2037,28 @@ picture {
 #CharlesdeGanahl .Custom_Biography .two {
   left: 60%;
   top: 60%; }
+
+@media (max-width: 480px) {
+  #SterlingVarner .Custom_Biography {
+    padding: 0;
+    margin: 0; } }
+#SterlingVarner .Image_Feature_1 img {
+  width: 100%; }
+
+@media (max-width: 600px) {
+  .mobileAccelerometer {
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; }
+    .mobileAccelerometer img {
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      width: auto;
+      position: absolute;
+      height: auto;
+      min-height: 120%; } }
 
 /* end */

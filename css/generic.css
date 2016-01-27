@@ -172,6 +172,9 @@ a {
   overflow: hidden;
   position: relative;
   z-index: 1; }
+  @media (max-width: 480px) {
+    .miniTimelineSoundBars {
+      width: 15px; } }
   .miniTimelineSoundBars::before, .miniTimelineSoundBars::after {
     content: '';
     display: block;
@@ -388,10 +391,11 @@ a {
     z-index: 0;
     -webkit-transition: opacity .5s ease;
             transition: opacity .5s ease; }
-  .expand:hover::before {
-    -webkit-transform: translate(-50%, -50%) rotate(90deg);
-        -ms-transform: translate(-50%, -50%) rotate(90deg);
-            transform: translate(-50%, -50%) rotate(90deg); }
+  @media (min-width: 768px) {
+    .expand:hover::before {
+      -webkit-transform: translate(-50%, -50%) rotate(90deg);
+          -ms-transform: translate(-50%, -50%) rotate(90deg);
+              transform: translate(-50%, -50%) rotate(90deg); } }
   .expand.active::after {
     opacity: .5; }
 
@@ -400,7 +404,7 @@ a {
   -webkit-background-size: cover cover;
           background-size: cover;
   background-repeat: no-repeat;
-  background-position: bottom left; }
+  background-position: top left; }
   @media (min-width: 1300px) {
     .container > .sectionIntro {
       -webkit-background-size: cover;
@@ -445,25 +449,25 @@ a {
   background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/NewEndeavors/Hero.jpg"); }
   @media (max-width: 768px) {
     #NewEndeavors .sectionIntro {
-      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/NewEndeavors/HeroMobile.jpg"); } }
+      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/NewEndeavors/Hero_Mobile.jpg"); } }
 
 #SterlingVarner .sectionIntro {
   background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/SterlingVarner/Hero.jpg"); }
   @media (max-width: 768px) {
     #SterlingVarner .sectionIntro {
-      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/SterlingVarner/HeroMobile.jpg"); } }
+      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/SterlingVarner/Hero_Mobile.jpg"); } }
 
 #TheHomecoming .sectionIntro {
   background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/TheHomecoming/Hero.jpg"); }
   @media (max-width: 768px) {
     #TheHomecoming .sectionIntro {
-      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/TheHomecoming/HeroMobile.jpg"); } }
+      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/TheHomecoming/Hero_Mobile.jpg"); } }
 
 #AggresiveExploration .sectionIntro {
   background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/AggresiveExploration/Hero.jpg"); }
   @media (max-width: 768px) {
     #AggresiveExploration .sectionIntro {
-      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/AggresiveExploration/HeroMobile.jpg"); } }
+      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/AggresiveExploration/Hero_Mobile.jpg"); } }
 
 @-webkit-keyframes maskIn {
   from {

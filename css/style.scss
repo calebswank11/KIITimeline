@@ -19,6 +19,8 @@ $min : "min-width:";
 	@return #{$min} ($pxSize)+px; 
 }
 
+$ease : cubic-bezier(0.44, 0.2, 0, 1.01);
+
 @mixin clearfix {
 	&::after {
 		clear: both;
@@ -150,6 +152,11 @@ $columnsY: 16;
 }
 body {
 	overflow: hidden;
+	&.loaded {
+		#bar_window {
+			display: none !important;
+		}
+	}
 }
 .abs {
 	position: absolute;
@@ -1574,8 +1581,11 @@ nav {
 	position: relative;
 	left: -63%;
 	transform: translateY(-25%);
+	transition: transform $ease .3s;
 }
-
+.mapClickArea {
+	fill: transparent;
+}
 #journey > g.active .pointNonActive {
 	display: none;
 }

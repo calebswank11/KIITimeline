@@ -632,6 +632,8 @@
 
 body {
   overflow: hidden; }
+  body.loaded #bar_window {
+    display: none !important; }
 
 .abs {
   position: absolute; }
@@ -2202,7 +2204,12 @@ nav {
   left: -63%;
   -webkit-transform: translateY(-25%);
       -ms-transform: translateY(-25%);
-          transform: translateY(-25%); }
+          transform: translateY(-25%);
+  -webkit-transition: -webkit-transform cubic-bezier(0.44, 0.2, 0, 1.01) 0.3s;
+          transition: transform cubic-bezier(0.44, 0.2, 0, 1.01) 0.3s; }
+
+.mapClickArea {
+  fill: transparent; }
 
 #journey > g.active .pointNonActive {
   display: none; }

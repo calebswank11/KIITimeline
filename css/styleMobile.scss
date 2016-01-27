@@ -10,6 +10,11 @@ $dkGrey : #333740;
 $black : #000006;
 
 
+@mixin bgcM { 
+	background-color: rgba(250, 250, 250, .85);
+}
+
+
 $max : "max-width:";
 @function max($pxSize) {
 	@return #{$max} ($pxSize)+px;
@@ -83,6 +88,11 @@ $azo : "azo-sans-web", helvetica, sans-serif;
 body {
 	letter-spacing: 1px;
 	overflow-x: hidden;
+	&.loaded {
+		#bar_window {
+			display: none !important;
+		}
+	}
 }
 
 /* GENERIC STYLES */
@@ -96,6 +106,10 @@ body {
 		padding: 0 2rem;
 		margin: 2.5rem 0;
 		position: relative;
+		@media (max(600)) {
+			padding: 0 1rem;
+			margin: 1rem 0;
+		}
 		&:first-child {
 			margin-bottom: 0;
 		}
@@ -108,6 +122,11 @@ body {
 		&.end {
 			margin-bottom: 0;
 		}
+	}
+}
+.empty {
+	.Image_Feature_Text {
+		display: none;
 	}
 }
 #content {
@@ -252,6 +271,9 @@ nav {
 		}		
 		.navigationSocial {
 			bottom: 6.25vh;
+			@media (max(600)) {
+				bottom: 3rem;
+			}
 		}
 	}
 	&::before {
@@ -330,6 +352,9 @@ nav {
 	width: 100vw;
 	height: 93.75vh;
 	transition: right .5s $ease, left .5s $ease;
+	@media (max(600)) {
+		height: 85vh;
+	}
 	li {
 		list-style-type: none;
 	}
@@ -435,6 +460,9 @@ nav {
 	letter-spacing: 3px;
 	color: white;
 	text-align: left;
+	@media (max(600)) {
+		font-size: 1.25rem;
+	}
 }
 .navCircleNumberExtend {
 	height: 30px;
@@ -483,6 +511,9 @@ nav.active {
 	padding: 0 1rem;
 	text-transform: uppercase;
 	letter-spacing: 3px;
+	@media (max(600)) {
+		top: 1.5rem;
+	}
 	span {
 		color: $grey;
 		margin: 0 1rem;
@@ -571,6 +602,7 @@ nav.active {
 	z-index: 100;
 	background-color: #fff;
 	height: 6.25vh;
+    min-height: 3rem;
 }
 .miniTimelineNavPerm {
 	@include clearfix;
@@ -603,7 +635,7 @@ nav.active {
     @include clearfix;
     height: 6.25vh;
     & > div {
-    	margin-right: 2rem;
+    	margin-right: 1rem;
     	&:last-child {
     		margin-right: 1rem;
     	}
@@ -649,9 +681,9 @@ nav.active {
 		top: 50%;
 		transform: translateY(-30%);
 		background-color: $ltGrey;
-	}
-	&:hover {
-		cursor: pointer;
+		@media (max(480)) {
+			display: none;
+		}
 	}
 	div, p {
 		float: right;
@@ -877,12 +909,18 @@ nav.active {
     background-position: bottom left;
     background-repeat: no-repeat;
     position: relative;
+    @media (max(600)) {
+    	height: 85vh;
+    }
 }
 .whiteHeader {
 	.sectionTitle {
 		h1 {
 			color: white;
 		}
+	}
+	.chapterName {
+		color: white;
 	}
 	.scrollToNav {
 		color: white;
@@ -894,10 +932,15 @@ nav.active {
 	left: 2rem;
 	width: 33%;
 	@media (max(600)) {
-		width: 50%;
+		width: 80%;
+		left: 1rem;
 	}
     div {
-
+		display: inline-block;
+    }
+    p {
+    	display: block;
+    	text-align: center;
     }
     h1 {
     	color: $dkGrey;
@@ -918,6 +961,7 @@ nav.active {
     color: white;
     text-align: left;
     padding: .5rem 0;
+    color: $dkGrey;
 }
 	/* end */
 	/* START SCROLL TO NAV */
@@ -932,6 +976,9 @@ nav.active {
     bottom: 0;
     @include transX;
     width: calc(100% - 4rem);
+    @media (max(600)) {
+    	width: calc(100% - 2rem);
+    }
     p {
     	text-align: left;
     }
@@ -983,22 +1030,33 @@ nav.active {
 	height: 85vh;
 	position: relative;
 	overflow: hidden;
+	pointer-events: none;
 	& > img {
 		display: block;
 		position: absolute;
-		z-index: 1;
+		z-index: 50;
 		@include trans;
 		width: 105%;
 		height: 105%;
 		pointer-events: none;
 	}
 	svg {
+		pointer-events: initial;
 		left: -150%;
 		top: -25%;
 		transform: translate(0, 0);
 		position: absolute;
 		width: 450%;
+		transition: transform $ease .3s;
+		@media (max(600)) {
+			width: 1000%; 
+			left: -430%;
+			top: -75%;
+		}
 	}
+}
+.mapClickArea {
+	fill: transparent;
 }
 #journey > g.active .pointNonActive {
 	display: none;
@@ -1124,6 +1182,10 @@ nav.active {
 		}
 	}
 }
+.statistic > p {
+	z-index: 99;
+	pointer-events: initial;
+}
 .mapTexture {
 	pointer-events: none;
 	background: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/NetherlandsToTexas/mapBackgroundMobile.jpg') no-repeat;
@@ -1177,6 +1239,9 @@ picture {
 	div {
 		padding-right: 2rem;
 		padding-top: 2rem;
+		@media (max(600)) {
+			padding-top: 1rem;
+		}
 	}
 }
 .Video_Feature_Text {
@@ -1187,6 +1252,9 @@ picture {
 	}
 	.date {
 		padding-bottom: 2rem;
+		@media (max(600)) {
+			padding-bottom: 1rem;
+		}
 	}
 	p:last-of-type {
 		text-align: right;
@@ -1214,6 +1282,9 @@ picture {
 		@include transX;
 		bottom: 0;
 		z-index: 1;
+		@media (max(600)) {
+			width: 80%;
+		}
 		@media (max(480)) {
 			max-width: 330px;
 		}
@@ -1225,6 +1296,10 @@ picture {
 			padding: 2rem;
 			padding-bottom: 6rem;
 			background-color: white;
+			@media (max(600)) {
+				@include bgcM;
+				padding: 1rem;
+			}
 		}
 		p{
 			text-align: left;
@@ -1262,10 +1337,18 @@ picture {
 		max-width: 400px;
 		height: auto;
 		z-index: 1;
+		@media (max(600)) {
+			width: 80%;
+			bottom: 0;
+		}
 		div {
 			background-color: white;
 			padding: 2rem;
 			padding-bottom: 6rem;
+			@media (max(600)) {
+				padding: 1rem;
+				@include bgcM;
+			}
 		}
 	}
 }
@@ -1273,6 +1356,9 @@ picture {
 	/* START YEAR TEXT ONE */
 .Year_Text_1 {
 	margin: 17vh 0 10vh!important;
+	@media (max(600)) {
+		margin: 12vh 0 6vh!important;
+	}
 	h1 {
 		position: absolute;
 		top: 1rem;
@@ -1300,6 +1386,10 @@ picture {
 		width: 40%;
 		margin-top: 3rem;
 		text-align: left;
+		@media (max(600)) {
+			width: 80%;
+			margin-top: 1.5rem;
+		}
 	}
 }
 /* END YEAR TEXT ONE */
@@ -1335,6 +1425,84 @@ picture {
 		@extend .largeText;
 		text-align: right;
 	}
+	&.ranching {
+		& > div {
+			padding: 2rem;
+			position: absolute;
+			top: -33vh;
+			width: 100%;
+			max-width: 480px;
+			color: white;
+			@media (max(480)) {
+				top: -75vh;
+				@include transX;
+			}
+			div {
+				background-color: rgba(250, 250, 250, .5);
+				width: 100%;
+				height: 100%;
+				display: block;
+				position: absolute;
+				top: 0;
+				&:first-of-type {
+					left: -100%;
+				}
+				&:last-of-type {
+					right: -100%;
+				}
+			}
+		}
+	}
+	&.rockIsland {
+		& > div {
+			padding: 2rem;
+			position: absolute;
+			top: 50vh;
+			width: 100%;
+			max-width: 480px;
+			color: white;
+			@media (max(480)) {
+				top: 0;
+				@include transX;
+			}
+			div {
+				background-color: rgba(250, 250, 250, .5);
+				width: 100%;
+				height: 100%;
+				display: block;
+				position: absolute;
+				top: 0;
+				&:first-of-type {
+					left: -100%;
+				}
+				&:last-of-type {
+					right: -100%;
+				}
+			}
+		}
+	}
+}
+.Text_Module_Black {
+	h1 {
+		text-align: right;
+	}
+	&.sterlingBio {
+		@media (max(480)) {
+			margin-bottom: 0;
+		}
+		& > div {
+			padding: 2rem;
+			position: absolute;
+			width: 33%;
+			max-width: 480px;
+			@media (max(480)) {
+				position: relative;
+				width: 100%;
+				max-width: 100%;
+				padding: 0;
+			}
+		} 
+	}
 }
 	/* END TEXT MODULE WHITE */
 /* START QUOTEONE */
@@ -1356,7 +1524,7 @@ picture {
 		font-size: 3.5rem;
 		text-align: center;
 		@media (max(480)) {
-			font-size: 2.75rem;
+			font-size: 2.5rem;
 		}
 	}
 	h1 span {
@@ -1367,6 +1535,10 @@ picture {
 /* END QUOTEONE */
 .Quote_2 {
 	padding: 0!important;
+	@media (max(600)) {
+		height: 100vh;
+		overflow: hidden;
+	}
 	.quoteText {
 		padding: 1rem 0;
 		position: absolute;
@@ -1374,6 +1546,9 @@ picture {
 		width: 100%;
 		max-width: 650px;
 		padding: 0 2rem;
+		@media (max(600)) {
+			z-index: 2;
+		}
 		&::before, &::after {
 			@include before;
 			width: 33%;
@@ -1393,6 +1568,19 @@ picture {
 			line-height: 1;
 			font-weight: 800;
 			font-size: 2rem;
+		}
+		p:last-of-type {
+			@media (max(600)) {
+				font-size: 20px;
+				font-weight: 800;
+			}
+		}
+	}
+	img {
+		@media (max(600)) {
+			width: 175%;
+			position: absolute;
+			@include trans;
 		}
 	}
 }
@@ -1460,9 +1648,10 @@ picture {
 .lightBox {
     position: fixed;
     @include transY;
+    top: 47.5%;
     right: -100%;
     width: 95vw;
-    height: 90vh;
+    height: 85vh;
     background-color: white;
     z-index: 100;
     box-shadow: 0px 0px 400px rgb(171, 171, 171);
@@ -1470,6 +1659,12 @@ picture {
     opacity: 0;
     padding: 1rem;
     text-align: left;
+    @media (max(600)) {
+    	box-shadow: 0px 0px 400px rgb(0, 0, 0);
+    }
+    .lightboxNav, .close {
+    	display: none;
+    }
     &.active {
     	opacity: 1;
     	right: 0;
@@ -1480,6 +1675,9 @@ picture {
     	@include transX;
     	position: relative;
     	margin: 2rem 0;
+    	@media (max(600)) {
+    		margin: 1rem 0;
+    	}
     }
     div:first-of-type {
 		h1 {
@@ -1505,6 +1703,7 @@ picture {
 	border-top: 1px solid $ltGrey;
 	@include clearfix;
 	padding: 1rem;
+	z-index: 2;
 	div {
 		width: 30px;
 		height: 30px;
@@ -1588,6 +1787,12 @@ picture {
 		position: absolute;
 		right: 0;
 		bottom: 2rem;
+		@media (max(600)) {
+			bottom: 0;
+			max-width: 100%;
+			padding: 1rem;
+			@include bgcM;
+		}
 	}
 	div, img {
 		float: left;
@@ -1599,11 +1804,21 @@ picture {
 	position: relative;
 	bottom: 6.25vh;
 	height: 5vh;
-	background-color: $blueOne;
 	color: white;
 	width: 50%;
 	float: right;
 	color: white;
+	z-index: 10;
+	@media (max(600)) {
+		bottom: 3rem;
+		min-height: 3rem;
+	}
+}
+.nextSection {
+	background-color: $blueOne;
+}
+.prevSection {
+	background-color: #84B2BF;
 }
 .nextSectionHover {
 	display: none;
@@ -1613,7 +1828,13 @@ picture {
 	border-left: 1px solid white;
 	text-align: right;
 	padding-right: 1rem;
+	@media (max(600)) {
+		padding-right: 0;
+	}
 	a {
+		@media (max(600)) {
+			padding-right: 1rem;
+		}
 		width: 100%;
 		height: 100%;
 		position: relative;
@@ -1624,18 +1845,33 @@ picture {
 		position: absolute;
 		left: 1rem;
 		@include transY;
+		@media (max(600)) {
+			font-size: .65rem;	
+			left: .5rem;
+		}
 	}
 	.nextTitle {
 		position: absolute;
 		right: 2.5rem;
 		@include transY;
 		color: white;
+		@media (max(600)) {
+			right: 20px;
+			font-size: .65rem
+		}
+		span {
+			&:first-of-type {
+				@media (max(600)) {
+					display: none;
+				}
+			}
+		}
 	}
 	.sideNavArrow {
 		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/scrollToNav.svg');
 		background-repeat: no-repeat;
-		-webkit-background-size: 45%;
-		background-size: 45%;
+		-webkit-background-size: 25%;
+		background-size: 25%;
 		background-position: center center;
 		height: 30px;
 		width: 30px;
@@ -1645,13 +1881,27 @@ picture {
 		position: absolute;
 		@include transY;
 		right: -2.5rem;
+		@media (max(600)) {
+			width: 20px;
+			height: 20px;
+			border: none;
+			-webkit-background-size: 45%;
+			background-size: 45%;
+			right: -20px;
+		}
 	}
 }
 .prevSection {
 	left: 0;
 	text-align: left;
 	padding-left: 1rem;
+	@media (max(600)) {
+		padding-left: 0;
+	}
 	a {
+		@media (max(600)) {
+			padding-left: 1rem;
+		}
 		width: 100%;
 		height: 100%;
 		position: relative;
@@ -1662,12 +1912,27 @@ picture {
 		position: absolute;
 		right: 1rem;
 		@include transY;
+		@media (max(600)) {
+			font-size: .65rem;	
+			right: .5rem;
+		}
 	}
 	.prevTitle {
 		position: absolute;
 		left: 2.5rem;
 		@include transY;
 		color: white;
+		@media (max(600)) {
+			left: 20px;
+			font-size: .65rem;
+		}
+		span {
+			&:first-of-type {
+				@media (max(600)) {
+					display: none;
+				}
+			}
+		}
 	}
 	.sideNavArrow {
 		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/scrollToNav.svg');
@@ -1688,6 +1953,14 @@ picture {
 		-o-transform: translateY(-50%)rotate(180deg);
 		transform: translateY(-50%)rotate(180deg);
 		left: -2.5rem;
+		@media (max(600)) {
+			width: 20px;
+			height: 20px;
+			border: none;
+			-webkit-background-size: 45%;
+			background-size: 45%;
+			left: -20px;
+		}
 	}
 }
 .nextSection, .prevSection {
@@ -1706,6 +1979,9 @@ picture {
 // START CUSTOM BIOS
 	/* CUSTOM BIOS START */
 .Custom_Biography {
+	@media (max(600)) {
+		margin: 3rem 0 !important;
+	}
 	img {
 		width: 100%;
 	}
@@ -1727,10 +2003,25 @@ picture {
 			text-align: left;
 		}
 	}
+	.lightboxText {
+		h1 {
+			@media (max(600)) {
+				font-size: 20px!important;
+			}
+		}
+		span {
+			@media (max(600)) {
+				font-size: 1rem;	
+			}
+		}
+	}
 	/* THE THESIS */
 }
 #TheThesis {
 	.Custom_Biography {
+		@media (max(600)) {
+			margin-bottom: 6rem !important;
+		}
 		.one {
 			top: 50%;
 			left: 10%;
@@ -1751,6 +2042,33 @@ picture {
 			left: 60%;
 			top: 60%;
 		}	
+	}
+}
+#SterlingVarner {
+	.Custom_Biography {
+		@media (max(480)) {
+			padding: 0;
+			margin: 0;
+		}
+	}
+	.Image_Feature_1 {
+		img {
+			width: 100%;
+		}
+	}
+}
+.mobileAccelerometer {
+	@media (max(600)) {
+		height: 100vh;
+		margin: 0;
+		overflow: hidden;
+		img {
+			@include trans;
+			width: auto;
+			position: absolute;
+			height: auto;
+			min-height: 120%;
+		}
 	}
 }
 	/* end */

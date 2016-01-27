@@ -208,6 +208,9 @@ a {
 	overflow: hidden;
 	position: relative;
 	z-index: 1;
+	@media (max(480)) {
+		width: 15px;
+	}
 	&::before, &::after {
 		@include before;
 	}
@@ -321,9 +324,11 @@ a {
 		z-index: 0;
 		transition: opacity .5s ease;
 	}
-	&:hover {
-		&::before {
-			transform: translate(-50%, -50%)rotate(90deg);
+	@media (min(768)) {	
+		&:hover {
+			&::before {
+				transform: translate(-50%, -50%)rotate(90deg);
+			}
 		}
 	}
 	&.active {
@@ -341,7 +346,7 @@ a {
 	}
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-position: bottom left;
+	background-position: top left;
 	@media (max(768)) {
 		background-repeat: no-repeat;
 		// background-position: center top;
@@ -383,26 +388,26 @@ a {
 #NewEndeavors .sectionIntro {
 	background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/NewEndeavors/Hero.jpg');
 	@media (max(768)) {
-		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/NewEndeavors/HeroMobile.jpg');
+		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/NewEndeavors/Hero_Mobile.jpg');
 	}
 }
 #SterlingVarner .sectionIntro {
 	background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/SterlingVarner/Hero.jpg');
 	@media (max(768)) {
-		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/SterlingVarner/HeroMobile.jpg');
+		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/SterlingVarner/Hero_Mobile.jpg');
 	}
 }
 #TheHomecoming .sectionIntro {
 	background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/TheHomecoming/Hero.jpg');
 	@media (max(768)) {
-		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/TheHomecoming/HeroMobile.jpg');
+		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/TheHomecoming/Hero_Mobile.jpg');
 	}
 }
 //QUEST
 #AggresiveExploration .sectionIntro {
 	background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/AggresiveExploration/Hero.jpg');
 	@media (max(768)) {
-		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/AggresiveExploration/HeroMobile.jpg');
+		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/AggresiveExploration/Hero_Mobile.jpg');
 	}
 }
 @keyframes maskIn {

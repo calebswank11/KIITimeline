@@ -217,7 +217,7 @@ function doneLoading(){
 		});
 		$('#content').addClass('fireAnimation');
 		$('body').addClass('loaded');
-		$('#bar_window').remove();
+		// $('#bar_window').remove();
 		
 		function removeClass(){
 			$('#content').removeClass('fireAnimation').addClass('animationComplete')
