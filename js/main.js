@@ -69,13 +69,47 @@ function loadInterior(){
 	    // FIND LAST CHILD WIDTH AND LEFT POS
 	    // ADD NUMBERS TOGETHER + 100
 	    var	left = $('#' + highest).offset().left,
-	    	width = $('#' + highest).width();
+	    	width = $('#' + highest).width(),
+	    	windowWidth = $(window).width()
+	    	dragNavWidth = $('.dragNav').width();
 
 	    if($('#' + highest).hasClass('end')) {
 	    	var bodyWidth = left + width;
 	    } else {
 	    	var bodyWidth = left + width + 150;
 	    }
+
+
+	    // DEFINE CLICKABLE NAVIGATION AT BOTTOM FOR SECTION
+	    var slideNumber = Math.ceil(bodyWidth/windowWidth);
+
+	    for (i = 0; i < slideNumber; i++) {
+	    	var n = [i],
+	    		animateTo = n * windowWidth,
+	    		animateBarTo = (dragNavWidth / (slideNumber-1)) * n,
+	    		animatePercent = animateBarTo/dragNavWidth * 100;
+	    	$('.dragNav').append('<article class="navSlideClick" id="navSlide' + [i] + '"><div data-scroll="' + animateTo + '" data-bar="' + animateBarTo + '" data-percent="' + animatePercent + '"></div></article>');
+	    }
+
+	    $('.navSlideClick').css({
+	    	'width' : dragNavWidth / (slideNumber - 1)
+	    });
+	    $('body').on('click', '.navSlideClick', function(){
+
+	    	var scrollWidth = $(this).find('div').data('scroll'),
+	    		animateWidth = $(this).find('div').data('bar');
+
+	    	// ADD ACTIVE CLASS TO NAV SCROLL ELEMENT AND REMOVE FROM SIBLINGS
+    		$(this).addClass('active').nextAll().removeClass('active');
+    		$(this).prevUntil().addClass('active');
+	    	
+	    	// DEFINE ANIMATIONS OF BAR AND BODY
+	    	$('body').animate({scrollLeft: scrollWidth}, 500);
+	    	$('.dragAnimate').css({
+	    		'width' : animateWidth + 'px'
+	    	})
+	    	return false;
+	    });
 
 		// GIVE BODY WIDTH BASED UPON NUMBERS ADDED TOGETHER
 		// GIVE NEXT SECTION END A LEFT POSITION TO THE VERY END OF BODY
@@ -97,19 +131,28 @@ function loadInterior(){
 // START HORZ MOUSEWHEEL SCROLL
    $("body").mousewheel(function(event, delta) {
 
-      this.scrollLeft -= (delta * 12);
-      var scrollNumber = this.scrollLeft -= (delta * 12);
-    
+      this.scrollLeft -= (delta * 1);
+      var scrollNumber = this.scrollLeft -= (delta * 1);
+
       event.preventDefault();
 
       $('body').addClass('scroll');
 
       scrollActivate = scrollNumber + 200;
 
-      // console.log((scrollActivate / left) * 100 + '%');
+	  var percent = (scrollActivate / left) * 100;
 
 	  $('.dragAnimate').css({
       	'width' : (scrollActivate / left) * 100 + '%'
+      });
+
+      $('.navSlideClick').each(function(){
+      	var percentMatch = $(this).find('div').attr('data-percent');
+      	if(percentMatch <= percent) {
+      		$(this).addClass('active')
+      	} else {
+      		$(this).removeClass('active')
+      	}
       });
 
    });
@@ -132,6 +175,15 @@ function imageExpand(){
             title = index[0],
             text = index[1],
             date = index[2];
+
+            // DEFINE ITALICS WITHIN TEXT
+        var startPos = text.indexOf('^') + 1,
+        	endPos = text.indexOf('^', startPos),
+        	textTwo = text.substring(startPos, endPos),
+        	index2 = text.split('^'),
+        	textUse = index2[0];
+
+        	console.log(textUse + '<em>' + textTwo + '</em>');
 
 			$(this).parents().eq(1).siblings('.lightBox').addClass('active').find('img').attr('src', src).siblings('.Image_Showcase_1_Lightbox_Text').find('.description').text(text).siblings('div').find('h1').text(title).siblings('.date').text(date);
 
@@ -211,52 +263,6 @@ function navigation(){
 } navigation();
 // end
 
-// START MAP BOOTSTRAPS > FROM NETHERLANDS TO TEXAS
-// DRAGGABLKE FUNCTION
-// (function($) {
-//     $.fn.drags = function(opt) {
-
-//         opt = $.extend({handle:"",cursor:"move"}, opt);
-
-//         if(opt.handle === "") {
-//             var $el = this;
-//         } else {
-//             var $el = this.find(opt.handle);
-//         }
-
-//         return $el.css('cursor', opt.cursor).on("mousedown", function(e) {
-//             if(opt.handle === "") {
-//                 var $drag = $(this).addClass('draggable');
-//             } else {
-//                 var $drag = $(this).addClass('active-handle').parent().addClass('draggable');
-//             }
-//             var z_idx = $drag.css('z-index'),
-//                 drg_h = $drag.outerHeight(),
-//                 drg_w = $drag.outerWidth(),
-//                 pos_y = $drag.offset().top + drg_h - e.pageY,
-//                 pos_x = $drag.offset().left + drg_w - e.pageX;
-//             $drag.css('z-index', 1).parents().on("mousemove", function(e) {
-//                 $('.draggable').offset({
-//                     top:e.pageY + pos_y - drg_h,
-//                     left:e.pageX + pos_x - drg_w
-//                 }).on("mouseup", function() {
-//                     $(this).removeClass('draggable').css('z-index', z_idx);
-//                 });
-//             });
-//             e.preventDefault(); // disable selection
-//         }).on("mouseup", function() {
-//             if(opt.handle === "") {
-//                 $(this).removeClass('draggable');
-//             } else {
-//                 $(this).removeClass('active-handle').parent().removeClass('draggable');
-//             }
-//         });
-
-//     }
-// })(jQuery);
-
-// $('.mapDraggable, .draggableMap svg, .gradAnimate span').drags();
-
 // GET HEIGHT AND WIDTH OF MAPMASK TO GIVE TO .MAP
 function mapMaskCSS(){
 
@@ -296,15 +302,14 @@ function backgroundImageMove(){
 	            MYCenter = mouseY - measureTop,
 	            MXCenter = mouseX - measureLeft,
 	            transY = MYCenter * -.0015 + 50,
-	            transX = MXCenter * -.0015 + 50;
+	            transX = MXCenter * -.0015 + 50,
+	            transY2 = MYCenter * -.15 + 50,
+	            transX2 = MXCenter * -.15 + 50;
 
 	        $('.mapTexture').css({
 	          'left' : transX + '%',
 	          'top' : transY + '%'
 	        });
-	        // $('.mapTexture').css({
-	        // 	'transform' : 'translate(' + transX + '%,' + transY + '%)'
-	        // });
 
 	      });
 
@@ -393,7 +398,7 @@ function videoHeight(){
 if (queryString.length) {
 	imageExpand();
 	videoHeight();
-    $('.container').append('<!-- start scroll to navigate --><section class="scrollToNav col-2 row-1 posX-14 posY-4"><p>Scroll to Navigate</p><span></span></section><!-- end -->');
+    $('.container').append('<!-- start scroll to navigate --><section class="scrollToNav col-2 row-1 posX-14 posY-4"><p>Scroll to Explore</p><span></span></section><!-- end -->');
 	if($(window).width() > 768) {
 		loadInterior();
 	} else {
@@ -409,8 +414,9 @@ if (queryString.length) {
 // DEFINE PAGEBASED FUNCTIONS
 if(queryString.indexOf('Netherlands') != -1) {
 	$('<div class="measure">').prependTo('body');
-	if($(window).width > 768) {
+	if($(window).width() > 768) {
 		backgroundImageMove();
+		console.log('testing')
 	}
 }
 
@@ -458,7 +464,6 @@ usage example: $('.post-thumbnail, article header').draggable();
                     $(window)
                         .on('mousemove.draggable touchmove.draggable', function(e) {
                             _fixMobileEvent(e);
-                            //$("#log").text("x: " + e.pageX + "; y: " + e.pageY);
 
                             if (firstMove) {
                                 firstMove = false;
@@ -466,25 +471,18 @@ usage example: $('.post-thumbnail, article header').draggable();
                                     .css({'transform': 'scale(1.05)',
                                           'bottom': 'auto', 'right': 'auto'
                                     });
-                                    /*.find('a').one('click.draggable', function(e) {
-                                        e.preventDefault();
-                                        e.stopImmediatePropagation();
-                                        $("#log").text("link: click prevented " + stack);
-                                    });*/
                                 var $target = $(e.target);
                                 if ($target.is('a')) {
                                     $preventClick = $target;
                                     $target.one('click.draggable', function(e) {
                                         e.preventDefault();
                                         e.stopImmediatePropagation();
-                                        //$("#log").text("link: click prevented " + stack);
                                     });
                                 } else if ($dragged.is('a')) {
                                     $preventClick = $dragged;
                                     $dragged.one('click.draggable', function(e) {
                                         e.preventDefault();
                                         e.stopImmediatePropagation();
-                                        //$("#log").text("dragged: click prevented " + stack);
                                     });
                                 }
                             }
@@ -501,8 +499,6 @@ usage example: $('.post-thumbnail, article header').draggable();
                             if (_fixMobileEvent(e)) {
                                 if ($preventClick) $preventClick.off('click.draggable');
                                 var endOffset = $dragged.offset();
-                                //$("#log").text("left :" + startOffset.left + "; top: " + startOffset.top
-                                //               + "; newLeft: " + endOffset.left + "; newTop: " + endOffset.top);
                                 if (Math.abs(endOffset.left - startOffset.left) <= 3
                                         && Math.abs(endOffset.top - startOffset.top) <= 3) {
 
@@ -526,7 +522,5 @@ usage example: $('.post-thumbnail, article header').draggable();
         };
     }
 })(jQuery);
-
-// $('.mapDraggable, .draggableMap svg, .gradAnimate span').drags();
 
 $('.draggableMap svg').draggable();

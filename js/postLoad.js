@@ -75,7 +75,11 @@ function navigationHovers(){
 	// chapter text : section text (bottom left minitimielin)
 	var currentText = currentPage.find('#navNumber').text()
 		currentTitle = currentPage.find('#navSectionTitle').text();
-	// $('.miniTimelineTitle').find('span').text(' ' + currentText);
+
+	// DEFINE TEXT IN BOTTOM MINITIMELINE NAVIGATION
+	$('.prevText').attr('href', prevAnchor);
+	$('.nextText').attr('href', nextAnchor);
+	$('.currentText').html('Section ' + currentText + '<span>  ' + currentTitle + '</span>');
 
 	if($(window).width() <= 600) {
 		$('.miniTimelineTitle').html('<h1>Chapter ' + currentText + '</h1>');

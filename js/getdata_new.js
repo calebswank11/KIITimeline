@@ -110,7 +110,7 @@ function showjson (data){
                                     myMediaPath = myMedias[MM].Option_File;
                                     myMediaDescription = myMedias[MM].Media_Description;
                                     myMediaCopyright = myMedias[MM].Media_Copyright;
-                                    
+
                                     function appendPhoto(){
                                         $('#' + appendModuleOrder).append('<img src="http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/' + mySectionID + '/' + myMediaPath + '" alt="' + myMediaTitle + ' - ' + myMediaDescription + ' - ' + myMediaCopyright + '" />');
                                     }
@@ -223,45 +223,88 @@ function Image_Feature_1() {
             console.log('done did it');
         } else {
             $(this).addClass('Image_Feature').children().not('img').wrapAll('<div class="Image_Feature_Text col-3 posY-2"></div>').parent().children().not('h1').wrapAll('<div class="Text_Background"></div>');
-            if($(this).find('h1:empty').length && $(this).find('p:empty').length ) {
-                $(this).addClass('empty');
-            }
+            // if($(this).find('h1:empty').length && $(this).find('p:empty').length ) {
+            //     $(this).addClass('empty');
+            // }
         }
 
     });
 }
 
 function Image_Feature_2() {
-    $('.Image_Feature_2').addClass('Image_Feature').children().not('img')
-    .wrapAll('<div class="Image_Feature_Text col-3 posY-1">')
-    .parent().children().not('h1').wrapAll('<div class="Text_Background">');
+    $('.Image_Feature_2').each(function(){
+        if($(this).hasClass('Image_Feature')) {
+            console.log('done did it | image two')
+        } else {
+            $(this).addClass('Image_Feature').children().not('img')
+            .wrapAll('<div class="Image_Feature_Text col-3 posY-1">')
+            .parent().children().not('h1').wrapAll('<div class="Text_Background">');
+        }
+    });
 }
 
 function Video_Feature_1() {
-    $('.Video_Feature_1').addClass('videoModule').children().not('iframe')
-    .wrapAll('<div class="Video_Feature_Text col-2 posY-8">').parent().siblings('iframe').addClass('col-14');
+    $('.Video_Feature_1').each(function(){
+        $(this).addClass('videoModule').children().not('iframe')
+        .wrapAll('<div class="Video_Feature_Text col-2 posY-8">').parent().siblings('iframe').addClass('col-14');
+    });
 }
 
 function Video_Feature_2() {
-    $('.Video_Feature_2').addClass('.videoModule').children().not('iframe')
-    .wrapAll('<div class="Video_Feature_Text">');
-    $('.Video_Feature_2').find('h1').addClass('largeText ttu')
+    $('.Video_Feature_2').each(function(){
+
+        if($(this).hasClass('videoModule')) {
+            console.log('done did it | video')
+        } else {
+            $(this).addClass('videoModule').children().not('iframe')
+                .wrapAll('<div class="Video_Feature_Text">');
+            $(this).find('h1').addClass('largeText ttu');
+        }
+    });
 }
 
 function Image_Showcase_1() {
     $('.Image_Showcase_1').children().wrapAll('<div class="Image_Showcase_1_Options">')
-    .parent().find('img').wrapAll('<ul class="Image_Showcase_1_Images">').parent().find('img').wrap('<li class="expand lb1">');
-    $('.Image_Showcase_1').append('<div class="Image_Showcase_1_Lightbox lightBox"><div class="Image_Showcase_1_Lightbox_Text lightboxText"><div><h1></h1><p class="date"></p></div><p class="description"></p><div class="Lightbox_Nav"><div class="Lightbox_Close"></div><div class="Lightbox_Previous"></div><div class="Lightbox_Next"></div></div></div><img src="" alt="">');
+    .parent().find('img').wrapAll('<ul class="Image_Showcase_1_Images">').parent().find('img').wrap('<li class="expand lb1"><div></div></li>');
+    $('.Image_Showcase_1').append('<div class="lightboxMeasure"></div><div class="Image_Showcase_1_Lightbox lightBox"><div class="Image_Showcase_1_Lightbox_Text lightboxText"><div><h1></h1><p class="date"></p></div><p class="description"></p><div class="Lightbox_Nav"><div class="Lightbox_Close"></div><div class="Lightbox_Next"></div><div class="Lightbox_Previous"></div></div></div><img src="" alt="">');
+
+        function backgroundImageMove(){
+
+          var measure = $('.lightboxMeasure'),
+              measureTop = measure.offset().top,
+              measureLeft = measure.offset().left,
+              screenY = $(window).height(),
+              screenX = $(window).width();
+
+              $(window).mousemove(function(e){
+
+                var mouseY = event.pageY,
+                    mouseX = event.pageX - $(window).scrollLeft(),
+                    MYCenter = mouseY - measureTop,
+                    MXCenter = mouseX - measureLeft,
+                    transY = MYCenter * -.003 + 50,
+                    transX = MXCenter * -.003 + 50;
+
+                $('.Image_Showcase_1_Lightbox img').css({
+                  'left' : transX + '%',
+                  'top' : transY + '%'
+                });
+
+              });
+
+        } backgroundImageMove();
 }
 
 function Image_Showcase_2() {
     var imageShowcaseTwo = $('.Image_Showcase_2')
     imageShowcaseTwo.children().wrapAll('<div class="Image_Showcase_2_Options">')
     .parent().find('img').wrapAll('<ul class="Image_Showcase_2_Images">').parent().find('img').wrap('<li class="expand lb2">').parent().parent().siblings().wrapAll('<div class="Image_Showcase_2_Text" />');
-    imageShowcaseTwo.append('<div class="Image_Showcase_2_Lightbox lightBox"><div class="Image_Showcase_2_Lightbox_Text"><h1></h1><p class="date"></p><p class="description"></p><img src="" alt=""></div>');
+    imageShowcaseTwo.append('<div class="Image_Showcase_2_Lightbox lightBox"><div class="Image_Showcase_2_Lightbox_Text"><div><h1></h1><p class="date"></p><p class="description"></p></div><img src="" alt=""></div>');
     if($(window).width() <= 768 ) {
-        imageShowcaseTwo.find('.Image_Showcase_2_Lightbox').append('<div class="Lightbox_Nav"><div class="Lightbox_Close"></div><div class="Lightbox_Previous"></div><div class="Lightbox_Next"></div></div>');
+        imageShowcaseTwo.find('.Image_Showcase_2_Lightbox').append('<div class="Lightbox_Nav"><div class="Lightbox_Close"></div><div class="Lightbox_Next"></div><div class="Lightbox_Previous"></div></div>');
     }
+
+    imageShowcaseTwo.find('li:first-of-type').addClass('active')
 
     $('.Image_Showcase_2_Images').find('li').on('click', function(){
         var img = $(this).find('img'),
@@ -274,7 +317,7 @@ function Image_Showcase_2() {
 
             console.log(src + '///////' + alt + '///////' + title + '///////' + text + '///////' + date)
 
-            $(this).parents().eq(1).siblings('.Image_Showcase_2_Lightbox').addClass('active').find('.Image_Showcase_2_Lightbox_Text').find('img').attr('src', src).siblings('h1').text(title).siblings('.date').text(date).siblings('.description').text(text);
+            $(this).addClass('active').siblings().removeClass('active').parents().eq(1).siblings('.Image_Showcase_2_Lightbox').addClass('active').find('.Image_Showcase_2_Lightbox_Text').find('img').attr('src', src).siblings('div').find('h1').text(title).siblings('.date').text(date).siblings('.description').text(text);
     });
 
     var imgLoad = $('.Image_Showcase_2').find('img').first(),
@@ -285,7 +328,7 @@ function Image_Showcase_2() {
         textLoad = indexLoad[1],
         dateLoad = indexLoad[2];
 
-        imageShowcaseTwo.find('.Image_Showcase_2_Lightbox_Text').find('img').attr('src', srcLoad).siblings('h1').text(titleLoad).siblings('.date').text(dateLoad).siblings('.description').text(textLoad);
+        imageShowcaseTwo.find('.Image_Showcase_2_Lightbox_Text').find('img').attr('src', srcLoad).siblings('div').find('h1').text(titleLoad).siblings('.date').text(dateLoad).siblings('.description').text(textLoad);
 
 }
 
