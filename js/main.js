@@ -96,6 +96,8 @@ function loadInterior(){
 	    });
 	    $('body').on('click', '.navSlideClick', function(){
 
+	    	$('body').addClass('scroll')
+
 	    	var scrollWidth = $(this).find('div').data('scroll'),
 	    		animateWidth = $(this).find('div').data('bar');
 
@@ -165,30 +167,6 @@ function loadInterior(){
 // LIGHTBOX FUNCTION
 // TRY IMAGE EXPAND FUNCTION ACROSS ALL SHOWCASES
 function imageExpand(){
-
-	$('body').on('click', '.expand.lb1', function(){
-
-	    var img = $(this).find('img'),
-            src = img.attr('src').replace(/Thumb/g, ''),
-            alt = img.attr('alt'),
-            index = alt.split('-'),
-            title = index[0],
-            text = index[1],
-            date = index[2];
-
-            // DEFINE ITALICS WITHIN TEXT
-        var startPos = text.indexOf('^') + 1,
-        	endPos = text.indexOf('^', startPos),
-        	textTwo = text.substring(startPos, endPos),
-        	index2 = text.split('^'),
-        	textUse = index2[0];
-
-        	console.log(textUse + '<em>' + textTwo + '</em>');
-
-			$(this).parents().eq(1).siblings('.lightBox').addClass('active').find('img').attr('src', src).siblings('.Image_Showcase_1_Lightbox_Text').find('.description').text(text).siblings('div').find('h1').text(title).siblings('.date').text(date);
-
-	});
-
 	$('body').on('click', '.expand.lbb', function(){
 
 	    var img = $(this).find('img'),
@@ -213,12 +191,12 @@ function imageExpand(){
 	});
 
 	// ON NEXT CLICK
-	$('.Lightbox_Next').on('click', function(){
+	// $('.Lightbox_Next').on('click', function(){
 
-		var currenntImage = $(this).parents().eq(1).siblings('img').attr()
-		console.log(currentImage);
+	// 	var currenntImage = $(this).parents().eq(1).siblings('img').attr()
+	// 	console.log(currentImage);
 
-	});
+	// });
 
 	// ON PREV CLICK
 }
@@ -399,6 +377,10 @@ if (queryString.length) {
 	imageExpand();
 	videoHeight();
     $('.container').append('<!-- start scroll to navigate --><section class="scrollToNav col-2 row-1 posX-14 posY-4"><p>Scroll to Explore</p><span></span></section><!-- end -->');
+    $(window).resize(function(){
+		videoHeight();
+		loadInterior()
+    });
 	if($(window).width() > 768) {
 		loadInterior();
 	} else {
@@ -468,7 +450,7 @@ usage example: $('.post-thumbnail, article header').draggable();
                             if (firstMove) {
                                 firstMove = false;
                                 $dragged
-                                    .css({'transform': 'scale(1.05)',
+                                    .css({'transform': 'scale(1.02)',
                                           'bottom': 'auto', 'right': 'auto'
                                     });
                                 var $target = $(e.target);

@@ -1,3 +1,14 @@
+.gradientOpacity, .gradO .Text_Background, .Image_Showcase_2_Lightbox_Text div, .Image_Caption_One .caption {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0.78+0,1+100 */
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.78) 0%, white 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-linear-gradient(315deg, rgba(255, 255, 255, 0.78) 0%, white 100%);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.78) 0%, white 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c7ffffff', endColorstr='#ffffff',GradientType=1 );
+  /* IE6-9 fallback on horizontal gradient */ }
+
 /* SETUP COLUMN WIDTH UP TO 100% */
 .col-1 {
   width: 6.25vw; }
@@ -610,6 +621,95 @@
   bottom: 100%; }
 
 /* END COLUMN Y POSITION */
+/* START CUSTOM MODULE STYLES */
+.image-col-1 .Image_Feature_Text {
+  width: 100%; }
+
+.image-col-2 .Image_Feature_Text {
+  width: 50%; }
+
+.image-col-3 .Image_Feature_Text {
+  width: 33%; }
+
+.image-col-4 .Image_Feature_Text {
+  width: 25%; }
+
+.image-col-5 .Image_Feature_Text {
+  width: 20%; }
+
+.image-col-75 .Image_Feature_Text {
+  width: 75%; }
+
+.image-col-66 .Image_Feature_Text {
+  width: 66%; }
+
+.image-row-1 .Image_Feature_Text {
+  height: 100%; }
+
+.image-row-2 .Image_Feature_Text {
+  height: 50%; }
+
+.image-row-3 .Image_Feature_Text {
+  height: 33%; }
+
+.image-row-4 .Image_Feature_Text {
+  height: 25%; }
+
+.image-row-5 .Image_Feature_Text {
+  height: 20%; }
+
+.noPB .Text_Background {
+  padding-bottom: 2.5rem; }
+
+.b0 .Image_Feature_Text {
+  bottom: 0; }
+
+.b1 .Image_Feature_Text {
+  bottom: 10vh; }
+
+.b2 .Image_Feature_Text {
+  bottom: 20vh; }
+
+.b3 .Image_Feature_Text {
+  bottom: 30vh; }
+
+.b4 .Image_Feature_Text {
+  bottom: 40vh; }
+
+.t0 .Image_Feature_Text {
+  top: 0; }
+
+.t1 .Image_Feature_Text {
+  top: 10vh; }
+
+.t2 .Image_Feature_Text {
+  top: 20vh; }
+
+.t3 .Image_Feature_Text {
+  top: 30vh; }
+
+.t4 .Image_Feature_Text {
+  top: 40vh; }
+
+.o1 .Text_Background {
+  background-color: #fafafa; }
+
+.o2 .Text_Background {
+  background-color: rgba(250, 250, 250, 0.8); }
+
+.o3 .Text_Background {
+  background-color: rgba(250, 250, 250, 0.7); }
+
+.o4 .Text_Background {
+  background-color: rgba(250, 250, 250, 0.6); }
+
+.o5 .Text_Background {
+  background-color: rgba(250, 250, 250, 0.5); }
+
+.o6 .Text_Background {
+  background-color: rgba(250, 250, 250, 0.4); }
+
+/* end */
 .largeText, .lightboxText h1, .Image_Showcase_2 h1, .Text_Module_Black h1, .Text_Module_White h1, .Image_Feature_Text h1 {
   font-size: 52px; }
   @media (max-width: 1280px) {
@@ -1851,10 +1951,16 @@ nav {
     font-weight: 800;
     text-transform: uppercase;
     float: left;
-    color: #96c6d4; }
+    color: #cccccc;
+    -webkit-transition: color 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+            transition: color 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
+    .prevCurrentNext a:hover {
+      color: #333740; }
     .prevCurrentNext a:nth-child(1) {
       width: 30%;
-      text-align: left; }
+      text-align: right;
+      font-size: .65rem;
+      letter-spacing: 1px; }
     .prevCurrentNext a:nth-child(2) {
       font-weight: 400;
       color: #333740;
@@ -1876,7 +1982,9 @@ nav {
         background-color: #333740; }
     .prevCurrentNext a:nth-child(3) {
       width: 30%;
-      text-align: right; }
+      text-align: left;
+      font-size: .65rem;
+      letter-spacing: 1px; }
 
 .miniTimelineNavPerm {
   display: inline-block;
@@ -1901,11 +2009,26 @@ nav {
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
             transform: translateY(-50%); }
+    .miniTimelineNavPerm .miniTimelineTitle::after {
+      clear: both;
+      display: table;
+      content: ''; }
+    .miniTimelineNavPerm .miniTimelineTitle svg {
+      width: 100%;
+      max-width: 35px;
+      float: left;
+      padding-top: .5rem;
+      margin-right: 1rem; }
     .miniTimelineNavPerm .miniTimelineTitle h1 {
-      font-size: 1.25rem;
-      font-weight: 600; }
+      font-size: 1.125em;
+      font-weight: 600;
+      float: left;
+      letter-spacing: 0;
+      position: relative; }
       .miniTimelineNavPerm .miniTimelineTitle h1 span {
-        font-weight: 100; }
+        font-weight: 100;
+        font-size: .7rem;
+        display: block; }
 
 /* END MINI TIMELINE TITLE */
 /* START MINITIMELINENAV DOT NAV (CENTER) */
@@ -2045,9 +2168,6 @@ nav {
   top: 0px;
   height: 6.25vh; }
   .miniTimelineNav::before {
-    content: '';
-    display: block;
-    position: absolute;
     width: 1px;
     height: 150%;
     left: -1rem;
@@ -2305,10 +2425,13 @@ nav {
   -webkit-transform: rotate(90deg) translateY(-50%);
       -ms-transform: rotate(90deg) translateY(-50%);
           transform: rotate(90deg) translateY(-50%);
-  width: 80vh;
+  width: 70vh;
   left: 50%;
   top: 75px;
   text-align: right; }
+  @media (min-width: 1600px) {
+    .prevTitle, .nextTitle {
+      width: 80vh; } }
   .prevTitle span, .nextTitle span {
     font-weight: 100;
     -webkit-animation: arrowNextPrev 1s cubic-bezier(0.44, 0.2, 0, 1.01) infinite;
@@ -2717,8 +2840,7 @@ nav {
   .Image_Showcase_1.longerText ul {
     width: 50%; }
     .Image_Showcase_1.longerText ul li {
-      width: auto;
-      max-width: 100px; }
+      width: auto; }
 
 .Image_Showcase_1_Options::after {
   clear: both;
@@ -2750,7 +2872,8 @@ nav {
     width: auto;
     position: relative;
     cursor: pointer;
-    margin: 0 5px; }
+    margin-right: 5px;
+    overflow: hidden; }
     .Image_Showcase_1_Images li div::before {
       content: '';
       display: block;
@@ -2803,7 +2926,7 @@ nav {
     .Image_Showcase_1_Images li:hover div::before {
       opacity: 0; }
     .Image_Showcase_1_Images li img {
-      width: auto;
+      width: 100%;
       display: block; }
 
 @-webkit-keyframes lightboxOneIn {
@@ -2839,17 +2962,8 @@ nav {
   background: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/backgroundTextureGrey.jpg") no-repeat;
   display: none; }
   .Image_Showcase_1_Lightbox img {
-    height: 80vh;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-    top: 47%;
     -webkit-transition: -webkit-transform .25s ease-out;
-            transition: transform .25s ease-out;
-    cursor: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/expandImage.svg"); }
+            transition: transform .25s ease-out; }
   .Image_Showcase_1_Lightbox.zoom img {
     -webkit-transform: translate(-50%, -50%) scale(1.5);
         -ms-transform: translate(-50%, -50%) scale(1.5);
@@ -2857,7 +2971,7 @@ nav {
 
 .Lightbox_Nav {
   position: absolute;
-  bottom: 1rem;
+  bottom: 2rem;
   right: 1rem;
   width: 100%;
   padding-bottom: 0 !important; }
@@ -2958,9 +3072,8 @@ nav {
         -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
     height: auto;
-    width: 150%;
-    min-width: 100vw;
-    width: auto; }
+    width: 110%;
+    min-width: 100vw; }
 
 .lightboxText {
   background: #3b4b52;
@@ -3142,8 +3255,7 @@ nav {
     height: auto;
     width: 100%;
     z-index: 1;
-    padding: 2rem;
-    background-color: white; }
+    padding: 2rem; }
     .Image_Showcase_2_Lightbox_Text div h1 {
       letter-spacing: 1px;
       font-size: .75rem;
@@ -3230,8 +3342,8 @@ nav {
 /* END TEXT BAR MODULE */
 /* START IMAGE MODULES */
 .Image_Feature img {
-  width: 100%;
-  height: auto; }
+  width: auto;
+  height: 100%; }
 
 .Image_Feature_Text {
   position: absolute; }
@@ -3316,15 +3428,26 @@ nav {
   display: table;
   content: ''; }
 .Image_Caption_One img {
-  width: 80%;
-  padding-right: 1rem; }
+  width: 100%; }
+  @media (min-width: 1600px) {
+    .Image_Caption_One img {
+      width: 80%;
+      padding-right: 1rem; } }
 .Image_Caption_One .caption {
-  width: 20%;
   position: absolute;
-  right: 0;
-  bottom: 1rem; }
-.Image_Caption_One div, .Image_Caption_One img {
-  float: left; }
+  width: 100%;
+  bottom: 0;
+  padding: 1rem;
+  padding-bottom: 2.5rem; }
+  @media (min-width: 1600px) {
+    .Image_Caption_One .caption {
+      width: 20%;
+      position: absolute;
+      right: 0;
+      bottom: 1rem; } }
+@media (min-width: 1600px) {
+  .Image_Caption_One div, .Image_Caption_One img {
+    float: left; } }
 
 /* END IMAGE CAPTION ONE */
 /* START VIDEOMODULEONE */
@@ -3392,8 +3515,11 @@ nav {
 .Quote_1 h1 {
   position: relative;
   z-index: 1;
-  font-size: 4rem;
+  font-size: 2.75rem;
   text-align: center; }
+  @media (min-width: 1600px) {
+    .Quote_1 h1 {
+      font-size: 4rem; } }
 .Quote_1 h1 span {
   color: #96c6d4;
   display: block; }

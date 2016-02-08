@@ -213,6 +213,45 @@ function showjson (data){
     };
 };
 
+// MOVE THE BACKGROUND IMAGE FUNCTION
+$.fn.bgMove = function(){
+
+    var el = this,
+        measure = $('.lightboxMeasure'),
+        measureTop = measure.offset().top,
+        measureLeft = measure.offset().left,
+        screenY = $(window).height(),
+        screenX = $(window).width();
+
+    $(window).mousemove(function(e){
+
+        var mouseY = event.pageY,
+            mouseX = event.pageX - $(window).scrollLeft(),
+            MYCenter = mouseY - measureTop,
+            MXCenter = mouseX - measureLeft,
+            transY = MYCenter * -.003 + 50,
+            transX = MXCenter * -.003 + 50;
+
+        el.css({
+          'left' : transX + '%',
+          'top' : transY + '%'
+        });
+
+    });
+
+}
+$.fn.distributeWidth = function(){
+    var parentWidth = this.width(),
+        child = this.children(),
+        amount = child.length,
+        childWidth = parentWidth / amount - 5;
+
+    child.css({
+        'width' : childWidth,
+        'height' : childWidth
+    });
+}
+
 // START FUNCTIONS MANIPULATING CONTENT
 function Section_Description() {
 }
@@ -222,10 +261,7 @@ function Image_Feature_1() {
         if($(this).hasClass('Image_Feature'))  {
             console.log('done did it');
         } else {
-            $(this).addClass('Image_Feature').children().not('img').wrapAll('<div class="Image_Feature_Text col-3 posY-2"></div>').parent().children().not('h1').wrapAll('<div class="Text_Background"></div>');
-            // if($(this).find('h1:empty').length && $(this).find('p:empty').length ) {
-            //     $(this).addClass('empty');
-            // }
+            $(this).addClass('Image_Feature').children().not('img').wrapAll('<div class="Image_Feature_Text"></div>').parent().children().not('h1').wrapAll('<div class="Text_Background"></div>');
         }
 
     });
@@ -268,31 +304,74 @@ function Image_Showcase_1() {
     .parent().find('img').wrapAll('<ul class="Image_Showcase_1_Images">').parent().find('img').wrap('<li class="expand lb1"><div></div></li>');
     $('.Image_Showcase_1').append('<div class="lightboxMeasure"></div><div class="Image_Showcase_1_Lightbox lightBox"><div class="Image_Showcase_1_Lightbox_Text lightboxText"><div><h1></h1><p class="date"></p></div><p class="description"></p><div class="Lightbox_Nav"><div class="Lightbox_Close"></div><div class="Lightbox_Next"></div><div class="Lightbox_Previous"></div></div></div><img src="" alt="">');
 
-        function backgroundImageMove(){
+    $.fn.imgAttributes = function(){
 
-          var measure = $('.lightboxMeasure'),
-              measureTop = measure.offset().top,
-              measureLeft = measure.offset().left,
-              screenY = $(window).height(),
-              screenX = $(window).width();
+        var el = this,
+            img = this.find('img'),
+            src = img.attr('src').replace(/Thumb/g, ''),
+            alt = img.attr('alt'),
+            index = alt.split('-'),
+            title = index[0],
+            text = index[1],
+            date = index[2];
 
-              $(window).mousemove(function(e){
+        $(this).parents().eq(1).siblings('.lightBox').addClass('active').find('img').attr('src', src).siblings('.Image_Showcase_1_Lightbox_Text').find('.description').text(text).siblings('div').find('h1').text(title).siblings('.date').text(date);
 
-                var mouseY = event.pageY,
-                    mouseX = event.pageX - $(window).scrollLeft(),
-                    MYCenter = mouseY - measureTop,
-                    MXCenter = mouseX - measureLeft,
-                    transY = MYCenter * -.003 + 50,
-                    transX = MXCenter * -.003 + 50;
+    };
 
-                $('.Image_Showcase_1_Lightbox img').css({
-                  'left' : transX + '%',
-                  'top' : transY + '%'
-                });
+    // DISTRIBUTE WIDTH ON IMAGES IN LIST
+    $('.Image_Showcase_1_Images').distributeWidth();
+    $(window).resize(function(){
+        $('.Image_Showcase_1_Images').distributeWidth();
+    })
 
-              });
+    $('body').on('click', '.expand.lb1', function(){
 
-        } backgroundImageMove();
+        $(this).addClass('active').siblings().removeClass('active');
+        $(this).imgAttributes();
+
+            // DEFINE ITALICS WITHIN TEXT
+        // var startPos = text.indexOf('^') + 1,
+        //     endPos = text.indexOf('^', startPos),
+        //     textTwo = text.substring(startPos, endPos),
+        //     index2 = text.split('^'),
+        //     textUse = index2[0];
+
+    });
+
+
+    $('body').on('click', '.Lightbox_Next', function(){
+    
+         var current = $(this).parents('.Image_Showcase_1_Lightbox').siblings('.Image_Showcase_1_Options').find('.active'),
+            currentNext = current.next(),
+            currentFirst = current.siblings('li:first-of-type');
+
+         if(current.is('li:last-of-type')) {
+            currentFirst.imgAttributes();
+            current.removeClass('active').siblings('li:first-of-type').addClass('active')
+         } else {
+            currentNext.imgAttributes();
+            current.removeClass('active').next().addClass('active')
+         }
+
+    });
+    $('body').on('click', '.Lightbox_Previous', function(){
+    
+         var current = $(this).parents('.Image_Showcase_1_Lightbox').siblings('.Image_Showcase_1_Options').find('.active'),
+            currentPrev = current.prev(),
+            currentLast = current.siblings('li:last-of-type');
+
+         if(current.is('li:first-of-type')) {
+            currentLast.imgAttributes();
+            current.removeClass('active').siblings('li:last-of-type').addClass('active')
+         } else {
+            currentPrev.imgAttributes();
+            current.removeClass('active').prev().addClass('active')
+         }
+
+    });
+
+    $('.Image_Showcase_1_Lightbox img').bgMove();
 }
 
 function Image_Showcase_2() {
@@ -366,7 +445,9 @@ function Year_Text_1() {
 function Year_Text_2() {
 }
 
-function Custom_Biography(){}
+function Custom_Biography(){
+    $('.bioLightBox img').bgMove();
+}
 function Custom(){}
 function  Image_Caption_One(){
     $('.Image_Caption_One').children().not('img').wrapAll('<div class="caption"></div>');

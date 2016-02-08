@@ -81,11 +81,11 @@ function navigationHovers(){
 	$('.nextText').attr('href', nextAnchor);
 	$('.currentText').html('Section ' + currentText + '<span>  ' + currentTitle + '</span>');
 
-	if($(window).width() <= 600) {
-		$('.miniTimelineTitle').html('<h1>Chapter ' + currentText + '</h1>');
-	} else {
-		$('.miniTimelineTitle').html('<h1>' + currentTitle + '<span>  ' + currentText + '</span></h1>');
-	}
+	// if($(window).width() <= 600) {
+	// 	$('.miniTimelineTitle').html('<h1>Chapter ' + currentText + '</h1>');
+	// } else {
+	// 	$('.miniTimelineTitle').html('<h1>' + currentTitle + '<span>  ' + currentText + '</span></h1>');
+	// }
 
 	// MINITIMELINE CIRCLES BOTTOM CENTER
 	currentPage.parents().eq(1).children().each(function(){
@@ -126,6 +126,7 @@ function navigationHovers(){
 
 
 }
+	// START MOBILE ACCELEROMETER FUNCTION
 	function motion(event){
 	    // THIS IS X AXIS
 	    var xAxis = event.accelerationIncludingGravity.x,

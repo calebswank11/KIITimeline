@@ -90,6 +90,13 @@ $ease : cubic-bezier(0.44, 0.2, 0, 1.01);
 	background: linear-gradient(to right,  #98c6d5 0%,#3ebdec 50%,#134b8c 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#98c6d5', endColorstr='#134b8c',GradientType=1 ); /* IE6-9 */
 }
+.gradientOpacity {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0.78+0,1+100 */
+	background: -moz-linear-gradient(-45deg,  rgba(255,255,255,0.78) 0%, rgba(255,255,255,1) 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg,  rgba(255,255,255,0.78) 0%,rgba(255,255,255,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg,  rgba(255,255,255,0.78) 0%,rgba(255,255,255,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c7ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
 $proxima : "proxima-nova", helvetica, sans-serif;
 $azo : "azo-sans-web", helvetica, sans-serif;
 /* SETUP COLUMN WIDTH UP TO 100% */
@@ -135,6 +142,159 @@ $columnsY: 16;
   }
 }
 /* END COLUMN Y POSITION */
+
+/* START CUSTOM MODULE STYLES */
+.image-col-1 {
+	.Image_Feature_Text {
+		width: 100%;
+	}
+}
+.image-col-2 {
+	.Image_Feature_Text {
+		width: 50%;
+	}
+}
+.image-col-3 {
+	.Image_Feature_Text {
+		width: 33%;	
+	}
+}
+.image-col-4 {
+	.Image_Feature_Text {
+		width: 25%;
+	}
+}
+.image-col-5 {
+	.Image_Feature_Text {
+		width: 20%;
+	}
+}
+.image-col-75 {
+	.Image_Feature_Text {
+		width: 75%;
+	}	
+}
+.image-col-66 {
+	.Image_Feature_Text {
+		width: 66%;
+	}
+}
+.image-row-1 {
+	.Image_Feature_Text {
+		height: 100%;
+	}
+}
+.image-row-2 {
+	.Image_Feature_Text {
+		height: 50%;
+	}
+}
+.image-row-3 {
+	.Image_Feature_Text {
+		height: 33%;
+	}
+}
+.image-row-4 {
+	.Image_Feature_Text {
+		height: 25%;
+	}
+}
+.image-row-5 {
+	.Image_Feature_Text {
+		height: 20%;
+	}
+}
+.noPB {
+	.Text_Background {
+		padding-bottom: 2.5rem;
+	}
+}
+.b0 {
+	.Image_Feature_Text {
+		bottom: 0;
+	}
+}
+.b1 {
+	.Image_Feature_Text {
+		bottom: 10vh;
+	}
+}
+.b2 {
+	.Image_Feature_Text {
+		bottom: 20vh;
+	}
+}
+.b3 {
+	.Image_Feature_Text {
+		bottom: 30vh;
+	}
+}
+.b4 {
+	.Image_Feature_Text {
+		bottom: 40vh;
+	}
+}
+.t0 {
+	.Image_Feature_Text {
+		top: 0;
+	}
+}
+.t1 {
+	.Image_Feature_Text {
+		top: 10vh;
+	}
+}
+.t2 {
+	.Image_Feature_Text {
+		top: 20vh;
+	}
+}
+.t3 {
+	.Image_Feature_Text {
+		top: 30vh;
+	}
+}
+.t4 {
+	.Image_Feature_Text {
+		top: 40vh;
+	}
+}
+.o1 {
+	.Text_Background {
+		background-color: rgba(250, 250, 250, 1);
+	}
+}
+.o2 {
+	.Text_Background {
+		background-color: rgba(250, 250, 250, .8);
+	}
+}
+.o3 {
+	.Text_Background {
+		background-color: rgba(250, 250, 250, .7);
+	}
+}
+.o4 {
+	.Text_Background {
+		background-color: rgba(250, 250, 250, .6);
+	}
+}
+.o5 {
+	.Text_Background {
+		background-color: rgba(250, 250, 250, .5);
+	}
+}
+.o6 {
+	.Text_Background {
+		background-color: rgba(250, 250, 250, .4);
+	}
+}
+.gradO {
+	.Text_Background {
+		@extend .gradientOpacity;
+	}
+}
+/* end */
 
 .largeText {
     font-size: 52px;
@@ -1300,10 +1460,16 @@ nav {
 		font-weight: 800;
 		text-transform: uppercase;
 		float: left;
-		color: $blueOne;
+		color: $grey;
+		transition: color .5s $ease;
+		&:hover {
+			color: $dkGrey;
+		}
 		&:nth-child(1) {
 			width: 30%;
-			text-align: left;
+			text-align: right;
+			font-size: .65rem;
+			letter-spacing: 1px;
 		}
 		&:nth-child(2) {
 			font-weight: 400;
@@ -1324,7 +1490,9 @@ nav {
 		}
 		&:nth-child(3) {
 			width: 30%;
-			text-align: right;
+			text-align: left;
+			font-size: .65rem;
+			letter-spacing: 1px;
 		}
 	}
 }
@@ -1349,15 +1517,40 @@ nav {
 	p {
 		// position: absolute;
 	}
+	// .miniTimelineTitle {
+	// 	position: absolute;
+	// 	left: 0;
+	// 	@include transY;
+	// 	h1 {
+	// 		font-size: 1.25rem;
+	// 		font-weight: 600;
+	// 		span {
+	// 			font-weight: 100;
+	// 		}
+	// 	}
+	// }
 	.miniTimelineTitle {
 		position: absolute;
 		left: 0;
 		@include transY;
+		@include clearfix;
+		svg {
+			width: 100%;
+			max-width: 35px;
+			float: left;
+			padding-top: .5rem;
+			margin-right: 1rem;
+		}
 		h1 {
-			font-size: 1.25rem;
+			font-size: 1.125em;
 			font-weight: 600;
+			float: left;
+			letter-spacing: 0;
+			position: relative;
 			span {
 				font-weight: 100;
+				font-size: .7rem;
+				display: block;
 			}
 		}
 	}
@@ -1480,7 +1673,7 @@ nav {
 	top: 0px;
 	height: 6.25vh;
 	&::before {
-		@include before;
+		// @include before;
 		width: 1px;
 		height: 150%;
 		left: -1rem;
@@ -1664,12 +1857,15 @@ nav {
 	position: absolute;
 }
 .prevTitle, .nextTitle {
+	@media (min(1600)) {
+		width: 80vh;
+	}
     text-transform: uppercase;
     font-weight: 600;
     position: absolute;
     transform-origin: 0 0;
     transform: rotate(90deg)translateY(-50%);
-    width: 80vh;
+    width: 70vh;
     left: 50%;
     top: 75px;
     text-align: right;
@@ -2071,7 +2267,7 @@ nav {
 			width: 50%;
 			li {
 				width: auto; 
-				max-width: 100px;
+				// max-width: 100px;
 			}
 		}
 	}
@@ -2103,7 +2299,8 @@ nav {
 		width: auto;
 		position: relative;
 		cursor: pointer;
-		margin: 0 5px;
+		margin-right: 5px;
+		overflow: hidden;
 		div {
 			&::before {
 				@include before;
@@ -2140,7 +2337,7 @@ nav {
 			}
 		}
 		img {
-			width: auto;
+			width: 100%;
 			display: block;
 		}
 	}
@@ -2166,12 +2363,12 @@ nav {
 	background: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/backgroundTextureGrey.jpg') no-repeat;
 	display: none;
 	img {
-		height: 80vh;
-		position: absolute;
-		@include trans;
-		top: 47%;
+		// height: 80vh;
+		// position: absolute;
+		// @include trans;
+		// top: 47%;
 		transition: transform .25s ease-out;
-		cursor: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/expandImage.svg');
+		// cursor: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/expandImage.svg');
 	}
 	&.zoom {
 		img {
@@ -2181,7 +2378,7 @@ nav {
 }
 .Lightbox_Nav {
 	position: absolute;
-	bottom: 1rem;
+	bottom: 2rem;
 	right: 1rem;
 	width: 100%;
 	@include clearfix;
@@ -2261,9 +2458,8 @@ nav {
     	position: absolute;
     	@include trans;
     	height: auto;
-    	width: 150%;
+    	width: 110%;
     	min-width: 100vw;
-    	width: auto;
     }
 }
 .lightboxText  {
@@ -2456,7 +2652,7 @@ nav {
 	    width: 100%;
 	    z-index: 1;
 	    padding: 2rem;
-	    background-color: white;
+	    @extend .gradientOpacity;
 	    h1 {
 	    	@media (min(1600)) {
 	    		font-size: 1.75rem;
@@ -2569,8 +2765,8 @@ nav {
 /* START IMAGE MODULES */
 .Image_Feature {
 	img {
-		width: 100%;
-		height: auto;
+		width: auto;
+		height: 100%;
 	}
 }
 .Image_Feature_Text {
@@ -2669,17 +2865,31 @@ nav {
 .Image_Caption_One {
 	@include clearfix;
 	img {
-		width: 80%;
-		padding-right: 1rem;
+		@media (min(1600)) {
+			width: 80%;
+			padding-right: 1rem;	
+		}
+		width: 100%;
+
 	}
 	.caption {
-		width: 20%;
+		@media (min(1600)) {
+			width: 20%;
+			position: absolute;
+			right: 0;
+			bottom: 1rem;	
+		}
 		position: absolute;
-		right: 0;
-		bottom: 1rem;
+		width: 100%;
+		bottom: 0;
+		@extend .gradientOpacity;
+		padding: 1rem;
+		padding-bottom: 2.5rem;
 	}
 	div, img {
-		float: left;
+		@media (min(1600)) {
+			float: left;	
+		}
 	}
 }
 /* END IMAGE CAPTION ONE */
@@ -2745,9 +2955,12 @@ nav {
 		display: none;
 	}
 	h1 {
+		@media (min(1600)) {
+			font-size: 4rem;
+		}
 		position: relative;
 		z-index: 1;
-		font-size: 4rem;
+		font-size: 2.75rem;
 		text-align: center;
 	}
 	h1 span {
