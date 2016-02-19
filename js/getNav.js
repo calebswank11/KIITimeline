@@ -1,6 +1,6 @@
 var mediaValue;
 var mediaValueParent;
-var moduleTitle;
+var moduleTitle; 
 mediaArray = [];
 SectionArray = [];
 

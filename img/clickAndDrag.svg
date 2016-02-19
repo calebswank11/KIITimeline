@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="clickAndDrag" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 183 79.5" enable-background="new 0 0 183 79.5" xml:space="preserve">
+<g id="background_1_">
+	<path id="solidColor" opacity="0.2" fill="#3B4B52" d="M178.6,79.5H4.4c-2.4,0-4.4-2-4.4-4.4V4.4C0,2,2,0,4.4,0h174.2
+		c2.4,0,4.4,2,4.4,4.4v70.7C183,77.5,181,79.5,178.6,79.5z"/>
+	<linearGradient id="gradient_1_" gradientUnits="userSpaceOnUse" x1="0" y1="39.75" x2="183" y2="39.75">
+		<stop  offset="0" style="stop-color:#98C6D5"/>
+		<stop  offset="0.4837" style="stop-color:#3FC0F0"/>
+		<stop  offset="0.9936" style="stop-color:#17498B"/>
+		<stop  offset="1" style="stop-color:#17498B"/>
+	</linearGradient>
+	<path id="gradient" opacity="0.2" fill="url(#gradient_1_)" d="M178.6,79.5H4.4c-2.4,0-4.4-2-4.4-4.4V4.4C0,2,2,0,4.4,0h174.2
+		c2.4,0,4.4,2,4.4,4.4v70.7C183,77.5,181,79.5,178.6,79.5z"/>
+</g>
+<g id="mouse">
+	<path fill="#98C6D5" stroke="#3B4B52" stroke-miterlimit="10" d="M91.5,13.7h-0.6c-5.4,0-9.9,4.4-9.9,9.9V29h10.5V13.7z"/>
+	<path fill="#FFFFFF" stroke="#3B4B52" stroke-miterlimit="10" d="M92.1,13.7h-0.6V29H102v-5.4C102,18.2,97.5,13.7,92.1,13.7z"/>
+	<path fill="#FFFFFF" stroke="#3B4B52" stroke-miterlimit="10" d="M91.5,29H81v14.9c0,5.4,4.4,9.9,9.9,9.9h0.6h0.6
+		c5.4,0,9.9-4.4,9.9-9.9V29H91.5z"/>
+</g>
+<text transform="matrix(1 0 0 1 61.3913 67.7499)" fill="#3B4B52" font-family="'ProximaNova-Bold'" font-size="9px">Click &amp; Drag</text>
+<g id="arrows">
+	<polygon fill="#3B4B52" points="131.3,25.8 119.1,21.2 122.7,25.6 113.9,25.6 113.9,26.3 122.5,26.3 119.1,30.4 	"/>
+	<polygon fill="#3B4B52" points="63.9,21.2 51.7,25.8 63.9,30.4 60.5,26.3 69.1,26.3 69.1,25.6 60.3,25.6 	"/>
+</g>
+</svg>

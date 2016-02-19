@@ -65,6 +65,9 @@ body {
   height: 100vh; }
   body.scroll .scrollToNav {
     opacity: 0; }
+  body.scroll .nextSection, body.scroll .prevSection {
+    opacity: 1;
+    bottom: calc(6.25vh + 2rem); }
 
 ul {
   padding: 0;
@@ -90,11 +93,19 @@ h3, h4, h5 {
 
 p {
   margin: 0;
-  font-size: .75rem;
+  font-size: .9rem;
   line-height: 1.65; }
   @media (min-width: 1600px) {
     p {
       font-size: 1rem; } }
+  @media (max-width: 1300px) {
+    p {
+      font-size: .75rem;
+      line-height: 1.35; } }
+  @media (max-width: 600px) {
+    p {
+      font-size: .65rem;
+      line-height: 1.75; } }
 
 a {
   text-decoration: none; }
@@ -122,7 +133,7 @@ a {
 
 .largeText {
   font-size: 52px; }
-  @media (max-width: 1280px) {
+  @media (max-width: 1400px) {
     .largeText {
       font-size: 30px; } }
   .largeText span {
@@ -429,6 +440,10 @@ a {
   @media (max-width: 768px) {
     #NetherlandstoTexas .sectionIntro {
       background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/NetherlandsToTexas/HeroMobile.jpg"); } }
+  @media (max-width: 600px) {
+    #NetherlandstoTexas .sectionIntro {
+      -webkit-background-size: cover;
+      background-size: cover; } }
 
 #TheThesis .sectionIntro {
   background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/TheThesis/Hero.jpg");
@@ -437,6 +452,10 @@ a {
   @media (max-width: 768px) {
     #TheThesis .sectionIntro {
       background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/TheThesis/Hero_Mobile.jpg"); } }
+  @media (max-width: 600px) {
+    #TheThesis .sectionIntro {
+      -webkit-background-size: cover;
+      background-size: cover; } }
 
 #CharlesdeGanahl .sectionIntro {
   background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/CharlesdeGanahl/Hero.jpg");
@@ -444,7 +463,13 @@ a {
   background-size: contain; }
   @media (max-width: 768px) {
     #CharlesdeGanahl .sectionIntro {
-      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/CharlesdeGanahl/Hero_Mobile.jpg"); } }
+      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/CharlesdeGanahl/Hero_Mobile.jpg");
+      -webkit-background-size: cover;
+      background-size: cover; } }
+  @media (max-width: 600px) {
+    #CharlesdeGanahl .sectionIntro {
+      -webkit-background-size: cover;
+      background-size: cover; } }
 
 #ABusinessisBorn .sectionIntro {
   background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/ABusinessIsBorn/Hero.jpg");
@@ -452,7 +477,13 @@ a {
   background-size: contain; }
   @media (max-width: 768px) {
     #ABusinessisBorn .sectionIntro {
-      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/ABusinessIsBorn/Hero_Mobile.jpg"); } }
+      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/ABusinessIsBorn/Hero_Mobile.jpg");
+      -webkit-background-size: cover;
+      background-size: cover; } }
+  @media (max-width: 600px) {
+    #ABusinessisBorn .sectionIntro {
+      -webkit-background-size: cover;
+      background-size: cover; } }
 
 #DeadBroke .sectionIntro {
   background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/DeadBroke/Hero.jpg");
@@ -460,7 +491,13 @@ a {
   background-size: contain; }
   @media (max-width: 768px) {
     #DeadBroke .sectionIntro {
-      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/DeadBroke/Hero_Mobile.jpg"); } }
+      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/DeadBroke/Hero_Mobile.jpg");
+      -webkit-background-size: contain;
+      background-size: contain; } }
+  @media (max-width: 600px) {
+    #DeadBroke .sectionIntro {
+      -webkit-background-size: cover;
+      background-size: cover; } }
 
 #NewEndeavors .sectionIntro {
   background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/NewEndeavors/Hero.jpg");
@@ -469,14 +506,22 @@ a {
   @media (max-width: 768px) {
     #NewEndeavors .sectionIntro {
       background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/NewEndeavors/Hero_Mobile.jpg"); } }
+  @media (max-width: 600px) {
+    #NewEndeavors .sectionIntro {
+      -webkit-background-size: cover;
+      background-size: cover; } }
 
 #SterlingVarner .sectionIntro {
   background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/SterlingVarner/Hero.jpg");
-  -webkit-background-size: contain;
-  background-size: contain; }
+  -webkit-background-size: cover;
+  background-size: cover; }
   @media (max-width: 768px) {
     #SterlingVarner .sectionIntro {
       background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/SterlingVarner/Hero_Mobile.jpg"); } }
+  @media (max-width: 600px) {
+    #SterlingVarner .sectionIntro {
+      -webkit-background-size: cover;
+      background-size: cover; } }
 
 #TheHomecoming .sectionIntro {
   background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/TheHomecoming/Hero.jpg");
@@ -484,7 +529,13 @@ a {
   background-size: contain; }
   @media (max-width: 768px) {
     #TheHomecoming .sectionIntro {
-      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/TheHomecoming/Hero_Mobile.jpg"); } }
+      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/TheHomecoming/Hero_Mobile.jpg");
+      -webkit-background-size: cover;
+      background-size: cover; } }
+  @media (max-width: 600px) {
+    #TheHomecoming .sectionIntro {
+      -webkit-background-size: cover;
+      background-size: cover; } }
 
 #AggresiveExploration .sectionIntro {
   background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/AggresiveExploration/Hero.jpg");
@@ -496,6 +547,10 @@ a {
       background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/AggresiveExploration/Hero_Mobile.jpg");
       -webkit-background-size: cover;
       background-size: cover; } }
+  @media (max-width: 600px) {
+    #AggresiveExploration .sectionIntro {
+      -webkit-background-size: cover;
+      background-size: cover; } }
 
 #CharlesKoch .sectionIntro {
   background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/CharlesKoch/Hero.jpg");
@@ -505,24 +560,143 @@ a {
   @media (max-width: 768px) {
     #CharlesKoch .sectionIntro {
       background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/CharlesKoch/Hero_Mobile.jpg"); } }
+  @media (max-width: 600px) {
+    #CharlesKoch .sectionIntro {
+      -webkit-background-size: cover;
+      background-size: cover; } }
 
-#ASolidLiquidIdea .sectionIntro {
-  background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/ASolidLiquidIdea/Hero.jpg");
+#ASolidGasLiquidsIdea .sectionIntro {
+  background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/ASolidGasLiquidsIdea/Hero.jpg");
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: left bottom; }
+  @media (max-width: 768px) {
+    #ASolidGasLiquidsIdea .sectionIntro {
+      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/ASolidGasLiquidsIdea/Hero_Mobile.jpg"); } }
+  @media (max-width: 600px) {
+    #ASolidGasLiquidsIdea .sectionIntro {
+      -webkit-background-size: cover;
+      background-size: cover; } }
+
+#ANewFoundation .sectionIntro {
+  background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/ANewFoundation/Hero.jpg");
   -webkit-background-size: contain;
   background-size: contain;
   background-position: left bottom; }
   @media (max-width: 768px) {
-    #ASolidLiquidIdea .sectionIntro {
-      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/ASolidLiquidIdea/Hero_Mobile.jpg"); } }
+    #ANewFoundation .sectionIntro {
+      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/ANewFoundation/Hero_Mobile.jpg");
+      -webkit-background-size: cover;
+      background-size: cover; } }
+  @media (max-width: 600px) {
+    #ANewFoundation .sectionIntro {
+      -webkit-background-size: cover;
+      background-size: cover; } }
 
-#ANewHome .sectionIntro {
-  background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/ANewHome/Hero.jpg");
+#PaperPowerhouse .sectionIntro {
+  background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/PaperPowerhouse/hero.jpg");
   -webkit-background-size: contain;
   background-size: contain;
   background-position: left bottom; }
   @media (max-width: 768px) {
-    #ANewHome .sectionIntro {
-      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/ANewHome/Hero_Mobile.jpg"); } }
+    #PaperPowerhouse .sectionIntro {
+      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/PaperPowerhouse/hero_Mobile.jpg");
+      -webkit-background-size: cover;
+      background-size: cover; } }
+  @media (max-width: 600px) {
+    #PaperPowerhouse .sectionIntro {
+      -webkit-background-size: cover;
+      background-size: cover; } }
+
+#YouGetWhatYouGive .sectionIntro {
+  background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/YouGetWhatYouGive/hero.jpg");
+  -webkit-background-size: contain;
+  background-size: contain;
+  background-position: left bottom; }
+  @media (max-width: 768px) {
+    #YouGetWhatYouGive .sectionIntro {
+      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/YouGetWhatYouGive/hero_Mobile.jpg");
+      -webkit-background-size: cover;
+      background-size: cover; } }
+  @media (max-width: 600px) {
+    #YouGetWhatYouGive .sectionIntro {
+      -webkit-background-size: cover;
+      background-size: cover; } }
+
+#DavidKoch .sectionIntro {
+  background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/DavidKoch/hero.jpg");
+  -webkit-background-size: contain;
+  background-size: contain;
+  background-position: left bottom; }
+  @media (max-width: 768px) {
+    #DavidKoch .sectionIntro {
+      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/DavidKoch/hero_Mobile.jpg");
+      -webkit-background-size: cover;
+      background-size: cover; } }
+  @media (max-width: 600px) {
+    #DavidKoch .sectionIntro {
+      -webkit-background-size: cover;
+      background-size: cover; } }
+
+#JoeMoeller .sectionIntro {
+  background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/JoeMoeller/hero.jpg");
+  -webkit-background-size: contain;
+  background-size: contain;
+  background-position: left bottom; }
+  @media (max-width: 768px) {
+    #JoeMoeller .sectionIntro {
+      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/JoeMoeller/hero_Mobile.jpg");
+      -webkit-background-size: cover;
+      background-size: cover; } }
+  @media (max-width: 600px) {
+    #JoeMoeller .sectionIntro {
+      -webkit-background-size: cover;
+      background-size: cover; } }
+
+#LessIsMore .sectionIntro {
+  background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/LessIsMore/hero.jpg");
+  -webkit-background-size: contain;
+  background-size: contain;
+  background-position: left bottom; }
+  @media (max-width: 768px) {
+    #LessIsMore .sectionIntro {
+      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/LessIsMore/hero_Mobile.jpg");
+      -webkit-background-size: cover;
+      background-size: cover; } }
+  @media (max-width: 600px) {
+    #LessIsMore .sectionIntro {
+      -webkit-background-size: cover;
+      background-size: cover; } }
+
+#LoveConnection .sectionIntro {
+  background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/LoveConnection/hero.jpg");
+  -webkit-background-size: contain;
+  background-size: contain;
+  background-position: left bottom; }
+  @media (max-width: 768px) {
+    #LoveConnection .sectionIntro {
+      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/LoveConnection/hero_Mobile.jpg");
+      -webkit-background-size: cover;
+      background-size: cover; } }
+  @media (max-width: 600px) {
+    #LoveConnection .sectionIntro {
+      -webkit-background-size: cover;
+      background-size: cover; } }
+
+#DaveRobertson .sectionIntro {
+  background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/DaveRobertson/hero.jpg");
+  -webkit-background-size: contain;
+  background-size: contain;
+  background-position: left bottom; }
+  @media (max-width: 768px) {
+    #DaveRobertson .sectionIntro {
+      background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/DaveRobertson/hero_Mobile.jpg");
+      -webkit-background-size: cover;
+      background-size: cover; } }
+  @media (max-width: 600px) {
+    #DaveRobertson .sectionIntro {
+      -webkit-background-size: cover;
+      background-size: cover; } }
 
 @-webkit-keyframes maskIn {
   from {

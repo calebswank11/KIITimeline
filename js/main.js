@@ -83,30 +83,33 @@ function loadInterior(){
 	    // DEFINE CLICKABLE NAVIGATION AT BOTTOM FOR SECTION
 	    var slideNumber = Math.ceil(bodyWidth/windowWidth);
 
-	    for (i = 0; i < slideNumber; i++) {
-	    	var n = [i],
-	    		animateTo = n * windowWidth,
-	    		animateBarTo = (dragNavWidth / (slideNumber-1)) * n,
-	    		animatePercent = animateBarTo/dragNavWidth * 100;
-	    	$('.dragNav').append('<article class="navSlideClick" id="navSlide' + [i] + '"><div data-scroll="' + animateTo + '" data-bar="' + animateBarTo + '" data-percent="' + animatePercent + '"></div></article>');
+	    if($('.navSlideClick').length) {
+	    } else {
+		    for (i = 0; i < slideNumber; i++) {
+		    	var n = [i],
+		    		animateTo = n * windowWidth,
+		    		animateBarTo = (dragNavWidth / (slideNumber-1)) * n,
+		    		animatePercent = animateBarTo/dragNavWidth * 100;
+		    	$('.dragNav').append('<article class="navSlideClick" id="navSlide' + [i] + '"><div data-scroll="' + animateTo + '" data-bar="' + animateBarTo + '" data-percent="' + animatePercent + '"></div></article>');
+		    }
 	    }
 
 	    $('.navSlideClick').css({
 	    	'width' : dragNavWidth / (slideNumber - 1)
 	    });
-	    $('body').on('click', '.navSlideClick', function(){
+	    $('body').on('click', '.navSlideClick div', function(){
 
 	    	$('body').addClass('scroll')
 
-	    	var scrollWidth = $(this).find('div').data('scroll'),
-	    		animateWidth = $(this).find('div').data('bar');
+	    	var scrollWidth = $(this).data('scroll'),
+	    		animateWidth = $(this).data('bar');
 
 	    	// ADD ACTIVE CLASS TO NAV SCROLL ELEMENT AND REMOVE FROM SIBLINGS
-    		$(this).addClass('active').nextAll().removeClass('active');
-    		$(this).prevUntil().addClass('active');
+    		$(this).parent().addClass('active').nextAll().removeClass('active');
+    		$(this).parent().prevUntil().addClass('active');
 	    	
 	    	// DEFINE ANIMATIONS OF BAR AND BODY
-	    	$('body').animate({scrollLeft: scrollWidth}, 500);
+	    	$('body').animate({'scrollLeft': scrollWidth}, 500);
 	    	$('.dragAnimate').css({
 	    		'width' : animateWidth + 'px'
 	    	})
@@ -134,7 +137,7 @@ function loadInterior(){
    $("body").mousewheel(function(event, delta) {
 
       this.scrollLeft -= (delta * 1);
-      var scrollNumber = this.scrollLeft -= (delta * 1);
+      var scrollNumber = this.scrollLeft -= (delta * 30);
 
       event.preventDefault();
 
@@ -151,9 +154,9 @@ function loadInterior(){
       $('.navSlideClick').each(function(){
       	var percentMatch = $(this).find('div').attr('data-percent');
       	if(percentMatch <= percent) {
-      		$(this).addClass('active')
+      		$(this).addClass('active');
       	} else {
-      		$(this).removeClass('active')
+      		$(this).removeClass('active');
       	}
       });
 
@@ -165,40 +168,37 @@ function loadInterior(){
 
 // SHOWCASE IMAGES FUNCTION
 // LIGHTBOX FUNCTION
-// TRY IMAGE EXPAND FUNCTION ACROSS ALL SHOWCASES
-function imageExpand(){
+// TRY IMAGE EXPAND FUNCTION FOR BIOGRAPHIES
+function biographyExpand(){
 	$('body').on('click', '.expand.lbb', function(){
 
 	    var img = $(this).find('img'),
             src = img.attr('src').replace(/Thumb/g, ''),
             alt = img.attr('alt'),
-            index = alt.split('-'),
+            index = alt.split('|'),
             title = index[0],
             text = index[1],
             date = index[2],
-            el = $(this);
+            video = index[3]
+            el = $(this),
+            width = $(window).width(),
+            height = $(window).height();
 
-            console.log(src + '/////' + alt + '/////' + title + '/////' + date + '/////' + text + '/////');
+            console.log(src + '/////' + alt + '/////' + title + '/////' + date + '/////' + text + '/////' + video);
 
-            $(this).parent().siblings('.lightBox').addClass('active').find('img').attr('src', src).siblings('.lightboxText').find('.description').text(text).siblings('div').find('h1').text(title).siblings('.date').text(date);
+            $(this).parent().siblings('.lightBox').removeClass('video').addClass('active').find('img').attr('src', src).siblings('.lightboxText').find('.description').text(text).siblings('div').find('h1').text(title).siblings('.date').text(date);
+
+            if(video) {
+            	$(this).parent().siblings('.bioLightBox').addClass('video').append('<iframe style="min-height:' + height + 'px;" src="' + video + '" width="480" height="270" frameborder="0" scrolling="auto" allowfullscreen></iframe>');
+            }
 
 	});
 
 	$('.Lightbox_Close').on('click', function(){
 
-		$('.lightBox').removeClass('active');
+		$('.lightBox').removeClass('active').find('iframe').remove();
 
 	});
-
-	// ON NEXT CLICK
-	// $('.Lightbox_Next').on('click', function(){
-
-	// 	var currenntImage = $(this).parents().eq(1).siblings('img').attr()
-	// 	console.log(currentImage);
-
-	// });
-
-	// ON PREV CLICK
 }
 // end
  // START NAVIGATION FUNCTION
@@ -222,16 +222,27 @@ function navigation(){
 	});
 
 	// TOGGLE NAVIGATION TIMELINE
-	$('.miniTimelineNav').on('click', function(){
-		$(this).toggleClass('active');
-		$('nav').toggleClass('active');
-		$('.navigationChapters').removeClass('active')
-	});
+	function navigationClick(){
+		$('.miniTimelineNav').on('click', function(e){
+			$(this).toggleClass('active');
+			$('nav').toggleClass('active');
+			$('#chapter').removeClass('active');
+			e.stopPropagation();
+		});
+		$(document).on('click', function(e){
+			if($(e.target).is('.miniTimelineNav') === false && $('#chapter').hasClass('active') === false) {
+				$('.miniTimelineNav').removeClass('active');
+				$('nav').removeClass('active');
+
+			}
+		});
+	}
+	navigationClick();
 	// CLOSE CHAPTERS FROM WITHIN CHAPTERS
 	$('.closeChapters').on('click', function(){
-		$('.navigationChapters').removeClass('active');
+		$('#chapter').removeClass('active');
 		$('.navigationList').removeClass('active');
-		$('nav').removeClass('active')
+		$('nav').removeClass('active');
 	});
 	// CLOSE NAVIGATION FROM WITHIN MENU
 	$('.navigationClose').on('click', function(){
@@ -252,50 +263,18 @@ function mapMaskCSS(){
 
 		draggableMap.children('img').height();
 
-} if($('.draggableMap').length) {
+} 
+
+if($('.draggableMap').length) {
 	mapMaskCSS();
 }
 
 $('#journey > g').on('click touchstart', function(){
 	var $el = $(this).attr('id');
 	$(this).addClass('active').siblings().removeClass('active');
-	console.log($el)
 	$('.' + $el).addClass('active').siblings().removeClass('active');
+
 });
-
-// APPLY MOUSE TRACKING TO THE PAGE IF IT HAS THE MEASURE DIV
-function backgroundImageMove(){
-	if($('.measure').length) {
-
-	  var measure = $('.measure'),
-	      measureTop = measure.offset().top,
-	      measureLeft = measure.offset().left,
-	      screenY = $(window).height(),
-	      screenX = $(window).width();
-
-	      $(window).mousemove(function(e){
-
-	        var mouseY = event.pageY,
-	            mouseX = event.pageX - $(window).scrollLeft(),
-	            MYCenter = mouseY - measureTop,
-	            MXCenter = mouseX - measureLeft,
-	            transY = MYCenter * -.0015 + 50,
-	            transX = MXCenter * -.0015 + 50,
-	            transY2 = MYCenter * -.15 + 50,
-	            transX2 = MXCenter * -.15 + 50;
-
-	        $('.mapTexture').css({
-	          'left' : transX + '%',
-	          'top' : transY + '%'
-	        });
-
-	      });
-
-	} 
-}
-// end
-// END MAP FUNCTIONALITY
-
 
 
 function mobileLoad(){
@@ -324,7 +303,7 @@ function mobileLoad(){
 				'width': width/amount
 			});
 
-			ulTwo.find('li').css({
+			ulTwo.find('li').css({ 
 				'width': widthTwo/amountTwo
 			});
 
@@ -371,10 +350,14 @@ function videoHeight(){
 
 }
 // end
+// REMOVE HOME VIDEO WHEN SKIP IS CLICKED
+$('.loadHomepage').on('click', function(){
+	$(this).parent().fadeOut().siblings('iframe').animate({volume : 0}, 500);
+});
 
 // LOAD INTERIOR FUNCTIONS
 if (queryString.length) {
-	imageExpand();
+	biographyExpand();
 	videoHeight();
     $('.container').append('<!-- start scroll to navigate --><section class="scrollToNav col-2 row-1 posX-14 posY-4"><p>Scroll to Explore</p><span></span></section><!-- end -->');
     $(window).resize(function(){
@@ -393,14 +376,7 @@ if (queryString.length) {
 	$('.miniTimelineTitle').html('<h1>People Not Things <span>Home</span></h1>');
 }
 
-// DEFINE PAGEBASED FUNCTIONS
-if(queryString.indexOf('Netherlands') != -1) {
-	$('<div class="measure">').prependTo('body');
-	if($(window).width() > 768) {
-		backgroundImageMove();
-		console.log('testing')
-	}
-}
+// // DEFINE PAGEBASED FUNCTIONS
 
 //----------------------------------------------------------------------------------------------
 // var loadTime = window.performance.timing.domContentLoadedEventEnd- window.performance.timing.navigationStart;
@@ -447,32 +423,33 @@ usage example: $('.post-thumbnail, article header').draggable();
                         .on('mousemove.draggable touchmove.draggable', function(e) {
                             _fixMobileEvent(e);
 
-                            if (firstMove) {
-                                firstMove = false;
-                                $dragged
-                                    .css({'transform': 'scale(1.02)',
-                                          'bottom': 'auto', 'right': 'auto'
-                                    });
-                                var $target = $(e.target);
-                                if ($target.is('a')) {
-                                    $preventClick = $target;
-                                    $target.one('click.draggable', function(e) {
-                                        e.preventDefault();
-                                        e.stopImmediatePropagation();
-                                    });
-                                } else if ($dragged.is('a')) {
-                                    $preventClick = $dragged;
-                                    $dragged.one('click.draggable', function(e) {
-                                        e.preventDefault();
-                                        e.stopImmediatePropagation();
-                                    });
-                                }
-                            }
-                            $dragged.offset({
-                                left: x + e.pageX,
-                                top: y + e.pageY
-                            });
-                            e.preventDefault();
+
+	                            if (firstMove) {
+	                                firstMove = false;
+	                                $dragged
+	                                    .css({'transform': 'scale(1)',
+	                                          'bottom': 'auto', 'right': 'auto'
+	                                    });
+	                                var $target = $(e.target);
+	                                if ($target.is('a')) {
+	                                    $preventClick = $target;
+	                                    $target.one('click.draggable', function(e) {
+	                                        e.preventDefault();
+	                                        e.stopImmediatePropagation();
+	                                    });
+	                                } else if ($dragged.is('a')) {
+	                                    $preventClick = $dragged;
+	                                    $dragged.one('click.draggable', function(e) {
+	                                        e.preventDefault();
+	                                        e.stopImmediatePropagation();
+	                                    });
+	                                }
+	                            }
+	                            $dragged.offset({
+	                                left: x + e.pageX,
+	                                top: y + e.pageY
+	                            });
+	                            e.preventDefault();
                         })
                         .one('mouseup touchend touchcancel', function() {
                             $(this).off('mousemove.draggable touchmove.draggable');
@@ -505,4 +482,28 @@ usage example: $('.post-thumbnail, article header').draggable();
     }
 })(jQuery);
 
-$('.draggableMap svg').draggable();
+$('.draggableMap #map').on('click', function(){
+	$(this).siblings('#clickAndDrag').fadeOut();
+	$(this).addClass('active').draggable({
+		axis: 'x',
+		containment : 'parent'
+	});
+});
+
+// CHANGE STYLESHEET WHEN WINDOW BECOMES A OBSCURE SCREEN RATIO BELOW 1.33
+function aspectRatio(){
+	var width = $(window).width(),
+		height = $(window).height(),
+		ratio = width/height;
+
+	console.log(ratio);
+	if(ratio < 1.33) {
+		$('#desktopStyle').attr('href', 'css/styleVertical.css')
+	} else {
+		$('#desktopStyle').attr('href', 'css/style.css')
+	}
+}
+aspectRatio();
+$(window).resize(function(){
+	aspectRatio();
+});

@@ -19,6 +19,8 @@ $min : "min-width:";
 	@return #{$min} ($pxSize)+px; 
 }
 
+
+$ease : cubic-bezier(0.44, 0.2, 0, 1.01);
 @mixin clearfix {
 	&::after {
 		clear: both;
@@ -100,8 +102,26 @@ body {
 		.scrollToNav {
 			opacity: 0;
 		}
+		.nextSection, .prevSection {
+			opacity: 1;
+			bottom: calc(6.25vh + 2rem);
+		}
 	}
-} 
+}
+// @keyframes prevNextOutIn {
+// 	0% {
+// 		border-radius: 50%;
+// 		width: 50px;
+// 	}
+// 	30% {
+// 		border-radius: 0%;
+// 		width: 50px;
+// 	}
+// 	100% {
+// 		border-radius: 0;
+// 		width: 300px;
+// 	} 
+// }
 ul {
 	padding: 0;
 	margin: 0;
@@ -130,8 +150,16 @@ p {
 		font-size: 1rem;
 	}
 	margin: 0;
-	font-size: .75rem;
+	font-size: .9rem;
 	line-height: 1.65;
+	@media (max(1300)) {
+		font-size: .75rem;
+		line-height: 1.35;
+	}
+	@media (max(600)) {
+		font-size: .65rem;
+		line-height: 1.75;
+	}
 }
 a {
 	text-decoration: none;
@@ -159,7 +187,7 @@ a {
 }
 .largeText {
     font-size: 52px;
-    @media (max(1280)) {
+    @media (max(1400)) {
     	font-size: 30px;
     }
 	span {
@@ -368,6 +396,10 @@ a {
 	@media (max(768)) {
 		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/NetherlandsToTexas/HeroMobile.jpg');
 	}
+	@media (max(600)) {
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
 }
 #TheThesis .sectionIntro {
 	background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/TheThesis/Hero.jpg');
@@ -376,6 +408,10 @@ a {
 	@media (max(768)) {
 		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/TheThesis/Hero_Mobile.jpg');
 	}
+	@media (max(600)) {
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
 }
 #CharlesdeGanahl .sectionIntro {
 	background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/CharlesdeGanahl/Hero.jpg');
@@ -383,6 +419,12 @@ a {
 	background-size: contain;
 	@media (max(768)) {
 		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/CharlesdeGanahl/Hero_Mobile.jpg');
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+	@media (max(600)) {
+		-webkit-background-size: cover;
+		background-size: cover;
 	}
 }
 #ABusinessisBorn .sectionIntro {
@@ -391,6 +433,12 @@ a {
 	background-size: contain;
 	@media (max(768)) {
 		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/ABusinessIsBorn/Hero_Mobile.jpg');
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+	@media (max(600)) {
+		-webkit-background-size: cover;
+		background-size: cover;
 	}
 }
 // STRUGGLE
@@ -400,6 +448,12 @@ a {
 	background-size: contain;
 	@media (max(768)) {
 		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/DeadBroke/Hero_Mobile.jpg');
+		-webkit-background-size: contain;
+		background-size: contain;
+	}
+	@media (max(600)) {
+		-webkit-background-size: cover;
+		background-size: cover;
 	}
 }
 #NewEndeavors .sectionIntro {
@@ -409,13 +463,21 @@ a {
 	@media (max(768)) {
 		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/NewEndeavors/Hero_Mobile.jpg');
 	}
+	@media (max(600)) {
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
 }
 #SterlingVarner .sectionIntro {
 	background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/SterlingVarner/Hero.jpg');
-	-webkit-background-size: contain;
-	background-size: contain;
+	-webkit-background-size: cover;
+	background-size: cover;
 	@media (max(768)) {
 		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/SterlingVarner/Hero_Mobile.jpg');
+	}
+	@media (max(600)) {
+		-webkit-background-size: cover;
+		background-size: cover;
 	}
 }
 #TheHomecoming .sectionIntro {
@@ -424,6 +486,12 @@ a {
 	background-size: contain;
 	@media (max(768)) {
 		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/TheHomecoming/Hero_Mobile.jpg');
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+	@media (max(600)) {
+		-webkit-background-size: cover;
+		background-size: cover;
 	}
 }
 //QUEST
@@ -437,6 +505,10 @@ a {
 		-webkit-background-size: cover;
 		background-size: cover;
 	}
+	@media (max(600)) {
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
 }
 #CharlesKoch .sectionIntro {
 	background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/CharlesKoch/Hero.jpg');
@@ -446,23 +518,142 @@ a {
 	@media (max(768)) {
 		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/CharlesKoch/Hero_Mobile.jpg');
 	}
-}
-#ASolidLiquidIdea .sectionIntro {
-	background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/ASolidLiquidIdea/Hero.jpg');
-	-webkit-background-size: contain;
-	background-size: contain;
-	background-position: left bottom;
-	@media (max(768)) {
-		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/ASolidLiquidIdea/Hero_Mobile.jpg');
+	@media (max(600)) {
+		-webkit-background-size: cover;
+		background-size: cover;
 	}
 }
-#ANewHome .sectionIntro {
-	background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/ANewHome/Hero.jpg');
+#ASolidGasLiquidsIdea .sectionIntro {
+	background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/ASolidGasLiquidsIdea/Hero.jpg');
+	-webkit-background-size: cover;
+	background-size: cover;
+	background-position: left bottom;
+	@media (max(768)) {
+		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/ASolidGasLiquidsIdea/Hero_Mobile.jpg');
+	}
+	@media (max(600)) {
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+}
+#ANewFoundation .sectionIntro {
+	background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/ANewFoundation/Hero.jpg');
 	-webkit-background-size: contain;
 	background-size: contain;
 	background-position: left bottom;
 	@media (max(768)) {
-		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/ANewHome/Hero_Mobile.jpg');
+		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/ANewFoundation/Hero_Mobile.jpg');
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+	@media (max(600)) {
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+}
+#PaperPowerhouse .sectionIntro {
+	background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/PaperPowerhouse/hero.jpg');
+	-webkit-background-size: contain;
+	background-size: contain;
+	background-position: left bottom;
+	@media (max(768)) {
+		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/PaperPowerhouse/hero_Mobile.jpg');
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+	@media (max(600)) {
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+}
+#YouGetWhatYouGive .sectionIntro {
+	background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/YouGetWhatYouGive/hero.jpg');
+	-webkit-background-size: contain;
+	background-size: contain;
+	background-position: left bottom;
+	@media (max(768)) {
+		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/YouGetWhatYouGive/hero_Mobile.jpg');
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+	@media (max(600)) {
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+}
+#DavidKoch .sectionIntro {
+	background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/DavidKoch/hero.jpg');
+	-webkit-background-size: contain;
+	background-size: contain;
+	background-position: left bottom;
+	@media (max(768)) {
+		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/DavidKoch/hero_Mobile.jpg');
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+	@media (max(600)) {
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+}
+#JoeMoeller .sectionIntro {
+	background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/JoeMoeller/hero.jpg');
+	-webkit-background-size: contain;
+	background-size: contain;
+	background-position: left bottom;
+	@media (max(768)) {
+		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/JoeMoeller/hero_Mobile.jpg');
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+	@media (max(600)) {
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+}
+#LessIsMore .sectionIntro {
+	background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/LessIsMore/hero.jpg');
+	-webkit-background-size: contain;
+	background-size: contain;
+	background-position: left bottom;
+	@media (max(768)) {
+		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/LessIsMore/hero_Mobile.jpg');
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+	@media (max(600)) {
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+}
+#LoveConnection .sectionIntro {
+	background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/LoveConnection/hero.jpg');
+	-webkit-background-size: contain;
+	background-size: contain;
+	background-position: left bottom;
+	@media (max(768)) {
+		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/LoveConnection/hero_Mobile.jpg');
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+	@media (max(600)) {
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+}
+#DaveRobertson .sectionIntro {
+	background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/DaveRobertson/hero.jpg');
+	-webkit-background-size: contain;
+	background-size: contain;
+	background-position: left bottom;
+	@media (max(768)) {
+		background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/DaveRobertson/hero_Mobile.jpg');
+		-webkit-background-size: cover;
+		background-size: cover;
+	}
+	@media (max(600)) {
+		-webkit-background-size: cover;
+		background-size: cover;
 	}
 }
 @keyframes maskIn {

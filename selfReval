@@ -1,0 +1,182 @@
+		need to figure out a way to change columns on tall but skinny sreens
+		need to fix loader as to show something else or at least 3 times
+		size of prev/next circles on > 1600
+
+	mobile universal
+		navigation bounce when scroll down then back up
+		minitimeline navigation
+
+		-----------
+		-----------
+		-----------
+		NETHERLANDS TO TEXAS
+			desktop
+finished				need a interact button
+
+			mobile - 
+		-----------
+		-----------
+		-----------
+		the thesis
+			desktop
+				1600+
+				on taller screens, width of showcase 2 large image scrunches horizontally	
+			mobile
+		-----------
+		-----------
+		-----------
+		CHarles de Ganahl
+			desktop
+				> 1600
+					brain lobes image
+				< 1600
+				quote year size
+					width of text below quote to 80ish
+				brain lobes image and placement
+			mobile
+		-----------
+		-----------
+		-----------
+		A Business is born
+			desktop
+				> 1600
+					need to change hero image
+				< 1600
+				year quote text is fine here
+			mobile
+		-----------
+		-----------
+		-----------
+		new endeavors
+			desktop
+				> 1600
+				< 1600
+			mobile
+			-----------
+		-----------
+		-----------
+		Sterling Varner
+			desktop
+				> 1600
+				looks good
+				< 1600
+				looks good
+			mobile
+			-----------
+		-----------
+		-----------
+		homecoming
+			desktop
+				> 1600
+					looks good
+				< 1600
+					looks good
+			mobile
+			-----------
+		-----------
+		-----------
+		aggresive exploration
+			desktop
+				> 1600
+					quote Image
+				< 1600
+				looks good
+			mobile
+			-----------
+		-----------
+		-----------
+		Charles Koch
+			desktop
+				> 1600
+					looks good
+				< 1600
+				fix koch logo, push left
+				brain lobes quote position
+				or video text width
+				bio item positioning
+					main image
+					transform(-50%, -60%)
+					.one
+						t25%
+						l15%
+					.two
+						t-5%
+						img {
+							maw140
+						}
+
+			mobile
+			hearo background image
+		-----------
+		-----------
+		-----------
+		A Solid Liquid Idea
+			desktop
+				> 1600
+					row of images images 
+fixed						(needs 100% width added to this page)
+				< 1600
+				quote three size
+				fntsz 1.25rem
+				lh1.25;
+			mobile
+			-----------
+		-----------
+		-----------
+		A New Home
+			desktop
+				> 1600
+				< 1600
+				change image to not be underneath text, fade out right side perhaps?
+				change thumbs to be square
+				increase image_Showcase quality
+			mobile
+			-----------
+		-----------
+		-----------
+		new endeavors
+			desktop
+				> 1600
+				< 1600
+			mobile
+			-----------
+		-----------
+		-----------
+		new endeavors
+			desktop
+				> 1600
+				< 1600
+			mobile
+			-----------
+		-----------
+		-----------
+		new endeavors
+			desktop
+				> 1600
+				< 1600
+			mobile
+			-----------
+		-----------
+		-----------
+		new endeavors
+			desktop
+				> 1600
+				< 1600
+			mobile
+			-----------
+		-----------
+		-----------
+		new endeavors
+			desktop
+				> 1600
+				< 1600
+			mobile
+			-----------
+		-----------
+		-----------
+		new endeavors
+			desktop
+				> 1600
+				< 1600
+			mobile
+
