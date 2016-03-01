@@ -45,9 +45,11 @@ function getNav(){
                             mySectionTitle=SectionX[ss].SectionTitle;
                             mySectionNumber=SectionX[ss].SectionNumber;
                             mySectionDate=SectionX[ss].SectionDate;
+
+                            var mySectionTestTitle = mySectionTitle.replace(/'/g, '-').replace(/ /g, '-');
                             
                             // APPEND SECTION LINKS TO CHAPTERS
-                            $('#navigation-'+MC).append('<li><a href="index.html?Chapter='+myChapterTitle+ '&Section='+mySectionTitle+'" ><p id="navChapterTitle">'+mySectionDate + '</p><h3 id="navSectionTitle">' + mySectionTitle + '</h3><p id="navNumber">' + myChapterNumber + '.' + mySectionNumber +'</p></a></li>');
+                            $('#navigation-'+MC).append('<li><a href="index.html?Chapter='+myChapterTitle+ '&Section='+mySectionTestTitle+'" ><p id="navChapterTitle">'+mySectionDate + '</p><h3 id="navSectionTitle">' + mySectionTitle + '</h3><p id="navNumber">' + myChapterNumber + '.' + mySectionNumber +'</p></a></li>');
                         };
                     }
                 }

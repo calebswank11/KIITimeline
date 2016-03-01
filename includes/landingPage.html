@@ -1,12 +1,61 @@
 <div id="introVideo">
-    <iframe src="//video.kochcreativegroupdev.com/players/iI2oDDQq-x2n83pVM.html" frameborder="0"></iframe>
-    <div class="loadHomepage">
-        <p>Skip Video</p>
+    <div class="loadHomepage skipIntro">
+        <a onclick='removeJwPlayer();'>Skip Intro</a>
     </div>
+    <div class="homeVideoOverlay">
+        <p>People. Not Things.</p>
+        <p>Introducing the unfinished story of Koch Industries, the second-largest private company in America.</p>
+        <div>
+            <a id="replayVideo" onclick="replayVideo();">Replay Video</a>
+            <a class="loadHomepage" onclick='removeJwPlayer();'>Explore Timeline</a>
+        </div>
+    </div>
+
+    <div id="introVideoLoad">Loading the player...</div>
+    <script type="text/javascript">
+    var playerInstance = jwplayer("introVideoLoad");
+    playerInstance.setup({
+        file: "http://video.kochcreativegroupdev.com/videos/yrwOUkWN-maxl1Ik1.mp4",
+        image: "//example.com/uploads/myPoster.jpg",
+        title: 'Basic Video Embed',
+        description: 'A video with a basic title and description!',
+        mediaid: 'yrwOUkWN'
+    });
+
+    jwplayer().onBeforeComplete(function(){
+        $('#introVideo').addClass('active');
+        $('#loadHomepage').fadeOut();
+    });
+
+    // SKIP AND EXPLORE TIMELINE SCRIPT
+    function removeJwPlayer(){
+        $('#introVideo').fadeOut();
+        playerInstance.setVolume(0);
+        function videoRemove(){
+            playerInstance.remove()
+        }
+        setTimeout(videoRemove, 750);
+    }
+    // REPLAY BUTTON SCRIPT
+    function replayVideo(){
+        $('#introVideo').removeClass('active');
+        playerInstance.play();
+        $('#loadHomepage').fadeIn();
+    }
+
+    // DETECT COOKIE TO REMOVE VIDEO IN THE EVENT USER NAVIGATES TO HOMEPAGE
+    function cookieDetection(){
+        if($.cookie("homepageVideo").length) {      
+            playerInstance.stop().setVolume(0);
+            $('#introVideo').remove();
+        }
+    } cookieDetection();
+
+    </script>
 </div>
 
 <section id="landingPageText">
-    <a href="index.html?Chapter=Bootstraps&Section=Netherlands%20to%20Texas" class="landingPageSlideText" data-number="1">
+    <a href="index.html?Chapter=Bootstraps&Section=Netherlands-to-Texas" class="landingPageSlideText" data-number="1">
         <div class="landingPageSlideTextWrapper">
             <span>1888-1888</span>
             <h1>bootstraps</h1>
@@ -16,7 +65,7 @@
             <button>View</button>
         </div>
     </a>
-    <a href="index.html?Chapter=Struggle&Section=Dead%20Broke" class="landingPageSlideText" data-number="2">
+    <a href="index.html?Chapter=Struggle&Section=Dead-Broke" class="landingPageSlideText" data-number="2">
         <div class="landingPageSlideTextWrapper">
             <span>1888-1888</span>
             <h1>Struggle</h1>
@@ -26,7 +75,7 @@
             <button>View</button>
         </div>
     </a>
-    <a href="index.html?Chapter=Quest&Section=Aggresive%20Exploration" class="landingPageSlideText" data-number="3">
+    <a href="index.html?Chapter=Quest&Section=Aggresive-Exploration" class="landingPageSlideText" data-number="3">
         <div class="landingPageSlideTextWrapper">
             <span>1888-1888</span>
             <h1>Quest</h1>
@@ -35,7 +84,7 @@
             </p>
             <button>View</button></div>
     </a>
-    <a href="index.html?Chapter=Momentum&Section=Paper%20Powerhouse" class="landingPageSlideText" data-number="4">
+    <a href="index.html?Chapter=Momentum&Section=Paper-Powerhouse" class="landingPageSlideText" data-number="4">
         <div class="landingPageSlideTextWrapper">
             <span>1888-1888</span>
             <h1>Momentum</h1>
@@ -45,7 +94,7 @@
             <button>View</button>
         </div>
     </a>
-    <a href="index.html?Chapter=Horizon&Section=Less%20is%20More" class="landingPageSlideText" data-number="5">
+    <a href="index.html?Chapter=Horizon&Section=Less-is-More" class="landingPageSlideText" data-number="5">
         <div class="landingPageSlideTextWrapper">
             <span>1888-1888</span>
             <h1>Horizon</h1>

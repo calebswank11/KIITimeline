@@ -1,4 +1,4 @@
-.gradientOpacity, .gradO .Text_Background {
+.gradientOpacity, .failedBusiness > div div, .gradO .Text_Background {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0.78+0,1+100 */
   /* FF3.6-15 */
   background: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.78) 0%, white 100%) !important;
@@ -286,6 +286,18 @@ body {
     opacity: 0; } }
 p {
   text-align: right; }
+
+.homepage .container, .homepage #content {
+  overflow: visible;
+  height: 90vh;
+  overflow-y: hidden;
+  padding: 0;
+  margin: 0; }
+@media (max-width: 675px) {
+  .homepage .miniTimelineTitle {
+    display: block; } }
+.homepage .nextSection, .homepage .prevSection {
+  display: none; }
 
 /* END GENERIC STYLES */
 /* START NAVIGATION */
@@ -604,10 +616,13 @@ nav.active.Sections .chapterLevel.active .sectionLevel {
   width: 100%;
   z-index: 100;
   background-color: #fff;
-  height: 6.25vh;
+  height: 3em;
   min-height: 3rem;
   -webkit-box-shadow: 4px 0px 150px rgba(148, 148, 148, 0.5);
           box-shadow: 4px 0px 150px rgba(148, 148, 148, 0.5); }
+  @media (min-width: 600px) {
+    .miniTimeline {
+      height: 6.25vh; } }
 
 .miniTimelineNavPerm {
   position: absolute;
@@ -979,46 +994,69 @@ nav.active.Sections .chapterLevel.active .sectionLevel {
 
 /* END NAVIGATION */
 /* START LANDING PAGE */
+#landingPageText {
+  padding: 0 !important;
+  width: 350vw;
+  height: calc(100vh - 5em);
+  background: url("../img/landingPage/landingPageBackgroundMobile.jpg") no-repeat;
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  background-position: 0 bottom; }
+
 .landingPageSlideText {
-  height: 17.5vh; }
-  .landingPageSlideText h1 {
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%); }
-  .landingPageSlideText ul, .landingPageSlideText p {
-    display: none; }
-  .landingPageSlideText.active h1 {
-    text-align: center;
-    opacity: 0; }
-  .landingPageSlideText.active ul, .landingPageSlideText.active p {
-    display: block; }
+  height: 100%;
+  width: calc(350vw/5);
+  display: block;
+  position: absolute;
+  text-align: right;
+  padding: .5rem 0; }
+  .landingPageSlideText::after {
+    clear: both;
+    display: table;
+    content: ''; }
+  .landingPageSlideText:nth-child(1) {
+    left: 0; }
+  .landingPageSlideText:nth-child(2) {
+    left: calc((350vw / 5) * 1); }
+  .landingPageSlideText:nth-child(3) {
+    left: calc((350vw / 5) * 2); }
+  .landingPageSlideText:nth-child(4) {
+    left: calc((350vw / 5) * 3); }
+  .landingPageSlideText:nth-child(5) {
+    left: calc((350vw / 5) * 4); }
 
 .landingPageSlideTextWrapper {
-  position: relative;
-  height: 100%; }
-  .landingPageSlideTextWrapper li {
-    margin: 0 auto;
-    width: 100% !important; }
-  .landingPageSlideTextWrapper a {
+  padding: 1rem 2rem;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+  text-align: center;
+  width: 100%; }
+  .landingPageSlideTextWrapper span {
+    font-size: .75rem;
+    color: white; }
+  .landingPageSlideTextWrapper h1 {
+    text-transform: uppercase;
+    font-size: 1rem;
     text-align: center;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
-            transform: translateX(-50%);
-    position: relative;
-    display: inline-block; }
-    .landingPageSlideTextWrapper a::after {
-      clear: both;
-      display: table;
-      content: ''; }
-    .landingPageSlideTextWrapper a span, .landingPageSlideTextWrapper a h5 {
-      float: left; }
+    color: white; }
   .landingPageSlideTextWrapper p {
-    text-align: center; }
+    font-size: .6rem;
+    line-height: 1.2;
+    text-align: center;
+    color: white; }
+  .landingPageSlideTextWrapper button {
+    color: white;
+    border: 2px solid white;
+    background-color: transparent;
+    padding: .5rem 1.5rem;
+    margin: 1rem 0; }
+
+#landingPageVisual {
+  display: none; }
 
 /* END LANDING PAGE */
 /* START MOBILE MODULES */
@@ -1640,6 +1678,8 @@ picture {
 .Quote_1 h1 span {
   color: #96c6d4;
   display: block; }
+.Quote_1 p:last-of-type {
+  text-align: center; }
 
 /* END QUOTEONE */
 .Quote_2 {
@@ -2142,8 +2182,7 @@ picture {
 /* end */
 /* CUSTOM BIOS START */
 .Custom_Biography {
-  padding: 0 !important;
-  /* THE THESIS */ }
+  padding: 0 !important; }
   @media (max-width: 600px) {
     .Custom_Biography {
       margin: 3rem 0 !important; } }
@@ -2184,6 +2223,13 @@ picture {
     .Custom_Biography .lightboxText span {
       font-size: 1rem; } }
 
+/* .BIO LIGHTBOX VIDEO */
+.bioLightBox.video img {
+  display: none; }
+.bioLightBox.video iframe {
+  width: 100%; }
+
+/* THE THESIS */
 @media (max-width: 600px) {
   #TheThesis .Custom_Biography {
     margin-bottom: 6rem !important; } }
@@ -2242,6 +2288,60 @@ picture {
       min-height: 120%; } }
 
 /* START CUSTOM MODULE STYLES */
+/* START FAILED BUSINESS */
+.failedBusiness {
+  padding: 0 !important; }
+  .failedBusiness span, .failedBusiness .date {
+    display: none; }
+  .failedBusiness > div {
+    height: calc(93.75vh/3);
+    overflow: hidden;
+    position: relative; }
+    .failedBusiness > div div {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: 1;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      text-align: center;
+      opacity: 0;
+      -webkit-transition: top 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+              transition: top 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
+      .failedBusiness > div div p {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+        width: 100%;
+        padding: 2rem;
+        top: 80%;
+        opacity: 0;
+        -webkit-transition: top 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01) 0.25s;
+                transition: top 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01) 0.25s; }
+    .failedBusiness > div:hover div {
+      opacity: 1;
+      top: 50%; }
+      .failedBusiness > div:hover div p {
+        top: 50%;
+        opacity: 1; }
+  .failedBusiness img {
+    position: relative;
+    height: auto;
+    width: 100%;
+    display: block;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); }
+
+/* END */
 .o1 .Text_Background, .mobileO1 .Text_Background {
   background-color: #fafafa !important; }
 

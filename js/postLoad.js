@@ -13,7 +13,7 @@ function navigationHovers(){
 		$(this).toggleClass('active');
 	});
 
-	$('nav a[href$="index.html' + queryString + '"]').attr('id','currentPage');
+	$('.nav a[href$="index.html' + queryString + '"]').attr('id','currentPage');
 
 	// DEFINE VARIABLES FOR IF STATEMENT
 	var currentPage = $('#currentPage'),
@@ -64,13 +64,7 @@ function navigationHovers(){
 			nextNumber = next.find('#navNumber').text(),
 			prevNumber = prev.find('#navNumber').text();
 
-	// APPEND LINKS TO NEXT AND PREVIOUS SECTION HOVERS (LEFT AND RIGHT OF SCREEN)
-	// $('.nextSection').find('a').attr('href', nextAnchor).append('<span class="number">' + nextNumber + '</span><p class="nextTitle"><span>' + nextChapter + ' </span><span>' + nextSection + '</span><span class="sideNavArrow"></span></p>');
-
-	// $('.prevSection').find('a').attr('href', prevAnchor).append('<span class="number">' + prevNumber + '</span><p class="prevTitle"><span>' + prevChapter + ' </span><span>' + prevSection + '</span><span class="sideNavArrow"></span></p>');
-
-	// $('.nextSectionEnd').find('a').attr('href', nextAnchor).append('<span class="number">' + nextNumber + '</span><p class="nextTitle"><span>' + nextChapter + ' </span><span>' + nextSection + '</span><span class="sideNavArrow"></span></p>');
-	
+	// APPEND LINKS TO NEXT AND PREVIOUS SECTION HOVERS (LEFT AND RIGHT OF SCREEN)	
 	$('.nextSection').find('a').attr('href', nextAnchor).append('<p class="nextTitle"><span class="filler"></span><span class="number">' + nextNumber + '</span><span class="sectionText">' + nextSection + '</span><span class="yearText">' + nextChapter + ' </span></p><span class="sideNavArrow"></span>');
 
 	$('.prevSection').find('a').attr('href', prevAnchor).append('<span class="sideNavArrow"></span><p class="prevTitle"><span class="filler"></span><span class="number">' + prevNumber + '</span><span class="sectionText">' + prevSection + '</span><span class="yearText">' + prevChapter + ' </span></p>');
@@ -82,25 +76,8 @@ function navigationHovers(){
 		currentTitle = currentPage.find('#navSectionTitle').text();
 
 	// DEFINE TEXT IN BOTTOM MINITIMELINE NAVIGATION
-	// $('.prevText').attr('href', prevAnchor);
-	// $('.nextText').attr('href', nextAnchor);
-	// $('.currentText').html('Section ' + currentText + '<span>  ' + currentTitle + '</span>');
 
 	$('.miniTimelineCurrent').html('<div class="currentCircle">' + currentText + '</div><div class="currentText">' + chapter + ' <span>' + currentTitle + '</span></div>');
-
-	// if($(window).width() <= 600) {
-	// 	$('.miniTimelineTitle').html('<h1>Chapter ' + currentText + '</h1>');
-	// } else {
-	// 	$('.miniTimelineTitle').html('<h1>' + currentTitle + '<span>  ' + currentText + '</span></h1>');
-	// }
-
-	// MINITIMELINE CIRCLES BOTTOM CENTER
-	// currentPage.parents().eq(1).children().each(function(){
-	// 	var anchor = $(this).find('a').attr('href');
-	// 	$('.miniTimelineSections').append('<a href="' + anchor + '"></a>')
-	// });
-
-	// $('.miniTimelineSections a[href$="' + queryString + '"]').addClass('active');	
 
 	// RUN NAVIGATION FUNCTION FOR MOBILE
 	if($(window).width() <= 768 ){
@@ -113,16 +90,14 @@ function navigationHovers(){
 		var breadcrumbs = $('.breadcrumbsMobile');
 
 		breadcrumbs.find('.breadcrumbs-1').on('click', function(){
-			console.log('working');
 			$('#chapter').add('.navigationList').removeClass('active');
 			$('.breadcrumbsMobile').removeClass('levelOne');
-			$('nav').removeClass('Chapters');
+			$('.nav').removeClass('Chapters');
 			$('.chapterLevel').removeClass('active');
 		});
 
 		breadcrumbs.find('.breadcrumbs-2').on('click', function(){
-			console.log('working');
-			$('nav').removeClass('Sections')
+			$('.nav').removeClass('Sections')
 			$('.sectionLevel').removeClass('active');
 			$('#chapter').addClass('active').addClass('fromLeft');
 			$('.breadcrumbsMobile').removeClass('levelTwo');

@@ -1,220 +1,4 @@
 
-var mediaValue;
-var mediaValueParent;
-var moduleTitle;
-var queryString = window.location.search;
-mediaArray = [];
-SectionArray = [];
-
-function getData(Chapter,Section){
-//*****************************************Ajax call to call JSON******************************************//
-$.ajax({
-   url : 'http://www.kochcreativegroupdev.com/kochrestservice/api/ContentsSections/'+Chapter+'/'+Section+'/?format=json',
-    //url : 'json/sample.json',
-    type: 'GET',
-    success : showjson,
-    complete: function(){
-        setTimeout(loadMainJS, 250);
-    },
-    error: function(){
-        alert('Oops! Looks like you broke something. Please Reload Your Page')
-    }
-});
-
-//***********************************ITTERATE THROUGH THE JSON FOR DATA***********************//
-function showjson (data){
-    if(queryString.length) {
-        $('.container').empty();
-    } else {
-        $('.container').load('http://172.16.74.43/KIITimelineCS/includes/landingPage.html')
-    }
-    $.each(data, function (index, value, n) {
-
-        while (index == 'request'){
-                // console.log(value);
-                //console.log(value.Chapter);
-                //console.log(value.Section);
-                $('#chapter').append('<li>Chapter:'+value.Chapter+' </li>');
-                
-                    break;
-                };
-
-                while (index === 'Data'){
-                    //GET SECTION INFORMATION
-                    var SectionContent=value.Content;
-                    for (var SC=0; SC<SectionContent.length; SC++){
-                        mySectionTitle=SectionContent[SC].SectionTitle;
-                        mySectionNumber=SectionContent[SC].SectionNumber;
-                        mySectionDate=SectionContent[SC].SectionDate;
-                        mySectionIntro=SectionContent[SC].SectionIntro;
-                        mySectionHero=SectionContent[SC].SectionHero;
-                        var mySectionID = mySectionTitle.replace(/ /g, ''),
-                            mySectionPath = mySectionTitle.replace(/ /g, '_');
-                        $('.container').attr('id', mySectionID);
-                        $('.container').append('<section class="sectionIntro col-16 row-15"><!-- sectionInterior --><div class="sectionTitle posX-1 posY-1 abs"><div><p class="sectionYear">' + mySectionDate + '</p><p class="chapterName">' + Chapter + '</p></div><h1>' + mySectionTitle + '</h1></div></section>')
-                        // $('#section').append('<h3>'+mySectionIntro+' intro testing</h3>');
-
-                        
-                    ////////////////////////////////////////
-                    var myModules = value.Content[SC].Modules,
-                        dataStore = [];
-                    // LOAD MODULE HTML INTO .CONTAINER
-                    for (var M = 0; M < myModules.length; M++) {
-                        myModuleTitle = myModules[M].Module_Title;
-                        myModuleYear = myModules[M].Module_Year;
-                        myModuleOrder = myModules[M].Module_Order;
-                        myModuleSubtitle=myModules[M].Module_Subtitle;
-                        myModuleCopy=myModules[M].Module_Copy;
-                        myModuleType=myModules[M].Module_Type;
-                        myModulePosX=myModules[M].PosX;
-                        myModulePosY=myModules[M].PosY;
-                        myModuleCol=myModules[M].Col;
-                        myModuleRow=myModules[M].Row;
-                        moduleLoad=myModules[M].Module_Type;
-
-                        var n = M,
-                            myMedias = value.Content[SC].Modules[M].Medias,
-                            loadModules = 'modules/' + mySectionPath + '/' + moduleLoad + '.html',
-                            n = M + 1,
-                            appendModuleOrder = myModules[M].Module_Order,
-                            appendModuleName = myModules[M].Module_Type,
-                            appendModuleHighlight = myModules[M].Module_Highlight,
-                            length = myModules.length;
-
-                        // APPEND TEXT TO THE DOM
-                        function appendText(){
-                            
-                            // CHECK TO SEE IF JSON HAS ATTRIBUTES ELSE REMOVE
-                            if (myModuleTitle === 'undefined' || myModuleTitle === 'null') {
-                                myModuleTitle = '';
-                            }
-                            if (myModuleYear === 'undefined' || myModuleYear === 0) {
-                                myModuleYear = '';
-                            }
-                            if (myModuleCopy === 'undefined' || myModuleCopy === 'null') {
-                                myModuleCopy = '';
-                            }
-                            $('#' + appendModuleOrder).append('<h1>' + myModuleTitle + '</h1>' + '<p class="date">' + myModuleYear +'</p>' + myModuleCopy);
-
-                        } 
-
-                        //ITTERATE THROUGH MEDIA
-                        function myMediaFunction(){
-
-                            if(myModules[M].hasOwnProperty('Medias')) {
-
-                                for (var MM= 0; MM < myMedias.length; MM++){
-                                    // DEFINE UNIVERSAL MEDIA TYPES
-                                    myMediaTitle = myMedias[MM].Media_Title;
-                                    myMediaType = myMedias[MM].Media_Type;
-                                    myMediaPath = myMedias[MM].Option_File;
-                                    myMediaDescription = myMedias[MM].Media_Description;
-                                    myMediaCopyright = myMedias[MM].Media_Copyright;
-
-                                    function appendPhoto(){
-                                        console.log(myMediaPath)
-                                        $('#' + appendModuleOrder).append('<img src="http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/' + mySectionID + '/' + myMediaPath + '" alt="' + myMediaTitle + ' | ' + myMediaDescription + ' | ' + myMediaCopyright + '" />');
-                                    }
-
-                                    function appendGraphic(){
-                                        console.log(myMediaPath)
-                                        $('#' + appendModuleOrder).append('<img src="http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/'  + mySectionID + '/' + myMediaPath + '" alt="' + myMediaTitle + ' | ' + myMediaDescription + ' | ' + myMediaCopyright + '" />');
-                                    }
-
-                                    function appendAudio(){
-                                        $('#' + appendModuleOrder).append('<img src="http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/' + myMediaPath + ' | ' + myMediaCopyright + '" />');
-                                    }
-
-                                    function appendVideo(){
-                                        myVideoPath = myMedias[MM].Option_Link;
-                                        $('#' + appendModuleOrder).append('<iframe src="' + myVideoPath + '" width="480" height="270" frameborder="0" scrolling="auto" allowfullscreen></iframe>');
-                                    }
-
-                                    function appendSvgCode(){
-                                        mySVGPath = myMedias[MM].Option_SVG_Code;
-                                        $('#' + appendModuleOrder).append(mySVGPath);
-                                    }
-
-                                    function appendJsCode(){
-                                        myJSPath = myMedias[MM].Option_JS_Code;
-                                        $('body').append('<script>' + myJSPath + '</script>');
-                                    }
-
-                                    // RUN SWITCH STATEMENT TO CHANGE HOW MEDIA IS UPLOADED BASED UPON MEDIA TYPE
-                                    switch (myMediaType) {
-                                        case 'photo':
-                                        appendPhoto();
-                                        break;
-
-                                        case 'graphic':
-                                        appendGraphic();
-                                        break;
-
-                                        case 'audio':
-                                        appendAudio();
-                                        break;
-
-                                        case 'video':
-                                        appendVideo();
-                                        break;
-
-                                        case 'svg-code':
-                                        appendSvgCode();
-                                        break;
-
-                                        case 'js-code':
-                                        appendJsCode();
-                                        break;
-                                    }
-
-                                }
-                            }
-                            // GIVES RULE TO FUNCTION TO ENSURE IT RUNS IN ABOVE IF STATEMENTS
-                            var p = true;
-                        }
-
-                        // LOAD IN SECTION MODULES
-                        function loadMyModules(){
-                            var module = $('#' + appendModuleOrder);
-
-                            // APPEND PARENT DIVS
-                            $('.container').append('<section id="' + appendModuleOrder + '" class="module ' + appendModuleName + ' posX-' + myModulePosX + ' ' + 'posY-' + myModulePosY + ' ' + 'col-' + myModuleCol + ' ' + 'row-' + myModuleRow + ' ' + appendModuleHighlight + '"></section>');
-
-                            // IF MODULE EXISTS RUN TEXT FUNCTION TO APPEND TEXT
-                            if($('#' + appendModuleOrder).length) {
-                                appendText();
-
-                                // IF MODULE H1 TEXT EXISTS RUN MEDIA FUNCTION
-                                if($('#' + appendModuleOrder).find('h1').length) {
-                                    myMediaFunction();
-
-                                    // IF MEDIA FUNCTION IS FINSIHED RUN RE-ORDER function
-                                    if(p = true) {
-                                        window[appendModuleName]();
-                                    } else {
-                                        alert('Please refresh your page');
-                                    }
-
-                                } else {
-                                    alert('Please refresh your page');
-                                }
-                            } else {
-                                alert('Please refresh your page');
-                            }
-
-
-                        } loadMyModules();
-
-                    }
-
-                }
-
-                break;
-            };
-        });
-    };
-};
-
 // MOVE THE BACKGROUND IMAGE FUNCTION
 $.fn.bgMove = function(){
 
@@ -230,8 +14,8 @@ $.fn.bgMove = function(){
 
         $(window).mousemove(function(e){
 
-            var mouseY = event.pageY,
-                mouseX = event.pageX - $(window).scrollLeft(),
+            var mouseY = e.pageY,
+                mouseX = e.pageX - $(window).scrollLeft(),
                 MYCenter = mouseY - measureTop,
                 MXCenter = mouseX - measureLeft,
                 transY = MYCenter * -.003 + 50,
@@ -280,7 +64,7 @@ function Image_Feature_1() {
     $('.Image_Feature_1').each(function(){
     
         if($(this).hasClass('Image_Feature'))  {
-            console.log('done did it');
+            // console.log('done did it');
         } else {
             $(this).addClass('Image_Feature').children().not('img').wrapAll('<div class="Image_Feature_Text"></div>').parent().children().not('h1').wrapAll('<div class="Text_Background"></div>');
         }
@@ -291,7 +75,7 @@ function Image_Feature_1() {
 function Image_Feature_2() {
     $('.Image_Feature_2').each(function(){
         if($(this).hasClass('Image_Feature')) {
-            console.log('done did it | image two')
+            // console.log('done did it | image two')
         } else {
             $(this).addClass('Image_Feature').children().not('img')
             .wrapAll('<div class="Image_Feature_Text col-3 posY-1">')
@@ -311,11 +95,11 @@ function Video_Feature_2() {
     $('.Video_Feature_2').each(function(){
 
         if($(this).hasClass('videoModule')) {
-            console.log('done did it | video')
+            // console.log('done did it | video')
         } else {
-            $(this).addClass('videoModule').children().not('iframe')
+            $(this).addClass('videoModule').find('h1').addClass('largeText').parent().children().not('iframe')
                 .wrapAll('<div class="Video_Feature_Text">');
-            $(this).find('h1').addClass('largeText ttu');
+            // $(this).find('h1').addClass('largeText ttu');
         }
     });
 }
@@ -346,7 +130,7 @@ function Image_Showcase_1() {
         var text_to_get = test_str.substring(start_pos,end_pos);
         var replace = description.html(description.text().replace(/\^(.*?)\^/, '<i>' + text_to_get + '</i>'));
 
-        console.log(replace)
+        // console.log(replace)
 
     };
 
@@ -469,7 +253,7 @@ function Text_Module_Black() {
 function Text_Module_White() {
     $('.Text_Module_White').each(function(){
         if($(this).hasClass('textBarModule')) {
-            console.log('done did it')
+            // console.log('done did it')
         } else {
             $(this).addClass('textBarModule')
             $(this).append('<div>').prepend('<div>').find('p').not('.date').addClass('text');
@@ -489,7 +273,9 @@ function Custom_Biography(){
     $('.Custom_Biography .bioItem').bgMove();
 }
 function Custom(){
-    $('.mapTexture').bgMove();
+    if($('.mapTexture').length) {
+        $('.mapTexture').bgMove();
+    }
 }
 function  Image_Caption_One(){
     $('.Image_Caption_One').children().not('img').wrapAll('<div class="caption"></div>');
@@ -500,3 +286,229 @@ function loadMainJS(){
     $.getScript('js/main.js', function(){
     });
 }
+// END DEFINE FUNCTIONS FOR AJAX
+
+
+var mediaValue;
+var mediaValueParent;
+var moduleTitle;
+var queryString = window.location.search;
+mediaArray = [];
+SectionArray = [];
+
+function getData(Chapter,Section){
+//*****************************************Ajax call to call JSON******************************************//
+$.ajax({
+   url : 'http://www.kochcreativegroupdev.com/kochrestservice/api/ContentsSections/'+Chapter+'/'+Section+'/?format=json',
+    //url : 'json/sample.json',
+    type: 'GET',
+    success : showjson,
+    complete: function(){
+        setTimeout(loadMainJS, 250);
+    },
+    error: function(){
+        alert('Oops! Looks like you broke something. Please Reload Your Page')
+    }
+});
+
+//***********************************ITTERATE THROUGH THE JSON FOR DATA***********************//
+function showjson (data){
+    if(queryString.length) {
+        $('.container').empty();
+    } else {
+        $('.container').load('../KIITimelineCS/includes/landingPage.html')
+    }
+    $.each(data, function (index, value, n) {
+
+        while (index == 'request'){
+                // console.log(value);
+                //console.log(value.Chapter);
+                //console.log(value.Section);
+                $('#chapter').append('<li>Chapter:'+value.Chapter+' </li>');
+                
+                    break;
+                };
+
+                while (index === 'Data'){
+                    //GET SECTION INFORMATION
+                    var SectionContent=value.Content;
+                    for (var SC=0; SC<SectionContent.length; SC++){
+                        mySectionTitle=SectionContent[SC].SectionTitle;
+                        mySectionNumber=SectionContent[SC].SectionNumber;
+                        mySectionDate=SectionContent[SC].SectionDate;
+                        mySectionIntro=SectionContent[SC].SectionIntro;
+                        mySectionHero=SectionContent[SC].SectionHero;
+                        var mySectionID = mySectionTitle.replace(/ /g, ''),
+                            mySectionPath = mySectionTitle.replace(/ /g, '_'),
+                            mySectionIDReplace = mySectionID.replace(/'/g, '');
+                        $('.container').attr('id', mySectionIDReplace);
+                        $('.container').append('<section class="sectionIntro col-16 row-15"><!-- sectionInterior --><div class="sectionTitle posX-1 posY-1 abs"><div><p class="sectionYear">' + mySectionDate + '</p><p class="chapterName">' + Chapter + '</p></div><h1>' + mySectionTitle + '</h1></div></section>')
+                        // $('#section').append('<h3>'+mySectionIntro+' intro testing</h3>');
+
+                        
+                    ////////////////////////////////////////
+                    var myModules = value.Content[SC].Modules,
+                        dataStore = [];
+                    // LOAD MODULE HTML INTO .CONTAINER
+                    for (var M = 0; M < myModules.length; M++) {
+                        myModuleTitle = myModules[M].Module_Title;
+                        myModuleYear = myModules[M].Module_Year;
+                        myModuleOrder = myModules[M].Module_Order;
+                        myModuleSubtitle=myModules[M].Module_Subtitle;
+                        myModuleCopy=myModules[M].Module_Copy;
+                        myModuleType=myModules[M].Module_Type;
+                        myModulePosX=myModules[M].PosX;
+                        myModulePosY=myModules[M].PosY;
+                        myModuleCol=myModules[M].Col;
+                        myModuleRow=myModules[M].Row;
+                        moduleLoad=myModules[M].Module_Type;
+
+                        var n = M,
+                            myMedias = value.Content[SC].Modules[M].Medias,
+                            loadModules = 'modules/' + mySectionPath + '/' + moduleLoad + '.html',
+                            n = M + 1,
+                            appendModuleOrder = myModules[M].Module_Order,
+                            appendModuleName = myModules[M].Module_Type,
+                            appendModuleHighlight = myModules[M].Module_Highlight,
+                            length = myModules.length;
+
+                        // APPEND TEXT TO THE DOM
+                        function appendText(){
+                            
+                            // CHECK TO SEE IF JSON HAS ATTRIBUTES ELSE REMOVE
+                            if (myModuleTitle === 'undefined' || myModuleTitle === 'null') {
+                                myModuleTitle = '';
+                            }
+                            if (myModuleYear === 'undefined' || myModuleYear === 0) {
+                                myModuleYear = '';
+                            }
+                            if (myModuleCopy === 'undefined' || myModuleCopy === 'null') {
+                                myModuleCopy = '';
+                            }
+                            $('#' + appendModuleOrder).append('<h1>' + myModuleTitle + '</h1>' + '<p class="date">' + myModuleYear +'</p>' + myModuleCopy);
+
+                        } 
+
+                        //ITTERATE THROUGH MEDIA
+                        function myMediaFunction(){
+
+                            if(myModules[M].hasOwnProperty('Medias')) {
+
+                                for (var MM= 0; MM < myMedias.length; MM++){
+                                    // DEFINE UNIVERSAL MEDIA TYPES
+                                    myMediaTitle = myMedias[MM].Media_Title;
+                                    myMediaType = myMedias[MM].Media_Type;
+                                    myMediaPath = myMedias[MM].Option_File;
+                                    myMediaDescription = myMedias[MM].Media_Description;
+                                    myMediaCopyright = myMedias[MM].Media_Copyright;
+
+                                    var testing = mySectionID.replace()
+
+                                    function appendPhoto(){
+
+                                        var mySectionIDReplace = mySectionID.replace(/'/g, '');
+                                        // console.log(mySectionIDTwo)
+                                        if($(window).width() > 768) {
+                                            $('#' + appendModuleOrder).append('<img src="http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/' + mySectionIDReplace + '/' + myMediaPath + '" alt="' + myMediaTitle + ' | ' + myMediaDescription + ' | ' + myMediaCopyright + '" />');
+                                        } else {
+                                            $('#' + appendModuleOrder).append('<img src="http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/' + mySectionIDTwo + '/Mobile_' + myMediaPath + '" alt="' + myMediaTitle + ' | ' + myMediaDescription + ' | ' + myMediaCopyright + '" />');
+                                        }
+                                    }
+
+                                    function appendGraphic(){
+                                        $('#' + appendModuleOrder).append('<img src="http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/'  + mySectionID + '/' + myMediaPath + '" alt="' + myMediaTitle + ' | ' + myMediaDescription + ' | ' + myMediaCopyright + '" />');
+                                    }
+
+                                    function appendAudio(){
+                                        $('#' + appendModuleOrder).append('<img src="http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/' + myMediaPath + ' | ' + myMediaCopyright + '" />');
+                                    }
+
+                                    function appendVideo(){
+                                        myVideoPath = myMedias[MM].Option_Link;
+                                        $('#' + appendModuleOrder).append('<iframe src="' + myVideoPath + '" width="480" height="270" frameborder="0" scrolling="auto" allowfullscreen></iframe>');
+                                    }
+
+                                    function appendSvgCode(){
+                                        mySVGPath = myMedias[MM].Option_SVG_Code;
+                                        $('#' + appendModuleOrder).append(mySVGPath);
+                                    }
+
+                                    function appendJsCode(){
+                                        myJSPath = myMedias[MM].Option_JS_Code;
+                                        $('body').append('<script>' + myJSPath + '</script>');
+                                    }
+
+                                    // RUN SWITCH STATEMENT TO CHANGE HOW MEDIA IS UPLOADED BASED UPON MEDIA TYPE
+                                    switch (myMediaType) {
+                                        case 'photo':
+                                        appendPhoto();
+                                        break;
+
+                                        case 'graphic':
+                                        appendGraphic();
+                                        break;
+
+                                        case 'audio':
+                                        appendAudio();
+                                        break;
+
+                                        case 'video':
+                                        appendVideo();
+                                        break;
+
+                                        case 'svg-code':
+                                        appendSvgCode();
+                                        break;
+
+                                        case 'js-code':
+                                        appendJsCode();
+                                        break;
+                                    }
+
+                                }
+                            }
+                            // GIVES RULE TO FUNCTION TO ENSURE IT RUNS IN ABOVE IF STATEMENTS
+                            var p = true;
+                        }
+
+                        // LOAD IN SECTION MODULES
+                        function loadMyModules(){
+                            var module = $('#' + appendModuleOrder);
+
+                            // APPEND PARENT DIVS
+                            $('.container').append('<section id="' + appendModuleOrder + '" class="module ' + appendModuleName + ' posX-' + myModulePosX + ' ' + 'posY-' + myModulePosY + ' ' + 'col-' + myModuleCol + ' ' + 'row-' + myModuleRow + ' ' + appendModuleHighlight + '"></section>');
+
+                            // IF MODULE EXISTS RUN TEXT FUNCTION TO APPEND TEXT
+                            if($('#' + appendModuleOrder).length) {
+                                appendText();
+
+                                // IF MODULE H1 TEXT EXISTS RUN MEDIA FUNCTION
+                                if($('#' + appendModuleOrder).find('h1').length) {
+                                    myMediaFunction();
+
+                                    // IF MEDIA FUNCTION IS FINSIHED RUN RE-ORDER function
+                                    if(p = true) {
+                                        window[appendModuleName]();
+                                    } else {
+                                        alert('Please refresh your page');
+                                    }
+
+                                } else {
+                                    alert('Please refresh your page');
+                                }
+                            } else {
+                                alert('Please refresh your page');
+                            }
+
+
+                        } loadMyModules();
+
+                    }
+
+                }
+
+                break;
+            };
+        });
+    };
+};

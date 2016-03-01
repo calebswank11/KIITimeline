@@ -14,6 +14,8 @@
     <link rel="stylesheet" type="text/css" href="css/generic.css" />
     <link rel="stylesheet" media="only screen and (max-width: 768px)" href="css/styleMobile.css" />
     <link rel="stylesheet" id="desktopStyle" media="only screen and (min-width: 769px)" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/kiiHeader.css" />
+
 
     <script src="https://use.typekit.net/ecp2sks.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -23,10 +25,16 @@
 
     <script type="text/javascript" src="js/getnav.js"></script>
     <script type="text/javascript" src="js/getdata_new.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
 <!-- https://cdnjs.cloudflare.com/ajax/libs/jquery-mobile/1.4.5/jquery.mobile.min.js -->
 
     <script type="text/javascript" language="JavaScript" src="js/progress.js"></script>  
+
+    <!-- http://video.kochcreativegroupdev.com/libraries/g5NXNtMt.js -->
+    <!-- http://video.kochcreativegroupdev.com/libraries/g5NXNtMt.js -->
+                
+    <script src="http://video.kochcreativegroupdev.com/libraries/g5NXNtMt.js"></script>
 
 </head>
 <body>
@@ -50,9 +58,13 @@
     $(document).ready(getNav());
 
     </script>
+    <script>
+    $(document).ready(function(){
+        $('#kochNav').load('includes/kiiNav.html');
+    });
+    </script>
 
-
-    <div class="kochNav"></div>
+    <div id="kochNav"></div>
     <section id="wrapper"></section>
 
     <section id="content">
@@ -102,7 +114,7 @@
         <!-- end -->
 
         <!-- NAVIGATION START -->
-        <nav>
+        <div class="nav">
             <p class="breadcrumbsMobile">
                 <span class="breadcrumbs-1">all</span>
                 <span class="breadcrumbs-2">Chapters</span>
@@ -120,7 +132,7 @@
                 <li class="navigationLevel">
                     <p>Chapters</p>
                 </li>
-                <li>
+                <li id="openIntroVideo">
                     <p>Intro Video</p>
                 </li>
                 <li class="navigationSocial">
@@ -172,7 +184,7 @@
 
             <ul id="chapter">
             </ul>
-        </nav>
+        </div>
         <!-- end -->
 
         <!-- PREVIOUS AND NEXT SECTIONS -->
@@ -207,6 +219,12 @@
         <!-- end -->
 
     </section>
+
+    <div id="introVideoInterior">
+        <div class="introVideoClose">
+            <p>Close</p>
+        </div>
+    </div>
 
 </body>
 </html>

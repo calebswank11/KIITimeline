@@ -249,6 +249,23 @@ body {
 p {
 	text-align: right;
 }
+.homepage {
+	.container, #content {
+		overflow: visible;
+		height: 90vh;
+		overflow-y: hidden;
+		padding: 0;
+		margin: 0;
+	}
+	.miniTimelineTitle {
+		@media (max(675)) {
+			display: block;
+		}
+	}
+	.nextSection, .prevSection {
+		display: none;
+	}
+}
 /* END GENERIC STYLES */
 
 /* START NAVIGATION */
@@ -608,13 +625,16 @@ nav.active {
 }
 // end
 .miniTimeline {
+	@media (min(600)) {
+		height: 6.25vh;
+	}
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	width: 100%;
 	z-index: 100;
 	background-color: #fff;
-	height: 6.25vh;
+	height: 3em;
     min-height: 3rem;
     box-shadow: 4px 0px 150px rgba(148, 148, 148, 0.5);
 }
@@ -904,52 +924,99 @@ nav.active {
 }
 /* END NAVIGATION */
 /* START LANDING PAGE */
-.landingPageText {
+// .landingPageText {
+// 	padding: 0;
+// 	height: calc(100% - 6em);
+// }
+#landingPageText {
+	padding: 0 !important;
+	width: 350vw;
+	height: calc(100vh - 5em);
+	background: url('../img/landingPage/landingPageBackgroundMobile.jpg') no-repeat;
+	-webkit-background-size: 100%;
+	background-size: 100%;
+	background-position: 0 bottom;
+
 }
 .landingPageSlideText {
-	height: 17.5vh;
-	h1 {
-		text-align: center;
-	    position: absolute;
-	    top: 50%;
-	    left: 50%;
-	    transform: translate(-50%, -50%);
+	height: 100%;
+	width: calc(350vw/5);
+	display: block;
+	position: absolute;
+	text-align: right;
+	padding: .5rem 0;
+	@include clearfix;
+	&:nth-child(1) {
+		left: 0;
 	}
-	ul, p {
-		display: none;
+	&:nth-child(2) {
+		left: calc((350vw / 5) * 1);
 	}
-	&.active {
-		h1 {
-			text-align: center;
-			opacity: 0;
-		}
-		ul, p {
-			display: block;
-		}		
+	&:nth-child(3) {
+		left: calc((350vw / 5) * 2);
+	}
+	&:nth-child(4) {
+		left: calc((350vw / 5) * 3);
+	}
+	&:nth-child(5) {
+		left: calc((350vw / 5) * 4);
 	}
 }
 .landingPageSlideTextWrapper {
-	position: relative;
-	height: 100%;
-	li {
-		margin: 0 auto;
-		width: 100%!important;
+	padding: 1rem 2rem;
+	position: absolute;
+	bottom: 0;
+	@include transX;
+	text-align: center;
+	width: 100%;
+	// max-width: 60%;
+	// float: right;
+	// padding-right: 1rem;
+	span {
+		// position: absolute;
+		// left: .5rem;
+		// bottom: .5rem;
+		font-size: .75rem;
+		color: white;
 	}
-	a { 
-		@include clearfix;
+	h1 {
+		text-transform: uppercase;
+		font-size: 1rem;
 		text-align: center;
-		@include transX;
-		position: relative;
-		display: inline-block;
-		span, h5 {
-			float: left;
-		}
+		color: white;
 	}
 	p {
+		font-size: .6rem;
+		line-height: 1.2;
 		text-align: center;
+		color: white;
 	}
-	h1 {}
+	button {
+		// position: absolute;
+		// top: .65rem;
+		// right: 1rem;
+		color: white;
+		border: 2px solid white;
+		background-color: transparent;
+		padding: .5rem 1.5rem;
+		margin: 1rem 0;
+		// width: 10px;
+		// height: 12px;
+		// background-image: url('http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/scrollToNavBlue.svg');
+		// -webkit-background-size: 100% 100%;
+		// background-size: 100% 100%;
+		// background-repeat: no-repeat;
+		// background-position: center center;
+	}
 }
+#landingPageVisual {
+	display: none;
+}
+// background: url('../img/landingPage/landingPageSlideFive.jpg') no-repeat;
+// 			-webkit-background-size: 100%;
+// 			background-size: 100%;
+// 			background-position: 0 bottom;
+// }
 /* END LANDING PAGE */
 /* START MOBILE MODULES */
 	/* INTRODUCTION */
@@ -1645,6 +1712,9 @@ picture {
 		color: $blueOne;
 		display: block;
 	}
+	p:last-of-type {
+		text-align: center;
+	}
 }
 /* END QUOTEONE */
 .Quote_2 {
@@ -1961,6 +2031,8 @@ picture {
 /* END IMAGE CAPTION ONE */
 	/* START PREVIOUS AND NEXT SECTION */
 .nextSection, .prevSection {
+	// display: none;
+	//////////////
 	position: relative;
 	bottom: 6.25vh;
 	height: 5vh;
@@ -2194,8 +2266,19 @@ picture {
 			}
 		}
 	}
-	/* THE THESIS */
 }
+/* .BIO LIGHTBOX VIDEO */
+.bioLightBox {
+	&.video {
+		img {
+			display: none;
+		}
+		iframe {
+			width: 100%;
+		}
+	}
+}
+/* THE THESIS */
 #TheThesis {
 	.Custom_Biography {
 		@media (max(600)) {
@@ -2280,129 +2363,56 @@ picture {
 }
 
 /* START CUSTOM MODULE STYLES */
-// .image-col-1 {
-// 	.Image_Feature_Text {
-// 		width: 100%;
-// 	}
-// }
-// .image-col-2 {
-// 	.Image_Feature_Text {
-// 		width: 50%!important;
-// 		right: 0!important;
-// 		left: auto!important;
-// 		transform: translateX(0%)!important;
-// 	}
-// }
-// .image-col-3 {
-// 	.Image_Feature_Text {
-// 		width: 33%;	
-// 	}
-// }
-// .image-col-4 {
-// 	.Image_Feature_Text {
-// 		width: 25%;
-// 	}
-// }
-// .image-col-5 {
-// 	.Image_Feature_Text {
-// 		width: 20%;
-// 	}
-// }
-// .image-col-75 {
-// 	.Image_Feature_Text {
-// 		width: 75%;
-// 	}	
-// }
-// .image-col-66 {
-// 	.Image_Feature_Text {
-// 		width: 66%;
-// 	}
-// }
-// .image-row-1 {
-// 	.Image_Feature_Text {
-// 		height: 100%;
-// 	}
-// }
-// .image-row-2 {
-// 	.Image_Feature_Text {
-// 		height: 50%;
-// 	}
-// }
-// .image-row-3 {
-// 	.Image_Feature_Text {
-// 		height: 33%;
-// 	}
-// }
-// .image-row-4 {
-// 	.Image_Feature_Text {
-// 		height: 25%;
-// 	}
-// }
-// .image-row-5 {
-// 	.Image_Feature_Text {
-// 		height: 20%;
-// 	}
-// }
-// .noPB {
-// 	.Text_Background {
-// 		padding-bottom: 2.5rem;
-// 	}
-// }
-// .b0 {
-// 	.Image_Feature_Text {
-// 		bottom: 0;
-// 	}
-// }
-// .b1 {
-// 	.Image_Feature_Text {
-// 		bottom: 10vh;
-// 	}
-// }
-// .b2 {
-// 	.Image_Feature_Text {
-// 		bottom: 20vh;
-// 	}
-// }
-// .b3 {
-// 	.Image_Feature_Text {
-// 		bottom: 30vh;
-// 	}
-// }
-// .b4 {
-// 	.Image_Feature_Text {
-// 		bottom: 40vh;
-// 	}
-// }
-// .t0 {
-// 	.Image_Feature_Text {
-// 		bottom: auto;
-// 		top: 0;
-// 	}
-// }
-// .t1 {
-// 	.Image_Feature_Text {
-// 		bottom: auto;
-// 		top: 10vh;
-// 	}
-// }
-// .t2 {
-// 	.Image_Feature_Text {
-// 		bottom: auto;
-// 		top: 20vh;
-// 	}
-// }
-// .t3 {
-// 	.Image_Feature_Text {
-// 		bottom: auto;
-// 		top: 30vh;
-// 	}
-// }
-// .t4 {
-// 	.Image_Feature_Text {
-// 		bottom: auto;
-// 		top: 40vh;
-// 	}
-// }
+/* START FAILED BUSINESS */
+.failedBusiness {
+	padding: 0!important;
+	span, .date {
+		display: none;
+	}
+	& > div {
+		height: calc(93.75vh/3);
+		overflow: hidden;
+		position: relative;
+		div {
+			position: absolute;
+			@extend .gradientOpacity;
+			height: 100%;
+			width: 100%;
+			z-index: 1;
+			@include trans;
+			text-align: center;
+			opacity: 0;
+	 		transition: top .5s $ease, opacity .5s $ease;
+		 	p {
+		 		position: absolute;
+		 		@include trans;
+		 		width: 100%;
+		 		padding: 2rem;
+		 		top: 80%;
+		 		opacity: 0;
+		 		transition: top .5s $ease, opacity .5s $ease .25s
+		 	}
+		}
+	 	&:hover {
+	 		div {
+		 		opacity: 1;
+		 		top: 50%;
+		 		p {
+		 			top: 50%;
+		 			opacity: 1;
+		 		}
+		 	}
+	 	}
+	}
+	img {
+		position: relative;
+		height: auto;
+		width: 100%;
+		display: block;
+		@include trans;
+	}
+}
+/* END */
 .o1, .mobileO1 {
 	.Text_Background {
 		background-color: rgba(250, 250, 250, 1)!important;

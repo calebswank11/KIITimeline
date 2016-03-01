@@ -109,7 +109,7 @@ function loadInterior(){
     		$(this).parent().prevUntil().addClass('active');
 	    	
 	    	// DEFINE ANIMATIONS OF BAR AND BODY
-	    	$('body').animate({'scrollLeft': scrollWidth}, 500);
+	    	$('html').add('body').animate({'scrollLeft': scrollWidth}, 500);
 	    	$('.dragAnimate').css({
 	    		'width' : animateWidth + 'px'
 	    	})
@@ -136,7 +136,7 @@ function loadInterior(){
 // START HORZ MOUSEWHEEL SCROLL
    $("body").mousewheel(function(event, delta) {
 
-      this.scrollLeft -= (delta * 1);
+      $(this).scrollLeft -= (delta * 1);
       var scrollNumber = this.scrollLeft -= (delta * 30);
 
       event.preventDefault();
@@ -225,14 +225,14 @@ function navigation(){
 	function navigationClick(){
 		$('.miniTimelineNav').on('click', function(e){
 			$(this).toggleClass('active');
-			$('nav').toggleClass('active');
+			$('.nav').toggleClass('active');
 			$('#chapter').removeClass('active');
 			e.stopPropagation();
 		});
 		$(document).on('click', function(e){
 			if($(e.target).is('.miniTimelineNav') === false && $('#chapter').hasClass('active') === false) {
 				$('.miniTimelineNav').removeClass('active');
-				$('nav').removeClass('active');
+				$('.nav').removeClass('active');
 
 			}
 		});
@@ -242,12 +242,12 @@ function navigation(){
 	$('.closeChapters').on('click', function(){
 		$('#chapter').removeClass('active');
 		$('.navigationList').removeClass('active');
-		$('nav').removeClass('active');
+		$('.nav').removeClass('active');
 	});
 	// CLOSE NAVIGATION FROM WITHIN MENU
 	$('.navigationClose').on('click', function(){
 		$('.miniTimelineNav').removeClass('active');
-		$('nav').removeClass('active');
+		$('.nav').removeClass('active');
 	});
 } navigation();
 // end
@@ -279,11 +279,11 @@ $('#journey > g').on('click touchstart', function(){
 
 function mobileLoad(){
 
-	$('img').each(function(){
-		var src = $(this).attr('src').replace(/.jpg/g,'_Mobile.jpg').replace(/.png/g, '_Mobile.png');
+	// $('img').each(function(){
+	// 	var src = $(this).attr('src').replace(/.jpg/g,'_Mobile.jpg').replace(/.png/g, '_Mobile.png');
 
-		$(this).attr('src', src);
-	});
+	// 	$(this).attr('src', src);
+	// });
 
 	$('.scrollToNav').appendTo($('.sectionIntro'));
 
@@ -336,7 +336,7 @@ function mobileLoad(){
 
 function videoHeight(){
 
-	var video = $('.videoModule iframe');
+	var video = $('.Video_Feature_2 iframe');
 
 	video.each(function(){
 
@@ -352,8 +352,29 @@ function videoHeight(){
 // end
 // REMOVE HOME VIDEO WHEN SKIP IS CLICKED
 $('.loadHomepage').on('click', function(){
-	$(this).parent().fadeOut().siblings('iframe').animate({volume : 0}, 500);
+	$.cookie("homepageVideo", "viewed", {expires : 10});
 });
+// COOKIE DETECTION FOR HOMEPAGE VIDEO FOR INTERIOR PAGES
+function cookieDetection(){
+	if($.cookie("homepageVideo").length) {		
+		$('#introVideo').remove();
+	}
+}
+// APPEND VIDEO TO THE DOM WHENEVER USER CLICKS ON INTRO VIDEO IN THE NAV
+$('#openIntroVideo').on('click', function(){
+	$('#introVideoInterior').addClass('active').prepend('<iframe src="http://video.kochcreativegroupdev.com/videos/yrwOUkWN-maxl1Ik1.mp4" frameborder="0"></iframe>');
+});
+// CLOSE THE VIDEO ON INTERIOR PAGES IF USER CLICKS TO VIEW IT AGAIN
+$('.introVideoClose').on('click', function(){
+	$(this).parent().removeClass('active');
+	$(this).siblings('iframe').remove();
+	function removeVid(){
+		$('#introVideoInterior').find('iframe').remove();
+	}
+	setTimeout(removeVid, 500);
+});
+	// $(this).prepend('<iframe src="//video.kochcreativegroupdev.com/players/iI2oDDQq-x2n83pVM.html" frameborder="0"></iframe>');
+
 
 // LOAD INTERIOR FUNCTIONS
 if (queryString.length) {
@@ -364,6 +385,7 @@ if (queryString.length) {
 		videoHeight();
 		loadInterior()
     });
+    cookieDetection();
 	if($(window).width() > 768) {
 		loadInterior();
 	} else {
@@ -374,6 +396,9 @@ if (queryString.length) {
 	landingSection();
 	$('.nextSectionEnd').addClass('hideMe');
 	$('.miniTimelineTitle').html('<h1>People Not Things <span>Home</span></h1>');
+	if($(window).width() < 768) {
+		$('body').addClass('homepage');
+	}
 }
 
 // // DEFINE PAGEBASED FUNCTIONS
@@ -423,6 +448,9 @@ usage example: $('.post-thumbnail, article header').draggable();
                         .on('mousemove.draggable touchmove.draggable', function(e) {
                             _fixMobileEvent(e);
 
+                            $(window).scroll(function(event){
+                            	event.preventDefault();
+                            });
 
 	                            if (firstMove) {
 	                                firstMove = false;
@@ -507,3 +535,28 @@ aspectRatio();
 $(window).resize(function(){
 	aspectRatio();
 });
+
+function awardsStats(){
+	var getInitialHeight = $('div[data-award="1"]').height();
+	if ($(window).width() > 1600) {
+		var	initialHeight = (getInitialHeight / 16) + 16;	
+	} else {
+		var initialHeight = (getInitialHeight / 16) + 7
+	}
+	$('.awardContainer').css({
+		'height' : initialHeight + 'rem'
+	})
+	$('.awardClick').on('click', function(){
+		var number = $(this).attr('data-awardclick'),
+			getHeight = $('div[data-award="' + number + '"]').height();
+			if($(window).width() > 1600) {
+				var height = (getHeight / 16) + 16
+			} else {
+				var height = (getHeight / 16) + 7
+			}
+		$(this).addClass('active').siblings().removeClass('active').parent().siblings().find('div[data-award="' + number + '"]').addClass('active').siblings().removeClass('active').parent().css({
+			'height' : height + 'rem'
+		}).parent().attr('id', 'slide' + number);
+	});
+}
+awardsStats();
