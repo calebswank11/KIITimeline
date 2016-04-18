@@ -88,6 +88,7 @@ function Video_Feature_1() {
     $('.Video_Feature_1').each(function(){
         $(this).addClass('videoModule').children().not('iframe')
         .wrapAll('<div class="Video_Feature_Text col-2 posY-4">').parent().siblings('iframe').addClass('col-14');
+        $(this).prepend('<div class="coverTop"></div><div class="coverBottom"></div>')
     });
 }
 
@@ -402,7 +403,9 @@ function showjson (data){
                                     myMediaDescription = myMedias[MM].Media_Description;
                                     myMediaCopyright = myMedias[MM].Media_Copyright;
 
-                                    var testing = mySectionID.replace()
+                                    if (myMediaCopyright === 'undefined' || myMediaCopyright === 'null') {
+                                           myModuleTitle = ' ';
+                                    }
 
                                     function appendPhoto(){
 
@@ -413,6 +416,7 @@ function showjson (data){
                                         } else {
                                             $('#' + appendModuleOrder).append('<img src="http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/' + mySectionIDTwo + '/Mobile_' + myMediaPath + '" alt="' + myMediaTitle + ' | ' + myMediaDescription + ' | ' + myMediaCopyright + '" />');
                                         }
+
                                     }
 
                                     function appendGraphic(){
@@ -425,7 +429,7 @@ function showjson (data){
 
                                     function appendVideo(){
                                         myVideoPath = myMedias[MM].Option_Link;
-                                        $('#' + appendModuleOrder).append('<iframe src="' + myVideoPath + '" width="480" height="270" frameborder="0" scrolling="auto" allowfullscreen></iframe>');
+                                        $('#' + appendModuleOrder).append('<iframe src="http://video.kochcreativegroupdev.com/players/' + myVideoPath + '-C0ABUaWy.html" frameborder="0" scrolling="auto" allowfullscreen></iframe>');
                                     }
 
                                     function appendSvgCode(){

@@ -1,0 +1,204 @@
+<div class="kiiAwards">
+	
+	<div class="awardContainer">
+		<div class="award active" data-award="1">
+			<p class="awardsYear">2002</p>
+			<h3>First Certified Ranch</h3>
+			<p>Beaverhead Ranch in Montana becomes the first ranch to be certified by the Wildlife Habitat Council for natural resource stewardship and improving wildlife habitat. Today, Koch has 311,000 acres of wildlife habitat and 16 WHC certifications.</p>
+		</div>
+		<div class="award" data-award="2">
+			<p class="awardsYear">2009</p>
+			<h3>Three Koch Companies Win Same Award</h3>
+			<p>Flint Hills Resources, INVISTA and Koch Supply & Trading receive the Marine Environmental Stewardship Customer Award from American Commercial Lines for commitment to safety and environmental stewardship.</p>
+		</div>
+		<div class="award" data-award="3">
+			<p class="awardsYear">2011 & 2012</p>
+			<h3>Pipeline Pulls in Consecutive Awards</h3>
+			<p>For its excellent safety record, achieving OSHA VPP Star status for its entire southern operations group and funding research, Koch Pipeline was the Distinguished Award for Outstanding Safety and Environmental Performance from the American Petroleum Institute two years in a row.</p>
+		</div>
+		<div class="award" data-award="4">
+			<p class="awardsYear">2013</p>
+			<h3>10 Million Gallons of Water Reduced Per Day</h3>
+			<p>Georgia-Pacific Cellulose receives the American Forest and Paper Association’s Leadership in Sustainability Water Award for its water-use reduction program that reduced water consumption at its Brunswick, Georgia, mill by 10 million gallons per day.
+			</p>
+		</div>
+		<div class="award" data-award="5">
+			<p class="awardsYear">2014</p>
+			<h3>Mr. Blue Sky</h3>
+			<p>Molex wins 19 different awards in 2014, including the Blue Sky award from EMC for commitment to social and environmental responsibility.</p>
+		</div>
+	</div>
+	
+	<ul>
+		<li class="active awardClick" data-awardclick="1">2002</li>
+		<li class="awardClick" data-awardclick="2">2009</li>
+		<li class="awardClick" data-awardclick="3">2011 & 2012</li>
+		<li class="awardClick" data-awardclick="4">2013</li>
+		<li class="awardClick" data-awardclick="5">2014</li>
+	</ul>
+
+</div>
+
+<style>
+
+.kiiAwards ul {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: stretch;
+  -webkit-align-items: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  margin-top: 1rem; }
+  .kiiAwards ul::after {
+    clear: both;
+    display: table;
+    content: ''; }
+  .kiiAwards ul li {
+    text-align: left;
+    float: left;
+    display: block;
+    font-size: 1rem;
+    position: relative;
+    color: white;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    -webkit-flex-shrink: 1;
+        -ms-flex-negative: 1;
+            flex-shrink: 1;
+    z-index: 1;
+    padding: 1rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 800;
+    font-family: "proxima-nova", helvetica, sans-serif;
+    font-size: .75rem;
+    line-height: 1.65;
+    font-weight: 100;
+    cursor: pointer; }
+    .kiiAwards ul li:first-of-type {
+      margin-left: 0; }
+    .kiiAwards ul li:last-of-type {
+      margin-right: 0;
+      border-right: none; }
+    .kiiAwards ul li::before {
+      z-index: -1;
+      content: '';
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      height: 100%;
+      width: 100%;
+      border-bottom: 1px solid white; }
+    .kiiAwards ul li::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      height: 100%;
+      width: 100%;
+      background-color: rgba(3, 176, 231, 0.5);
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 0;
+      z-index: -2;
+      -webkit-transition: -webkit-filter 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+              transition: filter 0.5s cubic-bezier(0.44, 0.2, 0, 1.01), opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
+    .kiiAwards ul li.active::after {
+      -webkit-filter: blur(25px);
+              filter: blur(25px);
+      opacity: 1; }
+
+.awardsYear {
+  font-size: 2.5rem;
+  color: #96c6d4;
+  font-family: "azo-sans-web", helvetica, sans-serif;
+  font-weight: 800;
+  line-height: 1; }
+  @media (max-width: 1400px) {
+    .awardsYear {
+      font-size: 1.5rem; } }
+
+.award {
+  position: absolute;
+  display: block;
+  opacity: 0;
+  padding: 2rem;
+  padding-bottom: 5rem;
+  border: 1px solid white;
+  z-index: 1;
+  -webkit-transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01);
+          transition: opacity 0.5s cubic-bezier(0.44, 0.2, 0, 1.01); }
+  @media (min-width: 1600px) {
+    .award {
+      padding: 11rem;
+      padding-bottom: 5rem;
+      padding-left: 3rem; } }
+  .award::before {
+    z-index: -1;
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    height: 100%;
+    width: 100%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    opacity: .75;
+    background-position: bottom left; }
+  .award[data-award="1"]::before {
+    background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/LessIsMore/award2002.jpg"); }
+  .award[data-award="2"]::before {
+    background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/LessIsMore/award2009.jpg"); }
+  .award[data-award="3"]::before {
+    background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/LessIsMore/award2011.jpg");
+    opacity: .5; }
+  .award[data-award="4"]::before {
+    background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/LessIsMore/award2013.jpg");
+    opacity: .5; }
+  .award[data-award="5"]::before {
+    background-image: url("http://kochindsandbox.kochdev.com/KochSandbox/media/kochTimeline/LessIsMore/award2014.jpg"); }
+  .award.active {
+    position: absolute;
+    opacity: 1; }
+  .award h3 {
+    color: white;
+    font-size: 2.5rem; }
+  .award p:last-of-type {
+    color: white;
+    margin-top: 1rem;
+    max-width: 35%; }
+    @media (max-width: 1500px) {
+      .award p:last-of-type {
+        max-width: 100%; } }
+
+</style>

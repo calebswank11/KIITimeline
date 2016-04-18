@@ -1,5 +1,5 @@
 var queryString = window.location.search;
-
+console.time('TimeStamp');
 // LANDING PAGE SCRIPTS
 function landingSection(){
 
@@ -102,7 +102,8 @@ function loadInterior(){
 	    	$('body').addClass('scroll')
 
 	    	var scrollWidth = $(this).data('scroll'),
-	    		animateWidth = $(this).data('bar');
+	    		animateWidth = $(this).data('bar'),
+	    		percentage = $(this).data('percent');
 
 	    	// ADD ACTIVE CLASS TO NAV SCROLL ELEMENT AND REMOVE FROM SIBLINGS
     		$(this).parent().addClass('active').nextAll().removeClass('active');
@@ -111,8 +112,8 @@ function loadInterior(){
 	    	// DEFINE ANIMATIONS OF BAR AND BODY
 	    	$('html').add('body').animate({'scrollLeft': scrollWidth}, 500);
 	    	$('.dragAnimate').css({
-	    		'width' : animateWidth + 'px'
-	    	})
+	    		'width' : percentage + '%'
+	    	});
 	    	return false;
 	    });
 
@@ -134,33 +135,69 @@ function loadInterior(){
 	// END
 
 // START HORZ MOUSEWHEEL SCROLL
-   $("body").mousewheel(function(event, delta) {
+	var scrolling = false;
+	var oldTime = 0;
+	var newTime = 0;
+	var isTouchPad;
+	var eventCount = 0;
+	var eventCountStart;
 
-      $(this).scrollLeft -= (delta * 1);
-      var scrollNumber = this.scrollLeft -= (delta * 30);
+	function mouseHandle(evt, delta) {
+	    var isTouchPadDefined = isTouchPad || typeof isTouchPad !== "undefined";
+	    //console.log(isTouchPadDefined);
+	    if (!isTouchPadDefined) {
+	        if (eventCount === 0) {
+	            eventCountStart = new Date().getTime();
+	        }
 
-      event.preventDefault();
+	        eventCount++;
 
-      $('body').addClass('scroll');
+	        if (new Date().getTime() - eventCountStart > 50) {
+	                if (eventCount > 5) {
+	                    isTouchPad = true;
+	                } else {
+	                    isTouchPad = false;
+	                }
+	            isTouchPadDefined = true;
+	        }
+	    }
 
-      scrollActivate = scrollNumber + 200;
+	    if (isTouchPadDefined) {
+	        if (isTouchPad) {
+	            // console.log('testing trackpad');
+	            $(this).scrollLeft -= (delta * 1);
+	            var scrollNumber = this.scrollLeft -= (delta * .5);
+	        } else {
+	            // console.log('testing wheel');
+	            $(this).scrollLeft -= (delta * 1);
+	            var scrollNumber = this.scrollLeft -= (delta * 50);
+	        }
+	    }
+	    $('body').addClass('scroll');
 
-	  var percent = (scrollActivate / left) * 100;
+	    scrollActivate = scrollNumber + 200;
+	    // console.log(scrollActivate);
 
-	  $('.dragAnimate').css({
-      	'width' : (scrollActivate / left) * 100 + '%'
-      });
+	}
 
-      $('.navSlideClick').each(function(){
-      	var percentMatch = $(this).find('div').attr('data-percent');
-      	if(percentMatch <= percent) {
-      		$(this).addClass('active');
-      	} else {
-      		$(this).removeClass('active');
-      	}
-      });
+	$('body, html').mousewheel(mouseHandle);
 
-   });
+      // START ANIMATION FOR SECTION BAR AT BOTTOM WORKS IN FF AND CHROME
+
+	function updateProgress(num1, num2){
+		var percent = Math.floor( num1 / num2 * 100 ) + '%';
+		var percentTwo = (num1 / num2 * 100) + '%';
+		// console.log(percent + '////////' + percentTwo)
+		$('.dragAnimate').css({
+			'width' : percent
+		})
+	}
+
+	window.addEventListener('mousewheel', function(){
+		var left = window.scrollX;
+		var width = document.body.getBoundingClientRect().width - window.innerWidth;
+		updateProgress(left, width);
+	});
 // END HORZ SCROLL
 
 }
@@ -184,7 +221,7 @@ function biographyExpand(){
             width = $(window).width(),
             height = $(window).height();
 
-            console.log(src + '/////' + alt + '/////' + title + '/////' + date + '/////' + text + '/////' + video);
+            // console.log(src + '/////' + alt + '/////' + title + '/////' + date + '/////' + text + '/////' + video);
 
             $(this).parent().siblings('.lightBox').removeClass('video').addClass('active').find('img').attr('src', src).siblings('.lightboxText').find('.description').text(text).siblings('div').find('h1').text(title).siblings('.date').text(date);
 
@@ -249,6 +286,19 @@ function navigation(){
 		$('.miniTimelineNav').removeClass('active');
 		$('.nav').removeClass('active');
 	});
+
+	// ADHERE CUSTOM SHARE TAGS TO SOCIAL LINKS
+
+	// http://www.facebook.com/sharer.php?u=http://www.wearekoch.com/articles/building-steam.aspx
+
+	// http://twitter.com/share?url=http://wearekoch.com/articles/building-steam&text=We Are Koch - Building Steam
+
+	// mailto:?Subject=We Are Koch - Building Steam&Body=We Are Koch - Building Steam http://www.wearekoch.com/articles/building-steam
+
+	$('.facebook').attr('href', 'http://www.facebook.com/sharer.php?u=' + queryString);
+	$('.twitter').attr('href', 'http://twitter.com/share?url=http://www.kochind.com/timeline/' + queryString);
+	$('.linkedin').attr('href', 'https://www.linkedin.com/cws/share?url=http://www.kochind.com/timeline/' + queryString);
+
 } navigation();
 // end
 
@@ -316,11 +366,11 @@ function mobileLoad(){
 
 			var id = $(this).attr('id'),
 				newId = id-1;
-			console.log(id)
+			// console.log(id)
 			if(id !== undefined) {
 				$('#' + id).insertAfter('#' + newId);
 			} else {
-				console.log('fail')
+				// console.log('fail')
 			}
  
 		});
@@ -342,6 +392,7 @@ function videoHeight(){
 
 		var width = $(this).width(),
 			height = width * .56;
+			console.log(height)
 
 		$(this).css({
 			"height" : height
@@ -354,10 +405,15 @@ function videoHeight(){
 $('.loadHomepage').on('click', function(){
 	$.cookie("homepageVideo", "viewed", {expires : 10});
 });
+	if (queryString.length) {
+		$.cookie("homepageVideo", "viewed", {expires : 10});
+	}
 // COOKIE DETECTION FOR HOMEPAGE VIDEO FOR INTERIOR PAGES
 function cookieDetection(){
 	if($.cookie("homepageVideo").length) {		
 		$('#introVideo').remove();
+	} else {
+		// console.log('not found')
 	}
 }
 // APPEND VIDEO TO THE DOM WHENEVER USER CLICKS ON INTRO VIDEO IN THE NAV
@@ -524,7 +580,6 @@ function aspectRatio(){
 		height = $(window).height(),
 		ratio = width/height;
 
-	console.log(ratio);
 	if(ratio < 1.33) {
 		$('#desktopStyle').attr('href', 'css/styleVertical.css')
 	} else {
@@ -536,27 +591,34 @@ $(window).resize(function(){
 	aspectRatio();
 });
 
-function awardsStats(){
-	var getInitialHeight = $('div[data-award="1"]').height();
-	if ($(window).width() > 1600) {
-		var	initialHeight = (getInitialHeight / 16) + 16;	
-	} else {
-		var initialHeight = (getInitialHeight / 16) + 7
-	}
-	$('.awardContainer').css({
-		'height' : initialHeight + 'rem'
+// function awardsStats(){
+// 	var getInitialHeight = $('div[data-award="1"]').height();
+// 	if ($(window).width() > 1600) {
+// 		var	initialHeight = (getInitialHeight / 16) + 16;	
+// 	} else {
+// 		var initialHeight = (getInitialHeight / 16) + 7
+// 	}
+// 	$('.awardContainer').css({
+// 		'height' : initialHeight + 'rem'
+// 	})
+// 	$('.awardClick').on('click', function(){
+// 		var number = $(this).attr('data-awardclick'),
+// 			getHeight = $('div[data-award="' + number + '"]').height();
+// 			if($(window).width() > 1600) {
+// 				var height = (getHeight / 16) + 16
+// 			} else {
+// 				var height = (getHeight / 16) + 7
+// 			}
+// 		$(this).addClass('active').siblings().removeClass('active').parent().siblings().find('div[data-award="' + number + '"]').addClass('active').siblings().removeClass('active').parent().css({
+// 			'height' : height + 'rem'
+// 		}).parent().attr('id', 'slide' + number);
+// 	});
+// }
+// awardsStats();
+function touchMove(){
+	$('body, html').on('touchMove', function(){
+		event.preventDefault();
 	})
-	$('.awardClick').on('click', function(){
-		var number = $(this).attr('data-awardclick'),
-			getHeight = $('div[data-award="' + number + '"]').height();
-			if($(window).width() > 1600) {
-				var height = (getHeight / 16) + 16
-			} else {
-				var height = (getHeight / 16) + 7
-			}
-		$(this).addClass('active').siblings().removeClass('active').parent().siblings().find('div[data-award="' + number + '"]').addClass('active').siblings().removeClass('active').parent().css({
-			'height' : height + 'rem'
-		}).parent().attr('id', 'slide' + number);
-	});
 }
-awardsStats();
+touchMove();
+console.timeEnd('TimeStamp');

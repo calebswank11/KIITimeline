@@ -23,7 +23,7 @@ function navigationHovers(){
 
 	// CHANGE VARIABLES BASED ON THE LOCATION OF CURRENTPAGE
 	// IF NEXT PAGE IS THE FIRST OF THE NEXT CHAPTER
-	if (currentPage.parents().eq(2).is('#navigation-4') && currentPage.parent().is('li:last-of-type')) {
+	if (currentPage.parents().eq(1).is('#navigation-4') && currentPage.parent().is('li:last-of-type')) {
 		$('.nextSection').addClass('inactive');
 	// IF PAGE IS THE IMMEDIATE NEXT SECTION IN THE CHAPTER
 	} else if (currentPage.parent().next().length) {
@@ -42,7 +42,6 @@ function navigationHovers(){
 	// IF CURRENT PAGE IS THE VERY FIRST SECTION
 	if(currentPage.parents().eq(1).is('#navigation-0') && currentPage.parent().is('li:first-of-type')) {
 		$('.prevSection').addClass('inactive');
-		$('.container').addClass('whiteHeader');
 	} else if (currentPage.parent().prev().length) {
 		// IF SIBLINGS HAVE PREVIOUS PAGE
 		prev = currentPage.parent().prev();
@@ -50,7 +49,6 @@ function navigationHovers(){
 			prevChapter = prev.find('#navChapterTitle').text();
 	} else {
 		// IF PAGE IS END OF PREVIOUS CHAPTER
-		$('.container').addClass('whiteHeader');
 		prev = currentPage.parents().eq(2).prev().find('ul').find('li:last-of-type');
 		var prevSection = currentPage.parents().eq(2).prev().find('div').find('h2').text(),
 			pChapterNumber = currentPage.parents().eq(2).prev().find('div').find('p:first-of-type').text(),
